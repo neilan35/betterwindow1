@@ -1,0 +1,1 @@
+return $this->redirect($this->Auth->redirectUrl());    $this->Auth->logout())
