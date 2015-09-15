@@ -22,7 +22,7 @@ class RevealsTable extends Table
     public function initialize(array $config)
     {
         $this->table('reveals');
-        $this->displayField('id');
+        $this->displayField('type');
         $this->primaryKey('id');
         $this->hasMany('Products', [
             'foreignKey' => 'reveal_id'

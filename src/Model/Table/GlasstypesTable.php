@@ -22,7 +22,7 @@ class GlasstypesTable extends Table
     public function initialize(array $config)
     {
         $this->table('glasstypes');
-        $this->displayField('id');
+        $this->displayField('type');
         $this->primaryKey('id');
         $this->hasMany('Glazings', [
             'foreignKey' => 'glasstype_id'

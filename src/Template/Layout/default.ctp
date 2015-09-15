@@ -189,7 +189,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                                 </li>
                             </ul>
                         </li>
-                        <!-- <li>
+                        <li>
                             <a href="#"><i class="fa fa-table fa-fw"></i> Quote Products<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -201,7 +201,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                                     echo $this->Html->link('<span> <i class="glyphicon glyphicon-th-list"></i> Quote Products List</span>', ['controller' => 'Quoteproducts', 'action' => 'index'], ['escape' => false]); ?>
                                 </li>
                             </ul>
-                        </li> -->
+                        </li>
                         <li>
                             <a href="#"><i class="fa fa-table fa-fw"></i> Colour Category<span class="fa arrow"></span></a>
                             <ul class= "nav nav-second-level">

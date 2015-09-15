@@ -18,7 +18,7 @@ class FlyscreenopentypesController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Opentypes', 'Flyscreentypes']
+            'contain' => ['Opentypes.Itemtypes', 'Opentypes', 'Flyscreentypes']
         ];
         $this->set('flyscreenopentypes', $this->paginate($this->Flyscreenopentypes));
         $this->set('_serialize', ['flyscreenopentypes']);
@@ -34,7 +34,7 @@ class FlyscreenopentypesController extends AppController
     public function view($id = null)
     {
         $flyscreenopentype = $this->Flyscreenopentypes->get($id, [
-            'contain' => ['Opentypes', 'Flyscreentypes', 'Flyscreenmeshes']
+            'contain' => ['Opentypes.Itemtypes', 'Opentypes', 'Flyscreentypes', 'Flyscreenmeshes']
         ]);
         $this->set('flyscreenopentype', $flyscreenopentype);
         $this->set('_serialize', ['flyscreenopentype']);

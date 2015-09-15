@@ -9,6 +9,7 @@
     <thead>
         <tr>
             <th><?= $this->Paginator->sort('id') ?></th>
+            <th><?= $this->Paginator->sort('itemtype_id') ?></th>
             <th><?= $this->Paginator->sort('opentype_id') ?></th>
             <th><?= $this->Paginator->sort('flyscreentype_id') ?></th>
             <th class="actions"><?= __('Actions') ?></th>
@@ -18,8 +19,8 @@
     <?php foreach ($flyscreenopentypes as $flyscreenopentype): ?>
         <tr>
             <td><?= $this->Number->format($flyscreenopentype->id) ?></td>
-            <td>
-                <?= $flyscreenopentype->has('opentype') ? $this->Html->link($flyscreenopentype->opentype->name, ['controller' => 'Opentypes', 'action' => 'view', $flyscreenopentype->opentype->id]) : '' ?>
+            <td><?= h($flyscreenopentype->opentype->itemtype->type) ?></td>
+            <td><?= $flyscreenopentype->has('opentype') ? $this->Html->link($flyscreenopentype->opentype->name, ['controller' => 'Opentypes', 'action' => 'view', $flyscreenopentype->opentype->id]) : '' ?>
             </td>
             <td>
                 <?= $flyscreenopentype->has('flyscreentype') ? $this->Html->link($flyscreenopentype->flyscreentype->type, ['controller' => 'Flyscreentypes', 'action' => 'view', $flyscreenopentype->flyscreentype->id]) : '' ?>
@@ -30,7 +31,8 @@
                 <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $flyscreenopentype->id], ['confirm' => __('Are you sure you want to delete # {0}?', $flyscreenopentype->id)]) ?>
             </td>
         </tr>
-
+<!-- var_dump($flyscreenopentype->opentype->itemtype->type); -->
+            <!-- die();  -->
     <?php endforeach; ?>
     </tbody>
     </table>

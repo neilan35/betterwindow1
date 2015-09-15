@@ -22,7 +22,7 @@ class MeshtypesTable extends Table
     public function initialize(array $config)
     {
         $this->table('meshtypes');
-        $this->displayField('id');
+        $this->displayField('type');
         $this->primaryKey('id');
         $this->hasMany('Flyscreenmeshes', [
             'foreignKey' => 'meshtype_id'

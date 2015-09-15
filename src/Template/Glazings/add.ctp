@@ -46,7 +46,7 @@
                                     <?= $this->Form->input('safety') ?>
                                 </div>
                                 <div class="form-group">
-                                    <?= $this->Form->input('price') ?>
+                                  <?= $this->Form->input('price', ['class' => 'form-control']) ?>
                                 </div>
                             </div>
                         </div>

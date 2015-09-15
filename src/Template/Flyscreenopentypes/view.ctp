@@ -9,6 +9,8 @@
                     <div class="col-lg-6">
                         <h4 class="subheader"><?= __('Id') ?></h4>
                         <p><?= $this->Number->format($flyscreenopentype->id) ?></p>
+                        <h4 class="subheader"><?= __('Item type') ?></h4>
+                        <?= h($flyscreenopentype->opentype->itemtype->type) ?>
                         <h4 class="subheader"><?= __('Open type') ?></h4>
                         <p><?= $flyscreenopentype->has('opentype') ? $this->Html->link($flyscreenopentype->opentype->name, ['controller' => 'Opentypes', 'action' => 'view', $flyscreenopentype->opentype->id]) : '' ?></p>
                         <h4 class="subheader"><?= __('Fly Screen Type') ?></h4>

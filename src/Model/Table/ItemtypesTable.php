@@ -27,9 +27,13 @@ class ItemtypesTable extends Table
         $this->hasMany('Opentypes', [
             'foreignKey' => 'itemtype_id'
         ]);
+
         $this->hasMany('Products', [
             'foreignKey' => 'itemtype_id'
         ]);
+
+        $this->belongsToMany('Flyscreenopentypes', [
+            'through' => 'Opentypes']);
     }
 
     /**

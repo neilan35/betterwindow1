@@ -123,20 +123,44 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="portfolio-1-col.html">Double Glazed Windows</a>
+                                    <?= $this->Html->link(__('Double Glazed Windows'), ['controller' =>'Pages', 'action' => 'doubleglazed'])?>
                                 </li>
                                 <li>
-                                    <a href="portfolio-2-col.html">Triple Glazed Windows</a>
+                                    <?= $this->Html->link(__('Triple Glazed Window'), ['controller' =>'Pages', 'action' => 'tripleglazed'])?>
                                 </li>
                                 <li>
-                                    <a href="portfolio-3-col.html">Awning Windows </a>
+                                    <?= $this->Html->link(__('Awning Windows'), ['controller' =>'Pages', 'action' => 'awning'])?>
                                 </li>
                                 <li>
-                                    <a href="portfolio-4-col.html">Tilt Only Windwows</a>
+                                    <?= $this->Html->link(__('Tilt Only Windwow'), ['controller' =>'Pages', 'action' => 'tilt'])?>
                                 </li>
                                 <li>
-                                    <a href="portfolio-item.html">Tilt & Turn Window & Doors</a>
+                                    <?= $this->Html->link(__('Tilt & Turn Windows & Doors'), ['controller' =>'Pages', 'action' => 'tiltturn'])?>
                                 </li>
+                                <li>
+                                    <?= $this->Html->link(__('Tilt & Slide Windows & Doors'), ['controller' =>'Pages', 'action' => 'tiltslide'])?>
+                                </li>
+                                <li>
+                                    <?= $this->Html->link(__('Bi-fold Windows & Doors'), ['controller' =>'Pages', 'action' => 'bifold'])?>
+                                </li>
+                                <li>
+                                    <?= $this->Html->link(__('French Windows & Doors'), ['controller' =>'Pages', 'action' => 'french'])?>
+                                </li>
+                                <li>
+                                    <?= $this->Html->link(__('Lift & Slide Doors'), ['controller' =>'Pages', 'action' => 'liftslide'])?>
+                                </li>
+                                <li>
+                                    <?= $this->Html->link(__('Energy Efficient Windows'), ['controller' =>'Pages', 'action' => 'energy'])?>
+                                </li>
+                                <li>
+                                    <?= $this->Html->link(__('Fire Rated Windows & Doors'), ['controller' =>'Pages', 'action' => 'firerated'])?>
+                                </li>
+                                <li>
+                                    <?= $this->Html->link(__('Fly Screens'), ['controller' =>'Pages', 'action' => 'flyscreen'])?>
+                                </li>
+                               <!--  <li>
+                                    <?= $this->Html->link(__('Colour Range'), ['controller' =>'Pages', 'action' => 'colour'])?>
+                                </li> -->
                             </ul>
                         </li>
                        <li>

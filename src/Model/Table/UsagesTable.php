@@ -22,7 +22,7 @@ class UsagesTable extends Table
     public function initialize(array $config)
     {
         $this->table('usages');
-        $this->displayField('id');
+        $this->displayField('description');
         $this->primaryKey('id');
         $this->hasMany('Glazings', [
             'foreignKey' => 'usage_id'

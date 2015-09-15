@@ -22,7 +22,7 @@ class BalratingsTable extends Table
     public function initialize(array $config)
     {
         $this->table('balratings');
-        $this->displayField('id');
+        $this->displayField('balrating');
         $this->primaryKey('id');
         $this->hasMany('Flyscreenmeshes', [
             'foreignKey' => 'balrating_id'
