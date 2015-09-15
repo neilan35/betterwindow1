@@ -149,7 +149,7 @@ class CustomersController extends AppController
 
     public function login()
     {   
-        $this->layout='website';  
+        $this->layout='custRegister';  
         if ($this->request->is('post')) {
         $user = $this->Auth->identify();
         if ($user) {

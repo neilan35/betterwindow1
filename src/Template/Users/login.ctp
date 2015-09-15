@@ -5,8 +5,8 @@
     <div class="container-fluid">
         <div >
             <section class="container">
-        <section class="row">
-            <div class="col-xs-12 col-sm-6 left">
+            <section class="row">
+            
                 <form method="post" action="#" role="login">
                     <img src="../img/logo.png" alt="" class="img-responsive" />
                   
@@ -35,12 +35,9 @@
                         <?php echo $this->Html->link('Forgot Password?',['controller'=>'Users', 'action' => 'forgotPassword']); ?>
                     </section>
                 </form>
-            </div>
-            <div class="hidden-xs col-sm-6 right">
-                <img src="../img/robo.jpg" class="img-responsive" alt="" />
-            </div>
-        </section>
-    </section>
+            
+            </section>
+            </section>
 
     
 

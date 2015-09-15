@@ -37,7 +37,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?php echo $this->Html->css('custom.css');?>
 
       <!-- datatable -->
-      <?php echo $this->Html->css('dataTables.bootstrap.css');?>
+    <?php echo $this->Html->css('dataTables.bootstrap.css');?>
     <?php echo $this->Html->css('dataTables.responsive.css');?>
 
     <!-- Sbadmincss -->
@@ -376,11 +376,11 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                             <ul class= "nav nav-second-level">
                                 <li>
                                     <?php 
-                                    echo $this->Html->link('<span> <i class="glyphicon glyphicon-import"></i> Add a Glass Composition </span>', ['controller' => 'Glasscomps', 'action' => 'add'], ['escape' => false]); ?>
+                                    echo $this->Html->link('<span> <i class="glyphicon glyphicon-import"></i> Add a Glass Composition </span>', ['controller' => 'Compositions', 'action' => 'add'], ['escape' => false]); ?>
                                 </li>
                                 <li>
                                     <?php 
-                                    echo $this->Html->link('<span> <i class="glyphicon glyphicon-list"></i> Glass Composition Index</span>', ['controller' => 'Glasscomps', 'action' => 'index'], ['escape' => false]); ?>
+                                    echo $this->Html->link('<span> <i class="glyphicon glyphicon-list"></i> Glass Composition Index</span>', ['controller' => 'Compositions', 'action' => 'index'], ['escape' => false]); ?>
                                 </li>
                             </ul>
                         </li>

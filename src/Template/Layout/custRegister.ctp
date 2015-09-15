@@ -10,8 +10,18 @@
         
 
     <title>Better Windows Prototype</title>
-
     <?= $this->Html->css('custom.css')?>
+    <?php echo $this->Html->css('styles.css');?>
+    <?php echo $this->Html->css('sb-admin-2.css');?>
+    <?php echo $this->Html->css('bootstrap.min.css');?>
+    <?php echo $this->Html->css('bootstrap-theme.css');?>
+    <?php echo $this->Html->css('bootstrap-theme.css.map');?>
+    <?php echo $this->Html->css('bootstrap.css');?>
+    <?php echo $this->Html->css('bootstrap.css.map');?>
+    
+
+    <link href="http://fonts.googleapis.com/css?family=Lato:100italic,100,300italic,300,400italic,400,700italic,700,900italic,900" rel="stylesheet" type="text/css">
+
     <!-- Bootstrap Core CSS -->
     <?= $this->Html->css('bootstrap.min.css')?>
     <?= $this->Html->css('bootstrap.css')?>

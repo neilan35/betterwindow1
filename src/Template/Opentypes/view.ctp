@@ -54,6 +54,7 @@
     <?php endif; ?>
     </div>
 </div>
+
 <div class="related row">
     <div class="table-responsive">
     <h4 class="subheader"><?= __('Related Flyscreenopentypes') ?></h4>
