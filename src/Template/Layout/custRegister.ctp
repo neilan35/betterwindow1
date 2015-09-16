@@ -18,6 +18,7 @@
     <?php echo $this->Html->css('bootstrap-theme.css.map');?>
     <?php echo $this->Html->css('bootstrap.css');?>
     <?php echo $this->Html->css('bootstrap.css.map');?>
+    <?= $this->Html->css('jquery-ui.min.css')?>
     
 
     <link href="http://fonts.googleapis.com/css?family=Lato:100italic,100,300italic,300,400italic,400,700italic,700,900italic,900" rel="stylesheet" type="text/css">
@@ -32,6 +33,7 @@
 
     <!-- js -->
     <?= $this->Html->script('jquery-1.11.2.min.js')?>
+    <?= $this->Html->script('jquery-ui.min.js')?>
 
      <!-- Bootstrap Core JavaScript -->
     <?= $this->Html->script('bootstrap.min.js')?>

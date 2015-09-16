@@ -81,22 +81,25 @@
             <label class="control-label col-sm-2" for="first_name">Height*:</label>
                 <div class="input-group col-sm-5">
 
-                <?php echo $this->Form->input('quoteproduct.height', ['placeholder' => '100mm-200mm',
+                <?php echo $this->Form->input('quoteproduct.height', ['placeholder' => '100mm-200mm','id'=>"amount",
                 'class'=> 'form-control',
                 'label'=> false]);?>
-            </div>
-        </div>    
+                </div>
+            <div class="col-sm-5" id="slider" style="width:40%; margin: 13px 0 0 200px;"></div>  
+        </div>
+        
         <div class="form-group">
             <label class="control-label col-sm-2" for="first_name">Width*:</label>
                 <div class="input-group col-sm-5">
 
-                <?php echo $this->Form->input('quoteproduct.width', ['placeholder' => '200mm-500mm',
+                <?php echo $this->Form->input('quoteproduct.width', ['placeholder' => '200mm-500mm', 'id'=>"amount2",
                 'class'=> 'form-control',
                 'label'=> false]);?>
             </div>
+            <div class="col-sm-5" id="slider2" style="width:40%; margin: 13px 0 0 200px;"></div>
         </div>  
 
-        </br></br>
+        </br>
         
         
          <div class="form-group">
@@ -210,6 +213,38 @@
 </div>	
 </div>
 
+<script>
+  $(function() {
+    $( "#slider" ).slider({
+      orientation: "horizontal",
+      range: "min",
+      min: 0,
+      max: 100,
+      value: 60,
+      slide: function( event, ui ) {
+        $( "#amount" ).val( ui.value + " mm");
+      }
+    });
+    $( "#amount" ).val( $( "#slider" ).slider( "value" ) +" mm" );
+  });
+
+  $(function() {
+    $( "#slider2" ).slider({
+      orientation: "horizontal",
+      range: "min",
+      min: 0,
+      max: 100,
+      value: 60,
+      slide: function( event, ui ) {
+        $( "#amount2" ).val( ui.value + " mm");
+      }
+    });
+    $( "#amount2" ).val( $( "#slider2" ).slider( "value" ) +" mm" );
+  });
+
+
+
+  </script>
 
 <script type="text/javascript">
     $(document).ready(function() {
