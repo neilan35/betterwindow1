@@ -34,26 +34,33 @@
 
 <body>
 <div class="row">
-  <div class="col-md-5">
+  <div class="col-md-7">
     <div id="logonav">
     <?php echo $this->Html->image('better_windows_final.jpg', ['alt' => 'CakePHP']); ?>
     </div>
   </div>
-  <div class="col-md-5">
+  <div class="col-md-2">
 <nav class="navbar navbar-customWeb" role="navigation">
   <div class="container-fluid">
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <form class="navbar-form navbar-left" role="search">
+          <!-- form class="navbar-form navbar-left" role="search">
             <div class="form-group">
               <input type="text" class="form-control" placeholder="Search">
             </div>
             <button type="submit" class="btn btn-default">Submit</button>
-          </form>
-          <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><strong>Login or Register</strong><span class="caret"></span></a>
-              <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dLabel">
+          </form> -->
+            <!-- <div id= "button-login">
+                <a href="#" class="btn btn-sm btn-default">Login</a>
+            </div>
+            <div id= "button-register">
+                <a href="#" class="btn btn-sm btn-default">Register</a>
+            </div> -->
+        
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><strong>Login or Register</strong><span class="caret"></span></a>
+                <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dLabel">
                 <li><?php $user = $this->Session->read('Auth.User');
                     if (!empty($user))
                     {
@@ -63,27 +70,24 @@
                     if($this->Session->check('Auth.User')){
                     
                     echo $this->Html->link( "Logout",   ['controller' => 'Customers', 'action' => 'logout']); 
-                    }else{
-                        echo $this->Html->link( "Login",   ['controller' => 'Customers', 'action' => 'login']); 
-                        }
-                     
-                    ?></li>
+                    }
+                    else{
+                    echo $this->Html->link( "Login",   ['controller' => 'Customers', 'action' => 'login']); }?>
+                </li>
                 <li><?php $user = $this->Session->read('Auth.User');
 
                     if (!empty($user)) {
                     } 
 
                     else {
-                        echo $this->Html->link( "Register", ['controller' => 'Customers', 'action' =>'register']);
-                    }
-                    
-                    ?></li>
+                        echo $this->Html->link( "Register", ['controller' => 'Customers', 'action' =>'register']);}?>
+                </li>
               </ul>
             </li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
-      <div class="col-md-2">
+      <div class="col-md-3">
       <div class="container-fluid"></div>
       </div>
     </nav>    

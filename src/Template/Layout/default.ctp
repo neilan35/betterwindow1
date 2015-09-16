@@ -87,7 +87,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">BETTER WINDOWS ADMIN</a>
+                <a class="navbar-brand" href="#">BETTER WINDOWS ADMIN</a>
             </div>
             <!-- /.navbar-header -->
             <ul class="nav navbar-top-links navbar-right">
@@ -102,7 +102,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> adad</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -131,16 +131,16 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-                        <li>
+                        <!-- <li>
                             <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-                        </li>
+                        </li> -->
                         <li>
                             <a href="#"><i class="fa fa-user fa-fw"></i> Users<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <li>
+                                <!-- <li>
                                     <?php 
                                     echo $this->Html->link('<span> <i class="glyphicon glyphicon-import"></i> Add User</span>', ['controller' => 'Users', 'action' => 'add'], ['escape' => false]); ?>
-                                </li>
+                                </li> -->
                                 <li>
                                     <?php 
                                     echo $this->Html->link('<span> <i class="glyphicon glyphicon-th-list"></i> Users List</span>', ['controller' => 'Users', 'action' => 'index'], ['escape' => false]); ?>
@@ -165,10 +165,10 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                          <li>
                             <a href="#"><i class="fa fa-table fa-fw"></i> Roles <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <li>
+                             <!--    <li>
                                 <?php 
                             echo $this->Html->link('<span> <i class="glyphicon glyphicon-import"></i> Add Role</span>', ['controller' => 'Roles', 'action' => 'add'], ['escape' => false]); ?>
-                                </li>
+                                </li> -->
                                 <li>
                                 <?php 
                             echo $this->Html->link('<span> <i class="glyphicon glyphicon-th-list"></i> Roles List</span>', ['controller' => 'Roles', 'action' => 'index'], ['escape' => false]); ?>
@@ -423,6 +423,19 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                                 <li>
                                 <?php 
                             echo $this->Html->link('<span> <i class="glyphicon glyphicon-th-list"></i> Quotes List</span>', ['controller' => 'Quotes', 'action' => 'index'], ['escape' => false]); ?>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-table fa-fw"></i> Enquiries<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                <?php 
+                            echo $this->Html->link('<span> <i class="glyphicon glyphicon-import"></i> Add Enquiries</span>', ['controller' => 'Enquiries', 'action' => 'add'], ['escape' => false]); ?>
+                                </li>
+                                <li>
+                                <?php 
+                            echo $this->Html->link('<span> <i class="glyphicon glyphicon-th-list"></i> Enquiries List</span>', ['controller' => 'Enquiries', 'action' => 'index'], ['escape' => false]); ?>
                                 </li>
                             </ul>
                         </li>

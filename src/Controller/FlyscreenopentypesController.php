@@ -18,7 +18,8 @@ class FlyscreenopentypesController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Opentypes.Itemtypes', 'Opentypes', 'Flyscreentypes']
+            'contain' => ['Opentypes.Itemtypes', 'Opentypes', 'Flyscreentypes'],
+            'limit' => 9999999999
         ];
         $this->set('flyscreenopentypes', $this->paginate($this->Flyscreenopentypes));
         $this->set('_serialize', ['flyscreenopentypes']);

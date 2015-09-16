@@ -44,22 +44,22 @@
 
 <body>
 <div class="row">
-  <div class="col-md-5">
+  <div class="col-md-7">
     <div id="logonav">
     <?php echo $this->Html->image('better_windows_final.jpg', ['alt' => 'CakePHP']); ?>
     </div>
   </div>
-  <div class="col-md-5">
+  <div class="col-md-2">
 <nav class="navbar navbar-customWeb" role="navigation">
   <div class="container-fluid">
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <form class="navbar-form navbar-left" role="search">
+          <!-- <form class="navbar-form navbar-left" role="search">
             <div class="form-group">
               <input type="text" class="form-control" placeholder="Search">
             </div>
             <button type="submit" class="btn btn-default">Submit</button>
-          </form>
+          </form> -->
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><strong>Login or Register</strong><span class="caret"></span></a>
@@ -93,7 +93,7 @@
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
-      <div class="col-md-2">
+      <div class="col-md-3">
       <div class="container-fluid"></div>
       </div>
     </nav>    
