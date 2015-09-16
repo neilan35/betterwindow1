@@ -49,7 +49,10 @@ class QuotesController extends AppController
     {
         $quote = $this->Quotes->newEntity();
         if ($this->request->is('post')) {
-            $quote = $this->Quotes->patchEntity($quote, $this->request->data);
+            $quote = $this->Quotes->patchEntity($quote, $this->request->data, 
+                ['associated' => ['Quoteproducts','Colours','Itemtypes']
+            ]);
+
             if ($this->Quotes->save($quote)) {
                 $this->Flash->success('The quote has been saved.');
                 return $this->redirect(['action' => 'index']);
@@ -66,10 +69,12 @@ class QuotesController extends AppController
 
     public function create()
     {
+       
         $this->layout = 'custRegister';
         $quote = $this->Quotes->newEntity();
         if ($this->request->is('post')) {
-            $quote = $this->Quotes->patchEntity($quote, $this->request->data);
+           $quote = $this->Quotes->patchEntity($quote, $this->request->data);
+
             if ($this->Quotes->save($quote)) {
                 $this->Flash->success('The quote has been saved.');
                 return $this->redirect(['action' => 'index']);
@@ -78,13 +83,64 @@ class QuotesController extends AppController
             }
         }
         $customers = $this->Quotes->Customers->find('list', ['limit' => 200]);
-        $this->set(compact('quote', 'customers'));
+        $colours = $this->Quotes->Quoteproducts->Colours->find('list', ['limit' => 200]);
+        $balratings = $this->Quotes->Quoteproducts->Balratings->find('list', ['limit' => 200]);
+        $itemtypes = $this->Quotes->Quoteproducts->Itemtypes->find('list', ['limit' => 200]);
+        $reveals = $this->Quotes->Quoteproducts->Reveals->find('list', ['limit' => 200]);
+        $usages = $this->Quotes->Quoteproducts->Glazings->Usages->find('list', ['limit' => 200]);
+        $glasstypes = $this->Quotes->Quoteproducts->Glazings->Glasstypes->find('list', ['limit' => 200]);
+
+
+        $this->set(compact('quote', 'customers','colours','balratings','itemtypes','reveals', 'usages','glasstypes'));
         $this->set('_serialize', ['quote']);
-
-
-
     }
 
+
+        public function get_opentypes($itemtypes_id){
+            $this->loadModel('Itemtypes');
+            $this->loadModel('Opentypes');
+            $this->loadModel('Quoteproducts');
+            $this->autoRender= false;
+            // var_dump($itemtypes_id);
+            
+
+            $opentypesID = $this->Opentypes->find('list')
+                    ->select(['name'])
+                    ->where(['itemtype_id' => $itemtypes_id]);
+                    
+
+            // foreach ($opentypesID as $one) {
+            //     var_dump($one);
+
+            // }
+            // die();
+            echo json_encode($opentypesID->toArray());
+        }
+
+          public function get_flyscreentypes($opentypes_id){
+            $this->loadModel('Itemtypes');
+            $this->loadModel('Opentypes');
+            $this->loadModel('Quoteproducts');
+            $this->loadModel('Flyscreenopentypes');
+            $this->loadModel('Flyscreentypes');
+            $this->autoRender= false;
+
+            // var_dump($opentypes_id);
+            // die();
+            $flyscreenID = $this->Flyscreenopentypes->find('list')
+                    ->select(['flyscreentype_id'])
+                    ->where(['opentype_id' => $opentypes_id]);
+
+            // $flyscreen = $this->Flyscreentypes->find('list')
+            //         ->select(['type'])
+            //         ->where(['id' => $flyscreenID]);
+            //  foreach ($flyscreenID as $one) {
+            //  var_dump($one);
+
+            //  }
+            // die();
+            echo json_encode($flyscreen->toArray());
+        }
     /**
      * Edit method
      *

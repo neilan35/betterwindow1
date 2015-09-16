@@ -77,8 +77,14 @@ class QuoteproductsTable extends Table
             ->add('design_id', 'valid', ['rule' => 'numeric'])
             ->requirePresence('design_id', 'create')
             ->notEmpty('design_id')
+            ->add('reveal', 'valid', ['rule' => 'boolean'])
+            ->notEmpty('reveal')
             ->add('reveal_id', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('reveal_id')
+            ->add('flyscreentype', 'valid', ['rule' => 'boolean'])
+            ->notEmpty('flyscreentype')
+            ->add('flyscreentypes')
+            ->notEmpty('flyscreentypes')
             ->add('flyscreenmesh_id', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('flyscreenmesh_id')
             ->add('glazing_id', 'valid', ['rule' => 'numeric'])
@@ -87,7 +93,10 @@ class QuoteproductsTable extends Table
             ->add('height', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('height')
             ->add('width', 'valid', ['rule' => 'numeric'])
-            ->allowEmpty('width');
+            ->allowEmpty('width')
+            ->add('usage')
+            ->notEmpty('usage');
+
 
         return $validator;
     }

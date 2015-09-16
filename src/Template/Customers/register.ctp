@@ -89,7 +89,8 @@
                 <div class="input-group col-sm-3">
                 <?php echo $this->Form->input('state',['class' => 'form-control',
                                                        'placeholder' => 'Enter State',
-                                                       'label' => false]);?>
+                                                       'label' => false,
+                                                       'options' => ['Victoria' => 'VIC', 'New South Wales' => 'NSW', 'Queensland'=>'QLD','Western Australia'=>'WA','South Australia'=>'SA','Tasmania'=>'TAS','Australian Capital Territory'=>'ACT','Northern Territory'=>'NT']]);?>
                 </div>
                 </div>
         <div class="form-group">
@@ -207,7 +208,8 @@
                 <div class="input-group col-sm-3">
                 <?php echo $this->Form->input('state',['class' => 'form-control',
                                                        'placeholder' => 'Enter State',
-                                                       'label' => false]);?>
+                                                       'label' => false,
+                                                       'options' => ['Victoria' => 'VIC', 'New South Wales' => 'NSW', 'Queensland'=>'QLD','Western Australia'=>'WA','South Australia'=>'SA','Tasmania'=>'TAS','Australian Capital Territory'=>'ACT','Northern Territory'=>'NT']]);?>
                 </div>
         </div>
         <div class="form-group">

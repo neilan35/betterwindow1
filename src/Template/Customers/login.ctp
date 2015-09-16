@@ -6,7 +6,7 @@
         <div >
             <section class="container">
         <section class="row">
-            
+            <div class="col-xs-12 col-sm-6 left">
                 <form method="post" action="#" role="login">
                     <img src="../img/logo.png" alt="" class="img-responsive" />
                   
@@ -35,7 +35,7 @@
                         <?php echo $this->Html->link('Forgot Password?',['controller'=>'Users', 'action' => 'forgotPassword']); ?>
                     </section>
                 </form>
-            
+            </div>
         </section>
     </section>
 

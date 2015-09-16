@@ -71,15 +71,23 @@ class QuoteproductsController extends AppController
     }
 
     public function get_opentypes($itemtypes_id){
-        $this->loadModel('itemtypes');
-        $this->loadModel('opentypes');
+        $this->loadModel('Itemtypes');
+        $this->loadModel('Opentypes');
         $this->autoRender= false;
+        // var_dump($itemtypes_id);
+        
 
-        $opentypesID = $this->Opentypes->find()
-                ->select(['id'])
+        $opentypesID = $this->Opentypes->find('list')
+                ->select(['name'])
                 ->where(['itemtype_id' => $itemtypes_id]);
+                
 
-         echo json_encode($opentypesID->toArray());
+        // foreach ($opentypesID as $one) {
+        //     var_dump($one);
+
+        // }
+        // die();
+        echo json_encode($opentypesID->toArray());
     }
 
 

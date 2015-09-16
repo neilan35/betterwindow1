@@ -34,12 +34,12 @@
 
 <body>
 <div class="row">
-  <div class="col-md-7">
+  <div class="col-md-6">
     <div id="logonav">
     <?php echo $this->Html->image('better_windows_final.jpg', ['alt' => 'CakePHP']); ?>
     </div>
   </div>
-  <div class="col-md-2">
+  <div class="col-md-3">
 <nav class="navbar navbar-customWeb" role="navigation">
   <div class="container-fluid">
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -56,7 +56,7 @@
             <div id= "button-register">
                 <a href="#" class="btn btn-sm btn-default">Register</a>
             </div> -->
-        
+               <?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> Make a Quote!', array('controller'=>'Quotes','action'=>'create'), array('escape' => false, 'class' => 'btn btn-info btn-lg', 'target' => '_self'));?>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><strong>Login or Register</strong><span class="caret"></span></a>

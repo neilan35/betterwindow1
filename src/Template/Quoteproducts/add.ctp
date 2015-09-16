@@ -1,3 +1,4 @@
+<?php use Cake\Routing\Router; ?>
 
 <div class="quoteproducts form large-10 medium-9 columns">
 <?= $this->Form->create($quoteproduct); ?>
@@ -26,16 +27,19 @@
                                 <div class="form-group">
                                     <?= $this->Form->input('balrating_id', ['options' => $balratings]) ?>
                                 </div>
-                                <div class="form-group" id="itemtypeID">
-                                    <?= $this->Form->input('itemtype_id', ['options' => $itemtypes]) ?>
+                                <div class="form-group">
+                                    <?= $this->Form->input('itemtype_id', ['options' => $itemtypes, 'id'=>'itemtype-id']) ?>
                                 </div>
 
-                                 <div class="form-group" id="opentype-id">
-                                    <?= $this->Form->input('open_type') ?>
+                                 <div class="form-group">
+                                    <?= $this->Form->input('open_type', ['options'=>[] ,'id'=>'opentype-id']) ?>
                                 </div> 
 
                                 <div class="form-group">
                                     <?= $this->Form->input('design_id', ['options' => $designs]) ?>
+                                </div>
+                                <div class="form-group">
+                                    <?= $this->Form->input('reveal') ?>
                                 </div>
                                 <div class="form-group">
                                     <?= $this->Form->input('reveal_id', ['options' => $reveals, 'empty' => true]) ?>
@@ -65,14 +69,19 @@
     </div>
 </div>
 
+
 <script type="text/javascript">
     $(document).ready(function() {
-        $('#itemtypeID').change(function() {
-            $("#opentype-id").remove();
-            
+        $('#itemtype-id').change(function() {
+            // $("#opentype-id").remove();
+            $("#opentype-id option").remove();
             var url = "<?= Router::url(['controller' => 'Quoteproducts', 'action' => 'get_opentypes']) ?>/" + $(this).val();
             $.getJSON(url, null, function(data) {
+                // var $ot = $("#opentype-id");
+
                 $.each(data, function(id, name) {
+                    // console.log ($ot);
+                    // $("#opentype-id").append("<option value='" + 2 + "'>" + "nick" + "</option>");
                     $("#opentype-id").append("<option value='" + id + "'>" + name + "</option>");
                 });
             });

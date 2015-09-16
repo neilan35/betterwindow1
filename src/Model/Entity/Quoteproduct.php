@@ -21,7 +21,10 @@ class Quoteproduct extends Entity
         'itemtype_id' => true,
         'open_type' => true,
         'design_id' => true,
+        'reveal'=>true,
         'reveal_id' => true,
+        'flyscreentype'=>true,
+        'flyscreentypes'=>true,
         'flyscreenmesh_id' => true,
         'glazing_id' => true,
         'height' => true,
@@ -34,5 +37,7 @@ class Quoteproduct extends Entity
         'reveal' => true,
         'flyscreenmesh' => true,
         'glazing' => true,
+        'usage'=>true,
+        'glasstype'=>true,
     ];
 }
