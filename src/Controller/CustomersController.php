@@ -24,7 +24,9 @@ class CustomersController extends AppController
      */
     public function index()
     {
-        $this->set('customers', $this->paginate($this->Customers));
+        $customers= $this->Customers->find('all');
+
+        $this->set('customers', $customers);
         $this->set('_serialize', ['customers']);
     }
 

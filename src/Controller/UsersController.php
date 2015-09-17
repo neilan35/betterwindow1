@@ -57,10 +57,13 @@ class UsersController extends AppController
 
     public function index()
     {
-        $this->paginate = [
-            'contain' => ['Customers', 'Employees']
-        ];
-        $this->set('users', $this->paginate($this->Users));
+        // $this->paginate = [
+        //     'contain' => ['Customers', 'Employees']
+
+        $users = $this->Users->find('all')
+        ->contain(['Customers','Employees']);
+
+        $this->set('users', $users);
         $this->set('_serialize', ['users']);
     }
 

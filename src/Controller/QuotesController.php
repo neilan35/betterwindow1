@@ -105,7 +105,7 @@ class QuotesController extends AppController
             
 
             $opentypesID = $this->Opentypes->find('list')
-                    ->select(['name'])
+                    ->select(['id','name'])
                     ->where(['itemtype_id' => $itemtypes_id]);
                     
 
@@ -125,21 +125,48 @@ class QuotesController extends AppController
             $this->loadModel('Flyscreentypes');
             $this->autoRender= false;
 
-            // var_dump($opentypes_id);
-            // die();
-            $flyscreenID = $this->Flyscreenopentypes->find('list')
+          //  var_dump($opentypes_id);
+            // // die();
+
+            // $flyscreenID = $this->Flyscreenopentypes->find('list')
+            //         ->select(['flyscreentype_id'])
+            //         ->where(['opentype_id' => $opentypes_id]);
+         /*    $opentypeID = $this->Opentypes->find();
+                $opentypeID->select(['id'])
+                    ->where(['itemtype_id' => $opentypes_id]);
+
+            var_dump($opentypeID->toArray());*/
+
+            $flyscreenID = $this->Flyscreenopentypes->find()
                     ->select(['flyscreentype_id'])
                     ->where(['opentype_id' => $opentypes_id]);
 
-            // $flyscreen = $this->Flyscreentypes->find('list')
-            //         ->select(['type'])
-            //         ->where(['id' => $flyscreenID]);
-            //  foreach ($flyscreenID as $one) {
-            //  var_dump($one);
+           // var_dump($flyscreenID->toArray());
 
-            //  }
-            // die();
+            $flyscreen = $this->Flyscreentypes->find()
+                      ->select(['id','type'])
+                      ->where(['id in'=>$flyscreenID]);
+
+        //    var_dump($flyscreen->toArray());
+
+             // foreach ($flyscreenID as $three) {
+             // var_dump($three);
+             // }
+
+             // foreach ($flyscreen as $two) {
+             // var_dump($two);
+             // }
+//            die();
             echo json_encode($flyscreen->toArray());
+        }
+
+
+        public function get_meshtypes($flyscrenID,$balratingID){
+            $this->loadModel('Flyscreenopentypes');
+            $this->loadModel('Flyscreentypes');
+            $this->autoRender= false;
+
+            
         }
     /**
      * Edit method

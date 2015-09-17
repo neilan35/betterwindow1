@@ -28,9 +28,9 @@
                 <div class="input-group col-sm-5">
                 <?php echo $this->Form->input('quoteproduct.balrating_id', ['options' => $balratings,
                 'empty' => '(Please choose one)',
+                'id' => 'balrating-id',
                 'class' => 'form-control',
                 'label' => false]);?>
-
                 </div>
         </div>
         <div class="form-group">
@@ -51,6 +51,7 @@
                 'empty' =>'(Please choose one)',
                 'class'=>'form-control',
                 'label'=>false]); ?>
+                <p class="help-block">Options will be based on the Item Type you have chosen</p>
             </div>
         </div>
         
@@ -138,6 +139,7 @@
                 'empty' =>'(Please choose one)',
                 'class'=>'form-control',
                 'label'=>false]);?>
+                <p class="help-block">Options will be based on the Open Type you have chosen</p>
             </div>
         </div>
         <div class="form-group">
@@ -214,6 +216,7 @@
 </div>
 
 <script>
+//slider
   $(function() {
     $( "#slider" ).slider({
       orientation: "horizontal",
@@ -257,7 +260,7 @@
 
                 $.each(data, function(id, name) {
                     // console.log ($ot);
-                    // $("#opentype-id").append("<option value='" + 2 + "'>" + "nick" + "</option>");
+                    // $("#opentype-id").append("<option value='" + 2 + "'>" + "tes" + "</option>");
                     $("#opentype-id").append("<option value='" + id + "'>" + name + "</option>");
                 });
             });
@@ -267,15 +270,16 @@
     $(document).ready(function() {
         $('#opentype-id').change(function() {
             // $("#opentype-id").remove();
-            // $("#flyscreentype-id option").remove();
+            $("#flyscreentype-id option").remove();
             var url = "<?= Router::url(['controller' => 'Quotes', 'action' => 'get_flyscreentypes']) ?>/" + $(this).val();
+            window.console.log(url);
             $.getJSON(url, null, function(data) {
-                var $ot = $("#flyscreentype-id");
+                // var $ot = $("#flyscreentype-id");
 
-                $.each(data, function(id, name) {
-                    console.log ($ot);
-                    // $("#opentype-id").append("<option value='" + 2 + "'>" + "nick" + "</option>");
-                    $("#flyscreentype-id").append("<option value='" + id + "'>" + name + "</option>");
+                $.each(data, function(id, flyscreen) {
+                    // console.log ($ot);
+                    // $("#flyscreentype-id").append("<option value='" + 2 + "'>" + "tes" + "</option>");
+                    $("#flyscreentype-id").append("<option value='" + flyscreen.id + "'>" + flyscreen.type + "</option>");
                 });
             });
         });
