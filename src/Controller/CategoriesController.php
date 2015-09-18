@@ -16,8 +16,10 @@ class CategoriesController extends AppController
      * @return void
      */
     public function index()
-    {
-        $this->set('categories', $this->paginate($this->Categories));
+    {   
+        $categories = $this->Categories->find('all');
+
+        $this->set('categories', $categories);
         $this->set('_serialize', ['categories']);
     }
 

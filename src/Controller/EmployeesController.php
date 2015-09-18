@@ -21,10 +21,15 @@ class EmployeesController extends AppController
      */
     public function index()
     {
-        $this->paginate = [
-            'contain' => ['Roles'], 'order' => ['Employees.last_name' => 'asc']
-        ];
-        $this->set('employees', $this->paginate($this->Employees));
+        $employees = $this->Employees->find('all')
+        ->contain(['Roles'])
+        ->order(['Employees.last_name' => 'asc']);
+
+        // $this->paginate = [
+        //     'contain' => ['Roles'], 'order' => ['Employees.last_name' => 'asc']
+        // ];
+        
+        $this->set('employees', $employees);
         $this->set('_serialize', ['employees']);
     }
 

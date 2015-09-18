@@ -17,7 +17,8 @@ class CompositionsController extends AppController
      */
     public function index()
     {
-        $this->set('compositions', $this->paginate($this->Compositions));
+        $compositions = $this->Compositions->find('all');
+        $this->set('compositions', $compositions);
         $this->set('_serialize', ['compositions']);
     }
 

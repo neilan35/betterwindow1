@@ -17,7 +17,8 @@ class EnquiriesController extends AppController
      */
     public function index()
     {
-        $this->set('enquiries', $this->paginate($this->Enquiries));
+        $enquiries = $this->Enquiries->find('all');
+        $this->set('enquiries', $enquiries);
         $this->set('_serialize', ['enquiries']);
     }
 

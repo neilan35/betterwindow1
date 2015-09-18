@@ -18,10 +18,11 @@ class QuoteproductsController extends AppController
      */
     public function index()
     {
-        $this->paginate = [
-            'contain' => ['Quotes', 'Colours', 'Balratings', 'Itemtypes', 'Designs', 'Reveals', 'Flyscreenmeshes', 'Glazings']
-        ];
-        $this->set('quoteproducts', $this->paginate($this->Quoteproducts));
+        $quoteproducts = $this->Quoteproducts->find('all')
+        ->contain(['Quotes', 'Colours', 'Balratings', 'Itemtypes', 'Designs', 'Reveals', 'Flyscreenmeshes', 'Glazings']);
+       
+       
+        $this->set('quoteproducts', $quoteproducts);
         $this->set('_serialize', ['quoteproducts']);
     }
 

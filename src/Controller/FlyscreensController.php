@@ -17,7 +17,8 @@ class FlyscreensController extends AppController
      */
     public function index()
     {
-        $this->set('flyscreens', $this->paginate($this->Flyscreens));
+        $flyscreens = $this->Flyscreens->find('all');
+        $this->set('flyscreens', $flyscreens);
         $this->set('_serialize', ['flyscreens']);
     }
 

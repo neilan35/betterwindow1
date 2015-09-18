@@ -17,10 +17,13 @@ class ColoursController extends AppController
      */
     public function index()
     {
-        $this->paginate = [
-            'contain' => ['Categories']
-        ];
-        $this->set('colours', $this->paginate($this->Colours));
+        $colours = $this->Colours->find('all')
+        ->contain(['Categories']);
+
+        // $this->paginate = [
+        //     'contain' => ['Categories']
+        // ];
+        $this->set('colours', $colours);
         $this->set('_serialize', ['colours']);
     }
 

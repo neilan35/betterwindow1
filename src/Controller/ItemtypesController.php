@@ -17,7 +17,9 @@ class ItemtypesController extends AppController
      */
     public function index()
     {
-        $this->set('itemtypes', $this->paginate($this->Itemtypes));
+        $itemtypes = $this->Itemtypes->find('all');
+
+        $this->set('itemtypes', $itemtypes));
         $this->set('_serialize', ['itemtypes']);
     }
 

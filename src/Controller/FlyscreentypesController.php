@@ -17,7 +17,8 @@ class FlyscreentypesController extends AppController
      */
     public function index()
     {
-        $this->set('flyscreentypes', $this->paginate($this->Flyscreentypes));
+        $flyscreentypes = $this->Flyscreentypes->find('all');
+        $this->set('flyscreentypes', $flyscreentypes);
         $this->set('_serialize', ['flyscreentypes']);
     }
 

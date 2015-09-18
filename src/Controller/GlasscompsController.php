@@ -17,7 +17,8 @@ class GlasscompsController extends AppController
      */
     public function index()
     {
-        $this->set('glasscomps', $this->paginate($this->Glasscomps));
+        $glasscomps = $this->Glasscomps->find('all');
+        $this->set('glasscomps', $glasscomps);
         $this->set('_serialize', ['glasscomps']);
     }
 

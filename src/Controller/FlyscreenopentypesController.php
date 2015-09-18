@@ -16,12 +16,11 @@ class FlyscreenopentypesController extends AppController
      * @return void
      */
     public function index()
-    {
-        $this->paginate = [
-            'contain' => ['Opentypes.Itemtypes', 'Opentypes', 'Flyscreentypes'],
-            'limit' => 9999999999
-        ];
-        $this->set('flyscreenopentypes', $this->paginate($this->Flyscreenopentypes));
+    {   
+        $flyscreenopentypes = $this->Flyscreenopentypes->find('all')
+        ->contain(['Opentypes.Itemtypes', 'Opentypes', 'Flyscreentypes']);
+        
+        $this->set('flyscreenopentypes', $flyscreenopentypes);
         $this->set('_serialize', ['flyscreenopentypes']);
     }
 
@@ -44,12 +43,14 @@ class FlyscreenopentypesController extends AppController
     /**
      * Add method
      *
-     * @return void Redirects on successful add, renders view otherwise.
+     * @return void Redirects on successful add, renders view otherw
      */
     public function add()
     {
         $flyscreenopentype = $this->Flyscreenopentypes->newEntity();
         if ($this->request->is('post')) {
+            // var_dump($this->request->data);
+            // die();
             $flyscreenopentype = $this->Flyscreenopentypes->patchEntity($flyscreenopentype, $this->request->data);
             if ($this->Flyscreenopentypes->save($flyscreenopentype)) {
                 $this->Flash->success('The flyscreenopentype has been saved.');
@@ -60,6 +61,20 @@ class FlyscreenopentypesController extends AppController
         }
         $opentypes = $this->Flyscreenopentypes->Opentypes->find('list', ['limit' => 200]);
         $flyscreentypes = $this->Flyscreenopentypes->Flyscreentypes->find('list', ['limit' => 200]);
+
+        $opentypeArray = $opentypes->toArray();
+        foreach ($opentypeArray as $key => $opentype) {
+            $itemtype_id = $this->Flyscreenopentypes->Opentypes->find()
+                                    ->select(['itemtype_id'])
+                                    ->where(['id' => $key]);
+            $itemtype_name = $this->Flyscreenopentypes->Opentypes->Itemtypes->find()
+                                    ->select(['type'])
+                                    ->where(['id' => $itemtype_id]);
+            $opentypeArray[$key] = "[" . $itemtype_name->first()['type'] . "] $opentype";
+        }
+
+        $opentypes = $opentypeArray;
+
         $this->set(compact('flyscreenopentype', 'opentypes', 'flyscreentypes'));
         $this->set('_serialize', ['flyscreenopentype']);
     }

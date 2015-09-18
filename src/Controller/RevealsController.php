@@ -17,7 +17,8 @@ class RevealsController extends AppController
      */
     public function index()
     {
-        $this->set('reveals', $this->paginate($this->Reveals));
+        $reveals = $this->Reveals->find('all');
+        $this->set('reveals', $reveals);
         $this->set('_serialize', ['reveals']);
     }
 

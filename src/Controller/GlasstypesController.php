@@ -17,7 +17,8 @@ class GlasstypesController extends AppController
      */
     public function index()
     {
-        $this->set('glasstypes', $this->paginate($this->Glasstypes));
+        $glasstypes = $this->Glasstypes->find('all');
+        $this->set('glasstypes', $glasstypes);
         $this->set('_serialize', ['glasstypes']);
     }
 

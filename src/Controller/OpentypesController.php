@@ -17,10 +17,10 @@ class OpentypesController extends AppController
      */
     public function index()
     {
-        $this->paginate = [
-            'contain' => ['Itemtypes']
-        ];
-        $this->set('opentypes', $this->paginate($this->Opentypes));
+        $opentypes = $this->Opentypes->find('all')
+        ->contain(['Itemtypes']);
+
+        $this->set('opentypes', $opentypes);
         $this->set('_serialize', ['opentypes']);
     }
 

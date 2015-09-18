@@ -17,7 +17,9 @@ class BalratingsController extends AppController
      */
     public function index()
     {
-        $this->set('balratings', $this->paginate($this->Balratings));
+        $balratings = $this->Balratings->find('all');
+
+        $this->set('balratings', $balratings);
         $this->set('_serialize', ['balratings']);
     }
 

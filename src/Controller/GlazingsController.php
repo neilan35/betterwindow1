@@ -17,10 +17,10 @@ class GlazingsController extends AppController
      */
     public function index()
     {
-        $this->paginate = [
-            'contain' => ['Usages', 'Glasstypes', 'Compositions', 'Balratings']
-        ];
-        $this->set('glazings', $this->paginate($this->Glazings));
+        $glazings = $this->Glazings->find('all')
+        ->contain(['Usages', 'Glasstypes', 'Compositions', 'Balratings']);
+
+        $this->set('glazings', $glazings);
         $this->set('_serialize', ['glazings']);
     }
 

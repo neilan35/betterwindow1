@@ -17,10 +17,10 @@ class DesignsController extends AppController
      */
     public function index()
     {
-        $this->paginate = [
-            'contain' => ['Opentypes', 'Pictures']
-        ];
-        $this->set('designs', $this->paginate($this->Designs));
+        $designs = $this->Designs->find('all')
+        ->contain(['Opentypes', 'Pictures']);
+        
+        $this->set('designs', $designs);
         $this->set('_serialize', ['designs']);
     }
 

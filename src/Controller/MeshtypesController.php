@@ -17,7 +17,8 @@ class MeshtypesController extends AppController
      */
     public function index()
     {
-        $this->set('meshtypes', $this->paginate($this->Meshtypes));
+        $meshtypes = $this->Meshtypes->find('all');
+        $this->set('meshtypes', $meshtypes);
         $this->set('_serialize', ['meshtypes']);
     }
 

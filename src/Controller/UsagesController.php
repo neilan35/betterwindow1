@@ -17,7 +17,8 @@ class UsagesController extends AppController
      */
     public function index()
     {
-        $this->set('usages', $this->paginate($this->Usages));
+        $usages = $this->Usages->find('all');
+        $this->set('usages', $usages);
         $this->set('_serialize', ['usages']);
     }
 

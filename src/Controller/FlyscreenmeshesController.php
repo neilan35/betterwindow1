@@ -17,10 +17,13 @@ class FlyscreenmeshesController extends AppController
      */
     public function index()
     {
-        $this->paginate = [
-            'contain' => ['Balratings', 'Meshtypes', 'Flyscreenopentypes']
-        ];
-        $this->set('flyscreenmeshes', $this->paginate($this->Flyscreenmeshes));
+        $flyscreenmeshes = $this->Flyscreenmeshes->find('all')
+        ->contain(['Balratings', 'Meshtypes', 'Flyscreenopentypes']);
+
+        // $this->paginate = [
+        //     'contain' => ['Balratings', 'Meshtypes', 'Flyscreenopentypes']
+        // ];
+        $this->set('flyscreenmeshes', $flyscreenmeshes);
         $this->set('_serialize', ['flyscreenmeshes']);
     }
 

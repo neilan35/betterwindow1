@@ -17,7 +17,8 @@ class PicturesController extends AppController
      */
     public function index()
     {
-        $this->set('pictures', $this->paginate($this->Pictures));
+        $pictures = $this->Pictures->find('all');
+        $this->set('pictures', $pictures));
         $this->set('_serialize', ['pictures']);
     }
 
