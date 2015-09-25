@@ -270,6 +270,22 @@
             </div>
              </div>
 
+<footer class= "site-footer">
+    <div class="container-fluid">
+            <div class="row" id="wrap">
+                <div class="col-lg-4"> 
+                <h4>CONTACT US</h4>
+            </br>
+                <p><strong>Email: </strong>office@blueskywindows.com.au</br>
+                <strong>Phone: </strong>(03) 9588 2198 </br><strong>Mobile: </strong>0450 908 271</br> <strong>Address: </strong>9A Citrus Street</br>Braeside, VIC 3195</p>
+                </div>
+                <div class="col-lg-4">  
+                </div>
+                <div class="col-lg-4">  
+                </div>
+            </div>
+        </div>
+</footer>
 
 
 

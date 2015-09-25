@@ -118,7 +118,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                     
                     echo $this->Html->link( "Logout",   ['controller' => 'Users', 'action' => 'logout']); 
                     }else{
-                        echo $this->Html->link( "Return to Login Screen",   array('action'=>'login') ); 
+                        echo $this->Html->link( "Return to Login Screen",   ['controller' => 'Users', 'action' => 'login'] ); 
                         }
                      
                     ?>

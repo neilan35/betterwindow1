@@ -13,7 +13,7 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3><i class="glyphicon glyphicon-leaf"> <strong>Melbourne's leading manufacturer of custom UPVC windows</strong></i></h3>
+                        <h3><i class="glyphicon glyphicon-leaf"></i> <strong>Melbourne's leading manufacturer of custom UPVC windows</strong></h3>
                     </div>
                     <div class="panel-body">
                         <p>Being a family operated business with a more than 15 years of experience in windows industry, we are ready to provide our customers with energy-rated, energy saving, low maintenance products. </p>
@@ -34,13 +34,13 @@
         
 
         <!-- Footer -->
-        <footer>
-            <div class="row" id="footer" id="wrap">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
-                </div>
-            </div>
-        </footer>
+       
 
     </div>
+      <!-- jQuery -->
+        <?php echo $this->Html->script('jquery-1.11.2.min.js');?>
+
+        <!-- Bootstrap Core JavaScript -->
+        <?php echo $this->Html->script('bootstrap.min.js');?>
+        <!-- Script to Activate the Carousel -->
     <!-- /.container -->

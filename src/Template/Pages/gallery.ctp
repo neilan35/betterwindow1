@@ -2,7 +2,7 @@
     <div class="container">
        <div class="row">
             <div class="col-lg-12">
-                <h2 class="page-header">Gallery</h2>
+                <h1 class="page-header">Gallery</h1>
             </div>
             <div class="col-md-4 col-sm-6">
                 <a href="portfolio-item.html">
@@ -35,20 +35,11 @@
                 </a>
             </div>
         </div>
+</div>
+    <!-- /.container -->      
+      <!-- jQuery -->
+        <?php echo $this->Html->script('jquery-1.11.2.min.js');?>
 
-
-
-
-
-                    
-        <!-- Footer -->
-        <footer>
-            <div class="row" id="footer" id="wrap">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
-                </div>
-            </div>
-        </footer>
-
-    </div>
-    <!-- /.container -->       
+        <!-- Bootstrap Core JavaScript -->
+        <?php echo $this->Html->script('bootstrap.min.js');?>
+        <!-- Script to Activate the Carousel --> 

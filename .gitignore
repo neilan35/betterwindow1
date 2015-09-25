@@ -5,6 +5,7 @@ plugins
 tests
 vendor
 webroot
+tmp
 .editorconfig
 .htaccess
 .travis.yml
