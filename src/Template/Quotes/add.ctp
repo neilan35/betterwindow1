@@ -18,7 +18,7 @@
             echo $this->Form->input('installation');
             echo $this->Form->input('installtype');
             echo $this->Form->input('delivery');
-            echo $this->Form->input('deliverytype');
+            // echo $this->Form->input('deliverytype');
             
         ?>
     </fieldset>

@@ -17,7 +17,7 @@
     <?= $this->Html->css('bootstrap.css')?>
 
     <!-- Custom CSS -->
-     
+     <?=$this->Html->css('font-awesome.css')?>
     <?=$this->Html->css('modern-business.css')?>
 
     <!-- js -->
@@ -112,7 +112,7 @@
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right">
+                    <ul class="nav navbar-nav navbar-right" id="myNavbar">
                         <li class="active">
                          <?= $this->Html->link(__('HOME'), ['controller' =>'Pages', 'action' => 'home'])?>
                         </li>
@@ -250,6 +250,16 @@
                 </a>
             </div><!-- /.carousel -->
 </div>
+<a href="https://www.instagram.com/" class="btn btn-round btn-clear btn-instagram"><i class="fa fa-instagram"></i></a>
+<div class="social-icons">
+          <a href="https://twitter.com/sahrizalpahlevi" target="_blank" class="btn btn-round btn-clear btn-twitter"><i class="fa fa-twitter"></i></a>
+          <a href="https://www.facebook.com/sahrizalpahlevi8" target="_blank" class="btn btn-round btn-clear btn-facebook"><i class="fa fa-facebook"></i></a>
+          <a href="https://www.dribbble.com/" class="btn btn-round btn-clear btn-dribbble"><i class="fa fa-dribbble"></i></a>
+          <a href="https://www.instagram.com/" class="btn btn-round btn-clear btn-instagram"><i class="fa fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/" class="btn btn-round btn-clear btn-linkedin"><i class="fa fa-linkedin-square"></i></a>
+          <a href="https://www.pinterest.com/" class="btn btn-round btn-clear btn-pinterest"><i class="fa fa-pinterest"></i></a>
+          <a href="https://plus.google.com/106251164898636973632/posts" class="btn btn-round btn-clear btn-google"><i class="fa fa-google-plus"></i></a>
+        </div>
 
 
     <div class="container-fluid">
@@ -270,7 +280,7 @@
     <script>
         $(document).ready(function(){
         $('.carousel').carousel({
-            interval: 2000 //changes the speed
+            interval: 3000 //changes the speed
             });
         });
         </script>

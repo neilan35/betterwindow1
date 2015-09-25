@@ -17,10 +17,10 @@ class QuotesController extends AppController
      */
     public function index()
     {
-        $this->paginate = [
-            'contain' => ['Customers']
-        ];
-        $this->set('quotes', $this->paginate($this->Quotes));
+        $quotes = $this->Quotes->find('all')
+        ->contain(['Customers']);
+        
+        $this->set('quotes', $quotes);
         $this->set('_serialize', ['quotes']);
     }
 
@@ -70,7 +70,7 @@ class QuotesController extends AppController
     public function create()
     {
        
-        $this->layout = 'custRegister';
+        $this->layout = 'test2';
         $quote = $this->Quotes->newEntity();
         if ($this->request->is('post')) {
            $quote = $this->Quotes->patchEntity($quote, $this->request->data);
@@ -161,10 +161,54 @@ class QuotesController extends AppController
         }
 
 
-        public function get_meshtypes($flyscrenID,$balratingID){
+        public function get_meshtypes($balratingID,$flyscreenID){
+
+            // var_dump($balratingID);
+            // var_dump($flyscreenID);
+            // // die();
+
             $this->loadModel('Flyscreenopentypes');
             $this->loadModel('Flyscreentypes');
+            $this->loadModel('Balratings');
+            $this->loadModel('Flyscreenmeshes');
+
+            $this->loadModel('Meshtypes');
+
             $this->autoRender= false;
+
+            $flyscreenopentypeID = $this->Flyscreenopentypes->find('list')
+                        ->select(['id'])
+                        ->where(['flyscreentype_id' => $flyscreenID]);
+
+                        // var_dump($flyscreenopentypeID->toArray());
+                        // die();
+
+             $meshID = $this->Flyscreenmeshes->find()
+                        ->select(['meshtype_id'])
+                        ->where(['flyscreenopentype_id in' => $flyscreenopentypeID, 'balrating_id' => $balratingID]);
+
+                        // var_dump($meshID->toArray());
+                        // die();
+
+
+             //put meshID to an $arrayName = array('' => , ); 
+             //friday morning          
+            $meshArr = [];
+            foreach ($meshID as $onemesh){
+                $meshArr[]= $onemesh['meshtype_id'];
+            }
+            // var_dump($meshArr);
+            // die();
+
+            $mesh = $this->Meshtypes->find() 
+                    ->select(['type']) 
+                    ->where (['id in' => $meshArr]);
+
+                        // var_dump($mesh->toArray());
+                        // die();
+
+
+            echo json_encode($mesh->toArray());
 
             
         }

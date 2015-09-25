@@ -1,9 +1,22 @@
+#bw-carousel {
+  margin-top: -20px;
+}
+
 #head_backend {
   padding:0 0 5px 0;
   width:100%;
   height:2px;
   text-align: right;
   background-color: #3385D6;
+
+}
+
+#head_frontend {
+  padding:0 0 5px 0;
+  width:100%;
+  height:5px;
+  text-align: right;
+  background-color: black;
 
 }
 
@@ -109,6 +122,13 @@
 #logonav {
 	  margin-top: 1px;
     margin-left:35%;
+}
+
+#logonav1 {
+    height:90px;
+    width:90px;
+    margin-left: 5%;
+    margin-top:5px;
 }
 
 /* Sticky footer styles
@@ -222,3 +242,167 @@ div.message.error {
       font-size: 27px;
       padding: 10px;
 }
+
+
+/*font*/
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Source Sans Pro Light'), local('SourceSansPro-Light'), url(http://themes.googleusercontent.com/static/fonts/sourcesanspro/v7/toadOcfmlt9b38dHJxOBGNbE_oMaV8t2eFeISPpzbdE.woff) format('woff');
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Source Sans Pro'), local('SourceSansPro-Regular'), url(http://themes.googleusercontent.com/static/fonts/sourcesanspro/v7/ODelI1aHBYDBqgeIAH2zlBM0YzuT7MdOe03otPbuUS0.woff) format('woff');
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Source Sans Pro Semibold'), local('SourceSansPro-Semibold'), url(http://themes.googleusercontent.com/static/fonts/sourcesanspro/v7/toadOcfmlt9b38dHJxOBGJ6-ys_j0H4QL65VLqzI3wI.woff) format('woff');
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Source Sans Pro Bold'), local('SourceSansPro-Bold'), url(http://themes.googleusercontent.com/static/fonts/sourcesanspro/v7/toadOcfmlt9b38dHJxOBGFkQc6VGVFSmCnC_l7QZG60.woff) format('woff');
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 900;
+  src: local('Source Sans Pro Black'), local('SourceSansPro-Black'), url(http://themes.googleusercontent.com/static/fonts/sourcesanspro/v7/toadOcfmlt9b38dHJxOBGHiec-hVyr2k4iOzEQsW1iE.woff) format('woff');
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: italic;
+  font-weight: 300;
+  src: local('Source Sans Pro Light Italic'), local('SourceSansPro-LightIt'), url(http://themes.googleusercontent.com/static/fonts/sourcesanspro/v7/fpTVHK8qsXbIeTHTrnQH6GGomRtBD2u8FwSY4jjlmeA.woff) format('woff');
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Source Sans Pro Italic'), local('SourceSansPro-It'), url(http://themes.googleusercontent.com/static/fonts/sourcesanspro/v7/M2Jd71oPJhLKp0zdtTvoMzNrcjQuD0pTu1za2FULaMs.woff) format('woff');
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: italic;
+  font-weight: 600;
+  src: local('Source Sans Pro Semibold Italic'), local('SourceSansPro-SemiboldIt'), url(http://themes.googleusercontent.com/static/fonts/sourcesanspro/v7/fpTVHK8qsXbIeTHTrnQH6PULlOK_XQENnt2ryrY843E.woff) format('woff');
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: italic;
+  font-weight: 700;
+  src: local('Source Sans Pro Bold Italic'), local('SourceSansPro-BoldIt'), url(http://themes.googleusercontent.com/static/fonts/sourcesanspro/v7/fpTVHK8qsXbIeTHTrnQH6Nog-We9VNve39Jr4Vs_aDc.woff) format('woff');
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: italic;
+  font-weight: 900;
+  src: local('Source Sans Pro Black Italic'), local('SourceSansPro-BlackIt'), url(http://themes.googleusercontent.com/static/fonts/sourcesanspro/v7/fpTVHK8qsXbIeTHTrnQH6ONg1gFYvjbPSGxSBhvPu6E.woff) format('woff');
+}
+
+#myNavbar {
+  font-family: 'Source Sans Pro';
+  font-weight: 400;
+  font-size: 15px;
+  margin-top: 28px;
+  margin-left: 60px;
+
+}
+
+#btnQuote {
+  margin-top: -60px;
+    position: absolute;
+    margin-left: 80%;
+}
+
+body,html {
+  height:100%;
+  width:100%;
+  font-family:'Source Sans Pro',Helvetica,Arial,sans-serif;
+  color:#757575}
+
+.btn.btn-default{
+  margin:40px auto 0;
+  background:0 0;
+  position:relative;
+  color:#2BA9E0;
+  font-size:1em;
+  text-transform:uppercase;
+  font-weight:600;
+  text-align:center;
+  padding:12px 26px;
+  cursor:pointer;
+  border:2px solid #4cddf3;
+  border-radius:50%;
+  letter-spacing:2px;
+  pointer-events:auto;
+  border-color:#fff;-webkit-transition:all .1s ease-in-out;-moz-transition:all .1s ease-in-out;-o-transition:all .1s ease-in-out;transition:all .1s ease-in-out;
+}
+.btn.btn-default:active,.btn.btn-default:hover{
+  background:#2BA9E0;
+  border-color:#00CC00;
+  color:#2BA9E0}
+  .input-lg,button,input{border-radius:0}
+  .control-group.error input,.control-group.error select,.control-group.error textarea{border-color:#b94a48;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075);-moz-box-shadow:inset 0 1px 1px rgba(0,0,0,.075);box-shadow:inset 0 1px 1px rgba(0,0,0,.075)}.control-group.error .checkbox,.control-group.error .radio,.control-group.error input,.control-group.error select,.control-group.error textarea{color:#b94a48}label.error{color:#fff;background:#b94a48;border:solid thin #fff;padding:3px 5px}label.valid{color:#fff;background:#5CB85C;border:solid thin #fff;padding:3px 5px}.chart{position:relative;display:inline-block;width:150px;height:150px;margin-top:50px;margin-bottom:50px;text-align:center}.chart canvas{position:absolute;top:0;left:0}.percent{display:inline-block;line-height:150px;z-index:2}.percent:after{content:'%';margin-left:.1em;font-size:.8em}
+  .social-icons .btn{
+    margin-right:15px;
+    }
+  .social-icons{
+    padding-top:10px;
+    margin-bottom:10px;
+  }
+  .social-icons .btn.btn-clear{
+    border:1px solid #79be0b;
+  }
+  .btn.btn-round{
+    border-radius:50%;
+    width:50px;height:50px;
+    display:inline-block;
+    padding:0
+  }
+  .btn.btn-round i{font-size:20px;top:15px;position:relative}
+  .btn.btn-clear{
+    border:1px solid #fff;
+    color:#000000;background:0 0;background-color:none;font-weight:700;
+    -webkit-transition-duration:.8s;
+    -moz-transition-duration:.8s;
+    -o-transition-duration:.8s;
+    transition-duration:.8s;
+    -webkit-transition-property:
+    -webkit-transform;
+    -moz-transition-property:
+    -moz-transform;-o-transition-property:-o-transform;
+    transition-property:transform}
+    .btn.btn-clear.selected,.btn.btn-clear:hover {
+      background:#F8F8F8;
+     /* border: 1px solid #F8F8F8;*/
+      -webkit-transform:rotate(360deg);
+      -moz-transform:rotate(360deg);
+      -o-transform:rotate(360deg)}
+  .btn.btn-twitter:hover{
+    color:#2BA9E0;
+  }
+  .btn.btn-facebook:hover{
+    color:#204385;
+  }
+  .btn-dribbble:hover{
+    color:#D92C85;
+  }
+  .btn.btn-instagram:hover{
+    color:#BAB1A8;
+  }
+  .btn.btn-linkedin:hover{
+    color:#015786;
+  }
+  .btn.btn-pinterest:hover{
+    color:#CA2128;
+  }
+  .btn.btn-google:hover{
+    color:#D3492C;
+    }.left{float:left}.right{float:right}.text-center{text-align:center}.centered{margin-left:auto;margin-right:auto;float:none}@media(max-width:992px){#page-profile .profile{margin:0 auto 20px}}@media (max-width:479px){#page-welcome header h1{font-size:2em}#page-welcome header p{font-size:1em;line-height:3em}.section-title{font-size:1.5em}.section-header p{font-size:1.2em}#grid,#page-skills{text-align:center}#page-profile .profile{margin:0 auto 20px}}
