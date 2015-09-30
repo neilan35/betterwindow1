@@ -60,7 +60,7 @@ class EnquiriesController extends AppController
     }
 
     public function contactus(){
-        $this->layout ='website';
+        $this->layout ='test';
         $enquiry = $this->Enquiries->newEntity();
         if ($this->request->is('post')) {
             $enquiry = $this->Enquiries->patchEntity($enquiry, $this->request->data);

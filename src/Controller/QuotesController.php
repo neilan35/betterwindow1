@@ -73,7 +73,7 @@ class QuotesController extends AppController
     {
        
         $this->layout = 'test2';
-        $customer = $this->Session->read('Auth.Customer.id');
+        // $customer = $this->Session->read('Auth.Customer.id');
 //         var_dump($this->Session->read('Auth.Customer.id'));
 // die();
         $quote = $this->Quotes->newEntity();

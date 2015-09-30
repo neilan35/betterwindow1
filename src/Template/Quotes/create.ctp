@@ -5,16 +5,15 @@
         <h1 id="header"> Make a quotation! </h1>
     </div>
     
-    </br></br>
-    <p> You can request information on the price by just simply  providing a short description on what information you require. Thank you..</p>
     </br>
+   
 </div>
 <div class="container">
 <div class="row">
 <!-- <div class="quotes form large-10 medium-9 columns"> -->
-
     <?= $this->Form->create($quote,['class'=>'form-horizontal']); ?>
     <fieldset>
+        <p> You can request information on the price by just simply  providing a short description on what information you require. Thank you..</p>
         <legend><?= __('Get Quote Form') ?></legend>
         <div class="form-group">
             <label class="control-label col-md-2" for="first_name">Colour*:</label>
