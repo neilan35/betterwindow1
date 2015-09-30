@@ -1,3 +1,9 @@
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0; /*remove the gap so it doesn't close
+ }*/
+}
+
 #bw-carousel {
   margin-top: -20px;
 }
@@ -147,22 +153,44 @@ body {
   min-height: 100%;
   height: auto;
   /* Negative indent footer by its height */
-  margin: 0 auto -60px;
+  margin: 0 auto -100px;
   /* Pad bottom by footer height */
-  padding: 0 0 60px;
+  padding-bottom: 100px;
 }
 
 
 /* Set the fixed height of the footer here */
 #footer {
-  height: 60px;
-  background-color: #f5f5f5;
+  height: 300px;
+  background-color: #373737 ;
+  color: #969696;
 }
 
 .site-footer {
     padding: 0px;
     background-color: #f5f5f5;
     box-shadow: inset 0 1px 2px 1px rgba(0, 0, 0, 0.08);
+}
+
+#social-footer {
+  color: #fff;
+}
+
+#footer .section-title{
+  color: #fff;
+}
+
+#footer .footer-bottom{
+    background: #272727;
+    color: #888;
+    line-height: 10px;
+    padding: 15px;  
+    padding-top: 10px;
+
+  /* Negative indent footer by its height */
+  /* Pad bottom by footer height */
+  margin-top: 100px;
+  padding-bottom: 30px;
 }
 
 #button-login {
@@ -324,11 +352,25 @@ div.message.error {
 
 }
 
+#btnLogin {
+    width: 200px;
+    height: 60px;
+    text-align: center;
+    margin-top: 22px;
+    background-color: greenyellow;
+    font-size: 30px;
+}
+
+#btnLogin:hover {
+  background-color: #009900;
+  color: #ebebeb;
+}
+
 #btnQuote {
   /*margin-top: -60px;*/
     position: absolute;
     margin-left: 80%;
-    background-color: #79be0b;;
+    background-color: #79be0b;
 }
 
 #btnQuote:hover{
@@ -342,7 +384,7 @@ body,html {
   font-family:'Source Sans Pro',Helvetica,Arial,sans-serif;
   color:#757575}
 
-.btn.btn-default{
+/*.btn.btn-default{
   margin:40px auto 0;
   background:0 0;
   position:relative;
@@ -358,11 +400,12 @@ body,html {
   letter-spacing:2px;
   pointer-events:auto;
   border-color:#fff;-webkit-transition:all .1s ease-in-out;-moz-transition:all .1s ease-in-out;-o-transition:all .1s ease-in-out;transition:all .1s ease-in-out;
-}
+}*/
 .btn.btn-default:active,.btn.btn-default:hover{
-  background:#2BA9E0;
+  background:#79be0b;
   border-color:#00CC00;
-  color:#2BA9E0}
+  color:#fff}
+  
   .input-lg,button,input{border-radius:0}
   .control-group.error input,.control-group.error select,.control-group.error textarea{border-color:#b94a48;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075);-moz-box-shadow:inset 0 1px 1px rgba(0,0,0,.075);box-shadow:inset 0 1px 1px rgba(0,0,0,.075)}.control-group.error .checkbox,.control-group.error .radio,.control-group.error input,.control-group.error select,.control-group.error textarea{color:#b94a48}label.error{color:#fff;background:#b94a48;border:solid thin #fff;padding:3px 5px}label.valid{color:#fff;background:#5CB85C;border:solid thin #fff;padding:3px 5px}.chart{position:relative;display:inline-block;width:150px;height:150px;margin-top:50px;margin-bottom:50px;text-align:center}.chart canvas{position:absolute;top:0;left:0}.percent{display:inline-block;line-height:150px;z-index:2}.percent:after{content:'%';margin-left:.1em;font-size:.8em}
   .social-icons .btn{

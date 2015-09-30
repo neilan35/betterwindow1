@@ -127,15 +127,19 @@ class CustomersController extends AppController
                 'associated' => ['Users']
             ]);
 
-//            var_dump($customer);
-//            die();
+           // var_dump($customer);
+           // die();
             if ($this->Customers->save($customer)) {
+                
                 $this->Flash->success('The customer has been saved.');
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller' => 'pages', 'action' => 'home']);
+                $this->Flash->success('The customer has been saved.');
+
             } else {
                 $this->Flash->error('The customer could not be saved. Please, try again.');
             }
         }
+
         $this->set(compact('customer'));
         $this->set('_serialize', ['customer']);
     }

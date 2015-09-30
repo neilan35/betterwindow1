@@ -19,7 +19,7 @@ class ItemtypesController extends AppController
     {
         $itemtypes = $this->Itemtypes->find('all');
 
-        $this->set('itemtypes', $itemtypes));
+        $this->set('itemtypes', $itemtypes);
         $this->set('_serialize', ['itemtypes']);
     }
 

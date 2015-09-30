@@ -23,16 +23,14 @@
     <?=$this->Html->css('modern-business.css')?>
 
     <!-- js -->
-  <!--   <?= $this->Html->script('jquery-1.11.2.min.js')?>
 
-     Bootstrap Core JavaScript
-    <?= $this->Html->script('bootstrap.min.js')?> -->
- <!-- jQuery -->
-        <?php echo $this->Html->script('jquery-1.11.2.min.js');?>
+    <!-- jQuery -->
+    <?php echo $this->Html->script('jquery-1.11.2.min.js');?>
 
-        <!-- Bootstrap Core JavaScript -->
-        <?php echo $this->Html->script('bootstrap.min.js');?>
-        <!-- Script to Activate the Carousel -->
+    <!-- Bootstrap Core JavaScript -->
+    <?php echo $this->Html->script('bootstrap.min.js');?>
+    
+    <!-- Script to Activate the Carousel -->
    
 
     <?= $this->fetch('meta') ?>
@@ -54,20 +52,15 @@
             </div> 
             <div class="col-lg-5">
                 <div class="social-icons pull-right">
-                    <div>
-                        <a href="https://twitter.com/sahrizalpahlevi" target="_blank" class="btn btn-round btn-clear btn-twitter"><i class="fa fa-twitter"></i></a>
+                    
+                        <a href='#' target="_blank" class="btn btn-round btn-clear btn-twitter"><i class="fa fa-twitter"></i></a>
                         <a href="https://www.facebook.com/blueskywindows.com.au?fref=ts" target="_blank" class="btn btn-round btn-clear btn-facebook"><i class="fa fa-facebook"></i></a>
                         <a href="https://www.instagram.com/" class="btn btn-round btn-clear btn-instagram"><i class="fa fa-instagram"></i></a>
                         <a href="https://www.linkedin.com/" class="btn btn-round btn-clear btn-linkedin"><i class="fa fa-linkedin-square"></i></a>
                         <a href="https://www.pinterest.com/" class="btn btn-round btn-clear btn-pinterest"><i class="fa fa-pinterest"></i></a>
                         <a href="https://plus.google.com/106251164898636973632/posts" class="btn btn-round btn-clear btn-google"><i class="fa fa-google-plus"></i></a>
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        </button>
-                    </div>
+                       
+                    
                 </div>
             </div>
         </div> <!-- end container -->
@@ -205,6 +198,7 @@
       		  <li data-target="#bw-carousel" data-slide-to="0" class="active"></li>
         		<li data-target="#bw-carousel" data-slide-to="1"></li>
         		<li data-target="#bw-carousel" data-slide-to="2"></li>
+                <li data-target="#bw-carousel" data-slide-to="3"></li>
       		 </ol>
 
               <div class="carousel-inner">
@@ -213,7 +207,8 @@
                   <div class="carousel-caption">
                     <h1>BETTER WINDOWS</h1>
               <p>The best UPVC Window in town</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+              <p><?php echo $this->Html->link('<span class="glyphicon glyphicon-ok"></span> Sign up today!', array('controller'=>'Customers','action'=>'register'), array('escape' => false, 'class' => 'btn btn-primary btn-lg', 'target' => '_self'));?>
+              </p>
                   </div>
                 </div>
                 <div class="item">
@@ -258,21 +253,44 @@
              </div>
 </body>
 
-<footer class= "footer">
+<footer id= "footer">
     <div class="container-fluid">
         <div class="row" id="wrap">
-            <div class="col-lg-2"> 
+            <div class="col-lg-1"> 
             </div>
-            <div class="col-lg-3"> 
-                <h4>CONTACT US</h4>
+            <div class="col-lg-4"> 
+                <h4 class="section-title">CONTACT US</h4>
             </br>
-                <p><strong>Email: </strong>office@blueskywindows.com.au</br>
-                <strong>Phone: </strong>(03) 9588 2198 </br><strong>Mobile: </strong>0450 908 271</br> <strong>Address: </strong>9A Citrus Street</br>Braeside, VIC 3195</p> 
+                <p><strong class="section-title">Email: </strong>office@blueskywindows.com.au</br>
+                <strong class="section-title">Phone: </strong>(03) 9588 2198 </br><strong class="section-title">Mobile: </strong class="section-title">0450 908 271</br> <strong class="section-title">Address: </strong>9A Citrus Street Braeside, VIC 3195</p> 
             </div>
-            <div class="col-lg-7">  
+            <div class="col-lg-7"> 
+            <div class="social-icons pull-right">
+                    
+                        <a href='#' target="_blank" class="btn btn-round btn-clear btn-twitter" id="social-footer"><i class="fa fa-twitter"></i></a>
+                        <a href="https://www.facebook.com/blueskywindows.com.au?fref=ts" target="_blank" class="btn btn-round btn-clear btn-facebook"><i class="fa fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/" class="btn btn-round btn-clear btn-instagram"><i class="fa fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/" class="btn btn-round btn-clear btn-linkedin"><i class="fa fa-linkedin-square"></i></a>
+                        <a href="https://www.pinterest.com/" class="btn btn-round btn-clear btn-pinterest"><i class="fa fa-pinterest"></i></a>
+                        <a href="https://plus.google.com/106251164898636973632/posts" class="btn btn-round btn-clear btn-google"><i class="fa fa-google-plus"></i></a>
+                       
+                    
+        </div> 
             </div>
         </div>
     </div>
+    <div class="footer-bottom">
+        <div class="col-lg-1"> 
+            </div>
+        <div class"col-lg-6 col-md-6 col-xs-12 col-sm-5 ">
+        <p> Copyright 2015 by <strong class="section-title">Team 9 Monash University</strong> All Rights Reserved</p>
+     </div>
+     <div class"col-lg-6 col-md-6 col-xs-12 col-sm-6 "> 
+        
+
+     </div>
+
+     </div>
 </footer>
 
 

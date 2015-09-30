@@ -2,6 +2,8 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\ORM\TableRegistry;
+
 
 /**
  * Quotes Controller
@@ -71,6 +73,9 @@ class QuotesController extends AppController
     {
        
         $this->layout = 'test2';
+        $customer = $this->Session->read('Auth.Customer.id');
+//         var_dump($this->Session->read('Auth.Customer.id'));
+// die();
         $quote = $this->Quotes->newEntity();
         if ($this->request->is('post')) {
            $quote = $this->Quotes->patchEntity($quote, $this->request->data);

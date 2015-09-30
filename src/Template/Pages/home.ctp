@@ -1,11 +1,17 @@
 <div class="container">
         <!-- Marketing Icons Section -->
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-9">
                 <h1 class="page-header">
                     uPVC Windows & Doors in Melbourne, VIC
                 </h1>
             </div>
+            <div class="col-lg-3">
+                <?php echo $this->Html->link('<span class="glyphicon glyphicon-user"></span> Login!', array('controller'=>'Customers','action'=>'Login'), array('escape' => false, 'class' => 'btn btn-info btn-lg', 'target' => '_self', 'id'=>'btnLogin'));?>
+            </div>
+
+        </div>
+        <div class="row">
             <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">

@@ -1,3 +1,5 @@
+
+
 <div class="container">
     <h1 id="header"> Register for a New Account </h1>
 
@@ -31,7 +33,7 @@
         <div class="form-group">
             <label class="control-label col-sm-2" for="phone_number">Phone Number:</label>
                 <div class="input-group col-sm-4">
-                <?php echo $this->Form->input('phone_number*',['class' => 'form-control',
+                <?php echo $this->Form->input('phone_number',['class' => 'form-control',
                                                        'placeholder' => 'Enter Phone Number',
                                                        'label' => false]);?>
                 </div>
@@ -61,6 +63,7 @@
                 <div class="input-group col-sm-4">
                 <?php echo $this->Form->input('user.confirm_password',['class' => 'form-control',
                                                        'placeholder' => 'Re-Enter Password',
+                                                       'type' => 'password',
                                                        'label' => false]);?>
                 </div>
         </div>
@@ -103,7 +106,7 @@
               </div>     
     </fieldset>
     
-    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Form->button(__('Submit Registration')) ?>
     <?= $this->Form->end() ?>
 </div>
 
@@ -148,7 +151,7 @@
                 </div>
         </div>
         <div class="form-group">
-            <label class="control-label col-sm-2" for="phone_number">Phone Number*:</label>
+            <label class="control-label col-sm-2" for="phone_number">Phone Number:</label>
                 <div class="input-group col-sm-4">
                 <?php echo $this->Form->input('phone_number',['class' => 'form-control',
                                                        'placeholder' => 'Enter Phone Number',

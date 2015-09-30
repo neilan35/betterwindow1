@@ -26,7 +26,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>
-        BetterWIndowsAdmin
+        Better Windows Admin Panel
     </title>
     <?= $this->Html->meta('icon') ?>
 

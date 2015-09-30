@@ -21,19 +21,18 @@
     <!-- Custom CSS -->
      <?=$this->Html->css('font-awesome.css')?>
     <?=$this->Html->css('modern-business.css')?>
-
+    <?= $this->Html->css('jquery-ui.min.css')?>
+    
     <!-- js -->
-  <!--   <?= $this->Html->script('jquery-1.11.2.min.js')?>
+  
 
-     Bootstrap Core JavaScript
-    <?= $this->Html->script('bootstrap.min.js')?> -->
- <!-- jQuery -->
-        <?php echo $this->Html->script('jquery-1.11.2.min.js');?>
+    <!-- jQuery -->
+    <?php echo $this->Html->script('jquery-1.11.2.min.js');?>
+    <?= $this->Html->script('jquery-ui.min.js')?>
 
-        <!-- Bootstrap Core JavaScript -->
-        <?php echo $this->Html->script('bootstrap.min.js');?>
-        <!-- Script to Activate the Carousel -->
-   
+    <!-- Bootstrap Core JavaScript -->
+    <?php echo $this->Html->script('bootstrap.min.js');?>
+ 
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
