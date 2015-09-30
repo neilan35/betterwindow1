@@ -24,7 +24,7 @@ class GlasscompsTable extends Table
         $this->table('glasscomps');
         $this->displayField('type');
         $this->primaryKey('id');
-        $this->hasMany('Products', [
+        $this->hasMany('Quoteproducts', [
             'foreignKey' => 'glasscomp_id'
         ]);
     }

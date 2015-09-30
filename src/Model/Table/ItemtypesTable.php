@@ -28,7 +28,7 @@ class ItemtypesTable extends Table
             'foreignKey' => 'itemtype_id'
         ]);
 
-        $this->hasMany('Products', [
+        $this->hasMany('Quoteproducts', [
             'foreignKey' => 'itemtype_id'
         ]);
 

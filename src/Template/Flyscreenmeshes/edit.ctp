@@ -1,15 +1,16 @@
 <?= $this->Form->create($flyscreenmesh); ?>
 <div class="row">
-    <div class="col-lg-8">
+    <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                Edit Fly Screen Mesh
+                Add a Fly Screen Mesh
             </div>
             <div class="panel-body">
                 <div class="row">
-                    <div class="col-lg-8">
+                    <div class="col-lg-12">
                         <form class="form-horizontal" role="form">
-                            <div class="col-lg-8">
+                        <div class="row">
+                            <div class="col-lg-6">
                                 <div class="dropdown">
                                     <?= $this->Form->input('balrating_id', ['class' => 'combobox form-control',
                                                        'options' => $balratings,
@@ -25,18 +26,19 @@
                                                        'label' => 'Mesh Types']);?>
                                 </div>
                                 <div class="dropdown">
-                                    <?= $this->Form->input('flyscreenopentype_id', ['class' => 'combobox form-control',
-                                                       'options' => $flyscreenopentypes,
+                                    <?= $this->Form->input('flyscreentype_id', ['class' => 'combobox form-control',
+                                                       'options' => $flyscreentypes,
                                                        'empty'=> true,
                                                        'required' => true,
                                                        'label' => 'Fly Screen Types']);?>
                                 </div>
                             </div>
-                        </form>                
+                        </div>
+                        </form>
                     </div>
                 </div>
-                <?= $this->Form->button(__('Submit')) ?>
-                <?= $this->Form->end() ?>
+            <button type="submit" class="btn btn-default">Submit </button>
+            <?= $this->Form->end() ?>
             </div>
         </div>
     </div>

@@ -11,7 +11,7 @@
             <th><?= $this->Paginator->sort('id') ?></th>
             <th><?= $this->Paginator->sort('balrating_id') ?></th>
             <th><?= $this->Paginator->sort('meshtype_id') ?></th>
-            <th><?= $this->Paginator->sort('flyscreenopentype_id') ?></th>
+            <th><?= $this->Paginator->sort('flyscreentype_id') ?></th>
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
     </thead>
@@ -26,7 +26,7 @@
                 <?= $flyscreenmesh->has('meshtype') ? $this->Html->link($flyscreenmesh->meshtype->type, ['controller' => 'Meshtypes', 'action' => 'view', $flyscreenmesh->meshtype->id]) : '' ?>
             </td>
             <td>
-                <?= $flyscreenmesh->has('flyscreenopentype') ? $this->Html->link($flyscreenmesh->flyscreenopentype->id, ['controller' => 'Flyscreenopentypes', 'action' => 'view', $flyscreenmesh->flyscreenopentype->id]) : '' ?>
+                <?= $flyscreenmesh->has('flyscreentype') ? $this->Html->link($flyscreenmesh->flyscreentype->id, ['controller' => 'Flyscreentypes', 'action' => 'view', $flyscreenmesh->flyscreentype->id]) : '' ?>
             </td>
             <td class="actions">
                 <?= $this->Html->link(__('View'), ['action' => 'view', $flyscreenmesh->id]) ?>

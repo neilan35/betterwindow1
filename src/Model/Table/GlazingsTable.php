@@ -36,7 +36,7 @@ class GlazingsTable extends Table
         $this->belongsTo('Balratings', [
             'foreignKey' => 'balrating_id'
         ]);
-        $this->hasMany('Products', [
+        $this->hasMany('Quoteproducts', [
             'foreignKey' => 'glazing_id'
         ]);
     }

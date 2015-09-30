@@ -30,7 +30,7 @@ class DesignsTable extends Table
         $this->belongsTo('Pictures', [
             'foreignKey' => 'picture_id'
         ]);
-        $this->hasMany('Products', [
+        $this->hasMany('Quoteproducts', [
             'foreignKey' => 'design_id'
         ]);
     }

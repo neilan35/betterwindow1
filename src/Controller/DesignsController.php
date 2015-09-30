@@ -34,7 +34,7 @@ class DesignsController extends AppController
     public function view($id = null)
     {
         $design = $this->Designs->get($id, [
-            'contain' => ['Opentypes', 'Pictures', 'Products']
+            'contain' => ['Opentypes', 'Pictures', 'Quoteproducts']
         ]);
         $this->set('design', $design);
         $this->set('_serialize', ['design']);

@@ -33,7 +33,7 @@ class BalratingsController extends AppController
     public function view($id = null)
     {
         $balrating = $this->Balratings->get($id, [
-            'contain' => ['Flyscreenmeshes', 'Glazings', 'Products']
+            'contain' => ['Flyscreenmeshes', 'Glazings', 'Quoteproducts']
         ]);
         $this->set('balrating', $balrating);
         $this->set('_serialize', ['balrating']);

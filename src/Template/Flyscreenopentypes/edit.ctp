@@ -1,15 +1,16 @@
 <?= $this->Form->create($flyscreenopentype); ?>
 <div class="row">
-    <div class="col-lg-8">
+    <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                Edit fly Screen Open Types
+                Add a Fly Screen Open Type
             </div>
             <div class="panel-body">
                 <div class="row">
-                    <div class="col-lg-8">
+                    <div class="col-lg-12">
                         <form class="form-horizontal" role="form">
-                            <div class="col-lg-8">
+                        <div class="row">
+                            <div class="col-lg-6">
                                 <div class="dropdown">
                                     <?= $this->Form->input('opentype_id', ['class' => 'combobox form-control',
                                                        'options' => $opentypes,
@@ -25,12 +26,12 @@
                                                        'label' => 'Fly Screen Types']);?>
                                 </div>
                             </div>
-                        </form>                
+                        </div>
+                        </form>
                     </div>
                 </div>
-                <?= $this->Form->button(__('Submit')) ?>
-                <?= $this->Form->end() ?>
+            <button type="submit" class="btn btn-default">Submit </button>
+            <?= $this->Form->end() ?>
             </div>
         </div>
     </div>
-</div>

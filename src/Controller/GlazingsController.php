@@ -34,7 +34,7 @@ class GlazingsController extends AppController
     public function view($id = null)
     {
         $glazing = $this->Glazings->get($id, [
-            'contain' => ['Usages', 'Glasstypes', 'Compositions', 'Balratings', 'Products']
+            'contain' => ['Usages', 'Glasstypes', 'Compositions', 'Balratings', 'Quoteproducts']
         ]);
         $this->set('glazing', $glazing);
         $this->set('_serialize', ['glazing']);

@@ -30,12 +30,9 @@ class FlyscreenopentypesTable extends Table
         $this->belongsTo('Flyscreentypes', [
             'foreignKey' => 'flyscreentype_id'
         ]);
-        $this->hasMany('Flyscreenmeshes', [
-            'foreignKey' => 'flyscreenopentype_id'
-        ]);
-        $this->hasMany('Items', [
+        $this->hasMany('Itemtypes', [
             'joinTable' => 'Opentypes'
-            ]);
+        ]);
     }
 
     /**

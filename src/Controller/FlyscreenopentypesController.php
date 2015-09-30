@@ -16,10 +16,10 @@ class FlyscreenopentypesController extends AppController
      * @return void
      */
     public function index()
-    {   
+    {
         $flyscreenopentypes = $this->Flyscreenopentypes->find('all')
         ->contain(['Opentypes.Itemtypes', 'Opentypes', 'Flyscreentypes']);
-        
+
         $this->set('flyscreenopentypes', $flyscreenopentypes);
         $this->set('_serialize', ['flyscreenopentypes']);
     }
@@ -34,7 +34,7 @@ class FlyscreenopentypesController extends AppController
     public function view($id = null)
     {
         $flyscreenopentype = $this->Flyscreenopentypes->get($id, [
-            'contain' => ['Opentypes.Itemtypes', 'Opentypes', 'Flyscreentypes', 'Flyscreenmeshes']
+            'contain' => ['Opentypes.Itemtypes', 'Opentypes', 'Flyscreentypes']
         ]);
         $this->set('flyscreenopentype', $flyscreenopentype);
         $this->set('_serialize', ['flyscreenopentype']);
@@ -43,14 +43,12 @@ class FlyscreenopentypesController extends AppController
     /**
      * Add method
      *
-     * @return void Redirects on successful add, renders view otherw
+     * @return void Redirects on successful add, renders view otherwise.
      */
     public function add()
     {
         $flyscreenopentype = $this->Flyscreenopentypes->newEntity();
         if ($this->request->is('post')) {
-            // var_dump($this->request->data);
-            // die();
             $flyscreenopentype = $this->Flyscreenopentypes->patchEntity($flyscreenopentype, $this->request->data);
             if ($this->Flyscreenopentypes->save($flyscreenopentype)) {
                 $this->Flash->success('The flyscreenopentype has been saved.');
@@ -103,7 +101,7 @@ class FlyscreenopentypesController extends AppController
         $opentypes = $this->Flyscreenopentypes->Opentypes->find('list', ['limit' => 200]);
         $flyscreentypes = $this->Flyscreenopentypes->Flyscreentypes->find('list', ['limit' => 200]);
 
-        $opentypeArray = $opentypes->toArray();
+         $opentypeArray = $opentypes->toArray();
         foreach ($opentypeArray as $key => $opentype) {
             $itemtype_id = $this->Flyscreenopentypes->Opentypes->find()
                                     ->select(['itemtype_id'])
@@ -115,6 +113,7 @@ class FlyscreenopentypesController extends AppController
         }
 
         $opentypes = $opentypeArray;
+        
         $this->set(compact('flyscreenopentype', 'opentypes', 'flyscreentypes'));
         $this->set('_serialize', ['flyscreenopentype']);
     }

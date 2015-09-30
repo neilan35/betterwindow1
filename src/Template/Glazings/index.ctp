@@ -23,16 +23,16 @@
         <tr>
             <td><?= $this->Number->format($glazing->id) ?></td>
             <td>
-                <?= $glazing->has('usage') ? $this->Html->link($glazing->usage->id, ['controller' => 'Usages', 'action' => 'view', $glazing->usage->id]) : '' ?>
+                <?= $glazing->has('usage') ? $this->Html->link($glazing->usage->description, ['controller' => 'Usages', 'action' => 'view', $glazing->usage->id]) : '' ?>
             </td>
             <td>
-                <?= $glazing->has('glasstype') ? $this->Html->link($glazing->glasstype->id, ['controller' => 'Glasstypes', 'action' => 'view', $glazing->glasstype->id]) : '' ?>
+                <?= $glazing->has('glasstype') ? $this->Html->link($glazing->glasstype->type, ['controller' => 'Glasstypes', 'action' => 'view', $glazing->glasstype->id]) : '' ?>
             </td>
             <td>
                 <?= $glazing->has('composition') ? $this->Html->link($glazing->composition->name, ['controller' => 'Compositions', 'action' => 'view', $glazing->composition->id]) : '' ?>
             </td>
             <td>
-                <?= $glazing->has('balrating') ? $this->Html->link($glazing->balrating->id, ['controller' => 'Balratings', 'action' => 'view', $glazing->balrating->id]) : '' ?>
+                <?= $glazing->has('balrating') ? $this->Html->link($glazing->balrating->balrating, ['controller' => 'Balratings', 'action' => 'view', $glazing->balrating->id]) : '' ?>
             </td>
             <td><?= h($glazing->obscurity) ?></td>
             <td><?= h($glazing->safety) ?></td>

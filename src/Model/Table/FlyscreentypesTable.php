@@ -24,6 +24,9 @@ class FlyscreentypesTable extends Table
         $this->table('flyscreentypes');
         $this->displayField('type');
         $this->primaryKey('id');
+        $this->hasMany('Flyscreenmeshes', [
+            'foreignKey' => 'flyscreentype_id'
+        ]);
         $this->hasMany('Flyscreenopentypes', [
             'foreignKey' => 'flyscreentype_id'
         ]);

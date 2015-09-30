@@ -30,7 +30,7 @@ class BalratingsTable extends Table
         $this->hasMany('Glazings', [
             'foreignKey' => 'balrating_id'
         ]);
-        $this->hasMany('Products', [
+        $this->hasMany('Quoteproducts', [
             'foreignKey' => 'balrating_id'
         ]);
     }

@@ -33,7 +33,7 @@ class ItemtypesController extends AppController
     public function view($id = null)
     {
         $itemtype = $this->Itemtypes->get($id, [
-            'contain' => ['Opentypes', 'Products']
+            'contain' => ['Opentypes', 'Quoteproducts']
         ]);
         $this->set('itemtype', $itemtype);
         $this->set('_serialize', ['itemtype']);

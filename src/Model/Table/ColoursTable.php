@@ -27,7 +27,7 @@ class ColoursTable extends Table
         $this->belongsTo('Categories', [
             'foreignKey' => 'category_id'
         ]);
-        $this->hasMany('Products', [
+        $this->hasMany('Quoteproducts', [
             'foreignKey' => 'colour_id'
         ]);
     }

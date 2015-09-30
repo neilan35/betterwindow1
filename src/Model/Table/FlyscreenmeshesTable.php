@@ -30,10 +30,10 @@ class FlyscreenmeshesTable extends Table
         $this->belongsTo('Meshtypes', [
             'foreignKey' => 'meshtype_id'
         ]);
-        $this->belongsTo('Flyscreenopentypes', [
-            'foreignKey' => 'flyscreenopentype_id'
+        $this->belongsTo('Flyscreentypes', [
+            'foreignKey' => 'flyscreentype_id'
         ]);
-        $this->hasMany('Products', [
+        $this->hasMany('Quoteproducts', [
             'foreignKey' => 'flyscreenmesh_id'
         ]);
     }
@@ -55,9 +55,9 @@ class FlyscreenmeshesTable extends Table
             ->add('meshtype_id', 'valid', ['rule' => 'numeric'])
             ->requirePresence('meshtype_id', 'create')
             ->notEmpty('meshtype_id')
-            ->add('flyscreenopentype_id', 'valid', ['rule' => 'numeric'])
-            ->requirePresence('flyscreenopentype_id', 'create')
-            ->notEmpty('flyscreenopentype_id');
+            ->add('flyscreentype_id', 'valid', ['rule' => 'numeric'])
+            ->requirePresence('flyscreentype_id', 'create')
+            ->notEmpty('flyscreentype_id');
 
         return $validator;
     }
@@ -73,7 +73,7 @@ class FlyscreenmeshesTable extends Table
     {
         $rules->add($rules->existsIn(['balrating_id'], 'Balratings'));
         $rules->add($rules->existsIn(['meshtype_id'], 'Meshtypes'));
-        $rules->add($rules->existsIn(['flyscreenopentype_id'], 'Flyscreenopentypes'));
+        $rules->add($rules->existsIn(['flyscreentype_id'], 'Flyscreentypes'));
         return $rules;
     }
 }

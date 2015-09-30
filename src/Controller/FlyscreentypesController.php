@@ -17,7 +17,7 @@ class FlyscreentypesController extends AppController
      */
     public function index()
     {
-        $flyscreentypes = $this->Flyscreentypes->find('all');
+       $flyscreentypes = $this->Flyscreentypes->find('all');
         $this->set('flyscreentypes', $flyscreentypes);
         $this->set('_serialize', ['flyscreentypes']);
     }
@@ -32,7 +32,7 @@ class FlyscreentypesController extends AppController
     public function view($id = null)
     {
         $flyscreentype = $this->Flyscreentypes->get($id, [
-            'contain' => ['Flyscreenopentypes']
+            'contain' => ['Flyscreenmeshes', 'Flyscreenopentypes']
         ]);
         $this->set('flyscreentype', $flyscreentype);
         $this->set('_serialize', ['flyscreentype']);

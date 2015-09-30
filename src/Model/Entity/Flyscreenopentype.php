@@ -19,6 +19,5 @@ class Flyscreenopentype extends Entity
         'flyscreentype_id' => true,
         'opentype' => true,
         'flyscreentype' => true,
-        'flyscreenmeshes' => true,
     ];
 }

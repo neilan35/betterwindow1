@@ -17,6 +17,7 @@ class Flyscreentype extends Entity
     protected $_accessible = [
         'type' => true,
         'price' => true,
+        'flyscreenmeshes' => true,
         'flyscreenopentypes' => true,
     ];
 }

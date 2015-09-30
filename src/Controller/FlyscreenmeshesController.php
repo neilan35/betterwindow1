@@ -18,11 +18,8 @@ class FlyscreenmeshesController extends AppController
     public function index()
     {
         $flyscreenmeshes = $this->Flyscreenmeshes->find('all')
-        ->contain(['Balratings', 'Meshtypes', 'Flyscreenopentypes']);
+        ->contain(['Balratings', 'Meshtypes', 'Flyscreentypes']);
 
-        // $this->paginate = [
-        //     'contain' => ['Balratings', 'Meshtypes', 'Flyscreenopentypes']
-        // ];
         $this->set('flyscreenmeshes', $flyscreenmeshes);
         $this->set('_serialize', ['flyscreenmeshes']);
     }
@@ -37,7 +34,7 @@ class FlyscreenmeshesController extends AppController
     public function view($id = null)
     {
         $flyscreenmesh = $this->Flyscreenmeshes->get($id, [
-            'contain' => ['Balratings', 'Meshtypes', 'Flyscreenopentypes', 'Products']
+            'contain' => ['Balratings', 'Meshtypes', 'Flyscreentypes', 'Quoteproducts']
         ]);
         $this->set('flyscreenmesh', $flyscreenmesh);
         $this->set('_serialize', ['flyscreenmesh']);
@@ -62,8 +59,8 @@ class FlyscreenmeshesController extends AppController
         }
         $balratings = $this->Flyscreenmeshes->Balratings->find('list', ['limit' => 200]);
         $meshtypes = $this->Flyscreenmeshes->Meshtypes->find('list', ['limit' => 200]);
-        $flyscreenopentypes = $this->Flyscreenmeshes->Flyscreenopentypes->find('list', ['limit' => 200]);
-        $this->set(compact('flyscreenmesh', 'balratings', 'meshtypes', 'flyscreenopentypes'));
+        $flyscreentypes = $this->Flyscreenmeshes->Flyscreentypes->find('list', ['limit' => 200]);
+        $this->set(compact('flyscreenmesh', 'balratings', 'meshtypes', 'flyscreentypes'));
         $this->set('_serialize', ['flyscreenmesh']);
     }
 
@@ -90,8 +87,8 @@ class FlyscreenmeshesController extends AppController
         }
         $balratings = $this->Flyscreenmeshes->Balratings->find('list', ['limit' => 200]);
         $meshtypes = $this->Flyscreenmeshes->Meshtypes->find('list', ['limit' => 200]);
-        $flyscreenopentypes = $this->Flyscreenmeshes->Flyscreenopentypes->find('list', ['limit' => 200]);
-        $this->set(compact('flyscreenmesh', 'balratings', 'meshtypes', 'flyscreenopentypes'));
+        $flyscreentypes = $this->Flyscreenmeshes->Flyscreentypes->find('list', ['limit' => 200]);
+        $this->set(compact('flyscreenmesh', 'balratings', 'meshtypes', 'flyscreentypes'));
         $this->set('_serialize', ['flyscreenmesh']);
     }
 

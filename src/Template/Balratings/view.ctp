@@ -97,7 +97,7 @@
 <div class="related row">
     <div class="table-responsive">
     <h4 class="subheader"><?= __('Related Products') ?></h4>
-    <?php if (!empty($balrating->products)): ?>
+    <?php if (!empty($balrating->quoteproducts)): ?>
     <table class="table table-hover" id="tableIndex">
         <tr>
             <th><?= __('Id') ?></th>
@@ -112,23 +112,23 @@
             <th><?= __('Width') ?></th>
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
-        <?php foreach ($balrating->products as $products): ?>
+        <?php foreach ($balrating->quoteproducts as $quoteproducts): ?>
         <tr>
-            <td><?= h($products->id) ?></td>
-            <td><?= h($products->colour_id) ?></td>
-            <td><?= h($products->balrating_id) ?></td>
-            <td><?= h($products->itemtype_id) ?></td>
-            <td><?= h($products->design_id) ?></td>
-            <td><?= h($products->reveal_id) ?></td>
-            <td><?= h($products->flyscreenmesh_id) ?></td>
-            <td><?= h($products->glazing_id) ?></td>
-            <td><?= h($products->height) ?></td>
-            <td><?= h($products->width) ?></td>
+            <td><?= h($quoteproducts->id) ?></td>
+            <td><?= h($quoteproducts->colour_id) ?></td>
+            <td><?= h($quoteproducts->balrating_id) ?></td>
+            <td><?= h($quoteproducts->itemtype_id) ?></td>
+            <td><?= h($quoteproducts->design_id) ?></td>
+            <td><?= h($quoteproducts->reveal_id) ?></td>
+            <td><?= h($quoteproducts->flyscreenmesh_id) ?></td>
+            <td><?= h($quoteproducts->glazing_id) ?></td>
+            <td><?= h($quoteproducts->height) ?></td>
+            <td><?= h($quoteproducts->width) ?></td>
 
             <td class="actions">
-                <?= $this->Html->link(__('View'), ['controller' => 'Products', 'action' => 'view', $products->id]) ?>
-                <?= $this->Html->link(__('Edit'), ['controller' => 'Products', 'action' => 'edit', $products->id]) ?>
-                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Products', 'action' => 'delete', $products->id], ['confirm' => __('Are you sure you want to delete # {0}?', $products->id)]) ?>
+                <?= $this->Html->link(__('View'), ['controller' => 'Quoteproducts', 'action' => 'view', $quoteproducts->id]) ?>
+                <?= $this->Html->link(__('Edit'), ['controller' => 'Quoteproducts', 'action' => 'edit', $quoteproducts->id]) ?>
+                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Quoteproducts', 'action' => 'delete', $quoteproducts->id], ['confirm' => __('Are you sure you want to delete # {0}?', $quoteproducts->id)]) ?>
             </td>
         </tr>
 

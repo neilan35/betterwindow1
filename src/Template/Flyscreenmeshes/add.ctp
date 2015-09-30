@@ -26,8 +26,8 @@
                                                        'label' => 'Mesh Types']);?>
                                 </div>
                                 <div class="dropdown">
-                                    <?= $this->Form->input('flyscreenopentype_id', ['class' => 'combobox form-control',
-                                                       'options' => $flyscreenopentypes,
+                                    <?= $this->Form->input('flyscreentype_id', ['class' => 'combobox form-control',
+                                                       'options' => $flyscreentypes,
                                                        'empty'=> true,
                                                        'required' => true,
                                                        'label' => 'Fly Screen Types']);?>

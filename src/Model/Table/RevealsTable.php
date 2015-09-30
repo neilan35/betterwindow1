@@ -24,7 +24,7 @@ class RevealsTable extends Table
         $this->table('reveals');
         $this->displayField('type');
         $this->primaryKey('id');
-        $this->hasMany('Products', [
+        $this->hasMany('Quoteproducts', [
             'foreignKey' => 'reveal_id'
         ]);
     }

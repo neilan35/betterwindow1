@@ -37,7 +37,7 @@ class ColoursController extends AppController
     public function view($id = null)
     {
         $colour = $this->Colours->get($id, [
-            'contain' => ['Categories', 'Products']
+            'contain' => ['Categories', 'Quoteproducts']
         ]);
         $this->set('colour', $colour);
         $this->set('_serialize', ['colour']);

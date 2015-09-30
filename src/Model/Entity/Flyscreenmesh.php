@@ -17,10 +17,10 @@ class Flyscreenmesh extends Entity
     protected $_accessible = [
         'balrating_id' => true,
         'meshtype_id' => true,
-        'flyscreenopentype_id' => true,
+        'flyscreentype_id' => true,
         'balrating' => true,
         'meshtype' => true,
-        'flyscreenopentype' => true,
-        'products' => true,
+        'flyscreentype' => true,
+        'quoteproducts' => true,
     ];
 }
