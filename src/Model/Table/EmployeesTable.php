@@ -29,7 +29,9 @@ class EmployeesTable extends Table
             'foreignKey' => 'role_id'
         ]);
         $this->hasOne('Users', [
-            'foreignKey' => 'employee_id'
+            'foreignKey' => 'employee_id',
+            'dependent' => 'true',
+            'cascadeCallbacks'=> 'true'
         ]);
     }
 

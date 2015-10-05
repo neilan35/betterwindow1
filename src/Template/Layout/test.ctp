@@ -181,11 +181,17 @@
                                 </li>
                             </ul>
                         </li>
-                        <li>
-                            <?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> Make a Quote!', array('controller'=>'Quotes','action'=>'create'), array('escape' => false, 'class' => 'btn btn-success btn-md', 'target' => '_self', 'id' => 'btnQuote'));?>
-                        </li>
+                        
                     </ul>
-                
+                    <ul class="navbar-form form-inline navbar-right">
+                            <?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> Make a Quote!', array('controller'=>'Quotes','action'=>'create'), array('escape' => false, 'class' => 'btn btn-success btn-md', 'target' => '_self'));?>
+                            <?php $user = $this->Session->read('Auth.User');
+
+                                if (!empty($user)) {
+                                    echo $user['email'];
+                                };?>
+                        </ul>
+                    
         <!-- /.container -->
     </nav>
     </div>

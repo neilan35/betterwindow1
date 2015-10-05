@@ -63,14 +63,17 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     
     
 
-     <?= $this->fetch('meta') ?>
+    <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 
+   <!--  Combobox jquery -->
     <script type="text/javascript">
   $(document).ready(function(){
     $('.combobox').combobox();
   });
+
+
 </script>
 
 </head>
@@ -109,17 +112,19 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 </li>
                 <!-- /.dropdown -->
                  <?php $user = $this->Session->read('Auth.User');
+
                     if (!empty($user))
                     {
                         echo 'You are logged in as ', $user['email'], '  ';
                     };
                    
                     if($this->Session->check('Auth.User')){
-                    
-                    echo $this->Html->link( "Logout",   ['controller' => 'Users', 'action' => 'logout']); 
-                    }else{
-                        echo $this->Html->link( "Return to Login Screen",   ['controller' => 'Users', 'action' => 'login'] ); 
-                        }
+
+                        echo $this->Html->link( "Logout",   ['controller' => 'Users', 'action' => 'logout']); 
+
+                        }else{
+                            echo $this->Html->link( "Return to Login Screen",   ['controller' => 'Users', 'action' => 'login'] ); 
+                             }
                      
                     ?>
             </ul>
@@ -455,18 +460,18 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                     <div class="col-lg-12">
                         <h1 class="page-header"> <span><?=$this->fetch('title') ?> </span> </h1>
                         <div class="container-fluid">
-                             <div >
+                             
 
-                                 <div>
+                                
                                     <?= $this->Flash->render() ?>
 
                                     <div class="row"> 
                                     <!-- Content -->
                                      <?= $this->fetch('content') ?>
                                     </div>  
-                                </div>
+                                
        
-                            </div>
+                            
                         </div> 
                     </div>
                     <!-- /.col-lg-12 -->

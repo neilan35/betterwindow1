@@ -13,10 +13,10 @@
             <th><?= $this->Paginator->sort('name') ?></th>
             <th><?= $this->Paginator->sort('email') ?></th>
             <th><?= $this->Paginator->sort('type') ?></th>
-            <th><?= $this->Paginator->sort('customer_id') ?></th>
-            <th><?= $this->Paginator->sort('employee_id') ?></th>
+           <!--  <th><?= $this->Paginator->sort('customer_id') ?></th>
+            <th><?= $this->Paginator->sort('employee_id') ?></th> -->
             <th><?= $this->Paginator->sort('created') ?></th>
-            <th><?= $this->Paginator->sort('modified') ?></th>
+            <!-- <th><?= $this->Paginator->sort('modified') ?></th> -->
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
     </thead>
@@ -38,18 +38,20 @@
                                     echo "<td>".$this->Html->link(__('Employee'), ['controller' => 'Employee', 'action' => 'view', $user->employee->id])."</td>";
                                 }?>
 
-            <td>
+          <!--   <td>
                 <?= $user->has('customer') ? $this->Html->link($user->customer->id, ['controller' => 'Customers', 'action' => 'view', $user->customer->id]) : '' ?>
             </td>
             <td>
-                <?= $user->has('employee') ? $this->Html->link($user->employee->id, ['controller' => 'Employees', 'action' => 'view', $user->employee->id]) : '' ?>
+                <?= $user->has('employee') ? $this->Html->link($user->employee->id, ['controller' => 'Employees', 'action' => 'view', $user->employee->id]) : '' ?> -->
             </td>
             <td><?= h($user->created) ?></td>
-            <td><?= h($user->modified) ?></td>
+            <!-- <td><?= h($user->modified) ?></td> -->
             <td class="actions">
-                <?= $this->Html->link(__('View'), ['action' => 'view', $user->id]) ?>
-                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->id]) ?>
-                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $user->id], ['confirm' => __('Are you sure you want to delete # {0}?', $user->id)]) ?>
+                <?= $this->Html->link(__('View'), ['action' => 'view', $user->id],['class' => 'btn btn-info btn-xs']) ?>
+                 &nbsp;
+                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->id],['class' => 'btn btn-success btn-xs']) ?>
+                &nbsp;
+                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $user->id], ['class' => 'btn btn-danger btn-xs','confirm' => __('Are you sure you want to delete # {0}?', $user->id)]) ?>
             </td>
         </tr>
 

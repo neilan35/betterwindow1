@@ -20,7 +20,7 @@
         <tr>
             <td><?= $this->Number->format($flyscreenmesh->id) ?></td>
             <td>
-                <?= $flyscreenmesh->has('balrating') ? $this->Html->link($flyscreenmesh->balrating->balrating, ['controller' => 'Balratings', 'action' => 'view', $flyscreenmesh->balrating->id]) : '' ?>
+                <?= $flyscreenmesh->has('balrating') ? $this->Html->link($flyscreenmesh->balrating->id, ['controller' => 'Balratings', 'action' => 'view', $flyscreenmesh->balrating->id]) : '' ?>
             </td>
             <td>
                 <?= $flyscreenmesh->has('meshtype') ? $this->Html->link($flyscreenmesh->meshtype->type, ['controller' => 'Meshtypes', 'action' => 'view', $flyscreenmesh->meshtype->id]) : '' ?>

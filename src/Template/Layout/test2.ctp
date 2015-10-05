@@ -45,22 +45,28 @@
 <div id= "head_frontend"> <div clasas="container"> </div> </div>
 <div class="wrapper">
     <div class="container">
-        <div class="social-icons pull-right">
-          <a href="https://twitter.com/sahrizalpahlevi" target="_blank" class="btn btn-round btn-clear btn-twitter"><i class="fa fa-twitter"></i></a>
-          <a href="https://www.facebook.com/sahrizalpahlevi8" target="_blank" class="btn btn-round btn-clear btn-facebook"><i class="fa fa-facebook"></i></a>
-          <a href="https://www.dribbble.com/" class="btn btn-round btn-clear btn-dribbble"><i class="fa fa-dribbble"></i></a>
-          <a href="https://www.instagram.com/" class="btn btn-round btn-clear btn-instagram"><i class="fa fa-instagram"></i></a>
-          <a href="https://www.linkedin.com/" class="btn btn-round btn-clear btn-linkedin"><i class="fa fa-linkedin-square"></i></a>
-          <a href="https://www.pinterest.com/" class="btn btn-round btn-clear btn-pinterest"><i class="fa fa-pinterest"></i></a>
-          <a href="https://plus.google.com/106251164898636973632/posts" class="btn btn-round btn-clear btn-google"><i class="fa fa-google-plus"></i></a>
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-        </div>
-    </div> <!-- end container -->
+        <div class="row">
+            <div class="col-lg-7">
+                    <div id="logonav1" class="pull-left">
+                        <?php echo $this->Html->image('betterwindowsfinalfiles.png', ['alt' => 'CakePHP', 'class'=>'img-responsive']); ?>
+                    </div>
+            </div>
+
+            <div class="col-lg-5">
+                <div class="social-icons pull-right">
+                    
+                        <a href='#' target="_blank" class="btn btn-round btn-clear btn-twitter"><i class="fa fa-twitter"></i></a>
+                        <a href="https://www.facebook.com/blueskywindows.com.au?fref=ts" target="_blank" class="btn btn-round btn-clear btn-facebook"><i class="fa fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/" class="btn btn-round btn-clear btn-instagram"><i class="fa fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/" class="btn btn-round btn-clear btn-linkedin"><i class="fa fa-linkedin-square"></i></a>
+                        <a href="https://www.pinterest.com/" class="btn btn-round btn-clear btn-pinterest"><i class="fa fa-pinterest"></i></a>
+                        <a href="https://plus.google.com/106251164898636973632/posts" class="btn btn-round btn-clear btn-google"><i class="fa fa-google-plus"></i></a>
+                       
+                    
+                </div>
+            </div>
+        </div> 
+    </div><!-- end container -->
 </div>
     
     <!-- Navigation -->
@@ -75,10 +81,6 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-
-                    <div id="logonav1">
-                    <?php echo $this->Html->image('betterwindowsfinalfiles.png', ['alt' => 'CakePHP', 'class'=>'img-responsive']); ?>
-                    </div>	
 
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -171,9 +173,12 @@
                                 </li>
                             </ul>
                         </li>
+                        <li>
+                        <?=  $this->Html->link('<span class="glyphicon glyphicon-edit"></span> Make a Quote!', array('controller'=>'Quotes','action'=>'create'), array('escape' => false, 'class' => 'btn btn-success btn-md', 'target' => '_self', 'id' => 'btnQuote'));?>
+                        </li>
                     </ul>
                 </div>
-                <!-- /.navbar-collapse --> <?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> Make a Quote!', array('controller'=>'Quotes','action'=>'create'), array('escape' => false, 'class' => 'btn btn-success btn-md', 'target' => '_self', 'id' => 'btnQuote'));?>
+                <!-- /.navbar-collapse --> 
             </div>
         <!-- /.container -->
     </nav>

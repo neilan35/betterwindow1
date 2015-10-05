@@ -1,20 +1,24 @@
 <?php use Cake\Routing\Router; ?>
 
+
+
+
 <div class="container" >
     <!-- <div class="container-fluid"> -->
         <h1 id="header"> Make a quotation! </h1>
-    </div>
+        <legend><?= __('Get Quote Form') ?></legend>
+        <p> You can request information on the price by just simply  providing a short description on what information you require. Thank you..</p>
+</div>
     
     </br>
    
-</div>
-<div class="container">
-<div class="row">
-<!-- <div class="quotes form large-10 medium-9 columns"> -->
+
+
+    <div class="row">
+    <div class="col-sm-12">
     <?= $this->Form->create($quote,['class'=>'form-horizontal']); ?>
     <fieldset>
-        <p> You can request information on the price by just simply  providing a short description on what information you require. Thank you..</p>
-        <legend><?= __('Get Quote Form') ?></legend>
+        
         <div class="form-group">
             <label class="control-label col-md-2" for="first_name">Colour*:</label>
                 <div class="input-group col-md-5">
@@ -109,7 +113,7 @@
             <label class="control-label col-sm-2" for="first_name">Reveal*:</label>
                 <div class="input-group col-sm-5">
                 <?php echo $this->Form->input('quoteproduct.reveal', ['type'=>'checkbox']);?>
-            </div>
+                </div>
         </div>
         
         <div class="form-group">
@@ -156,6 +160,18 @@
                 <p class="help-block">Options will be based on the Fly Screen Type & BAL-Rating you have chosen</p>
             </div>
         </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="first_name">Glass Compositions *:</label>
+                <div class="input-group col-sm-5">
+                <?php echo $this->Form->input('quoteproduct.glazing_id', ['options' => $glazings,
+                'empty' => '(Please choose one)',
+                'class'=>'form-control',
+                'label'=>false ]);?>
+                </div>
+        </div>
+
+
         <div class="form-group">
             <label class="control-label col-sm-2" for="first_name">Special*:</label>
                 <div class="input-group col-sm-5 ">
@@ -171,7 +187,6 @@
                 <?php echo $this->Form->input('quoteproduct.delivery');?>
             </div>
         </div>
-
 
         <?php
 
@@ -226,8 +241,56 @@
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
-</div>	
+    </div>	
+    </div>
+
+
+<hr>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="pull-right">
+        <?php echo $this->Html->link('<i class="icon-remove icon"></i> Clear Selections', array('controller' => 'Quotes', 'action' => 'clear'), ['class' => 'btn btn-danger', 'escape' => false]); ?>
+        &nbsp; &nbsp;
+        <?php echo $this->Form->button('<i class="icon-refresh icon"></i> Recalculate', array('class' => 'btn btn-default', 'escape' => false));?>
+        <?php echo $this->Form->end(); ?>
+        </div>
+    </div>
 </div>
+
+<hr>
+   
+        <div class="row">
+          <div class="col-sm-4">.col-md-4</div>
+          <div class="col-sm-4">.col-md-4</div>
+          <div class="col-sm-4">
+            <div class="pull-right">
+               <div class="table-responsive"> 
+                    <table class="table table-bordered table-condensed" style="width:50%">
+                        <thead>
+                          <tr>
+                            <th>No</th>
+                            <th>Item No</th>
+                            <th>Quantity</th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                          <tr>
+                            <td>1</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                        </tbody>
+                    </table>
+                </div>
+             </div>   
+            </div>
+        </div>
+
+    
+    
+
 
 
 <script>
@@ -236,9 +299,9 @@
     $( "#slider" ).slider({
       orientation: "horizontal",
       range: "min",
-      min: 0,
-      max: 100,
-      value: 60,
+      min: 300,
+      max: 5800,
+      value: 1500,
       slide: function( event, ui ) {
         $( "#amount" ).val( ui.value + " mm");
       }
@@ -250,9 +313,9 @@
     $( "#slider2" ).slider({
       orientation: "horizontal",
       range: "min",
-      min: 0,
-      max: 100,
-      value: 60,
+      min: 300,
+      max: 5800,
+      value: 1500,
       slide: function( event, ui ) {
         $( "#amount2" ).val( ui.value + " mm");
       }
@@ -267,7 +330,6 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $('#itemtype-id').change(function() {
-            // $("#opentype-id").remove();
             $("#opentype-id option").remove();
             var url = "<?= Router::url(['controller' => 'Quotes', 'action' => 'get_opentypes']) ?>/" + $(this).val();
             $.getJSON(url, null, function(data) {
@@ -284,7 +346,6 @@
 
     $(document).ready(function() {
         $('#opentype-id').change(function() {
-            // $("#opentype-id").remove();
             $("#flyscreentype-id option").remove();
             var url = "<?= Router::url(['controller' => 'Quotes', 'action' => 'get_flyscreentypes']) ?>/" + $(this).val();
             window.console.log(url);
@@ -301,30 +362,45 @@
         });
     });
 
+
+
     function getMesh() {
             // $("#mesh-id option").remove();
 
-        var url = "<?= Router::url(['controller' => 'Quotes', 'action' => 'get_meshtypes']) ?>/" + $("#balrating-id").val() + "/" + $('#flyscreentype-id').val();
+            var url = "<?= Router::url(['controller' => 'Quotes', 'action' => 'get_meshtypes']) ?>/" + $("#balrating-id").val() + "/" + $('#flyscreentype-id').val();
         window.console.log(url);
         $.getJSON(url, null, function(data) {
             // var $ot = $("#flyscreentype-id");
 
             $.each(data, function(id, mesh) {
                 // console.log ($ot);
-                // $("#flyscreentype-id").append("<option value='" + 2 + "'>" + "tes" + "</option>");
                 $("#mesh-id").append("<option value='" + mesh.id + "'>" + mesh.type + "</option>");
             });
         });
+
+        // var url = "<?= Router::url(['controller' => 'Quotes', 'action' => 'get_meshtypes']) ?>/" + $("#balrating-id").val() + "/" + $('#flyscreentype-id').val();
+        // window.console.log(url);
+        // $.getJSON(url, null, function(data) {
+        //     // var $ot = $("#flyscreentype-id");
+
+        //     $.each(data, function(id, mesh) {
+        //         // console.log ($ot);
+        //         // $("#flyscreentype-id").append("<option value='" + 2 + "'>" + "tes" + "</option>");
+        //         $("#mesh-id").append("<option value='" + mesh.id + "'>" + mesh.type + "</option>");
+        //     });
+        // });
     }
 
     $(document).ready(function() {
         $('#balrating-id').change(function() {
+            // $("#mesh-id option").remove();
             window.console.log('changing balrating');            
             if ($("#balrating-id option:selected").index() > 0 && 
                 $("#flyscreentype-id option:selected").index() > 0)
                 getMesh();
         });
         $('#flyscreentype-id').change(function() {
+            // $("#mesh-id option").remove();
             window.console.log('changing flyscreentype-id');
             window.console.log($("#balrating-id option:selected").index());
             if ($("#balrating-id option:selected").index() > 0 && 

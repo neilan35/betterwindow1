@@ -40,7 +40,8 @@ class UsersController extends AppController
         $user = $this->Auth->identify();
         if ($user) {
             $this->Auth->setUser($user);
-            $this->Flash->success(__('Welcome, '));
+            // $user = $this->Session->read('Auth.User');
+            $this->Flash->success(__('Welcome, '. $user['email'].' !' ));
             return $this->redirect(['controller' => 'users', 'action' => 'index']);
 
         }
@@ -57,8 +58,7 @@ class UsersController extends AppController
 
     public function index()
     {
-        // $this->paginate = [
-        //     'contain' => ['Customers', 'Employees']
+        
 
         $users = $this->Users->find('all')
         ->contain(['Customers','Employees']);
