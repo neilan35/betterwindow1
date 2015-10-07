@@ -183,9 +183,9 @@
         <div class="form-group">
             <label class="control-label col-sm-2" for="first_name">Would you like to add these?*:</label>
                 <div class="input-group col-sm-5 ">
-                <?php echo $this->Form->input('quoteproduct.installation');?>
-                <?php echo $this->Form->input('quoteproduct.delivery');?>
-            </div>
+                <?php echo $this->Form->input('installation');?>
+                 <?php echo $this->Form->input('installtype', ['options' => ['Victoria' => 'VIC', 'Northern Territory'=>'NT']]);?>
+                <?php echo $this->Form->input('delivery');?>
         </div>
 
         <?php
@@ -239,8 +239,10 @@
             
         ?>
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
+        <div class"col-sm-offset-1 col-sm-2">
+        <?= $this->Form->button(__('Submit'), array('class' => 'btn btn-info')) ?>
+        <?= $this->Form->end() ?>
+        </div>
     </div>	
     </div>
 
@@ -261,12 +263,12 @@
 <hr>
    
         <div class="row">
-          <div class="col-sm-4">.col-md-4</div>
-          <div class="col-sm-4">.col-md-4</div>
-          <div class="col-sm-4">
-            <div class="pull-right">
+          <!-- <div class="col-sm-4"></div>
+          <div class="col-sm-4"></div> -->
+          <div class="col-sm-12">
+            <!-- <div class="pull-right"> -->
                <div class="table-responsive"> 
-                    <table class="table table-bordered table-condensed" style="width:50%">
+                    <table class="table table-bordered table-condensed"  align="right" style="width:20%">
                         <thead>
                           <tr>
                             <th>No</th>

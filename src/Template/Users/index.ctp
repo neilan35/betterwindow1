@@ -13,8 +13,8 @@
             <th><?= $this->Paginator->sort('name') ?></th>
             <th><?= $this->Paginator->sort('email') ?></th>
             <th><?= $this->Paginator->sort('type') ?></th>
-           <!--  <th><?= $this->Paginator->sort('customer_id') ?></th>
-            <th><?= $this->Paginator->sort('employee_id') ?></th> -->
+            <th><?= $this->Paginator->sort('customer_id') ?></th>
+            <th><?= $this->Paginator->sort('employee_id') ?></th>
             <th><?= $this->Paginator->sort('created') ?></th>
             <!-- <th><?= $this->Paginator->sort('modified') ?></th> -->
             <th class="actions"><?= __('Actions') ?></th>
@@ -38,11 +38,11 @@
                                     echo "<td>".$this->Html->link(__('Employee'), ['controller' => 'Employee', 'action' => 'view', $user->employee->id])."</td>";
                                 }?>
 
-          <!--   <td>
+            <td>
                 <?= $user->has('customer') ? $this->Html->link($user->customer->id, ['controller' => 'Customers', 'action' => 'view', $user->customer->id]) : '' ?>
             </td>
             <td>
-                <?= $user->has('employee') ? $this->Html->link($user->employee->id, ['controller' => 'Employees', 'action' => 'view', $user->employee->id]) : '' ?> -->
+                <?= $user->has('employee') ? $this->Html->link($user->employee->id, ['controller' => 'Employees', 'action' => 'view', $user->employee->id]) : '' ?>
             </td>
             <td><?= h($user->created) ?></td>
             <!-- <td><?= h($user->modified) ?></td> -->

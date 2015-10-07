@@ -28,8 +28,7 @@ class UsersController extends AppController
     {
         parent::beforeFilter($event);
         // Allow users to register and logout.
-    // You should not add the "login" action to allow list. Doing so would
-    // cause problems with normal functioning of AuthComponent.
+        // // Allowing actions for not logged users
         $this->Auth->allow(['login', 'logout' ,'forgotPassword', 'resetPassword']);
     }
 

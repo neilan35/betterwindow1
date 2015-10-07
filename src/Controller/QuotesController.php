@@ -106,8 +106,7 @@ class QuotesController extends AppController
        
         $this->layout = 'test2';
        
-        // var_dump($this->Session->('Auth.User.employee_id')); 
-        // die();
+       
         // var_dump($this->Auth->user('employee_id')); 
         // die(); works
        
@@ -130,7 +129,7 @@ class QuotesController extends AppController
 
         // }
 
-         // $custid = $this->Session->read('Auth.Customer.id')
+        //  $custid = $this->Session->read('Auth.User')
         
         // if (!empty($custid)){
         //     $this->Session->setFlash('You are logged in')
@@ -141,26 +140,24 @@ class QuotesController extends AppController
         // $id= $this->Auth->user('employee_id');
         $quote = $this->Quotes->newEntity();
         if ($this->request->is('post')) {
-
-
-           $quote = $this->Quotes->patchEntity($quote, $this->request->data);
-           
-           $customer = $this->Session->read('Auth.User');
+           // $quote = $this->Quotes->patchEntity($quote, $this->request->data);
+           $customer = $this->Auth->user('customer_id');
            if (!empty($customer)) {
-                $id = $customer['employee_id'];
-                $quote['customer_id']= $id;
-
-                $quote_no = $this->Session->read('quote_no');
-                $quote['quote_no'] = $quote_no;
-
-                if ($this->Quotes->save($quote)) {
-                    $this->Flash->success('The quote has been saved.');
-                    return $this->redirect(['action' => 'index']);
-                } else {
-                    $this->Flash->error('The quote could not be saved. Please, try again.');
-                }
+                $id = $customer;
+                // $quote_no = $this->Session->read('quote_no');
+                // $quote['quote_no'] = $quote_no;             
            }
-        }
+           else {
+               $id = null;     
+           }
+           $quote['customer_id']= $id;
+               if ($this->Quotes->save($quote)) {
+                        $this->Flash->success('The quote has been saved.');
+                        return $this->redirect(['action' => 'index']);
+                    } else {
+                        $this->Flash->error('The quote could not be saved. Please, try again.');
+                    }
+            }
 
         // $this->Session->write('quote_no', 'Q00001');
         $customers = $this->Quotes->Customers->find('list', ['limit' => 200]);
@@ -172,7 +169,7 @@ class QuotesController extends AppController
         $glasstypes = $this->Quotes->Quoteproducts->Glazings->Glasstypes->find('list', ['limit' => 200]);
         $glazings = $this->Quotes->Quoteproducts->Glazings->find('list', ['limit' => 200]);
         // $glasscomps = $glazings['composition_id'];
-        $this->set(compact('quote', 'customers','colours','balratings','itemtypes','reveals', 'usages','glasstypes','id','glazings','glasscomps'));
+        $this->set(compact('custid','quote', 'customers','colours','balratings','itemtypes','reveals', 'usages','glasstypes','id','glazings','glasscomps'));
         $this->set('_serialize', ['quote']);
     }
 

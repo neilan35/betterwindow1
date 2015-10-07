@@ -19,7 +19,6 @@
             echo $this->Form->input('installtype');
             echo $this->Form->input('delivery');
             // echo $this->Form->input('deliverytype');
-            
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

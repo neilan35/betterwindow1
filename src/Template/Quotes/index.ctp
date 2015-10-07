@@ -17,7 +17,6 @@
         <tr>
             <th><?= $this->Paginator->sort('id') ?></th>
             <th><?= $this->Paginator->sort('customer_id') ?></th>
-           <!--  <th><?= $this->Paginator->sort('quoteno') ?></th> -->
             <th><?= $this->Paginator->sort('item') ?></th>
             <th><?= $this->Paginator->sort('unitcost') ?></th>
             <th><?= $this->Paginator->sort('quantity') ?></th>
@@ -35,7 +34,6 @@
             <td>
                 <?= $quote->has('customer') ? $this->Html->link($quote->customer->first_name, ['controller' => 'Customers', 'action' => 'view', $quote->customer->id]) : '' ?>
             </td>
-            <!-- <td><?= h($quote->quoteno) ?></td> -->
             <td><?= h($quote->item) ?></td>
             <td><?= $this->Number->format($quote->unitcost, ['places' => 2, 'before' => '$ ']) ?></td>
             <td><?= $this->Number->format($quote->quantity) ?></td>
@@ -57,6 +55,7 @@
             <td class="actions">
                 <?= $this->Html->link(__('View'), ['action' => 'view', $quote->id]) ?>
                 <?= $this->Html->link(__('Edit'), ['action' => 'edit', $quote->id]) ?>
+                <?= $this->Html->link(__('View in PDF'), ['action' => 'pdf', $quote->id]) ?>
                 <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $quote->id], ['confirm' => __('Are you sure you want to delete # {0}?', $quote->id)]) ?>
             </td>
         </tr>
@@ -64,12 +63,4 @@
     <?php endforeach; ?>
     </tbody>
     </table>
-    <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-        </ul>
-        <p><?= $this->Paginator->counter() ?></p>
-    </div>
 </div>
