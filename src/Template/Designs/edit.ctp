@@ -1,15 +1,16 @@
 <?= $this->Form->create($design); ?>
 <div class="row">
-    <div class="col-lg-8">
+    <div class="col-lg-6">
         <div class="panel panel-default">
             <div class="panel-heading">
-                Edit Designs
+                Edit a Design
             </div>
             <div class="panel-body">
                 <div class="row">
                     <div class="col-lg-8">
                         <form class="form-horizontal" role="form">
-                            <div class="col-lg-8">
+                        <div class="row">
+                            <div class="col-lg-10">
                                 <div class="dropdown">
                                     <?= $this->Form->input('opentype_id', ['class' => 'combobox form-control',
                                                        'options' => $opentypes,
@@ -25,11 +26,12 @@
                                                        'label' => 'Pictures']);?>
                                 </div>
                             </div>
-                        </form>                
+                        </div>
+                        </form>
                     </div>
                 </div>
-                <?= $this->Form->button(__('Submit')) ?>
-                <?= $this->Form->end() ?>
+            <button type="submit" class="btn btn-default">Submit </button>
+            <?= $this->Form->end() ?>
             </div>
         </div>
     </div>

@@ -136,9 +136,11 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-                        <!-- <li>
-                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-                        </li> -->
+                        <li>
+                           <!--  <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a> -->
+                            <?php 
+                                    echo $this->Html->link('<span> <i class="fa fa-dashboard fa-fw"></i> Dashboard</span>', ['controller' => 'Users', 'action' => 'dashboard'], ['escape' => false]); ?>
+                        </li>
                         <li>
                             <a href="#"><i class="fa fa-user fa-fw"></i> Users<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
@@ -191,6 +193,32 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                                 <li>
                                 <?php 
                             echo $this->Html->link('<span> <i class="glyphicon glyphicon-th-list"></i> Customers List</span>', ['controller' => 'Customers', 'action' => 'index'], ['escape' => false]); ?>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-table fa-fw"></i> Quotes<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                <?php 
+                            echo $this->Html->link('<span> <i class="glyphicon glyphicon-import"></i> Add Quotes</span>', ['controller' => 'Quotes', 'action' => 'add'], ['escape' => false]); ?>
+                                </li>
+                                <li>
+                                <?php 
+                            echo $this->Html->link('<span> <i class="glyphicon glyphicon-th-list"></i> Quotes List</span>', ['controller' => 'Quotes', 'action' => 'index'], ['escape' => false]); ?>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-table fa-fw"></i> Enquiries<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                <?php 
+                            echo $this->Html->link('<span> <i class="glyphicon glyphicon-import"></i> Add Enquiries</span>', ['controller' => 'Enquiries', 'action' => 'add'], ['escape' => false]); ?>
+                                </li>
+                                <li>
+                                <?php 
+                            echo $this->Html->link('<span> <i class="glyphicon glyphicon-th-list"></i> Enquiries List</span>', ['controller' => 'Enquiries', 'action' => 'index'], ['escape' => false]); ?>
                                 </li>
                             </ul>
                         </li>
@@ -294,7 +322,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                                 </li>
                                 <li>
                                     <?php 
-                                    echo $this->Html->link('<span> <i class="glyphicon glyphicon-list"></i> Designs Index</span>', ['controller' => 'Designs', 'action' => 'index'], ['escape' => false]); ?>
+                                    echo $this->Html->link('<span> <i class="glyphicon glyphicon-list"></i> Designs Index</span>', ['controller' => 'Designs', 'action' => 'index', "#"], ['escape' => false]); ?>
                                 </li>
                             </ul>
                         </li>
@@ -418,32 +446,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                     
                             <!-- /.nav-second-level -->
                     
-                        <li>
-                            <a href="#"><i class="fa fa-table fa-fw"></i> Quotes<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                <?php 
-                            echo $this->Html->link('<span> <i class="glyphicon glyphicon-import"></i> Add Quotes</span>', ['controller' => 'Quotes', 'action' => 'add'], ['escape' => false]); ?>
-                                </li>
-                                <li>
-                                <?php 
-                            echo $this->Html->link('<span> <i class="glyphicon glyphicon-th-list"></i> Quotes List</span>', ['controller' => 'Quotes', 'action' => 'index'], ['escape' => false]); ?>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-table fa-fw"></i> Enquiries<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                <?php 
-                            echo $this->Html->link('<span> <i class="glyphicon glyphicon-import"></i> Add Enquiries</span>', ['controller' => 'Enquiries', 'action' => 'add'], ['escape' => false]); ?>
-                                </li>
-                                <li>
-                                <?php 
-                            echo $this->Html->link('<span> <i class="glyphicon glyphicon-th-list"></i> Enquiries List</span>', ['controller' => 'Enquiries', 'action' => 'index'], ['escape' => false]); ?>
-                                </li>
-                            </ul>
-                        </li>
+                        
                     </ul>
 
                 </div>
@@ -451,6 +454,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             </div>
             <!-- /.navbar-static-side -->
         </nav>
+    </br></br>
         <!-- endofnav -->
 
         <!-- Page Content -->
@@ -480,12 +484,11 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             </div>
             <!-- /.container-fluid -->
         </div>
+
         <!-- /#page-wrapper -->
 
     </div>
 
-
- 
-
 </body>
+
 </html>

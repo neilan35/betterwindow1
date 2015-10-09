@@ -1,16 +1,16 @@
 <?= $this->Form->create($glazing); ?>
 <div class="row">
-    <div class="col-lg-12">
+    <div class="col-lg-6">
         <div class="panel panel-default">
             <div class="panel-heading">
-                Add a Glazing
+                Edit Glazing
             </div>
             <div class="panel-body">
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-lg-8">
                         <form class="form-horizontal" role="form">
                         <div class="row">
-                            <div class="col-lg-6">
+                            <div class="col-lg-10">
                                 <div class="dropdown">
                                     <?= $this->Form->input('usage_id', ['class' => 'combobox form-control',
                                                        'options' => $usages,
@@ -46,7 +46,7 @@
                                     <?= $this->Form->input('safety') ?>
                                 </div>
                                 <div class="form-group">
-                                    <?= $this->Form->input('price') ?>
+                                  <?= $this->Form->input('price', ['class' => 'form-control']) ?>
                                 </div>
                             </div>
                         </div>

@@ -52,7 +52,7 @@ class DesignsController extends AppController
             $design = $this->Designs->patchEntity($design, $this->request->data);
             if ($this->Designs->save($design)) {
                 $this->Flash->success('The design has been saved.');
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['action' => 'index', "#"]);
             } else {
                 $this->Flash->error('The design could not be saved. Please, try again.');
             }
@@ -79,7 +79,7 @@ class DesignsController extends AppController
             $design = $this->Designs->patchEntity($design, $this->request->data);
             if ($this->Designs->save($design)) {
                 $this->Flash->success('The design has been saved.');
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['action' => 'index', "#"]);
             } else {
                 $this->Flash->error('The design could not be saved. Please, try again.');
             }
@@ -106,6 +106,6 @@ class DesignsController extends AppController
         } else {
             $this->Flash->error('The design could not be deleted. Please, try again.');
         }
-        return $this->redirect(['action' => 'index']);
+        return $this->redirect(['action' => 'index', "#"]);
     }
 }

@@ -1,13 +1,13 @@
 <?= $this->Form->create($customer); ?>
 <div class="row">
-    <div class="col-lg-8">
+    <div class="col-lg-6">
         <div class="panel panel-default">
                         <div class="panel-heading">
                             Add Customer
                         </div>
                     <div>
-                    <span href="#" class="btn btn-default" id="toggle-private1" >Private Customer</span> 
-                    <span href="#" class="btn btn-default" id="toggle-corporate1">Business Customer</span>
+                    <span href="#" class="btn btn-default" id="toggle-private1" style= "margin-top: 20px; margin-left: 20px; margin-bottom : 20px">Private Customer</span> 
+                    <span href="#" class="btn btn-default" id="toggle-corporate1" style= "margin-top: 20px; margin-left : 20px; margin-bottom : 20px">Business Customer</span>
                     </div>
                     </br></br>
                     <div class="customers form large-10 medium-9 columns" id="private">

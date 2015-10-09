@@ -136,9 +136,11 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-                        <!-- <li>
-                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-                        </li> -->
+                        <li>
+                           <!--  <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a> -->
+                            <?php 
+                                    echo $this->Html->link('<span> <i class="fa fa-dashboard fa-fw"></i> Dashboard</span>', ['controller' => 'Users', 'action' => 'dashboard'], ['escape' => false]); ?>
+                        </li>
                         <li>
                             <a href="#"><i class="fa fa-user fa-fw"></i> Users<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">

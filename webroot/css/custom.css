@@ -165,6 +165,12 @@ body {
   background-color: #373737 ;
   color: #969696;
 }
+#back-footer {
+  height: 100px;
+  background-color: #373737 ;
+  color: #969696;
+  float: bottom;
+}
 
 .site-footer {
     padding: 0px;

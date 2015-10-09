@@ -3,24 +3,25 @@
     <div class="col-lg-6">
         <div class="panel panel-default">
             <div class="panel-heading">
-                Edit Categories
+                Edit Colour Category
             </div>
             <div class="panel-body">
                 <div class="row">
                     <div class="col-lg-8">
                         <form class="form-horizontal" role="form">
-                            <div class="col-lg-8">
+                        <div class="row">
+                            <div class="col-lg-10">
                                 <div class="form-group">
-                                <?= $this->Form->input('price', ['class' => 'form-control']) ?>
+                                    <?= $this->Form->input('price', ['class' => 'form-control']) ?>
                                 </div>
                             </div>
-                        </form>                
+                        </div>
+                        </form>
                     </div>
                 </div>
-                <?= $this->Form->button(__('Submit')) ?>
-                        <?= $this->Form->end() ?>
+            <button type="submit" class="btn btn-default">Submit </button>
+            <?= $this->Form->end() ?>
             </div>
-
         </div>
     </div>
 </div>

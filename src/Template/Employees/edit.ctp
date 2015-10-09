@@ -1,15 +1,15 @@
 <?= $this->Form->create($employee); ?>
 <div class="row">
-    <div class="col-lg-8">
+    <div class="col-lg-6">
         <div class="panel panel-default">
             <div class="panel-heading">
-                Edit Customers
+                Edit Employee
             </div>
             <div class="panel-body">
                 <div class="row">
                     <div class="col-lg-8">
                         <form class="form-horizontal" role="form">
-                            <div class="col-lg-8">
+                            <div class="col-lg-10">
                                 <div class="form-group">
                                 <?= $this->Form->input('first_name', ['class' => 'form-control']) ?>
                                 </div>

@@ -43,17 +43,28 @@ class CustomersTable extends Table
         $validator
             ->add('id', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('id', 'create')
+            
+                
             // ->requirePresence('australian_business_number')
             // ->notEmpty('australian_business_number')
             // ->requirePresence('company_name')
             // ->notEmpty('company_name')
             ->requirePresence('first_name', 'create')
             ->notEmpty('first_name', 'You forget to write your first name.')
+            // ->add('first_name', ['rule' => array('custom', '[a-zA-Z]+', 'message'   => 'Only letters allowed')])
+
+
             ->requirePresence('last_name', 'create')
             ->notEmpty('last_name','You forget to write your last name.')
+
+
             ->add('phone_number', 'valid', ['rule' => 'numeric'])
+            ->add('phone_number', 'length', ['rule' => ['minLength', 10],
+            'message' => 'Please enter a valid phone number'])
             ->requirePresence('phone_number', 'create')
             ->notEmpty('phone_number','You forget to write your phone number')
+            
+
             ->requirePresence('street_address', 'create')
             ->notEmpty('street_address')
             ->requirePresence('suburb', 'create')
