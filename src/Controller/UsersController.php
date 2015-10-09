@@ -66,6 +66,54 @@ class UsersController extends AppController
         $this->set('_serialize', ['users']);
     }
 
+
+    public function dashboard($id=null){
+
+        $this->layout = 'dashboard';
+        $this->loadModel('Customers');
+        $this->loadModel('Employees');
+        $this->loadModel('Quotes');
+
+
+        $users = $this->Users->find('all');
+        $customers = $this->Customers->find('all');
+        $employees  = $this->Employees ->find('all');
+        $quotes  = $this->Quotes ->find('all');
+
+
+        $usersArr = [];
+            foreach ($users as $user){
+                $usersArr[]= $users;
+            }
+        $userCount = count($usersArr);
+
+        $custsArr = [];
+            foreach ($customers as $customer){
+                $custsArr[]= $customers;
+            }
+        $custCount = count($custsArr);
+
+        $empsArr = [];
+            foreach ($employees as $employee){
+                $empsArr[]= $employees;
+            }
+        $empCount = count($empsArr);
+
+        $quotesArr = [];
+            foreach ($quotes as $quote){
+                $quotesArr[]= $quotes;
+            }
+        $quotesCount = count($quotesArr);
+
+            // var_dump($custCount);
+            // die();
+
+        $this->set('users', $users);
+        $this->set('_serialize', ['users']);
+        $this->set(compact('user', 'userCount','custCount','empCount','quotesCount'));
+
+    }
+
     /**
      * View method
      *

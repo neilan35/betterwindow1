@@ -54,7 +54,8 @@ class CustomersController extends AppController
     public function add()
     {
         $customer = $this->Customers->newEntity();
-//        var_dump($this->request->data);
+       // var_dump($this->request->data);
+       // die();
         if ($this->request->is('post')) {
             $customer = $this->Customers->patchEntity($customer, $this->request->data, [
                 'associated' => ['Users']

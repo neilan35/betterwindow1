@@ -74,16 +74,17 @@ class QuoteproductsTable extends Table
             ->add('itemtype_id', 'valid', ['rule' => 'numeric'])
             ->requirePresence('itemtype_id', 'create')
             ->notEmpty('itemtype_id')
-            ->add('design_id', 'valid', ['rule' => 'numeric'])
-            ->requirePresence('design_id', 'create')
-            ->notEmpty('design_id')
+            ->requirePresence('open_type', 'create')
+            ->notEmpty('open_type')
+            // ->add('design_id', 'valid', ['rule' => 'numeric'])
+            // ->requirePresence('design_id', 'create')
+            // ->notEmpty('design_id')
             ->add('reveal', 'valid', ['rule' => 'boolean'])
             ->notEmpty('reveal')
             ->add('reveal_id', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('reveal_id')
             ->add('flyscreentype', 'valid', ['rule' => 'boolean'])
             ->notEmpty('flyscreentype')
-            ->add('flyscreentypes')
             ->notEmpty('flyscreentypes')
             ->add('flyscreenmesh_id', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('flyscreenmesh_id')
@@ -94,8 +95,7 @@ class QuoteproductsTable extends Table
             ->allowEmpty('height')
             ->add('width', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('width')
-            ->add('usage')
-            ->notEmpty('usage');
+            ->notEmpty('usages');
 
 
         return $validator;

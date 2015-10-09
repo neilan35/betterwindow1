@@ -16,6 +16,7 @@ class Quoteproduct extends Entity
      */
     protected $_accessible = [
         'quote_id' => true,
+        'quantity' => true,
         'colour_id' => true,
         'balrating_id' => true,
         'itemtype_id' => true,
@@ -37,7 +38,8 @@ class Quoteproduct extends Entity
         'reveal' => true,
         'flyscreenmesh' => true,
         'glazing' => true,
-        'usage'=>true,
+        'usages'=>true,
         'glasstype'=>true,
+        'quote'=>true,
     ];
 }

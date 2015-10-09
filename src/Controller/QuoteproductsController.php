@@ -50,8 +50,11 @@ class QuoteproductsController extends AppController
     public function add()
     {
         $quoteproduct = $this->Quoteproducts->newEntity();
+
         if ($this->request->is('post')) {
-            $quoteproduct = $this->Quoteproducts->patchEntity($quoteproduct, $this->request->data);
+            $quoteproduct = $this->Quoteproducts->patchEntity($quoteproduct, $this->request->data, ['associated' => ['Quotes']
+                ]);
+            
             if ($this->Quoteproducts->save($quoteproduct)) {
                 $this->Flash->success('The quoteproduct has been saved.');
                 return $this->redirect(['action' => 'index']);
@@ -67,7 +70,11 @@ class QuoteproductsController extends AppController
         $reveals = $this->Quoteproducts->Reveals->find('list', ['limit' => 200]);
         $flyscreenmeshes = $this->Quoteproducts->Flyscreenmeshes->find('list', ['limit' => 200]);
         $glazings = $this->Quoteproducts->Glazings->find('list', ['limit' => 200]);
-        $this->set(compact('quoteproduct', 'quotes', 'colours', 'balratings', 'itemtypes', 'designs', 'reveals', 'flyscreenmeshes', 'glazings'));
+        // add
+        $usages = $this->Quoteproducts->Glazings->Usages->find('list', ['limit' => 200]);
+        $glasstypes = $this->Quoteproducts->Glazings->Glasstypes->find('list', ['limit' => 200]);
+        // $glazings = $this->Quotes->Quoteproducts->Glazings->find('list', ['limit' => 200]);
+        $this->set(compact('usages','glasstypes','quoteproduct', 'quotes', 'colours', 'balratings', 'itemtypes', 'designs', 'reveals', 'flyscreenmeshes', 'glazings'));
         $this->set('_serialize', ['quoteproduct']);
     }
 

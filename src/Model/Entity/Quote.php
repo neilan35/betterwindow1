@@ -22,7 +22,7 @@ class Quote extends Entity
         'installation' => true,
         'installtype' => true,
         'delivery' => true,
-        'deliverytype' => true,
+        // 'deliverytype' => true,
         'status' => true,
         'customer' => true,
         'quoteproducts' => true,

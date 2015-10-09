@@ -27,11 +27,11 @@
 	
 		
 			<table class="table1">
-     			<colgroup>
-					<col width="20%">
+     			<colgroup> <!-- 60-40 -->
+					<col width="22%"> 
 					<col width="38%">	
 					<col width="20%">
-					<col width="22%">			
+					<col width="20%">			
 				</colgroup>
 
      			<tbody>
@@ -59,8 +59,71 @@
 		 	</table>
 		 		</br>
 
+		 	<table class="table3" >
+     			<colgroup><!-- 60-40 -->
+					<col width="60%">
+					<col width="20%">	
+					<col width="20%">		
+				</colgroup>
 
-     		</br>
+     			<tbody>
+     			  <tr><th><span>Item Window</span></th></tr>
+		     	  <tr> 
+				    <th><span></span></th>
+				    <th><span >Profile: </span>
+				    <td><span> Kommerling Gold</span></td>
+				    </th>
+					
+				  </tr>
+
+				  <tr> 
+				    <th><span> </span></th>
+				    <th><span> Hardware: </span></th>
+				    <td></td>
+					
+				  </tr>
+
+				  <tr> 
+				    <th><span> </span></th>
+				    <th><span > Item Type: </span></th>
+					<td></td>
+				  </tr>
+				  <tr> 
+				    <th><span> </span></th>
+				    <th><span > DGU: </span></th>
+				    <td></td>
+				  </tr>
+				  <tr> 
+
+					
+				  </tr>
+				  <tr> 
+				    <th><span> </span></th>
+				    <th><span >Quantity </span></th>
+				    <td></td>
+				 </tr>
+				  <tr> 
+				    <th><span></span></th>
+				    <th><span > Area: </span></th>
+					<td></td>
+				  </tr>
+
+				  <tr> 
+				    <th><span> </span></th>
+				    <th><span >Price: </span></th>
+					<td></td>
+				  </tr>
+				  <tr> 
+				    <th><span> </span></th>
+				    <th><span >Total for an item (incl. GST): </span></th>
+					<td></td>
+				  </tr>
+		 		</tbody>
+		 	</table>
+
+
+
+     		
 			</br></br></br></br></br></br></br></br></br></br>
 		<table class="table2" style="width:100%">
 			
@@ -86,28 +149,14 @@
 
 		  <!-- row 3 -->
 		  <tr>
-		    <td></td>
+		    <td>2</td>
 		    <td></td>		
 		    <td> </td>
 		    <td></td>
 		    <td> </td>
 		    <td></td>>
 		  </tr>
-
 		</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </div>
 

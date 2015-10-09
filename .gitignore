@@ -4,8 +4,6 @@ logs
 plugins
 tests
 vendor
-webroot
-tmp
 .editorconfig
 .htaccess
 .travis.yml
@@ -13,6 +11,7 @@ composer.json
 composer.lock
 index.php
 phpunit.xml.dist
+tmp
 
 tmp/*
 [Cc]onfig/core.php
