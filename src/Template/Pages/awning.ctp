@@ -9,7 +9,7 @@
             <div class="col-md-8">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3><i class="glyphicon glyphicon-leaf"> <strong>Awning Windows in Melbourne, VIC</strong></i></h3>
+                        <h3><i class="glyphicon glyphicon-leaf"></i> <strong>Awning Windows in Melbourne, VIC</strong></h3>
                     </div>
                     <div class="panel-body">
                         <h4>The stylish and practice solution, purchase awning windows for your Melbourne home</h4>

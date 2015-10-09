@@ -42,7 +42,7 @@
 
 <body>
 <header>
-<div id= "head_frontend"> <div clasas="container"> </div> </div>
+<div id= "head_frontend"> <div class="container"> </div> </div>
 <div class="wrapper">
     <div class="container">
         <div class="row">
@@ -54,15 +54,12 @@
 
             <div class="col-lg-5">
                 <div class="social-icons pull-right">
-                    
-                        <a href='#' target="_blank" class="btn btn-round btn-clear btn-twitter"><i class="fa fa-twitter"></i></a>
-                        <a href="https://www.facebook.com/blueskywindows.com.au?fref=ts" target="_blank" class="btn btn-round btn-clear btn-facebook"><i class="fa fa-facebook"></i></a>
-                        <a href="https://www.instagram.com/" class="btn btn-round btn-clear btn-instagram"><i class="fa fa-instagram"></i></a>
-                        <a href="https://www.linkedin.com/" class="btn btn-round btn-clear btn-linkedin"><i class="fa fa-linkedin-square"></i></a>
-                        <a href="https://www.pinterest.com/" class="btn btn-round btn-clear btn-pinterest"><i class="fa fa-pinterest"></i></a>
-                        <a href="https://plus.google.com/106251164898636973632/posts" class="btn btn-round btn-clear btn-google"><i class="fa fa-google-plus"></i></a>
-                       
-                    
+                    <a href='#' target="_blank" class="btn btn-round btn-clear btn-twitter"><i class="fa fa-twitter"></i></a>
+                    <a href="https://www.facebook.com/blueskywindows.com.au?fref=ts" target="_blank" class="btn btn-round btn-clear btn-facebook"><i class="fa fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/" class="btn btn-round btn-clear btn-instagram"><i class="fa fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/" class="btn btn-round btn-clear btn-linkedin"><i class="fa fa-linkedin-square"></i></a>
+                    <a href="https://www.pinterest.com/" class="btn btn-round btn-clear btn-pinterest"><i class="fa fa-pinterest"></i></a>
+                    <a href="https://plus.google.com/106251164898636973632/posts" class="btn btn-round btn-clear btn-google"><i class="fa fa-google-plus"></i></a>      
                 </div>
             </div>
         </div> 
@@ -86,7 +83,7 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav" id="myNavbar">
-                        <li class="active">
+                        <li>
                          <?= $this->Html->link(__('HOME'), ['controller' =>'Pages', 'action' => 'home'])?>
                         </li>
                         <li>
@@ -146,7 +143,7 @@
                         <li>
                             <?= $this->Html->link(__('CONTACT US'), ['controller' =>'Pages', 'action' => 'contactus'])?>
                         </li>
-                        <li>
+                        <!-- <li>
                             <?= $this->Html->link(__('TESTIMONIALS'), ['controller' =>'Pages', 'action' => 'testimonials'])?>
                         </li>
                         
@@ -172,10 +169,22 @@
                                     <a href="pricing.html">Pricing Table</a>
                                 </li>
                             </ul>
-                        </li>
-                        <li>
-                        <?=  $this->Html->link('<span class="glyphicon glyphicon-edit"></span> Make a Quote!', array('controller'=>'Quotes','action'=>'create'), array('escape' => false, 'class' => 'btn btn-success btn-md', 'target' => '_self', 'id' => 'btnQuote'));?>
-                        </li>
+                        </li> -->
+                    </ul>
+                    <ul class="navbar-form form-inline navbar-right">
+                        
+                            <?php echo $this->Html->link('<span class="glyphicon glyphicon-user"></span> Login!', array('controller'=>'Customers','action'=>'Login'), array('escape' => false, 'class' => 'btn btn-success btn-md', 'target' => '_self', 'id'=>'btnLogin'));?>
+                            
+                       
+                   
+                        <?php echo $this->Html->link('<span class="glyphicon glyphicon-ok"></span> Sign up today!', array('controller'=>'Customers','action'=>'register'), array('escape' => false, 'class' => 'btn btn-success btn-md', 'target' => '_self','id'=>'btnLogin'));?>
+                            <?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> Make a Quote!', array('controller'=>'Quotes','action'=>'create'), array('escape' => false, 'class' => 'btn btn-success btn-md', 'target' => '_self','id' => 'btnQuote'));?>
+                            <?php $user = $this->Session->read('Auth.User');
+
+                                if (!empty($user)) {
+                                    echo $user['email'];
+                                };?>
+                    
                     </ul>
                 </div>
                 <!-- /.navbar-collapse --> 

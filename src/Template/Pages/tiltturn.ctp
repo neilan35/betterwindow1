@@ -9,7 +9,7 @@
             <div class="col-md-8">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3><i class="glyphicon glyphicon-leaf"> <strong>Tilt & Turn Windows in Melbourne</strong></i></h3>
+                        <h3><i class="glyphicon glyphicon-leaf"></i> <strong>Tilt & Turn Windows in Melbourne</strong></h3>
                     </div>
                     <div class="panel-body">
                         <h4>Premium quality windows that will last you many years</h4>

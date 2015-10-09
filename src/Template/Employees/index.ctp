@@ -29,9 +29,9 @@
             <td><?= h($employee->created) ?></td>
             <td><?= h($employee->modified) ?></td>
             <td class="actions">
-                <?= $this->Html->link(__('View'), ['action' => 'view', $employee->id]) ?>
-                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $employee->id]) ?>
-                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $employee->id], ['confirm' => __('Are you sure you want to delete # {0}?', $employee->id)]) ?>
+                <?= $this->Html->link(__('View'), ['action' => 'view', $employee->id], ['class' => 'btn btn-info btn-xs']) ?>
+                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $employee->id], ['class' => 'btn btn-success btn-xs']) ?>
+                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $employee->id], ['class' => 'btn btn-danger btn-xs', 'confirm' => __('Are you sure you want to delete # {0}?', $employee->id)]) ?>
             </td>
         </tr>
 

@@ -13,132 +13,190 @@
     </br>
    
 
-
-    <div class="row">
+<div class="container" style= "width: 100%; padding-left: 5%">
+<div class="row">
     <div class="col-sm-12">
     <?= $this->Form->create($quote,['class'=>'form-horizontal']); ?>
     <fieldset>
-        
-        <div class="form-group">
-            <label class="control-label col-md-2" for="first_name">Colour*:</label>
-                <div class="input-group col-md-5">
-                <?php echo $this->Form->input('quoteproduct.colour_id', ['options' => $colours,
-                'empty' => '(Please choose one)',
-                'class' => 'form-control',
-                'label' => false]);?>
+    <div class="row">
+        <div class="col-lg-7">
+        <div class="col-lg-5">
+            <div class="form-group">
+                <label class="control-label col-md-4" for="first_name">Colour*:</label>
+                    <div class="input-group col-md-6">
+                    <?php echo $this->Form->input('quoteproduct.colour_id', ['options' => $colours,
+                    'empty' => '(Please choose one)',
+                    'class' => 'form-control',
+                    'label' => false]);?>
 
-                </div>
-        </div>
-         <div class="form-group">
-            <label class="control-label col-sm-2" for="first_name">BAL-Rating*:</label>
-                <div class="input-group col-sm-5">
-                <?php echo $this->Form->input('quoteproduct.balrating_id', ['options' => $balratings,
-                'empty' => '(Please choose one)',
-                'id' => 'balrating-id',
-                'class' => 'form-control',
-                'label' => false]);?>
-                </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="first_name">Item Type*:</label>
-                <div class="input-group col-sm-5">
-                <?php echo $this->Form->input('quoteproduct.itemtype_id', ['options' => $itemtypes,
-                'empty' => '(Please choose one)',
-                'class'=>'form-control',
-                'id'=>'itemtype-id',
-                'label'=>false ]);?>
-                </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="first_name">Open Type*:</label>
-                <div class="input-group col-sm-5">
-                <?php echo $this->Form->input('quoteproduct.open_type',['options'=>[] ,
-                'id'=>'opentype-id',
-                'empty' =>'(Please choose one)',
-                'class'=>'form-control',
-                'label'=>false]); ?>
-                <p class="help-block">Options will be based on the Item Type you have chosen</p>
+                    </div>
             </div>
         </div>
-        
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="first_name">Usage*:</label>
-                <div class="input-group col-sm-5">
-                <?php echo $this->Form->input('quoteproduct.usage',['options'=>$usages,
-                'empty'=>'(Please choose one)',
-                'class' =>'form-control',
-                'label'=>false]); ?>
+        <div class="col-lg-5">
+            <div class="form-group">
+                <label class="control-label col-sm-4" for="first_name">BAL-Rating*:</label>
+                    <div class="input-group col-sm-6">
+                    <?php echo $this->Form->input('quoteproduct.balrating_id', ['options' => $balratings,
+                        'empty' => '(Please choose one)',
+                        'id' => 'balrating-id',
+                        'class' => 'form-control',
+                        'label' => false]);?>
+                    </div>
             </div>
         </div>
-
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="first_name">Glass Types*:</label>
-                <div class="input-group col-sm-5">
-
-                <?php echo $this->Form->input('quoteproduct.glasstype', ['options' => $glasstypes,
-                'empty' => '(Please choose one)',
-                'class'=> 'form-control',
-                'label'=> false]);?>
-            </div>
+    </div>
+</div>
+</fieldset>
+</br></br>
+<fieldset>
+    <div class= "row">
+        <div class="col-lg-7">
+        <legend><?= __('Design Information') ?></legend>
+        <div class="col-lg-5">
+            <div class="form-group">
+                <label class="control-label col-sm-4" for="first_name">Item Type*:</label>
+                    <div class="input-group col-sm-6">
+                    <?php echo $this->Form->input('quoteproduct.itemtype_id', ['options' => $itemtypes,
+                    'empty' => '(Please choose one)',
+                    'class'=>'form-control',
+                    'id'=>'itemtype-id',
+                    'label'=>false ]);?>
+                    </div>
+            </div> 
+            <div class="form-group">
+                <p>Quanity goes here</p>
+            </div> 
+                   <!--Quantity will go here  -->
         </div>
 
-        </br></br>
-        
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="first_name">Height*:</label>
-                <div class="input-group col-sm-5">
+        <div class="col-lg-5">
+            <div class="form-group">
+                <label class="control-label col-sm-4" for="first_name">Open Type*:</label>
+                    <div class="input-group col-sm-8">
+                    <?php echo $this->Form->input('quoteproduct.open_type',['options'=>[] ,
+                    'id'=>'opentype-id',
+                    'empty' =>'(Please choose one)',
+                    'class'=>'form-control',
+                    'label'=>false]); ?>
+                    <p class="help-block">Options will be based on the Item Type you have chosen</p>
+                </div>
+            </div>
+            <div class="form-group">
+            <label class="control-label col-sm-4" for="first_name">Height*:</label>
+                <div class="input-group col-sm-6">
 
                 <?php echo $this->Form->input('quoteproduct.height', ['placeholder' => '100mm-200mm','id'=>"amount",
                 'class'=> 'form-control',
                 'label'=> false]);?>
                 </div>
-            <div class="col-sm-5" id="slider" style="width:40%; margin: 13px 0 0 200px;"></div>  
-        </div>
-        
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="first_name">Width*:</label>
-                <div class="input-group col-sm-5">
+            <div class="col-sm-6" id="slider" style="width:80%; margin: 13px 0 0 80px;"></div>  
+            </div>
+            <div class="form-group">
+            <label class="control-label col-sm-4" for="first_name">Width*:</label>
+                <div class="input-group col-sm-6">
 
                 <?php echo $this->Form->input('quoteproduct.width', ['placeholder' => '200mm-500mm', 'id'=>"amount2",
                 'class'=> 'form-control',
                 'label'=> false]);?>
             </div>
-            <div class="col-sm-5" id="slider2" style="width:40%; margin: 13px 0 0 200px;"></div>
-        </div>  
-
+            <div class="col-sm-6" id="slider2" style="width:80%; margin: 13px 0 0 80px;"></div>
+            </div>  
+        </div>
+    </div>
+</div>
+</fieldset>
+</br></br>
+<fieldset>
+    <div class= "row">
+        <div class="col-lg-7">
+            <legend><?= __('Glass Composition') ?></legend>
+        <div class="col-lg-5">
+            <div class="form-group">
+                <label class="control-label col-sm-4" for="first_name">Glass Types*:</label>
+                    <div class="input-group col-sm-6">
+                    <?php echo $this->Form->input('quoteproduct.glasstype', ['options' => $glasstypes,
+                    'empty' => '(Please choose one)',
+                    'class'=> 'form-control',
+                    'label'=> false]);?>
+                </div>
+            </div>
         </br>
-        
-        
-         <div class="form-group">
-            <label class="control-label col-sm-2" for="first_name">Reveal*:</label>
+            <div class="form-group">
+            <label class="control-label col-sm-5" for="first_name">Glass Compositions*:</label>
+                <div class="input-group col-sm-7">
+                <?php echo $this->Form->input('quoteproduct.glazing_id', ['options' => $glazings,
+                'empty' => '(Please choose one)',
+                'class'=>'form-control',
+                'label'=>false ]);?>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-5">
+            <div class="form-group">
+                <label class="control-label col-sm-4" for="first_name">Usage*:</label>
+                    <div class="input-group col-sm-6">
+                    <?php echo $this->Form->input('quoteproduct.usage',['options'=>$usages,
+                    'empty'=>'(Please choose one)',
+                    'class' =>'form-control',
+                    'label'=>false]); ?>
+                </div>
+            </div>
+            <div class="form-group">
+            <label class="control-label col-sm-4" for="first_name">Special:</label>
+                <div class="input-group col-sm-6 ">
+                <?php echo $this->Form->input('quoteproduct.obscurity', ['type'=>'checkbox']); ?>
+                <?php echo $this->Form->input('quoteproduct.safety', ['type'=>'checkbox']); ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</fieldset>
+        </br></br>
+
+<fieldset>
+    <div class= "row">
+        <div class="col-lg-7">
+        <legend><?= __('Reveal Information') ?></legend>
+        <div class="col-lg-5">
+            <div class="form-group">
+            <label class="control-label col-sm-5" for="first_name">Would you like a reveal*:</label>
                 <div class="input-group col-sm-5">
                 <?php echo $this->Form->input('quoteproduct.reveal', ['type'=>'checkbox']);?>
                 </div>
+            </div>
         </div>
-        
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="first_name">Reveal*:</label>
-                <div class="input-group col-sm-5">
+        <div class="col-lg-5" >
+            <div class="form-group">
+            <label class="control-label col-sm-4" for="first_name">Reveal Size:</label>
+                <div class="input-group col-sm-7">
                 <?php echo $this->Form->input('quoteproduct.reveal_id', ['options' => $reveals, 
                 'empty' => '(Please choose one)',
                 'class'=> 'form-control',
                 'label'=> false]);?>
+                </div>
             </div>
         </div>
-        
-
-       
-
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="first_name">Flyscreentype*:</label>
-                <div class="input-group col-sm-5">
+    </div>
+</div>
+</fieldset>
+</br></br>
+<fieldset>
+    <div class= "row">
+        <div class="col-lg-7">
+        <div class="col-lg-5" >
+            <legend><?= __('Fly Screen Information') ?></legend>
+            <div class="form-group">
+            <label class="control-label col-sm-4" for="first_name">Would you like a flyscreen*:</label>
+                <div class="input-group col-sm-6">
 
                 <?php echo $this->Form->input('quoteproduct.flyscreentype',['type'=>'checkbox','yes']);?>
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="first_name">Flyscreentype*:</label>
-                <div class="input-group col-sm-5">
+        </br>
+            <div class="form-group">
+            <label class="control-label col-sm-4" for="first_name">Flyscreentype*:</label>
+                <div class="input-group col-sm-7">
 
                 <?php echo $this->Form->input('quoteproduct.flyscreentypes',['options'=>[] ,
                 'id'=>'flyscreentype-id',
@@ -146,11 +204,14 @@
                 'class'=>'form-control',
                 'label'=>false]);?>
                 <p class="help-block">Options will be based on the Open Type you have chosen</p>
+                </div>
             </div>
         </div>
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="first_name">Mesh Type*:</label>
-                <div class="input-group col-sm-5">
+        <div class="col-lg-5" >       
+            <legend><?= __('Mesh Information') ?></legend>
+            <div class="form-group">
+            <label class="control-label col-sm-4" for="first_name">Mesh Type*:</label>
+                <div class="input-group col-sm-7">
 
                 <?php echo $this->Form->input('quoteproduct.meshtype',['options'=>[] ,
                 'id'=>'mesh-id',
@@ -158,36 +219,30 @@
                 'class'=>'form-control',
                 'label'=>false]);?>
                 <p class="help-block">Options will be based on the Fly Screen Type & BAL-Rating you have chosen</p>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="first_name">Glass Compositions *:</label>
-                <div class="input-group col-sm-5">
-                <?php echo $this->Form->input('quoteproduct.glazing_id', ['options' => $glazings,
-                'empty' => '(Please choose one)',
-                'class'=>'form-control',
-                'label'=>false ]);?>
                 </div>
-        </div>
-
-
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="first_name">Special*:</label>
-                <div class="input-group col-sm-5 ">
-                <?php echo $this->Form->input('quoteproduct.obscurity', ['type'=>'checkbox']); ?>
-                <?php echo $this->Form->input('quoteproduct.safety', ['type'=>'checkbox']); ?>
             </div>
         </div>
-
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="first_name">Would you like to add these?*:</label>
-                <div class="input-group col-sm-5 ">
-                <?php echo $this->Form->input('installation');?>
-                 <?php echo $this->Form->input('installtype', ['options' => ['Victoria' => 'VIC', 'Northern Territory'=>'NT']]);?>
-                <?php echo $this->Form->input('delivery');?>
+    </div>
+</div>
+</fieldset>
+</br>
+<fieldset>
+    <div class= "row">
+        <div class="col-lg-7">
+            <legend><?= __('Installation or Delivery') ?></legend>
+            <div class="col-lg-5" >        
+                <div class="form-group">
+                    <label class="control-label col-sm-5" for="first_name">Would you like to add these?*:</label>
+                    <div class="input-group col-sm-5 ">
+                        <?php echo $this->Form->input('installation');?>
+                        <?php echo $this->Form->input('installtype', ['options' => ['Victoria' => 'VIC', 'Northern Territory'=>'NT']]);?>
+                        <?php echo $this->Form->input('delivery');?>
+                    </div>
+                </div>
+            </div>
         </div>
-
+    </div>
+</fieldset>
         <?php
 
         	// echo $this->Form->input('quoteproduct.colour_id', ['options' => $colours,

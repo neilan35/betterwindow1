@@ -21,9 +21,9 @@
             <td><?= h($reveal->type) ?></td>
             <td><?= $this->Number->format($reveal->price) ?></td>
             <td class="actions">
-                <?= $this->Html->link(__('View'), ['action' => 'view', $reveal->id]) ?>
-                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $reveal->id]) ?>
-                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $reveal->id], ['confirm' => __('Are you sure you want to delete # {0}?', $reveal->id)]) ?>
+                <?= $this->Html->link(__('View'), ['action' => 'view', $reveal->id], ['class' => 'btn btn-info btn-xs']) ?>
+                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $reveal->id], ['class' => 'btn btn-success btn-xs']) ?>
+                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $reveal->id], ['class' => 'btn btn-danger btn-xs', 'confirm' => __('Are you sure you want to delete # {0}?', $reveal->id)]) ?>
             </td>
         </tr>
 

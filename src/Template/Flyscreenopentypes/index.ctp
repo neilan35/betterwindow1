@@ -26,9 +26,9 @@
                 <?= $flyscreenopentype->has('flyscreentype') ? $this->Html->link($flyscreenopentype->flyscreentype->type, ['controller' => 'Flyscreentypes', 'action' => 'view', $flyscreenopentype->flyscreentype->id]) : '' ?>
             </td>
             <td class="actions">
-                <?= $this->Html->link(__('View'), ['action' => 'view', $flyscreenopentype->id]) ?>
-                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $flyscreenopentype->id]) ?>
-                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $flyscreenopentype->id], ['confirm' => __('Are you sure you want to delete # {0}?', $flyscreenopentype->id)]) ?>
+                <?= $this->Html->link(__('View'), ['action' => 'view', $flyscreenopentype->id], ['class' => 'btn btn-info btn-xs']) ?>
+                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $flyscreenopentype->id], ['class' => 'btn btn-success btn-xs']) ?>
+                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $flyscreenopentype->id], ['class' => 'btn btn-danger btn-xs','confirm' => __('Are you sure you want to delete # {0}?', $flyscreenopentype->id)]) ?>
             </td>
         </tr>
 <!-- var_dump($flyscreenopentype->opentype->itemtype->type); -->

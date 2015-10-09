@@ -47,11 +47,11 @@
             <td><?= h($user->created) ?></td>
             <!-- <td><?= h($user->modified) ?></td> -->
             <td class="actions">
-                <?= $this->Html->link(__('View'), ['action' => 'view', $user->id],['class' => 'btn btn-info btn-xs']) ?>
+                <?= $this->Html->link(__('View'), ['action' => 'view', $user->id], ['class' => 'btn btn-info btn-xs']) ?>
                  &nbsp;
-                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->id],['class' => 'btn btn-success btn-xs']) ?>
+                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->id], ['class' => 'btn btn-success btn-xs']) ?>
                 &nbsp;
-                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $user->id], ['class' => 'btn btn-danger btn-xs','confirm' => __('Are you sure you want to delete # {0}?', $user->id)]) ?>
+                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $user->id], ['class' => 'btn btn-danger btn-xs', 'confirm' => __('Are you sure you want to delete # {0}?', $user->id)]) ?>
             </td>
         </tr>
 

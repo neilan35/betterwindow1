@@ -38,8 +38,8 @@
                 <?= $quoteproduct->has('reveal') ? $this->Html->link($quoteproduct->reveal->id, ['controller' => 'Reveals', 'action' => 'view', $quoteproduct->reveal->id]) : '' ?>
             </td>
             <td class="actions">
-                <?= $this->Html->link(__('View'), ['action' => 'view', $quoteproduct->id]) ?>
-                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $quoteproduct->id]) ?>
+                <?= $this->Html->link(__('View'), ['action' => 'view', $quoteproduct->id], ['class' => 'btn btn-info btn-xs']) ?>
+                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $quoteproduct->id], ['class' => 'btn btn-success btn-xs']) ?>
                 <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $quoteproduct->id], ['confirm' => __('Are you sure you want to delete # {0}?', $quoteproduct->id)]) ?>
             </td>
         </tr>

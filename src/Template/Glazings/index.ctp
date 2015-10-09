@@ -37,9 +37,9 @@
             <td><?= h($glazing->obscurity) ?></td>
             <td><?= h($glazing->safety) ?></td>
             <td class="actions">
-                <?= $this->Html->link(__('View'), ['action' => 'view', $glazing->id]) ?>
-                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $glazing->id]) ?>
-                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $glazing->id], ['confirm' => __('Are you sure you want to delete # {0}?', $glazing->id)]) ?>
+                <?= $this->Html->link(__('View'), ['action' => 'view', $glazing->id], ['class' => 'btn btn-info btn-xs']) ?>
+                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $glazing->id], ['class' => 'btn btn-success btn-xs']) ?>
+                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $glazing->id], ['class' => 'btn btn-danger btn-xs', 'confirm' => __('Are you sure you want to delete # {0}?', $glazing->id)]) ?>
             </td>
         </tr>
 

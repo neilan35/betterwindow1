@@ -18,9 +18,9 @@
             <td><?= $this->Number->format($category->id) ?></td>
             <td><?= $this->Number->format($category->price) ?></td>
             <td class="actions">
-                <?= $this->Html->link(__('View'), ['action' => 'view', $category->id]) ?>
-                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $category->id]) ?>
-                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $category->id], ['confirm' => __('Are you sure you want to delete # {0}?', $category->id)]) ?>
+                <?= $this->Html->link(__('View'), ['action' => 'view', $category->id], ['class' => 'btn btn-info btn-xs']) ?>
+                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $category->id], ['class' => 'btn btn-success btn-xs']) ?>
+                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $category->id], ['class' => 'btn btn-danger btn-xs', 'confirm' => __('Are you sure you want to delete # {0}?', $category->id)]) ?>
             </td>
         </tr>
 

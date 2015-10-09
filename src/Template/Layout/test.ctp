@@ -95,7 +95,7 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav" id="myNavbar">
-                        <li class="active">
+                        <li class="">
                          <?= $this->Html->link(__('HOME'), ['controller' =>'Pages', 'action' => 'home'])?>
                         </li>
                         <li>
@@ -153,13 +153,13 @@
                             <?= $this->Html->link(__('BENEFITS'), ['controller' =>'Pages', 'action' => 'benefits'])?>
                         </li>
                         <li>
-                            <?= $this->Html->link(__('CONTACT US'), ['controller' =>'Pages', 'action' => 'contactus'])?>
+                            <?= $this->Html->link(__('CONTACT US'), ['controller' =>'Enquiries', 'action' => 'contactus'])?>
                         </li>
-                        <li>
+                        <!-- <li>
                             <?= $this->Html->link(__('TESTIMONIALS'), ['controller' =>'Pages', 'action' => 'testimonials'])?>
-                        </li>                        
+                        </li>   -->                      
 
-                        <li class="dropdown">
+                        <!-- <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-list"></span> DOWNLOADS<b class="caret"></b>
                                  
                             </a>
@@ -180,18 +180,25 @@
                                     <a href="pricing.html">Pricing Table</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> -->
                         
                     </ul>
                     <ul class="navbar-form form-inline navbar-right">
-                            <?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> Make a Quote!', array('controller'=>'Quotes','action'=>'create'), array('escape' => false, 'class' => 'btn btn-success btn-md', 'target' => '_self'));?>
+                        
+                            <?php echo $this->Html->link('<span class="glyphicon glyphicon-user"></span> Login!', array('controller'=>'Customers','action'=>'Login'), array('escape' => false, 'class' => 'btn btn-success btn-md', 'target' => '_self', 'id'=>'btnLogin'));?>
+                            
+                       
+                   
+                        <?php echo $this->Html->link('<span class="glyphicon glyphicon-ok"></span> Sign up today!', array('controller'=>'Customers','action'=>'register'), array('escape' => false, 'class' => 'btn btn-success btn-md', 'target' => '_self','id'=>'btnLogin'));?>
+
+                            <?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> Make a Quote!', array('controller'=>'Quotes','action'=>'create'), array('escape' => false, 'class' => 'btn btn-success btn-md', 'target' => '_self','id' => 'btnQuote'));?>
                             <?php $user = $this->Session->read('Auth.User');
 
                                 if (!empty($user)) {
                                     echo $user['email'];
                                 };?>
-                        </ul>
                     
+                    </ul>
         <!-- /.container -->
     </nav>
     </div>
@@ -213,8 +220,6 @@
                   <div class="carousel-caption">
                     <h1>BETTER WINDOWS</h1>
               <p>The best UPVC Window in town</p>
-              <p><?php echo $this->Html->link('<span class="glyphicon glyphicon-ok"></span> Sign up today!', array('controller'=>'Customers','action'=>'register'), array('escape' => false, 'class' => 'btn btn-primary btn-lg', 'target' => '_self'));?>
-              </p>
                   </div>
                 </div>
                 <div class="item">
@@ -304,7 +309,26 @@
 
 
     <!-- Page Content -->
-    
+    <script>
+    $(document).ready(function() {
+        var actions = ['home', 'aboutus', 'gallery', 'benefits', 'contactus'];
+        var path = this.location.pathname;
+
+        found = false;
+        $.each(actions, function(key, action) {
+            if (path.indexOf(action) >= 0)
+                found = true;
+        });
+
+        if (!found)
+            path = '#';
+
+        window.console.log(path);
+
+        $('a[href="' + path + '"]').parent().addClass('active');
+    });
+</script>
+
     <script>
         $(document).ready(function(){
         $('.carousel').carousel({

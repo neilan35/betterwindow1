@@ -35,9 +35,9 @@
             <td><?= h($customer->state) ?></td>
             <td><?= h($customer->postcode) ?></td>
             <td class="actions">
-                <?= $this->Html->link(__('View'), ['action' => 'view', $customer->id]) ?>
-                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $customer->id]) ?>
-                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $customer->id], ['confirm' => __('Are you sure you want to delete # {0}?', $customer->id)]) ?>
+                <?= $this->Html->link(__('View'), ['action' => 'view', $customer->id], ['class' => 'btn btn-info btn-xs']) ?>
+                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $customer->id], ['class' => 'btn btn-success btn-xs']) ?>
+                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $customer->id], ['class' => 'btn btn-danger btn-xs', 'confirm' => __('Are you sure you want to delete # {0}?', $customer->id)]) ?>
             </td>
         </tr>
 

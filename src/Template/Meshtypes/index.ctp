@@ -21,9 +21,9 @@
             <td><?= h($meshtype->type) ?></td>
             <td><?= $this->Number->format($meshtype->price) ?></td>
             <td class="actions">
-                <?= $this->Html->link(__('View'), ['action' => 'view', $meshtype->id]) ?>
-                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $meshtype->id]) ?>
-                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $meshtype->id], ['confirm' => __('Are you sure you want to delete # {0}?', $meshtype->id)]) ?>
+                <?= $this->Html->link(__('View'), ['action' => 'view', $meshtype->id], ['class' => 'btn btn-info btn-xs']) ?>
+                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $meshtype->id], ['class' => 'btn btn-success btn-xs']) ?>
+                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $meshtype->id], ['class' => 'btn btn-danger btn-xs', 'confirm' => __('Are you sure you want to delete # {0}?', $meshtype->id)]) ?>
             </td>
         </tr>
 

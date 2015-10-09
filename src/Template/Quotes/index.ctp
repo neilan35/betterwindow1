@@ -1,10 +1,4 @@
-<div class="actions columns large-2 medium-3">
-    <h3><?= __('Actions') ?></h3>
-    <ul class="side-nav">
-        <li><?= $this->Html->link(__('List Quoteproducts'), ['controller' => 'Quoteproducts', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Quoteproduct'), ['controller' => 'Quoteproducts', 'action' => 'add']) ?> </li>
-    </ul>
-</div>
+
         <script>
         $(document).ready(function(){
             $('#tableIndex').DataTable();
@@ -53,10 +47,10 @@
             <td><?= h($quote->status) ?></td>
 
             <td class="actions">
-                <?= $this->Html->link(__('View'), ['action' => 'view', $quote->id]) ?>
-                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $quote->id]) ?>
+                <?= $this->Html->link(__('View'), ['action' => 'view', $quote->id], ['class' => 'btn btn-info btn-xs']) ?>
+                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $quote->id], ['class' => 'btn btn-success btn-xs']) ?>
                 <?= $this->Html->link(__('View in PDF'), ['action' => 'pdf', $quote->id]) ?>
-                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $quote->id], ['confirm' => __('Are you sure you want to delete # {0}?', $quote->id)]) ?>
+                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $quote->id], ['class' => 'btn btn-danger btn-xs', 'confirm' => __('Are you sure you want to delete # {0}?', $quote->id)]) ?>
             </td>
         </tr>
 

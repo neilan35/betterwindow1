@@ -29,9 +29,9 @@
                 <?= $flyscreenmesh->has('flyscreentype') ? $this->Html->link($flyscreenmesh->flyscreentype->id, ['controller' => 'Flyscreentypes', 'action' => 'view', $flyscreenmesh->flyscreentype->id]) : '' ?>
             </td>
             <td class="actions">
-                <?= $this->Html->link(__('View'), ['action' => 'view', $flyscreenmesh->id]) ?>
-                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $flyscreenmesh->id]) ?>
-                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $flyscreenmesh->id], ['confirm' => __('Are you sure you want to delete # {0}?', $flyscreenmesh->id)]) ?>
+                <?= $this->Html->link(__('View'), ['action' => 'view', $flyscreenmesh->id], ['class' => 'btn btn-info btn-xs']) ?>
+                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $flyscreenmesh->id], ['class' => 'btn btn-success btn-xs']) ?>
+                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $flyscreenmesh->id], ['class' => 'btn btn-danger btn-xs','confirm' => __('Are you sure you want to delete # {0}?', $flyscreenmesh->id)]) ?>
             </td>
         </tr>
 

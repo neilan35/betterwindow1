@@ -21,9 +21,9 @@
             <td><?= h($flyscreentype->type) ?></td>
             <td><?= $this->Number->format($flyscreentype->price) ?></td>
             <td class="actions">
-                <?= $this->Html->link(__('View'), ['action' => 'view', $flyscreentype->id]) ?>
-                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $flyscreentype->id]) ?>
-                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $flyscreentype->id], ['confirm' => __('Are you sure you want to delete # {0}?', $flyscreentype->id)]) ?>
+                <?= $this->Html->link(__('View'), ['action' => 'view', $flyscreentype->id], ['class' => 'btn btn-info btn-xs']) ?>
+                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $flyscreentype->id], ['class' => 'btn btn-success btn-xs']) ?>
+                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $flyscreentype->id], ['class' => 'btn btn-danger btn-xs','confirm' => __('Are you sure you want to delete # {0}?', $flyscreentype->id)]) ?>
             </td>
         </tr>
 

@@ -27,9 +27,9 @@
             <td><?= h($enquiry->phone) ?></td>
             <td><?= h($enquiry->comment) ?></td>
             <td class="actions">
-                <?= $this->Html->link(__('View'), ['action' => 'view', $enquiry->id]) ?>
-                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $enquiry->id]) ?>
-                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $enquiry->id], ['confirm' => __('Are you sure you want to delete # {0}?', $enquiry->id)]) ?>
+                <?= $this->Html->link(__('View'), ['action' => 'view', $enquiry->id], ['class' => 'btn btn-info btn-xs']) ?>
+                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $enquiry->id], ['class' => 'btn btn-success btn-xs']) ?>
+                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $enquiry->id], ['class' => 'btn btn-danger btn-xs', 'confirm' => __('Are you sure you want to delete # {0}?', $enquiry->id)]) ?>
             </td>
         </tr>
 

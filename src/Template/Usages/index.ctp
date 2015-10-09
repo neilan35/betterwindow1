@@ -19,9 +19,9 @@
             <td><?= $this->Number->format($usage->id) ?></td>
             <td><?= h($usage->description) ?></td>  
             <td class="actions">
-                <?= $this->Html->link(__('View'), ['action' => 'view', $usage->id]) ?>
-                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $usage->id]) ?>
-                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $usage->id], ['confirm' => __('Are you sure you want to delete # {0}?', $usage->id)]) ?>
+                <?= $this->Html->link(__('View'), ['action' => 'view', $usage->id], ['class' => 'btn btn-info btn-xs']) ?>
+                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $usage->id], ['class' => 'btn btn-success btn-xs']) ?>
+                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $usage->id], ['class' => 'btn btn-danger btn-xs', 'confirm' => __('Are you sure you want to delete # {0}?', $usage->id)]) ?>
             </td>
         </tr>
 

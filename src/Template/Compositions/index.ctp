@@ -18,9 +18,9 @@
             <td><?= $this->Number->format($composition->id) ?></td>
             <td><?= h($composition->name) ?></td>
             <td class="actions">
-                <?= $this->Html->link(__('View'), ['action' => 'view', $composition->id]) ?>
-                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $composition->id]) ?>
-                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $composition->id], ['confirm' => __('Are you sure you want to delete # {0}?', $composition->id)]) ?>
+                <?= $this->Html->link(__('View'), ['action' => 'view', $composition->id], ['class' => 'btn btn-info btn-xs']) ?>
+                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $composition->id], ['class' => 'btn btn-success btn-xs']) ?>
+                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $composition->id], ['class' => 'btn btn-danger btn-xs', 'confirm' => __('Are you sure you want to delete # {0}?', $composition->id)]) ?>
             </td>
         </tr>
 

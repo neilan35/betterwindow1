@@ -18,9 +18,9 @@
             <td><?= h($glasscomp->type) ?></td>
             <td><?= $this->Number->format($glasscomp->price) ?></td>
             <td class="actions">
-                <?= $this->Html->link(__('View'), ['action' => 'view', $glasscomp->id]) ?>
-                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $glasscomp->id]) ?>
-                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $glasscomp->id], ['confirm' => __('Are you sure you want to delete # {0}?', $glasscomp->id)]) ?>
+                <?= $this->Html->link(__('View'), ['action' => 'view', $glasscomp->id], ['class' => 'btn btn-info btn-xs']) ?>
+                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $glasscomp->id], ['class' => 'btn btn-success btn-xs']) ?>
+                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $glasscomp->id], ['class' => 'btn btn-danger btn-xs', 'confirm' => __('Are you sure you want to delete # {0}?', $glasscomp->id)]) ?>
             </td>
         </tr>
 

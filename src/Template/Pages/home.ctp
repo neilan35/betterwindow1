@@ -6,16 +6,14 @@
                     uPVC Windows & Doors in Melbourne, VIC
                 </h1>
             </div>
-            <div class="col-lg-3">
-                <?php echo $this->Html->link('<span class="glyphicon glyphicon-user"></span> Login!', array('controller'=>'Customers','action'=>'Login'), array('escape' => false, 'class' => 'btn btn-info btn-lg', 'target' => '_self', 'id'=>'btnLogin'));?>
-            </div>
+            
 
         </div>
         <div class="row">
             <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4><i class="glyphicon glyphicon-leaf"></i> Save on energy bills by installing custom made uPVC windows for your Melbourne home</h4>
+                        <h3><i class="glyphicon glyphicon-leaf"></i> Save on energy bills by installing custom made uPVC windows for your Melbourne home</h3>
                     </div>
                     <div class="panel-body">
                         <p>At <b>Blue Sky Windows</b>, we specialise in custom made windows and doors that are constructed from ultra-durable uPVC, giving the end products fantastic thermal and acoustic properties, and unparalleled security.</p>
@@ -28,7 +26,7 @@
             <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4><i class="glyphicon glyphicon-lock"></i>Trust Melbourne’s Blue Sky Windows for the best custom made windows and doors</h4>
+                        <h3><i class="glyphicon glyphicon-lock"></i>Trust Melbourne’s Blue Sky Windows for the best custom made windows and doors</h3>
                     </div>
                     <div class="panel-body">
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
@@ -39,7 +37,7 @@
             <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-compass"></i> Easy to Use</h4>
+                        <h3><i class="fa fa-fw fa-compass"></i> Easy to Use</h3>
                     </div>
                     <div class="panel-body">
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>

@@ -9,32 +9,32 @@
                 <legend class="text-center header">Contact us</legend>
                     <div class="form-group">
                         <div class="col-md-10 col-md-offset-1">
-                            <?= $this->Form->input('firstname', ['class' => 'form-control', 'id' => 'fname', 'name' => 'name', 'type' => 'text', 'placeholder' => "First Name", 'label' => '']) ?>
+                            <?= $this->Form->input('firstname', ['class' => 'form-control', 'id' => 'fname', 'type' => 'text', 'placeholder' => "First Name", 'label' => '']) ?>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-10 col-md-offset-1">
-                            <?= $this->Form->input('lastname', ['class' => 'form-control', 'id' => 'lname', 'name' => 'name', 'type' => 'text', 'placeholder' => "Last Name", 'label' => '' ]) ?>
+                            <?= $this->Form->input('lastname', ['class' => 'form-control', 'id' => 'lname', 'type' => 'text', 'placeholder' => "Last Name", 'label' => '' ]) ?>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-10 col-md-offset-1">
-                            <?= $this->Form->input('email', ['class' => 'form-control', 'id' => 'email', 'name' => 'name', 'type' => 'text', 'placeholder' => "Email Address", 'label' => '' ]) ?>
+                            <?= $this->Form->input('email', ['class' => 'form-control', 'id' => 'email',  'type' => 'text', 'placeholder' => "Email Address", 'label' => '' ]) ?>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-10 col-md-offset-1">
-                            <?= $this->Form->input('phone', ['class' => 'form-control', 'id' => 'phone', 'name' => 'name', 'type' => 'text', 'placeholder' => "Phone Number", 'label' => '' ]) ?>
+                            <?= $this->Form->input('phone', ['class' => 'form-control', 'id' => 'phone',  'type' => 'text', 'placeholder' => "Phone Number", 'label' => '' ]) ?>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-10 col-md-offset-1">
-                            <?= $this->Form->input('comment', ['class' => 'form-control', 'id' => 'message', 'name' => 'message', 'type' => 'textarea', 'placeholder' => "Enter your message for us here. We will get back to you within 2 business days.", 'rows' => '7', 'label' => '' ]) ?>
+                            <?= $this->Form->input('comment', ['class' => 'form-control', 'id' => 'message',  'type' => 'textarea', 'placeholder' => "Enter your message for us here. We will get back to you within 2 business days.", 'rows' => '7', 'label' => '' ]) ?>
                         </div>
                     </div>
                 </form>  
             </br> </br>
-                <div class="col-md-12 text-center">
+                <div class="col-md-12 text-center" style="padding-top: 10px">
                     <?= $this->Form->button(__('Submit')) ?>
                 <?= $this->Form->end() ?>               
                 </div>
@@ -63,6 +63,9 @@
             </div>
         </div>
     </div>
+</div>
+</div>
+</div>
 
 
 

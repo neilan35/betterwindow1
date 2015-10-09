@@ -18,9 +18,9 @@
             <td><?= $this->Number->format($balrating->id) ?></td>
             <td><?= h($balrating->balrating) ?></td>
             <td class="actions">
-                <?= $this->Html->link(__('View'), ['action' => 'view', $balrating->id]) ?>
-                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $balrating->id]) ?>
-                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $balrating->id], ['confirm' => __('Are you sure you want to delete # {0}?', $balrating->id)]) ?>
+                <?= $this->Html->link(__('View'), ['action' => 'view', $balrating->id], ['class' => 'btn btn-info btn-xs']) ?>
+                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $balrating->id], ['class' => 'btn btn-success btn-xs']) ?>
+                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $balrating->id], ['class' => 'btn btn-danger btn-xs','confirm' => __('Are you sure you want to delete # {0}?', $balrating->id)]) ?>
             </td>
         </tr>
 

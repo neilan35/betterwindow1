@@ -9,7 +9,7 @@
             <div class="col-md-8">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3><i class="glyphicon glyphicon-leaf"> <strong>Tilt and Slide Windows and Doors</strong></i></h3>
+                        <h3><i class="glyphicon glyphicon-leaf"> </i> <strong>Tilt and Slide Windows and Doors</strong></h3>
                     </div>
                     <div class="panel-body">
                         <h4>Install highly versatile windows and doors on your commercial or residential property</h4>
