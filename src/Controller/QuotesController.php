@@ -2,9 +2,15 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
-use Cake\ORM\TableRegistry;
 use Cake\Event\Event;
 use Cake\Network\Exception\NotFoundException;
+
+use Cake\Utility\Security;
+use Cake\Utility\Text;
+use Cake\ORM\Query;
+use Cake\ORM\TableRegistry;
+use Cake\Network\Email\Email;
+use Cake\Routing\Router;
 
 /**
  * Quotes Controller
@@ -106,41 +112,99 @@ class QuotesController extends AppController
        
         $this->layout = 'test2';
        
-       
-        // var_dump($this->Auth->user('employee_id')); 
-        // die(); works
-       
-     
-        // $user = $this->Auth->user('customer_id')
-        //  // $user = $this->Session->read('Auth.Customer.id');
-        // //var_dump($this->Session->read('Auth.Customer.id'));
-        // // die();
-
-
+  
         // $custid = $this->Session->read('Auth.Customer.id')
         //   if($this->Session->check('Auth.User')){
         //     $Quoteproducts['customer_id']
 
-
-        //   // }
-
-        // if ($user){
-        //   $quotes['customer_id']=$user;
-
-        // }
-
-        //  $custid = $this->Session->read('Auth.User')
-        
-        // if (!empty($custid)){
-        //     $this->Session->setFlash('You are logged in')
-        // } else {
-        //     $this->Session->setFlash('You havent logged in', 'flash_error');
-        // }
         // $this->Session->check('Auth.User')
         // $id= $this->Auth->user('employee_id');
+        
+        $session = $this->request->session();
         $quote = $this->Quotes->newEntity();
+        
+         
         if ($this->request->is('post')) {
-           // $quote = $this->Quotes->patchEntity($quote, $this->request->data);
+
+         /*  $quote = $this->Quotes->patchEntity($quote, $this->request->data);/*, [
+            'associated' => ['Quoteproducts']
+            ]); //fucked*/
+
+            $quoteFormData = $this->request->data;
+            unset($quoteFormData['quoteproducts']);
+            $quote = $this->Quotes->patchEntity($quote, $quoteFormData);
+
+            $quoteProduct = $this->Quotes->Quoteproducts->newEntity();
+
+            // $quoteProduct['quote_id'] = 1;
+            $quoteProduct['design_id'] = 2;
+
+            $qpData = $this->request->data['quoteproducts'];
+            foreach ($qpData as $key => $value) {
+                $quoteProduct[$key] = $value;
+            }
+
+            $quoteProduct['usages'] = 4;  //fix
+            $quoteProduct['glasstype'] = 2; //fix
+
+
+            // make an if statement if not found, says somethings. 
+            $glazing_id = $this->Quotes->QuoteProducts->Glazings->find()
+                                                ->select(['id'])
+                                                ->where([   'usage_id' => $quoteProduct['usages'],
+                                                            'glasstype_id' => $quoteProduct['glasstype'],
+                                                            'composition_id' =>$quoteProduct['compositions'],
+                                                            'balrating_id' => $quoteProduct['balrating_id'],
+                                                            'obscurity' => $this->request->data['obscurity'],
+                                                            'safety'    => $this->request->data['safety']
+
+                                                            ]);
+
+            $quoteProduct['glazing_id'] = $glazing_id->first()['id'];
+
+    //        die();
+        //    var_dump($quoteProduct);
+
+        //    var_dump($quoteProduct);
+      //      die();
+
+
+/*            $qpData = $this->request->data['quoteproducts'];
+
+      //      $qpData['quote_id'] = '2124124';
+
+            $fields = array('width', 'height');
+            foreach ($fields as $field) {
+                list($qpData[$field], $rest) = preg_split("/ /", $qpData[$field]);
+                $qpData[$field] = intval($qpData[$field]);
+            }
+
+            unset($qpData['meshtype']);
+            $qpData['flyscreenmesh_id'] = 1;
+
+            foreach ($qpData as $key => $value) {
+     //           $quoteProduct['quote_id'] = '123';
+                $quoteProduct[$key] = $value;
+            }
+
+
+            var_dump($quoteProduct);
+      //      die();*/
+
+      //      unset($qpData['colour_id']);
+//           var_dump($quoteFormData);
+ //          var_dump($qpData);
+
+   //         $quoteProduct = $this->Quotes->Quoteproducts->patchEntity($quoteProduct, $qpData);
+  //          var_dump($quoteProduct);
+   //         die();
+
+            //    var_dump( $quote = $this->Quotes->patchEntity($quote, $this->request->data, [
+            // 'associated' => ['Quoteproducts']
+            // ]));
+               // var_dump($this->request->data);
+
+               // die();
            $customer = $this->Auth->user('customer_id');
            if (!empty($customer)) {
                 $id = $customer;
@@ -151,13 +215,45 @@ class QuotesController extends AppController
                $id = null;     
            }
            $quote['customer_id']= $id;
-               if ($this->Quotes->save($quote)) {
-                        $this->Flash->success('The quote has been saved.');
-                        return $this->redirect(['action' => 'index']);
-                    } else {
-                        $this->Flash->error('The quote could not be saved. Please, try again.');
-                    }
+
+      //     var_dump($quoteProduct);
+       //    die();
+
+            $session->write('quote_id', '');
+            if ($session->read('quote_id') == '') {
+                $result = $this->Quotes->save($quote);
+               // var_dump($quote->errors());
+              //  die();
+                if ($result) {
+                    $session->write('quote_id', $result->id);
+                    $quoteProduct['quote_id'] = $result->id;
+                }
+                else {
+                    $this->Flash->error('The quote could not be saved. Please, try again.');                    
+                }
             }
+            else
+                $quoteProduct['quote_id'] = $session->read('quote_id');
+
+//          if ($this->Quotes->save($quote)) {
+                if ($this->Quotes->Quoteproducts->save($quoteProduct)) {
+                     $this->Flash->success('The quote has been saved.');
+                     return $this->redirect(['action' => 'index']);
+                }
+                else {
+                    var_dump($quoteProduct->errors());
+                    die("can't save quote product");
+                      $this->Flash->error('The quote product could not be saved. Please, try again.');        
+                }
+ ///         } 
+ //         else {
+  //          $this->Flash->error('The quote could not be saved. Please, try again.');
+  //        }
+            }
+     
+                // var_dump($id);    
+                // var_dump($quote);
+               
 
         // $this->Session->write('quote_no', 'Q00001');
         $customers = $this->Quotes->Customers->find('list', ['limit' => 200]);
@@ -168,8 +264,10 @@ class QuotesController extends AppController
         $usages = $this->Quotes->Quoteproducts->Glazings->Usages->find('list', ['limit' => 200]);
         $glasstypes = $this->Quotes->Quoteproducts->Glazings->Glasstypes->find('list', ['limit' => 200]);
         $glazings = $this->Quotes->Quoteproducts->Glazings->find('list', ['limit' => 200]);
+        $compositions= $this->Quotes->Quoteproducts->Glazings->Compositions->find('list', ['limit' => 200]);
+
         // $glasscomps = $glazings['composition_id'];
-        $this->set(compact('custid','quote', 'customers','colours','balratings','itemtypes','reveals', 'usages','glasstypes','id','glazings','glasscomps'));
+        $this->set(compact('compositions','quote', 'customers','colours','balratings','itemtypes','reveals', 'usages','glasstypes','id','glazings','glasscomps'));
         $this->set('_serialize', ['quote']);
     }
 
@@ -281,8 +379,8 @@ class QuotesController extends AppController
                     ->select(['type']) 
                     ->where (['id in' => $meshArr]);
 
-                        // var_dump($mesh->toArray());
-                        // die();
+            // var_dump($mesh->toArray());
+            // die();
 
 
             echo json_encode($mesh->toArray());

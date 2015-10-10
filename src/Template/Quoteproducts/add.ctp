@@ -3,7 +3,7 @@
 <div class="quoteproducts form large-10 medium-9 columns">
 <?= $this->Form->create($quoteproduct); ?>
 <div class="row">
-    <div class="col-lg-6">
+    <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
                 Add a Product
@@ -11,7 +11,7 @@
             <div class="panel-body">
                <div class="panel-body">
                             <div class="row">
-                                <div class="col-lg-8">
+                                <div class="col-lg-12">
                                     <form class="form-horizontal" role="form">
                                     
                                     <div class="row">
@@ -44,6 +44,24 @@
                                 <div class="form-group">
                                     <?= $this->Form->input('reveal_id', ['options' => $reveals, 'empty' => true]) ?>
                                 </div>
+
+                                <div class="form-group">
+            <label class="control-label col-sm-2" for="first_name">Flyscreentype*:</label>
+                <div class="input-group col-sm-5">
+                    <?php echo $this->Form->input('flyscreentype',['type'=>'checkbox','yes']);?>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="first_name">Flyscreentype*:</label>
+                <div class="input-group col-sm-5">
+                    <?php echo $this->Form->input('flyscreentypes',['options'=>[] ,
+                    'id'=>'flyscreentype-id',
+                    'empty' =>'(Please choose one)',
+                    'class'=>'form-control',
+                    'label'=>false]);?>
+                    <p class="help-block">Options will be based on the Open Type you have chosen</p>
+            </div>
+        </div>
                                 <div class="form-group">
                                     <?= $this->Form->input('flyscreenmesh_id', ['options' => $flyscreenmeshes, 'empty' => true]) ?>
                                 </div>
@@ -54,6 +72,21 @@
                                     <?= $this->Form->input('height', ['class' => 'form-control']) ?>
                                 </div> 
                       
+                                <div class="form-group">
+                                    <?= $this->Form->input('width', ['class' => 'form-control']) ?>
+                                </div> 
+                                <div class="input-group col-sm-5">
+                    <?php echo $this->Form->input('usages',['options'=>$usages,
+                    'empty'=>'(Please choose one)',
+                    'class' =>'form-control',
+                    'label'=>false]); ?>
+                </div>
+                                <div class="form-group">
+                                    <?= $this->Form->input('glasstype', ['class' => 'form-control']) ?>
+                                </div> 
+                                <div class="form-group">
+                                    <?= $this->Form->input('width', ['class' => 'form-control']) ?>
+                                </div> 
                                 <div class="form-group">
                                     <?= $this->Form->input('width', ['class' => 'form-control']) ?>
                                 </div> 

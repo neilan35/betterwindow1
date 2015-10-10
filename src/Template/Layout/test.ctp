@@ -185,11 +185,8 @@
                     </ul>
                     <ul class="navbar-form form-inline navbar-right">
                         
-                            <?php echo $this->Html->link('<span class="glyphicon glyphicon-user"></span> Login!', array('controller'=>'Customers','action'=>'Login'), array('escape' => false, 'class' => 'btn btn-success btn-md', 'target' => '_self', 'id'=>'btnLogin'));?>
                             
-                       
-                   
-                        <?php echo $this->Html->link('<span class="glyphicon glyphicon-ok"></span> Sign up today!', array('controller'=>'Customers','action'=>'register'), array('escape' => false, 'class' => 'btn btn-success btn-md', 'target' => '_self','id'=>'btnLogin'));?>
+                            <?php echo $this->Html->link('<span class="glyphicon glyphicon-ok"></span> Sign up today!', array('controller'=>'Customers','action'=>'register'), array('escape' => false, 'class' => 'btn btn-success btn-md', 'target' => '_self','id'=>'btnQuote'));?>
 
                             <?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> Make a Quote!', array('controller'=>'Quotes','action'=>'create'), array('escape' => false, 'class' => 'btn btn-success btn-md', 'target' => '_self','id' => 'btnQuote'));?>
                             <?php $user = $this->Session->read('Auth.User');
@@ -197,6 +194,9 @@
                                 if (!empty($user)) {
                                     echo $user['email'];
                                 };?>
+                            <?php echo $this->Html->link('<span class="glyphicon glyphicon-user"></span> Login!', array('controller'=>'Customers','action'=>'Login'), array('escape' => false, 'class' => 'btn btn-success btn-md', 'target' => '_self', 'id'=>'btnLogin'));?>
+
+                            
                     
                     </ul>
         <!-- /.container -->

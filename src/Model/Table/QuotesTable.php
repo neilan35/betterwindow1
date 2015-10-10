@@ -29,6 +29,7 @@ class QuotesTable extends Table
             'foreignKey' => 'customer_id'
         ]);
         $this->hasMany('Quoteproducts', [
+            // 'className' => 'Quotes',
             'foreignKey' => 'quote_id'
         ]);
     }
@@ -43,21 +44,21 @@ class QuotesTable extends Table
     {
         $validator
             ->add('id', 'valid', ['rule' => 'numeric'])
-            ->allowEmpty('id', 'create')
-            ->add('customer_id', 'valid', ['rule' => 'numeric'])
-            ->allowEmpty('quoteno')
-            ->allowEmpty('item')
-            ->add('unitcost', 'valid', ['rule' => 'decimal'])
-            ->allowEmpty('unitcost')
-            ->add('quantity', 'valid', ['rule' => 'numeric'])
-            ->allowEmpty('quantity')
-            ->add('installation', 'valid', ['rule' => 'boolean'])
-            ->allowEmpty('installation')
-            ->allowEmpty('installtype')
-            ->add('delivery', 'valid', ['rule' => 'boolean'])
-            ->allowEmpty('delivery')
-            ->allowEmpty('deliverytype')
-            ->allowEmpty('status','create');
+            ->allowEmpty('id', 'create');
+            // ->add('customer_id', 'valid', ['rule' => 'numeric'])
+            // ->allowEmpty('quoteno')
+            // ->allowEmpty('item')
+            // ->add('unitcost', 'valid', ['rule' => 'decimal'])
+            // ->allowEmpty('unitcost')
+            // ->add('quantity', 'valid', ['rule' => 'numeric'])
+            // ->allowEmpty('quantity')
+            // ->add('installation', 'valid', ['rule' => 'boolean'])
+            // ->allowEmpty('installation')
+            // ->allowEmpty('installtype')
+            // ->add('delivery', 'valid', ['rule' => 'boolean'])
+            // ->allowEmpty('delivery')
+            // ->allowEmpty('deliverytype')
+            // ->allowEmpty('status','create');
 
         return $validator;
     }

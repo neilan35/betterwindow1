@@ -26,7 +26,9 @@ class QuoteproductsTable extends Table
         $this->primaryKey('id');
         $this->addBehavior('Timestamp');
         $this->belongsTo('Quotes', [
-            'foreignKey' => 'quote_id'
+            'className' => 'Quoteproducts',
+            'foreignKey' => 'quote_id',
+            'propertyName' => 'quote_id'
         ]);
         $this->belongsTo('Colours', [
             'foreignKey' => 'colour_id'
@@ -64,38 +66,38 @@ class QuoteproductsTable extends Table
             ->allowEmpty('id', 'create')
             ->add('quote_id', 'valid', ['rule' => 'numeric'])
             ->requirePresence('quote_id', 'create')
-            ->notEmpty('quote_id')
-            ->add('colour_id', 'valid', ['rule' => 'numeric'])
-            ->requirePresence('colour_id', 'create')
-            ->notEmpty('colour_id')
-            ->add('balrating_id', 'valid', ['rule' => 'numeric'])
-            ->requirePresence('balrating_id', 'create')
-            ->notEmpty('balrating_id')
-            ->add('itemtype_id', 'valid', ['rule' => 'numeric'])
-            ->requirePresence('itemtype_id', 'create')
-            ->notEmpty('itemtype_id')
-            ->requirePresence('open_type', 'create')
-            ->notEmpty('open_type')
-            // ->add('design_id', 'valid', ['rule' => 'numeric'])
-            // ->requirePresence('design_id', 'create')
-            // ->notEmpty('design_id')
-            ->add('reveal', 'valid', ['rule' => 'boolean'])
-            ->notEmpty('reveal')
-            ->add('reveal_id', 'valid', ['rule' => 'numeric'])
-            ->allowEmpty('reveal_id')
-            ->add('flyscreentype', 'valid', ['rule' => 'boolean'])
-            ->notEmpty('flyscreentype')
-            ->notEmpty('flyscreentypes')
-            ->add('flyscreenmesh_id', 'valid', ['rule' => 'numeric'])
-            ->allowEmpty('flyscreenmesh_id')
-            ->add('glazing_id', 'valid', ['rule' => 'numeric'])
-            ->requirePresence('glazing_id', 'create')
-            ->notEmpty('glazing_id')
-            ->add('height', 'valid', ['rule' => 'numeric'])
-            ->allowEmpty('height')
-            ->add('width', 'valid', ['rule' => 'numeric'])
-            ->allowEmpty('width')
-            ->notEmpty('usages');
+           ->notEmpty('quote_id');
+         //    ->add('colour_id', 'valid', ['rule' => 'numeric'])
+         //    ->requirePresence('colour_id', 'create')
+         //    ->notEmpty('colour_id')
+         //    ->add('balrating_id', 'valid', ['rule' => 'numeric'])
+         //    ->requirePresence('balrating_id', 'create')
+         //    //->notrePresence('itemtype_id', 'create')
+         //    ->notEmpty('itemtype_id')
+         //    ->requirePresence('open_type', 'create')
+         //    ->notEmpty('open_type')
+         //    // ->add('design_id', 'valid', ['rule' => 'numeric'])
+         //    // ->requirePresence('design_id', 'create')
+         //    // ->notEmpty('design_id')
+         //    ->add('reveal', 'valid', ['rule' => 'boolean'])
+         //    ->notEmpty('reveal')
+         //    ->add('reveal_id', 'valid', ['rule' => 'numeric'])
+         //    ->allowEmpty('reveal_id')
+         //    ->add('flyscreentype', 'valid', ['rule' => 'boolean'])
+         //    ->notEmpty('flyscreentype')
+         //    ->notEmpty('flyscreentypes')//Empty('balrating_id')
+         //    ->add('itemtype_id', 'valid', ['rule' => 'numeric'])
+         // //   ->requi
+         //    ->add('flyscreenmesh_id', 'valid', ['rule' => 'numeric'])
+         //    ->allowEmpty('flyscreenmesh_id')
+         //    ->add('glazing_id', 'valid', ['rule' => 'numeric'])
+         //    ->requirePresence('glazing_id', 'create')
+         //    ->notEmpty('glazing_id')
+         //    ->add('height', 'valid', ['rule' => 'numeric'])
+         //    ->allowEmpty('height')
+         //    ->add('width', 'valid', ['rule' => 'numeric'])
+         //    ->allowEmpty('width')
+         //    ->notEmpty('usages');
 
 
         return $validator;
