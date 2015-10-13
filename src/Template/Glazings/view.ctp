@@ -1,34 +1,85 @@
+<script>
+<?=$this->Html->addCrumb('Glazing', '/glazings  ');?>
+<?= $this->Html->addCrumb('View');?>
+
+</script>
 <div class="row">
-    <div class="col-lg-6">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                View Glazings
+    <div class="container-fluid well span6">
+        <div class="row-fluid">
+            <div class="col-sm-6">
+                <div class="panel panel-primary">
+                    <div class="panel-heading"> Glazing Information </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <h5 class="subheader"><b><?= __('Glazing Id') ?></b></h5>
+                                    <p><?= $this->Number->format($glazing->id) ?></p>
+                                </div>
+                                <div class="col-sm-4">
+                                    <h5 class="subheader"><b><?= __('Bal Rating') ?></b></h5>
+                                    <p><?= $glazing->has('balrating') ? $this->Html->link($glazing->balrating->balrating, ['controller' => 'Balratings', 'action' => 'view', $glazing->balrating->id]) : '' ?></p>
+                                </div>
+                                <div class="col-sm-4">
+                                <h5 class="subheader"><b><?= __('Usage') ?></b></h5>
+                                <p><?= $glazing->has('usage') ? $this->Html->link($glazing->usage->description, ['controller' => 'Usages', 'action' => 'view', $glazing->usage->id]) : '' ?></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <h5 class="subheader"><b><?= __('Glass Type') ?></b></h5>
+                                    <p><?= $glazing->has('glasstype') ? $this->Html->link($glazing->glasstype->type, ['controller' => 'Glasstypes', 'action' => 'view', $glazing->glasstype->id]) : '' ?></p>
+                                </div>
+                            <div class="col-sm-4">
+                                    <h5 class="subheader"><b><?= __('Composition') ?></b></h5>
+                                    <p><?= $glazing->has('composition') ? $this->Html->link($glazing->composition->name, ['controller' => 'Compositions', 'action' => 'view', $glazing->composition->id]) : '' ?></p>
+                            </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <h5 class="subheader"><b><?= __('Obscurity') ?></b></h5>
+                                    <p><?= $glazing->obscurity ? __('Yes') : __('No'); ?></p>
+                                </div>
+                                <div class="col-sm-4">
+                                    <h5 class="subheader"><b><?= __('Safety Glazing') ?></b></h5>
+                                    <p><?= $glazing->safety ? __('Yes') : __('No'); ?></p>
+                                </div>
+                                <div class="col-sm-4">
+                                    <h5 class="subheader"><b><?= __('Price') ?></b></h5>
+                                    <p><?= $this->Number->format($glazing->price) ?></p>
+                                </div>
+                            </div>
+                        </div>
+                </div>
             </div>
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <h4 class="subheader"><?= __('Id') ?></h4>
-                        <p><?= $this->Number->format($glazing->id) ?></p>
-                        <h4 class="subheader"><?= __('Bal Rating') ?></h4>
-                        <p><?= $glazing->has('balrating') ? $this->Html->link($glazing->balrating->balrating, ['controller' => 'Balratings', 'action' => 'view', $glazing->balrating->id]) : '' ?></p>
-                        <h4 class="subheader"><?= __('Usage') ?></h4>
-                        <p><?= $glazing->has('usage') ? $this->Html->link($glazing->usage->description, ['controller' => 'Usages', 'action' => 'view', $glazing->usage->id]) : '' ?></p>
-                        <h4 class="subheader"><?= __('Glass Type') ?></h4>
-                        <p><?= $glazing->has('glasstype') ? $this->Html->link($glazing->glasstype->type, ['controller' => 'Glasstypes', 'action' => 'view', $glazing->glasstype->id]) : '' ?></p>
-                        <h4 class="subheader"><?= __('Composition') ?></h4>
-                        <p><?= $glazing->has('composition') ? $this->Html->link($glazing->composition->name, ['controller' => 'Compositions', 'action' => 'view', $glazing->composition->id]) : '' ?></p>
-                        <h4 class="subheader"><?= __('Obscurity') ?></h4>
-                        <p><?= $glazing->obscurity ? __('Yes') : __('No'); ?></p>
-                        <h4 class="subheader"><?= __('Safety Glazing') ?></h4>
-                        <p><?= $glazing->safety ? __('Yes') : __('No'); ?></p>
-                        <h4 class="subheader"><?= __('Price') ?></h4>
-                        <p><?= $this->Number->format($glazing->price) ?></p>
+            <div class="col-sm-6">
+                <div class="panel panel-primary">
+                    <div class="panel-heading"> Related ID </div>
+                    <div class="panel-body">
+                        <div class= "row">
+                            <div class="col-sm-3">
+                                <h5 class="subheader"><?= __('Bal Rating') ?></h5>
+                                <p><?= $glazing->has('balrating') ? $this->Html->link($glazing->balrating->id, ['controller' => 'Balratings', 'action' => 'view', $glazing->balrating->id]) : '' ?></p>
+                            </div>
+                            <div class="col-sm-3">
+                                <h5 class="subheader"><?= __('Usage') ?></h5>
+                                <p><?= $glazing->has('usage') ? $this->Html->link($glazing->usage->id, ['controller' => 'Usages', 'action' => 'view', $glazing->usage->id]) : '' ?></p>
+                            </div>
+                            <div class="col-sm-3">
+                                <h5 class="subheader"><?= __('Glass Type') ?></h5>
+                                <p><?= $glazing->has('glasstype') ? $this->Html->link($glazing->glasstype->id, ['controller' => 'Glasstypes', 'action' => 'view', $glazing->glasstype->id]) : '' ?></p>
+                            </div>
+                            <div class="col-sm-3">
+                                <h5 class="subheader"><?= __('Composition') ?></h5>
+                                <p><?= $glazing->has('composition') ? $this->Html->link($glazing->composition->id, ['controller' => 'Compositions', 'action' => 'view', $glazing->composition->id]) : '' ?></p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 <script>
     $(document).ready(function(){
         $('#tableIndex').DataTable();
@@ -36,7 +87,7 @@
 </script>
 <div class="related row">
     <div class="table-responsive">
-    <h4 class="subheader"><?= __('Related Products') ?></h4>
+    <h5 class="subheader"><?= __('Related Products') ?></h5>
     <?php if (!empty($glazing->quoteproducts)): ?>
     <table class="table table-hover" id="tableIndex">
         <tr>

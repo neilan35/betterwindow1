@@ -9,6 +9,7 @@
         <tr>
             <th><?= $this->Paginator->sort('id') ?></th>
             <th><?= $this->Paginator->sort('name') ?></th>
+            <th><?= $this->Paginator->sort('price') ?></th>
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
     </thead>
@@ -17,6 +18,7 @@
         <tr>
             <td><?= $this->Number->format($composition->id) ?></td>
             <td><?= h($composition->name) ?></td>
+            <td><?= $this->Number->format($composition->price) ?></td>
             <td class="actions">
                 <?= $this->Html->link(__('View'), ['action' => 'view', $composition->id], ['class' => 'btn btn-info btn-xs']) ?>
                 <?= $this->Html->link(__('Edit'), ['action' => 'edit', $composition->id], ['class' => 'btn btn-success btn-xs']) ?>

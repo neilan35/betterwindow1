@@ -1,40 +1,106 @@
+<script>
+<?=$this->Html->addCrumb('Customer', '/customers  ');?>
+<?= $this->Html->addCrumb('View');?>
+
+</script>
+
 <div class="row">
-    <div class="col-lg-6">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                View Balrating
+    <div class="container-fluid well span6">
+        <div class="row-fluid">
+            <div class="col-sm-6">
+                <div class="panel panel-primary">
+                    <div class="panel-heading"> Customer Information </div>
+                        <div class="panel-body">
+                            <div class = "row">
+                                <div class="col-sm-3">
+                                    <h5 class="subheader"><b><?= __('Customer Id') ?></b></h5>
+                                    <p><?= $this->Number->format($customer->id) ?></p>
+                                </div>
+                                <div class="col-sm-3">
+                                    <h5 class="subheader"><b><?= __('First Name') ?></b></h5>
+                                    <p><?= h($customer->first_name) ?></p>
+                                </div>
+                                <div class="col-sm-3">
+                                    <h5 class="subheader"><b><?= __('Last Name') ?></b></h5>
+                                    <p><?= h($customer->last_name) ?></p>
+                                </div>
+                            </div>
+                            <div class = "row">
+                                <div class="col-sm-3">
+                                    <h5 class="subheader"><b><?= __('Street Address') ?></b></h5>
+                                    <p><?= h($customer->street_address) ?></p>
+                                </div>
+                                <div class="col-sm-3">
+                                    <h5 class="subheader"><b><?= __('Suburb') ?></b></h5>
+                                    <p><?= h($customer->suburb) ?></p>
+                                </div>
+                                <div class="col-sm-3">
+                                    <h5 class="subheader"><b><?= __('State') ?></b></h5>
+                                    <p><?= h($customer->state) ?></p>
+                                </div>
+                            </div>
+                            <div class = "row">
+                                <div class="col-sm-3">
+                                    <h5 class="subheader"><b><?= __('Postcode') ?></b></h5>
+                                    <p><?= $this->Number->format($customer->postcode) ?></p>
+                                </div>
+                                <div class="col-sm-3">
+                                    <h5 class="subheader"><b><?= __('Phone Number') ?></b></h5>
+                                   <p><?= $this->Number->format($customer->phone_number) ?></p>
+                                </div>
+                            </div>
+                            
+                        </div>
+                </div>
             </div>
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <h4 class="subheader"><?= __('Id') ?></h4>
-                        <p><?= $this->Number->format($customer->id) ?></p>
-                        <h4 class="subheader"><?= __('First Name') ?></h4>
-                        <p><?= h($customer->first_name) ?></p>
-                        <h4 class="subheader"><?= __('Last Name') ?></h4>
-                        <p><?= h($customer->last_name) ?></p>
-                        <h4 class="subheader"><?= __('First Name') ?></h4>
-                        <p><?= h($customer->street_address) ?></p>
-                        <h4 class="subheader"><?= __('Street Address') ?></h4>
-                        <p><?= h($customer->street_address) ?></p>
-                        <h4 class="subheader"><?= __('Suburb') ?></h4>
-                        <p><?= h($customer->suburb) ?></p>
-                        <h4 class="subheader"><?= __('State') ?></h4>
-                        <p><?= h($customer->state) ?></p>
-                        <h4 class="subheader"><?= __('Phone Number') ?></h4>
-                        <p><?= $this->Number->format($customer->phone_number) ?></p>
-                        <h4 class="subheader"><?= __('Postcode') ?></h4>
-                        <p><?= $this->Number->format($customer->postcode) ?></p>
-                        <h4 class="subheader"><?= __('Created') ?></h4>
-                        <p><?= h($customer->created) ?></p>
-                        <h4 class="subheader"><?= __('Modified') ?></h4>
-                        <p><?= h($customer->modified) ?></p>
+            <!-- <div class="col-sm-2">
+                <div class="panel panel-primary">
+                    <div class="panel-heading"> Related ID </div>
+                    <div class="panel-body">
+                        <div class= "row">
+                            <div class= "col-sm-4">
+                                <h5 class="subheader"><b>User ID</b></h5>
+                                <p><?php echo $this->Html->link($customer->user->id, ['controller' => 'Users', 'action' => 'view', $customer->user->id]);
+                                    ?></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+        <div class="col-sm-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Date</div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h5 class="subheader"><b><?= __('Created') ?></b></h5>
+                            <p><?= h($customer->created) ?></p>
+                        </div>
+                        <div class="col-sm-6">
+                            <h5 class="subheader"><b><?= __('Modified') ?></b></h5>
+                            <p><?= h($customer->modified) ?></p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <div class="panel panel-default">
+        <div class="panel-heading"><i class="fa fa-bell fa-fw"></i> Actions</div>
+            <div class="panel-body">
+                <div class="list-group">
+                    <div class="list-group-item">
+                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $customer->id], ['class' => 'btn btn-danger btn-xs', 'confirm' => __('Are you sure you want to delete # {0}?', $customer->id)]) ?>
+                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $customer->id], ['class' => 'btn btn-success btn-xs']) ?>
+                        <span class="pull-right text-muted small"><em>Are you sure?</em>
+                        </span>
+                    </div>
+                </div>
+            </div>
+    </div>
 </div>
+
 
         <script>
         $(document).ready(function(){

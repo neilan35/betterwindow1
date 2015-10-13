@@ -1,22 +1,48 @@
+<script>
+<?=$this->Html->addCrumb('FlyScreenType', '/flyscreentypes  ');?>
+<?= $this->Html->addCrumb('View');?>
+
+</script>
 <div class="row">
-    <div class="col-lg-6">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                View Fly Screen Type
-            </div>
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <h4 class="subheader"><?= __('Id') ?></h4>
-                        <p><?= $this->Number->format($flyscreentype->id) ?></p>
-                        <h4 class="subheader"><?= __('Type') ?></h4>
-                        <p><?= h($flyscreentype->type) ?></p>
-                        <h4 class="subheader"><?= __('Price') ?></h4>
-                        <p><?= $this->Number->format($flyscreentype->price) ?></p>
-                    </div>
+    <div class="container-fluid well col-sm-6">
+        <div class="row-fluid">
+            <div class="col-sm-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading"> Fly Screen Information </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h5 class="subheader"><b><?= __('Fly Screen Id') ?></b></h5>
+                                    <p><?= $this->Number->format($flyscreentype->id) ?></p>
+                                </div>
+                                <div class="col-sm-3">
+                                    <h5 class="subheader"><b><?= __('Type') ?></b></h5>
+                                    <p><?= h($flyscreentype->type) ?></p>
+                                </div>
+                                <div class="col-sm-3">
+                                    <h5 class="subheader"><b><?= __('Price') ?></b></h5>
+                                    <p><?= $this->Number->format($flyscreentype->price) ?></p>
+                                </div>
+                            </div>
+                        </div>
                 </div>
             </div>
         </div>
+    </div>
+</div>
+    <div class="row">
+    <div class="panel panel-default">
+        <div class="panel-heading"><i class="fa fa-bell fa-fw"></i> Actions</div>
+            <div class="panel-body">
+                <div class="list-group">
+                    <div class="list-group-item">
+                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $flyscreentype->id], ['class' => 'btn btn-danger btn-xs', 'confirm' => __('Are you sure you want to delete # {0}?', $flyscreentype->id)]) ?>
+                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $flyscreentype->id], ['class' => 'btn btn-success btn-xs']) ?>
+                        <span class="pull-right text-muted small"><em>Are you sure?</em>
+                        </span>
+                    </div>
+                </div>
+            </div>
     </div>
 </div>
 <script>

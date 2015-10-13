@@ -1,18 +1,38 @@
+<script>
+<?=$this->Html->addCrumb('OpenType', '/opentypes  ');?>
+<?= $this->Html->addCrumb('View');?>
+
+</script>
 <div class="row">
-    <div class="col-lg-6">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                View Open Types
+    <div class="container-fluid well col-sm-6">
+        <div class="row-fluid">
+            <div class="col-sm-6">
+                <div class="panel panel-primary">
+                    <div class="panel-heading"> Open Type Information </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <h5 class="subheader"><b><?= __('Open Type Id') ?></b></h5>
+                                    <p><?= $this->Number->format($opentype->id) ?></p>
+                                </div>
+                                <div class="col-sm-4">
+                                    <h5 class="subheader"><b><?= __('Name') ?></b></h5>
+                                    <p><?= h($opentype->name) ?></p>
+                                </div>
+                            </div>
+                        </div>
+                </div>
             </div>
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <h4 class="subheader"><?= __('Id') ?></h4>
-                        <p><?= $this->Number->format($opentype->id) ?></p>
-                        <h4 class="subheader"><?= __('Item Type') ?></h4>
-                        <p><?= $opentype->has('itemtype') ? $this->Html->link($opentype->itemtype->id, ['controller' => 'Itemtypes', 'action' => 'view', $opentype->itemtype->id]) : '' ?></p>
-                        <h4 class="subheader"><?= __('Name') ?></h4>
-                        <p><?= h($opentype->name) ?></p>
+            <div class="col-sm-6">
+                <div class="panel panel-primary">
+                    <div class="panel-heading"> Related ID </div>
+                    <div class="panel-body">
+                        <div class= "row">
+                            <div class= "col-sm-5">
+                                <h5 class="subheader"><b>Item Type ID</b></h5>
+                                <p><?= $opentype->has('itemtype') ? $this->Html->link($opentype->itemtype->id, ['controller' => 'Itemtypes', 'action' => 'view', $opentype->itemtype->id]) : '' ?></p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

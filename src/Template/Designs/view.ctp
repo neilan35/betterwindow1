@@ -1,22 +1,58 @@
+<script>
+<?=$this->Html->addCrumb('Design', '/designs  ');?>
+<?= $this->Html->addCrumb('View');?>
+
+</script>
+
 <div class="row">
-    <div class="col-lg-6">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                View Designs
+    <div class="container-fluid well col-sm-6">
+        <div class="row-fluid">
+            <div class="col-sm-5">
+                <div class="panel panel-primary">
+                    <div class="panel-heading"> Design Information </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h5 class="subheader"><b><?= __('Id') ?></b></h5>
+                                    <p><?= $this->Number->format($design->id) ?></p>
+                                </div>
+                            </div>
+                        </div>
+                </div>
             </div>
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <h4 class="subheader"><?= __('Id') ?></h4>
-                        <p><?= $this->Number->format($design->id) ?></p>
-                        <h4 class="subheader"><?= __('Open Type') ?></h4>
-                        <p><?= $design->has('opentype') ? $this->Html->link($design->opentype->name, ['controller' => 'Opentypes', 'action' => 'view', $design->opentype->id]) : '' ?></p>
-                        <h4 class="subheader"><?= __('Picture') ?></h4>
-                        <p><?= $design->has('picture') ? $this->Html->link($design->picture->id, ['controller' => 'Pictures', 'action' => 'view', $design->picture->id]) : '' ?></p>
+            <div class="col-sm-7">
+                <div class="panel panel-primary">
+                    <div class="panel-heading"> Related ID </div>
+                    <div class="panel-body">
+                        <div class= "row">
+                            <div class="col-sm-4">
+                                    <h5 class="subheader"><b><?= __('Open Type') ?></b></h5>
+                                    <p><?= $design->has('opentype') ? $this->Html->link($design->opentype->name, ['controller' => 'Opentypes', 'action' => 'view', $design->opentype->id]) : '' ?></p>
+                                </div>
+                                <div class="col-sm-4">
+                                    <h5 class="subheader"><b><?= __('Picture') ?></b></h5>
+                                    <p><?= $design->has('picture') ? $this->Html->link($design->picture->id, ['controller' => 'Pictures', 'action' => 'view', $design->picture->id]) : '' ?></p>
+                                </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    </div>
+    <div class="row">
+    <div class="panel panel-default">
+        <div class="panel-heading"><i class="fa fa-bell fa-fw"></i> Actions</div>
+            <div class="panel-body">
+                <div class="list-group">
+                    <div class="list-group-item">
+                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $design->id], ['class' => 'btn btn-danger btn-xs', 'confirm' => __('Are you sure you want to delete # {0}?', $design->id)]) ?>
+                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $design->id], ['class' => 'btn btn-success btn-xs']) ?>
+                        <span class="pull-right text-muted small"><em>Are you sure?</em>
+                        </span>
+                    </div>
+                </div>
+            </div>
     </div>
 </div>
 <script>

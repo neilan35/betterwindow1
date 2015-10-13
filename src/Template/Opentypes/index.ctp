@@ -1,4 +1,4 @@
-        <script>
+<script>
         $(document).ready(function(){
             $('#tableIndex').DataTable();
         });
@@ -25,7 +25,7 @@
             <td class="actions">
                 <?= $this->Html->link(__('View'), ['action' => 'view', $opentype->id], ['class' => 'btn btn-info btn-xs']) ?>
                 <?= $this->Html->link(__('Edit'), ['action' => 'edit', $opentype->id], ['class' => 'btn btn-success btn-xs']) ?>
-                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $opentype->id], ['confirm' => __('Are you sure you want to delete # {0}?', $opentype->id)]) ?>
+                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $opentype->id], ['class' => 'btn btn-danger btn-xs','confirm' => __('Are you sure you want to delete # {0}?', $opentype->id)]) ?>
             </td>
         </tr>
 

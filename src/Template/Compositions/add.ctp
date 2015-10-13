@@ -14,6 +14,9 @@
                                 <div class="form-group">
                                     <?= $this->Form->input('name', ['class' => 'form-control']) ?>
                                 </div>
+                                <div class="form-group">
+                                    <?= $this->Form->input('price', ['class' => 'form-control']) ?>
+                                </div>
                             </div>
                         </div>
                         </form>

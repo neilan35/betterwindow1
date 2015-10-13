@@ -1,25 +1,38 @@
-<div class="row">
-    <div class="col-lg-6">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                View Pictures
-            </div>
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <h4 class="subheader"><?= __('Id') ?></h4>
-                        <p><?= $this->Number->format($picture->id) ?></p>
-                        <h4 class="subheader"><?= __('Filename') ?></h4>
-                        <p><?= h($picture->filename) ?></p>
-                        <h4 class="subheader"><?= __('Description') ?></h4>
-                        <?= $this->Text->autoParagraph(h($picture->description)); ?>
+<script>
+<?=$this->Html->addCrumb('Pictures', '/pictures  ');?>
+<?= $this->Html->addCrumb('View');?>
 
-                    </div>
+</script>
+<div class="row">
+    <div class="container-fluid well col-sm-6">
+        <div class="row-fluid">
+            <div class="col-sm-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading"> Picture Information </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h5 class="subheader"><b><?= __('Picture Id') ?></b></h5>
+                                    <p><?= $this->Number->format($picture->id) ?></p>
+                                </div>
+                                <div class="col-sm-3">
+                                    <h5 class="subheader"><b><?= __('Filename') ?></b></h5>
+                                    <p><?= h($picture->filename) ?></p>
+                                </div>
+                                <div class="col-sm-3">
+                                    <h5 class="subheader"><b><?= __('Description') ?></b></h5>
+                                    <p><?= $this->Text->autoParagraph(h($picture->description)); ?></p>
+                                </div>
+                            </div>
+                        </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
+
 <script>
     $(document).ready(function(){
         $('#tableIndex').DataTable();

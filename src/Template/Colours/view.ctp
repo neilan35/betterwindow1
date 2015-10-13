@@ -1,24 +1,63 @@
+<script>
+<?=$this->Html->addCrumb('Colour', '/colours  ');?>
+<?= $this->Html->addCrumb('View');?>
+
+</script>
 <div class="row">
-    <div class="col-lg-6">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                View Colours
+    <div class="container-fluid well col-sm-6">
+        <div class="row-fluid">
+            <div class="col-sm-6">
+                <div class="panel panel-primary">
+                    <div class="panel-heading"> Colour Information </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <h5 class="subheader"><b><?= __('Colour Id') ?></b></h5>
+                                    <p><?= $this->Number->format($colour->id) ?></p>
+                                </div>
+                                <div class="col-sm-4">
+                                    <h5 class="subheader"><b><?= __('Name') ?></b></h5>
+                                    <p><?= h($colour->name) ?></p>
+                                </div>
+                            </div>
+                        </div>
+                </div>
             </div>
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <h4 class="subheader"><?= __('Category') ?></h4>
-                        <p><?= $colour->has('category') ? $this->Html->link($colour->category->id, ['controller' => 'Categories', 'action' => 'view', $colour->category->id]) : '' ?></p>
-                        <h4 class="subheader"><?= __('Name') ?></h4>
-                        <p><?= h($colour->name) ?></p>
-                        <h4 class="subheader"><?= __('Id') ?></h4>
-                        <p><?= $this->Number->format($colour->id) ?></p>
+            <div class="col-sm-6">
+                <div class="panel panel-primary">
+                    <div class="panel-heading"> Related ID </div>
+                    <div class="panel-body">
+                        <div class= "row">
+                            <div class= "col-sm-5">
+                                <h5 class="subheader"><b>Category ID</b></h5>
+                                <p><?= $colour->has('category') ? $this->Html->link($colour->category->id, ['controller' => 'Categories', 'action' => 'view', $colour->category->id]) : '' ?></p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    </div>
+    <div class="row">
+    <div class="panel panel-default">
+        <div class="panel-heading"><i class="fa fa-bell fa-fw"></i> Actions</div>
+            <div class="panel-body">
+                <div class="list-group">
+                    <div class="list-group-item">
+                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $colour->id], ['class' => 'btn btn-danger btn-xs', 'confirm' => __('Are you sure you want to delete # {0}?', $colour->id)]) ?>
+                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $colour->id], ['class' => 'btn btn-success btn-xs']) ?>
+                        <span class="pull-right text-muted small"><em>Are you sure?</em>
+                        </span>
+                    </div>
+                </div>
+            </div>
+    </div>
 </div>
+
+
+
+
  <script>
         $(document).ready(function(){
             $('#tableIndex').DataTable();s

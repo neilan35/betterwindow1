@@ -324,7 +324,7 @@
     <!-- Page Content -->
     <script>
     $(document).ready(function() {
-        var actions = ['home', 'aboutus', 'gallery', 'benefits', 'contactus'];
+        var actions = ['home', 'aboutus', 'gallery', 'benefits', 'contactus', ''];
         var path = this.location.pathname;
 
         found = false;

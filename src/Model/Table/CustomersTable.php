@@ -50,12 +50,12 @@ class CustomersTable extends Table
             // ->requirePresence('company_name')
             // ->notEmpty('company_name')
             ->requirePresence('first_name', 'create')
-            ->notEmpty('first_name', 'You forget to write your first name.')
+            ->notEmpty('first_name', 'You forgot to write your first name.')
             // ->add('first_name', ['rule' => array('custom', '[a-zA-Z]+', 'message'   => 'Only letters allowed')])
 
 
             ->requirePresence('last_name', 'create')
-            ->notEmpty('last_name','You forget to write your last name.')
+            ->notEmpty('last_name','You forgot to write your last name.')
 
 
             ->add('phone_number', 'valid', ['rule' => 'numeric'])

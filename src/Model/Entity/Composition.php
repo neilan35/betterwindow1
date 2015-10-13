@@ -17,5 +17,6 @@ class Composition extends Entity
     protected $_accessible = [
         'name' => true,
         'glazings' => true,
+        'price' =>true,
     ];
 }

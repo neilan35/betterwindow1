@@ -1,25 +1,44 @@
+<script>
+<?=$this->Html->addCrumb('Enquiry', '/enquiries  ');?>
+<?= $this->Html->addCrumb('View');?>
+
+</script>
 <div class="row">
-    <div class="col-lg-6">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                View Enquiries
-            </div>
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <h4 class="subheader"><?= __('ID') ?></h4>
-                        <p><?= $this->Number->format($enquiry->id) ?></p>
-                        <h4 class="subheader"><?= __('Firstname') ?></h4>
-                        <p><?= h($enquiry->firstname) ?></p>
-                        <h4 class="subheader"><?= __('Lastname') ?></h4>
-                        <p><?= h($enquiry->lastname) ?></p>
-                        <h4 class="subheader"><?= __('Email') ?></h4>
-                        <p><?= h($enquiry->email) ?></p>
-                        <h4 class="subheader"><?= __('Phone') ?></h4>
-                        <p><?= h($enquiry->phone) ?></p>
-                        <h4 class="subheader"><?= __('Comment') ?></h4>
-                        <p><?= h($enquiry->comment) ?></p>
-                    </div>
+    <div class="container-fluid well col-sm-6">
+        <div class="row-fluid">
+            <div class="col-sm-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading"> Enquiry Information </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <h5 class="subheader"><b><?= __('ID') ?></b></h5>
+                                    <p><?= $this->Number->format($enquiry->id) ?></p>
+                                </div>
+                                <div class="col-sm-4">
+                                    <h5 class="subheader"><b><?= __('Firstname') ?></b></h5>
+                                    <p><?= h($enquiry->firstname) ?></p>
+                                </div>
+                                <div class="col-sm-4">
+                                    <h5 class="subheader"><b><?= __('Lastname') ?></b></h5>
+                                    <p><?= h($enquiry->lastname) ?></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <h5 class="subheader"><b><?= __('Email') ?></b></h5>
+                                    <p><?= h($enquiry->email) ?></p>
+                                </div>
+                                <div class="col-sm-4">
+                                    <h5 class="subheader"><b><?= __('Phone') ?></b></h5>
+                                    <p><?= h($enquiry->phone) ?></p>
+                                </div>
+                                <div class="col-sm-4">
+                                    <h5 class="subheader"><b><?= __('Phone') ?></b></h5>
+                                    <p><?= h($enquiry->phone) ?></p>
+                                </div>
+                            </div>
+                        </div>
                 </div>
             </div>
         </div>

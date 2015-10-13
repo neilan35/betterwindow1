@@ -1,35 +1,87 @@
-   <script>
-        $(document).ready(function(){
-            $('#tableIndex').DataTable();
-        });
-        </script>
-        
+<script>
+<?=$this->Html->addCrumb('Employee', '/employees  ');?>
+<?= $this->Html->addCrumb('View');?>
+
+</script>
 <div class="row">
-    <div class="col-lg-6">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                View Employee
+    <div class="container-fluid well span6">
+        <div class="row-fluid">
+            <div class="col-sm-5">
+                <div class="panel panel-primary">
+                    <div class="panel-heading"> Employee Information </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h5 class="subheader"><b><?= __('Employee Id') ?></b></h5>
+                                    <p><?= h($employee->id) ?></p>
+                                </div>
+                                <div class="col-sm-3">
+                                    <h5 class="subheader"><b><?= __('First Name') ?></b></h5>
+                                    <p><?= h($employee->first_name) ?></p>
+                                </div>
+                                <div class="col-sm-3">
+                                    <h5 class="subheader"><b><?= __('Role') ?></b></h5>
+                                    <p><?= $employee->has('role') ? $this->Html->link($employee->role->description, ['controller' => 'Roles', 'action' => 'view', $employee->role->id]) : '' ?></p>
+                                </div>
+                            </div>
+                        </div>
+                </div>
             </div>
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <h4 class="subheader"><?= __('Employee Id') ?></h4>
-                        <p><?= h($employee->id) ?></p>
-                        <h4 class="subheader"><?= __('First Name') ?></h4>
-                        <p><?= h($employee->first_name) ?></p>
-                        <h4 class="subheader"><?= __('Role') ?></h4>
-                        <p><?= $employee->has('role') ? $this->Html->link($employee->role->description, ['controller' => 'Roles', 'action' => 'view', $employee->role->id]) : '' ?></p>
-                        <h4 class="subheader"><?= __('Created') ?></h4>
-                        <p><?= h($employee->created) ?></p>
-                        <h4 class="subheader"><?= __('Modified') ?></h4>
-                        <p><?= h($employee->modified) ?></p>
+            <!-- <div class="col-sm-5">
+                <div class="panel panel-primary">
+                    <div class="panel-heading"> Related ID </div>
+                    <div class="panel-body">
+                        <div class= "row">
+                            <div class= "col-sm-4">
+                                <h5 class="subheader"><b>User ID</b></h5>
+                                <p><?php if ($employee->has('user')) {
+                                    echo $this->Html->link($employee->user->id, ['controller' => 'Users', 'action' => 'view', $employee->user->id]);
+                                    }?></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div> -->
+    </div>
+    <div class="col-sm-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Date</div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h5 class="subheader"><b><?= __('Created') ?></b></h5>
+                            <p><?= h($employee->created) ?></p>
+                        </div>
+                        <div class="col-sm-6">
+                            <h5 class="subheader"><b><?= __('Modified') ?></b></h5>
+                            <p><?= h($employee->modified) ?></p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <div class="panel panel-default">
+        <div class="panel-heading"><i class="fa fa-bell fa-fw"></i> Actions</div>
+            <div class="panel-body">
+                <div class="list-group">
+                    <div class="list-group-item">
+                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $employee->id], ['class' => 'btn btn-danger btn-xs', 'confirm' => __('Are you sure you want to delete # {0}?', $employee->id)]) ?>
+                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $employee->id], ['class' => 'btn btn-success btn-xs']) ?>
+                        <span class="pull-right text-muted small"><em>Are you sure?</em>
+                        </span>
+                    </div>
+                </div>
+            </div>
+    </div>
 </div>
 
+   <script>
+        $(document).ready(function(){
+            $('#tableIndex').DataTable();
+        });
+        </script>
     <div class="table-responsive">
     <div class="column large-12">
     <h4 class="subheader"><?= __('Related Users') ?></h4>
