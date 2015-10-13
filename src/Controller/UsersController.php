@@ -73,13 +73,20 @@ class UsersController extends AppController
         $this->loadModel('Customers');
         $this->loadModel('Employees');
         $this->loadModel('Quotes');
+        $this->loadModel('Enquiries');
 
 
         $users = $this->Users->find('all');
         $customers = $this->Customers->find('all');
         $employees  = $this->Employees ->find('all');
         $quotes  = $this->Quotes ->find('all');
+        $enquiries = $this->Enquiries->find('all');
 
+        $enquiriesArr= [];
+            foreach ($enquiries as $enquiry){
+                $enquiriesArr[]=$enquiries;
+            }
+        $enquirCount = count($enquiriesArr);
 
         $usersArr = [];
             foreach ($users as $user){
@@ -110,7 +117,7 @@ class UsersController extends AppController
 
         $this->set('users', $users);
         $this->set('_serialize', ['users']);
-        $this->set(compact('user', 'userCount','custCount','empCount','quotesCount'));
+        $this->set(compact('user', 'userCount','custCount','empCount','quotesCount','enquirCount'));
 
     }
 

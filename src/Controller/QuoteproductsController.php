@@ -99,6 +99,16 @@ class QuoteproductsController extends AppController
     }
 
 
+    // public function complete ($id = null) {
+    //     $quoteproduct = $this->Quoteproducts->get($id)
+    //     $quoteproduct = $this->Quoteproducts->newEntity();
+
+    //     $quoteproduct = $this->Quoteproducts->patchEntity($quoteproduct, $this->request->data);
+    //     $quoteProduct['design_id'] = 2;
+
+
+
+    // }
 
     /**
      * Edit method

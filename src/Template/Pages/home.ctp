@@ -1,51 +1,83 @@
 <div class="container">
-        <!-- Marketing Icons Section -->
         <div class="row">
             <div class="col-lg-9">
                 <h1 class="page-header">
                     uPVC Windows & Doors in Melbourne, VIC
+
                 </h1>
+
+            </div>
+             <div class="col-lg-3">
+               <?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> Make a Quote!', array('controller'=>'Quotes','action'=>'create'), array('escape' => false, 'class' => 'btn btn-success btn-md', 'target' => '_self','id' => 'btnQuote1'));?>
             </div>
             
 
         </div>
         <div class="row">
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3><i class="glyphicon glyphicon-leaf"></i> Save on energy bills by installing custom made uPVC windows for your Melbourne home</h3>
-                    </div>
-                    <div class="panel-body">
+            <div class="col-md-12">
+            
+
+                        <h4><i class="glyphicon glyphicon-leaf"></i><b> Save on energy bills by installing custom made uPVC windows for your Melbourne home</b></h4>
+             
+                   
                         <p>At <b>Blue Sky Windows</b>, we specialise in custom made windows and doors that are constructed from ultra-durable uPVC, giving the end products fantastic thermal and acoustic properties, and unparalleled security.</p>
 
                         From uPVC folding windows to sliding doors, we only believe in selecting the highest quality materials for all your custom made windows and doors, ensuring you receive nothing but the best. </p>
+                        
+                    </div>
+                
+            </div>
+
+            </br>
+            <div class="row">
+                <div class="col-md-12">
+                
+                        <h4><i class="glyphicon glyphicon-lock"></i><b>Trust Melbourne’s Blue Sky Windows for the best custom made windows and doors</b></h4>
+             
+                    
+                        <p>We understand that each home brings its own unique character, which is why to complement the different styles, we offer a wide range of European and architectural style windows and doors which include:</p>
+                        <ul style="margin: 10px 0px; line-height: 26px; padding-left: 30px;">
+                          <li><a href="http://www.blueskywindows.com.au/double_glazed_windows.php">Double Glazed  Windows</a></li>
+                          <li><a href="http://www.blueskywindows.com.au/triple_glazed_windows.php">Triple Glazed  Windows</a></li>
+                          <li><a href="http://www.blueskywindows.com.au/tilt-turn-windows-doors.php">Tilt &amp; Turn Windows</a></li>
+                          <li><a href="http://www.blueskywindows.com.au/tilt-slide-windows-doors.php">Tilt &amp; Slide Windows  &amp; Doors</a></li>
+                          <li><a href="http://www.blueskywindows.com.au/lift-slide-doors.html">Lift &amp; Slide Doors</a></li>
+                          <li><a href="http://www.blueskywindows.com.au/energy_efficient_windows.php">Energy Efficient  Windows</a></li>
+                          <li><a href="http://www.blueskywindows.com.au/special_doors_and_windows.php">Fire Rated  Windows &amp; Doors</a></li>
+                          <li><a href="http://www.blueskywindows.com.au/bi-fold-windows-doors.php">Bi-folding Doors Windows</a></li>
+                          <li><a href="http://www.blueskywindows.com.au/awning-windows.html">Awning Windows</a></li>
+                          <li>And much more!</li>
+                        </ul>
+                        <p>You can be  confident that all the components used in manufacturing our European and  architectural styled windows and doors are certified to the relative standards  and regulations, and, in most cases, surpasses them!</p>
+                        <p>  Call us today  on 04 <strong>5090 8271</strong> or <strong>03 9588 2198</strong> to find out more about what we can do  for your home. </p>
+                        
+                        
+                </div>
+            </div>
+            </br>
+            <div class="row">
+                <div class="col-md-12">
+                
+                        <h4><i class="fa fa-fw fa-compass"></i> <b>Experience the benefits of installing uPVC/ PVC sliding windows or doors on your Melbourne property</b></h4>
+                   
+                   
+                        <p>With seamless integration into your home’s existing aesthetics and decor, the benefits of investing in uPVC windows and doors include:</p>
+
+                        <ul style="margin: 10px 0px; line-height: 26px; padding-left: 30px;">
+                          <li>Heat saving features</li>
+                          <li>Sound insulation properties</li>
+                          <li>Durability</li>
+                          <li>Increased air ventilation</li>
+                          <li>Enhanced security and safety</li>
+                          <li>Ease of use</li>
+                        </ul>
+                        <p>Whether  you are after uPVC tilt windows, casement windows or anything else, you can be  sure that Blue Sky Windows can customise a solution that best meets your  expectations and needs.</p>
+
                         <a href="#" class="btn btn-default">Learn More</a>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3><i class="glyphicon glyphicon-lock"></i>Trust Melbourne’s Blue Sky Windows for the best custom made windows and doors</h3>
-                    </div>
-                    <div class="panel-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                        <a href="#" class="btn btn-default">Learn More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3><i class="fa fa-fw fa-compass"></i> Easy to Use</h3>
-                    </div>
-                    <div class="panel-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                        <a href="#" class="btn btn-default">Learn More</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+            </br>
+       
         <!-- /.row -->
 
         <!-- Portfolio Section -->

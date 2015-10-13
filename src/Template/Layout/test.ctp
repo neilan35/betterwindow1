@@ -37,6 +37,14 @@
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 
+    <?php if( $this->request->session()->read('Auth.User')) : ?>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('#btnLogin').hide();
+            });
+        </script>
+    <?php endif; ?>
+
 </head>
 
 <body>
@@ -186,7 +194,7 @@
                     <ul class="navbar-form form-inline navbar-right">
                         
                             
-                            <?php echo $this->Html->link('<span class="glyphicon glyphicon-ok"></span> Sign up today!', array('controller'=>'Customers','action'=>'register'), array('escape' => false, 'class' => 'btn btn-success btn-md', 'target' => '_self','id'=>'btnQuote'));?>
+                         
 
                             <?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> Make a Quote!', array('controller'=>'Quotes','action'=>'create'), array('escape' => false, 'class' => 'btn btn-success btn-md', 'target' => '_self','id' => 'btnQuote'));?>
                             <?php $user = $this->Session->read('Auth.User');
@@ -194,7 +202,10 @@
                                 if (!empty($user)) {
                                     echo $user['email'];
                                 };?>
+
+                                <span id='btnLogin'>
                             <?php echo $this->Html->link('<span class="glyphicon glyphicon-user"></span> Login!', array('controller'=>'Customers','action'=>'Login'), array('escape' => false, 'class' => 'btn btn-success btn-md', 'target' => '_self', 'id'=>'btnLogin'));?>
+                            </span>
 
                             
                     
@@ -220,6 +231,8 @@
                   <div class="carousel-caption">
                     <h1>BETTER WINDOWS</h1>
               <p>The best UPVC Window in town</p>
+              <p><?php echo $this->Html->link('<span class="glyphicon glyphicon-ok"></span> Sign up today!', array('controller'=>'Customers','action'=>'register'), array('escape' => false, 'class' => 'btn btn-primary btn-lg', 'target' => '_self'));?>
+              </p>
                   </div>
                 </div>
                 <div class="item">
@@ -257,7 +270,7 @@
 
     <div class="container-fluid">
     <div class="row">
-
+    <?= $this->Flash->render() ?>
                 <!-- Here's where I want my views to be displayed -->
                 <?= $this->fetch('content') ?>
             </div>

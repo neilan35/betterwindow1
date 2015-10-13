@@ -137,9 +137,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                           <!--  <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a> -->
-                            <?php 
-                                    echo $this->Html->link('<span> <i class="fa fa-dashboard fa-fw"></i> Dashboard</span>', ['controller' => 'Users', 'action' => 'dashboard'], ['escape' => false]); ?>
+                           
+                            <?php echo $this->Html->link('<span> <i class="fa fa-dashboard fa-fw"></i> Dashboard</span>', ['controller' => 'Users', 'action' => 'dashboard'], ['escape' => false]); ?>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-user fa-fw"></i> Users<span class="fa arrow"></span></a>
@@ -454,7 +453,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             </div>
             <!-- /.navbar-static-side -->
         </nav>
-    </br></br>
         <!-- endofnav -->
 
         <!-- Page Content -->
@@ -463,11 +461,14 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header"> <span><?=$this->fetch('title') ?> </span> </h1>
-                         <?= $this->Html->getCrumbs(' > ', [
-                                    'text' => 'Dashboard',
-                                    'url' => ['controller' => 'Users', 'action' => 'dashboard'],
-                                    'escape' => false]);?>
-                                    </br></br>
+                       <ul class="breadcrumb">
+                        <?= $this->Html->getCrumbs(' > ', [
+                        'text' => 'Dasboard',
+                        'url' => ['controller' => 'Users', 'action' => 'dashboard'],
+                        'escape' => false]);?>
+                        </ul>
+                        </br>
+
                         <div class="container-fluid">
                              
 
@@ -477,8 +478,9 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                                     <div class="row"> 
                                     <!-- Content -->
                                      <?= $this->fetch('content') ?>
+                                     </br>
                                     </div>  
-                                
+                                    
        
                             
                         </div> 

@@ -357,7 +357,21 @@ div.message.error {
 /*  margin-left: 60px;*/
 
 }
+#btnQuote1 {
+    width: 220px;
+    height: 57px;
+    text-align: center;
+    margin-top: 22px;
+    font-size: 25px;
+    background-color: #79be0b;
+}
 
+#btnQuote1:hover {
+  background-color: #009900;
+color: #ebebeb;
+
+
+}
 #btnLogin {
     background-color: #79be0b;
 }

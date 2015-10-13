@@ -200,10 +200,11 @@
 
 
     <div class="container-fluid">
+    <?= $this->Flash->render() ?>
     <div class="row">
-
                 <!-- Here's where I want my views to be displayed -->
                 <?= $this->fetch('content') ?>
+
             </div>
              </div>
 
@@ -238,11 +239,11 @@
     </div>
     <div class="footer-bottom">
         <div class="col-lg-1"> 
-            </div>
+        </div>
         <div class"col-lg-6 col-md-6 col-xs-12 col-sm-5 ">
         <p> Copyright 2015 by <strong class="section-title">Team 9 Monash University</strong> All Rights Reserved</p>
      </div>
-     <div class"col-lg-6 col-md-6 col-xs-12 col-sm-6 "> 
+     <div class"col-lg-5 col-md-6 col-xs-12 col-sm-6 "> 
         
 
      </div>

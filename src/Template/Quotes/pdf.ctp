@@ -105,7 +105,10 @@
 				  <tr> 
 				    <th><span></span></th>
 				    <th><span > Area: </span></th>
-					<td></td>
+
+					<td><?php if($quote->has('quoteproduct')){
+						echo $quote->quoteproduct->width*$quote->quoteproduct->height
+						};  ?></td>
 				  </tr>
 
 				  <tr> 

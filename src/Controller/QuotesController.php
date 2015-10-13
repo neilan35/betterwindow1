@@ -55,11 +55,19 @@ class QuotesController extends AppController
      public function pdf($id = null)
     {
         $this->layout ='mypdf';
+        $this->loadModel('Quoteproducts');
+        
         $quote = $this->Quotes->get($id, [
             'contain' => ['Customers', 'Quoteproducts']
         ]);
+
+        $area = $this->Quote->Quoteproducts->height *$this->Quote->Quoteproducts->width;
+
+
+
         $this->set('quote', $quote);
         $this->set('_serialize', ['quote']);
+        $this->set(compact('quote', 'area'));
     }
 
 
@@ -95,6 +103,8 @@ class QuotesController extends AppController
         create();
 
     }
+
+    
 
 
 

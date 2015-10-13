@@ -1,10 +1,12 @@
 
 
-<!--<?=$this->Html->addCrumb('Users', '/users'); 
-?> -->
-
-
 </div>
+ 
+  <script>
+<?=$this->Html->addCrumb('Users', '/users');?>
+<?= $this->Html->addCrumb('View');?>
+
+</script>
  <div class="row">
 <div class="container-fluid well span6">
     <div class="row-fluid">

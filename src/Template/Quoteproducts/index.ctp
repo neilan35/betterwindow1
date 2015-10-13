@@ -1,6 +1,10 @@
-<div class="actions columns large-2 medium-3">
-    <h3><?= __('Actions') ?></h3>
-</div>
+ <script>
+        $(document).ready(function(){
+            $('#tableIndex').DataTable();
+        });
+        </script>
+
+
  <div class="table-responsive">
     <table class="table table-hover" id="tableIndex"> 
     <thead>

@@ -1,4 +1,7 @@
+    <script>
+<?=$this->Html->addCrumb('Users', '/users');?>
 
+</script>
     <script>
         $(document).ready(function(){
             $('#tableIndex').DataTable();
