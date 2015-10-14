@@ -11,11 +11,10 @@
                 </h1>
             </div>
             <div class="col-md-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3><i class="glyphicon glyphicon-leaf"></i> <strong>Melbourne's leading manufacturer of custom UPVC windows</strong></h3>
-                    </div>
-                    <div class="panel-body">
+                
+                    
+                        <h4><i class="glyphicon glyphicon-leaf"></i> <strong>Melbourne's leading manufacturer of custom UPVC windows</strong></h4>
+                
                         <p>Being a family operated business with a more than 15 years of experience in windows industry, we are ready to provide our customers with energy-rated, energy saving, low maintenance products. </p>
 
                         <p>Long-term reliable relationship with our suppliers and our experience allow us to provide our customers with products of european quality, manufactered in Australia, which totally comply with Australian Standards and are manufactured in accordance with you specifications. </p>
@@ -28,15 +27,9 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- /.row -->
-
-        
-
-        <!-- Footer -->
-       
-
-    </div>
+            </br> </br>
+            </br> </br>
+           <!--  </br> </br> -->
       <!-- jQuery -->
         <?php echo $this->Html->script('jquery-1.11.2.min.js');?>
 

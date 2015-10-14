@@ -3,16 +3,13 @@
      <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    Energy Efficient
+                   <i class="glyphicon glyphicon-leaf"></i> Energy Efficient Windows in Melbourne, VIC
                 </h1>
             </div>
-            <div class="col-md-8">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3><i class="glyphicon glyphicon-leaf"></i> <strong>Energy Efficient Windows in Melbourne, VIC</strong></h3>
-                    </div>
-                    <div class="panel-body">
-                        <h4>Save more on your bills by installing the right windows</h4>
+            <div class="col-md-12">
+                        
+                
+                        <h4><strong>Save more on your bills by installing the right windows</strong></h4>
 
                         <p>At Better Windows, we understand the importance of having a window solution that is stylish yet highly energy efficient. Bearing this in mind, we’ve made it our business to provide Melbourne homes and offices with high quality and affordable windows that promotes energy efficiency.</p>
 
@@ -20,7 +17,7 @@
 
                     </br></br>
 
-                        <h4>Why install energy efficient windows?</h4>
+                        <h4><strong>Why install energy efficient windows?</strong></h4>
 
                         <p>With Melbourne’s highly erratic weather, installing an energy efficient window will bring you a lot of benefits as it will help you automatically regulate the indoor temperature. This means you can enjoy cooler temperatures indoors during summers and warmer temperatures during winters.</p>
                         <p>This will in turn result in lower electricity bills, as you need not crank up the heater or air-conditioning all day long during winters and summers respectively. Who wouldn’t like a chance to save on those bills?</p>
@@ -28,8 +25,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-</div>
+            </br></br></br></br>
+        
     <!-- /.container -->       
       <!-- jQuery -->
         <?php echo $this->Html->script('jquery-1.11.2.min.js');?>

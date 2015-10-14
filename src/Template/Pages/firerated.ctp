@@ -3,16 +3,11 @@
      <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    Fire Rated Windows & Doors
+                    <i class="glyphicon glyphicon-leaf"></i> High Performance Windows & Doors in Melbourne, VIC
                 </h1>
             </div>
-            <div class="col-md-8">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3><i class="glyphicon glyphicon-leaf"></i> <strong>High Performance Windows & Doors in Melbourne, VIC</strong></h3>
-                    </div>
-                    <div class="panel-body">
-                        <h4>Trust Better Windows for doors and windows which offer special features</h4>
+            <div class="col-md-12">
+                        <h4><strong>Trust Better Windows for doors and windows which offer special features</strong></h4>
 
                         <p>Make the best of your residential or commercial building’s windows and doors by installing high performance architectural, fire rated and energy efficient windows and doors.</p>
 
@@ -22,8 +17,7 @@
                     </div>
                 </div>
             </div>
-        </div>
-</div>
+        </br></br></br></br>
     <!-- /.container -->       
       <!-- jQuery -->
         <?php echo $this->Html->script('jquery-1.11.2.min.js');?>

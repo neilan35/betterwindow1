@@ -3,16 +3,12 @@
      <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    Tilt & Turn Windows or Doors
+                    <i class="glyphicon glyphicon-leaf"></i>Tilt & Turn Windows in Melbourne
                 </h1>
             </div>
             <div class="col-md-8">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3><i class="glyphicon glyphicon-leaf"></i> <strong>Tilt & Turn Windows in Melbourne</strong></h3>
-                    </div>
-                    <div class="panel-body">
-                        <h4>Premium quality windows that will last you many years</h4>
+                
+                        <h4><strong>Premium quality windows that will last you many years</strong></h4>
 
                         <p>Are you looking for a window that combines style, functionality and security? Then the tilt and turn windows are perfect for your Melbourne home! Not only are they an ideal fit to any home design, these windows are one-handed, one move operated, and are smooth and easy to use.</p>
 
@@ -20,7 +16,7 @@
 
                     </br></br>
 
-                        <h4>Clean your tilt and turn windows with ease</h4>
+                        <h4><strong>Clean your tilt and turn windows with ease</strong></h4>
 
                         <p>With these windows installed in your home or office premises, cleaning them just got easier! No longer do you need to perch precariously on a stepladder, because you can easily swing the window inwards into the room and safely clean both sides of the glass.</p>
                         
@@ -28,7 +24,7 @@
 
                     </br></br>
 
-                        <h4>The functionality of tilt and turn windows differs depengin on their position</h4>
+                        <h4><strong>The functionality of tilt and turn windows differs depengin on their position</strong></h4>
                         <h4>Closed Position:</h4>
                         <ul>
                             <li>A multi-point locking mechanism with up to 7 cam locks for a burglar proof security level that keeps the sash tightly locked into its frame.</li>
@@ -46,8 +42,7 @@
                     </div>
                 </div>
             </div>
-        </div>
-</div>
+        </br></br></br></br>
     <!-- /.container -->      
       <!-- jQuery -->
         <?php echo $this->Html->script('jquery-1.11.2.min.js');?>

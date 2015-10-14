@@ -3,16 +3,13 @@
      <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    Tilt Only Windows
+                    <i class="glyphicon glyphicon-leaf"></i>Tilt Windows in Melbourne, VIC
                 </h1>
             </div>
-            <div class="col-md-8">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3><i class="glyphicon glyphicon-leaf"></i> <strong>Tilt Windows in Melbourne, VIC</strong></h3>
-                    </div>
-                    <div class="panel-body">
-                        <h4>Install premium quality windows in the small spaces of your property</h4>
+            <div class="col-md-12">
+                        
+              
+                        <h4><strong>Install premium quality windows in the small spaces of your property</strong></h4>
 
                         <p>Enjoy the fresh air with Blue Sky Windows’ range of tilt windows! These small-sized windows are perfect for installation in toilets, laundries, attics, pantries and other small spaces.</p>
 
@@ -22,8 +19,7 @@
                     </div>
                 </div>
             </div>
-        </div>
-</div>
+</br></br></br></br>
     <!-- /.container -->     
       <!-- jQuery -->
         <?php echo $this->Html->script('jquery-1.11.2.min.js');?>

@@ -31,10 +31,11 @@
                         </ul>
                     </br></br>
                         <p>To find out more about installing custom made double glazed or triple glazed windows in your Melbourne home or office, call 04 5090 8271 or 03 9588 2198 today. Blue Sky Windows will make sure you get the best out of your double glazed windows!</p>
-                    </div>
-                </div>
             </div>
-        </div>
+    </div>
+</div>
+</br></br></br></br>
+        
 
 
 

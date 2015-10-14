@@ -3,16 +3,12 @@
      <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    Lift & Slide Doors
+                    <i class="glyphicon glyphicon-leaf">Lift & Slide Doors in Melbourne, VIC
                 </h1>
             </div>
-            <div class="col-md-8">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3><i class="glyphicon glyphicon-leaf"></i> <strong>Lift & Slide Doors in Melbourne</strong></h3>
-                    </div>
-                    <div class="panel-body">
-                        <h4>High quality and easy to use doors for all residential and commercial properties</h4>
+            <div class="col-md-12">
+        <strong>
+                        <h4><strong>High quality and easy to use doors for all residential and commercial properties</strong></h4>
 
                         <p>The revolutionary lift and slide door is a popular choice amongst many in Melbourne, as not only is it stylish, it’s also very easy to use, allowing you to open large and heavy panels with very little effort.</p>
 
@@ -20,7 +16,7 @@
 
                     </br></br>
 
-                        <h4>Flexible designs that are suited for a variety of applications</h4>
+                        <h4><strong>Flexible designs that are suited for a variety of applications</strong></h4>
 
                         <p>Many people in Melbourne choose lift and slide doors for their property due to their flexibility of design for window walls, pocket doors, curved walls, and corner applications. Additionally, you can take comfort in the fact that lift and slide doors have lower air and water infiltration, meaning you need not worry about the weather-seal wearing out from friction.</p>
                         
@@ -30,8 +26,7 @@
                     </div>
                 </div>
             </div>
-        </div>
-</div>
+        </br></br></br></br>
     <!-- /.container -->       
       <!-- jQuery -->
         <?php echo $this->Html->script('jquery-1.11.2.min.js');?>

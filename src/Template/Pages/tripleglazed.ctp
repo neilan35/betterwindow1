@@ -3,16 +3,12 @@
      <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    Triple Glazed Windows
+                    <i class="glyphicon glyphicon-leaf"></i> Triple Glazed Windows in Melbourne, VIC
                 </h1>
             </div>
             <div class="col-md-8">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3><i class="glyphicon glyphicon-leaf"></i> <strong>Triple Glazed Windows in Melbourne, VIC</strong></h3>
-                    </div>
-                    <div class="panel-body">
-                        <h4>Install multi-panel glass windows in your home or office today</h4>
+                
+                        <h4><strong>Install multi-panel glass windows in your home or office today</strong></h4>
 
                         <p>For a more energy efficient window solution, trust Better Windows. We offer a wide selection of tripled glazed windows that can be installed anywhere across Melbourne!</p>
 
@@ -28,7 +24,7 @@
                         </ul>
                     </br></br>
 
-                        <h4>What are the benefits of installing triple glazed windows?</h4>
+                        <h4><strong>What are the benefits of installing triple glazed windows?</strong></h4>
 
                         <p>We are all aware that double glazed windows help in reducing noise and promoting energy efficiency. But with the triple glazed windows, you can enjoy:</p>
                         <ul>
@@ -42,8 +38,7 @@
                     </div>
                 </div>
             </div>
-        </div>
-</div>
+        </br></br></br></br>
     <!-- /.container -->       
       <!-- jQuery -->
         <?php echo $this->Html->script('jquery-1.11.2.min.js');?>
