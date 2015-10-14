@@ -1,5 +1,5 @@
 <script>
-<?=$this->Html->addCrumb('Balrating', '/balratings  ');?>
+<?=$this->Html->addCrumb('BalRating', '/balratings  ');?>
 <?= $this->Html->addCrumb('View');?>
 
 </script>

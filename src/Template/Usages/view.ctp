@@ -1,21 +1,32 @@
+<script>
+<?=$this->Html->addCrumb('Usages', '/usages  ');?>
+<?= $this->Html->addCrumb('View');?>
+
+</script>
 <div class="row">
-    <div class="col-lg-6">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                View Open Types
-            </div>
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <h4 class="subheader"><?= __('Id') ?></h4>
-                        <p><?= $this->Number->format($usage->id) ?></p>
-                        <h4 class="subheader"><?= __('Efficiency') ?></h4>
-                        <p><?= h($usage->efficiency) ?></p>
+    <div class="container-fluid well col-sm-6">
+        <div class="row-fluid">
+            <div class="col-sm-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading"> Usage Information </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <h5 class="subheader"><b><?= __('Usage Id') ?></b></h5>
+                                    <p><?= $this->Number->format($usage->id) ?></p>
+                                </div>
+                                <div class="col-sm-4">
+                                    <h5 class="subheader"><b><?= __('Efficiency') ?></b></h5>
+                                    <p><?= h($usage->description) ?></p>
+                                </div>
+                            </div>
+                        </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 <script>
     $(document).ready(function(){
         $('#tableIndex').DataTable();

@@ -1,4 +1,10 @@
 <script>
+<?=$this->Html->addCrumb('BalRating', '/balratings  ');?>
+<?= $this->Html->addCrumb('Index');?>
+
+</script>
+
+<script>
     $(document).ready(function(){
         $('#tableIndex').DataTable();
     });

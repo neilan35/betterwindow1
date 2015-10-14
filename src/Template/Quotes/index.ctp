@@ -1,4 +1,7 @@
-
+<script>
+<?=$this->Html->addCrumb('Quote', '/quotes  ');?>
+<?= $this->Html->addCrumb('Index');?>
+</script>
         <script>
         $(document).ready(function(){
             $('#tableIndex').DataTable();

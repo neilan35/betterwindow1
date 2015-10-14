@@ -1,4 +1,9 @@
 <script>
+<?=$this->Html->addCrumb('Composition', '/compositions  ');?>
+<?= $this->Html->addCrumb('Index');?>
+
+</script>
+<script>
     $(document).ready(function(){
         $('#tableIndex').DataTable();
     });

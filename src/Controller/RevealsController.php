@@ -32,7 +32,7 @@ class RevealsController extends AppController
     public function view($id = null)
     {
         $reveal = $this->Reveals->get($id, [
-            'contain' => ['Products']
+            'contain' => ['Quoteproducts']
         ]);
         $this->set('reveal', $reveal);
         $this->set('_serialize', ['reveal']);

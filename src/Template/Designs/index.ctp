@@ -1,3 +1,8 @@
+<script>
+<?=$this->Html->addCrumb('Design', '/designs  ');?>
+<?= $this->Html->addCrumb('Index');?>
+
+</script>
         <script>
         $(document).ready(function(){
             $('#tableIndex').DataTable();

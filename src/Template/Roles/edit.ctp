@@ -1,25 +1,33 @@
-<div class="actions columns large-2 medium-3">
-    <h3><?= __('Actions') ?></h3>
-    <ul class="side-nav">
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $role->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $role->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Roles'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Employees'), ['controller' => 'Employees', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Employee'), ['controller' => 'Employees', 'action' => 'add']) ?> </li>
-    </ul>
-</div>
-<div class="roles form large-10 medium-9 columns">
-    <?= $this->Form->create($role); ?>
-    <fieldset>
-        <legend><?= __('Edit Role') ?></legend>
-        <?php
-            echo $this->Form->input('description');
-        ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
+<script>
+<?=$this->Html->addCrumb('Role', '/roles  ');?>
+<?= $this->Html->addCrumb('Edit');?>
+
+</script>
+
+<?= $this->Form->create($role); ?>
+<div class="row">
+    <div class="col-lg-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                Add Roles
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <form class="form-horizontal" role="form">
+                        <div class="row">
+                            <div class="col-lg-10">
+                                <div class="form-group">
+                                    <?= $this->Form->input('description', ['class' => 'form-control']) ?>
+                                </div>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            <button type="submit" class="btn btn-default">Submit </button>
+            <?= $this->Form->end() ?>
+            </div>
+        </div>
+    </div>
 </div>

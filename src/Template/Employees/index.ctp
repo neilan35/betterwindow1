@@ -1,4 +1,9 @@
-     <script>
+
+<script>
+<?=$this->Html->addCrumb('Employee', '/employees  ');?>
+<?= $this->Html->addCrumb('Index');?>
+
+</script>     <script>
         $(document).ready(function(){
             $('#tableIndex').DataTable();
         });

@@ -1,4 +1,8 @@
+<script>
+<?=$this->Html->addCrumb('Roles', '/roles');?>
+<?= $this->Html->addCrumb('Index');?>
 
+</script>
    <script>
         $(document).ready(function(){
             $('#tableIndex').DataTable();
@@ -24,9 +28,9 @@
             <td><?= h($role->created) ?></td>
             <td><?= h($role->modified) ?></td>
             <td class="actions">
-                <?= $this->Html->link(__('View'), ['action' => 'view', $role->id]) ?>
-                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $role->id]) ?>
-                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $role->id], ['confirm' => __('Are you sure you want to delete # {0}?', $role->id)]) ?>
+                <?= $this->Html->link(__('View'), ['action' => 'view', $role->id], ['class' => 'btn btn-info btn-xs']) ?>
+                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $role->id], ['class' => 'btn btn-success btn-xs']) ?>
+                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $role->id], ['class' => 'btn btn-danger btn-xs', 'confirm' => __('Are you sure you want to delete # {0}?', $role->id)]) ?>
             </td>
         </tr>
 

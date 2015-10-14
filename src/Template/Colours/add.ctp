@@ -1,7 +1,12 @@
+<script>
+<?=$this->Html->addCrumb('Colour', '/colours  ');?>
+<?= $this->Html->addCrumb('Add');?>
+
+</script>
 <?= $this->Form->create($colour); ?>
 <div class="row">
     <div class="col-lg-6">
-        <div class="panel panel-default">
+        <div class="panel panel-primary">
             <div class="panel-heading">
                 Add a Colour
             </div>

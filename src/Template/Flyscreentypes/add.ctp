@@ -1,7 +1,12 @@
+<script>
+<?=$this->Html->addCrumb('FlyScreenType', '/flyscreentypes  ');?>
+<?= $this->Html->addCrumb('Add');?>
+
+</script>
 <?= $this->Form->create($flyscreentype); ?>
 <div class="row">
     <div class="col-lg-6">
-        <div class="panel panel-default">
+        <div class="panel panel-primary">
             <div class="panel-heading">
                 Add a Fly Screen Type
             </div>

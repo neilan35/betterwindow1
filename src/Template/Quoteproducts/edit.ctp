@@ -1,48 +1,124 @@
-<div class="actions columns large-2 medium-3">
-    <h3><?= __('Actions') ?></h3>
-    <ul class="side-nav">
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $quoteproduct->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $quoteproduct->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Quoteproducts'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Quotes'), ['controller' => 'Quotes', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Quote'), ['controller' => 'Quotes', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Colours'), ['controller' => 'Colours', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Colour'), ['controller' => 'Colours', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Balratings'), ['controller' => 'Balratings', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Balrating'), ['controller' => 'Balratings', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Itemtypes'), ['controller' => 'Itemtypes', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Itemtype'), ['controller' => 'Itemtypes', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Designs'), ['controller' => 'Designs', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Design'), ['controller' => 'Designs', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Reveals'), ['controller' => 'Reveals', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Reveal'), ['controller' => 'Reveals', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Flyscreenmeshes'), ['controller' => 'Flyscreenmeshes', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Flyscreenmesh'), ['controller' => 'Flyscreenmeshes', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Glazings'), ['controller' => 'Glazings', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Glazing'), ['controller' => 'Glazings', 'action' => 'add']) ?> </li>
-    </ul>
-</div>
+<script>
+<?=$this->Html->addCrumb('QuoteProduct', '/quoteproducts  ');?>
+<?= $this->Html->addCrumb('Edit');?>
+</script>
+<?php use Cake\Routing\Router; ?>
+
 <div class="quoteproducts form large-10 medium-9 columns">
-    <?= $this->Form->create($quoteproduct); ?>
-    <fieldset>
-        <legend><?= __('Edit Quoteproduct') ?></legend>
-        <?php
-            echo $this->Form->input('quote_id', ['options' => $quotes]);
-            echo $this->Form->input('colour_id', ['options' => $colours]);
-            echo $this->Form->input('balrating_id', ['options' => $balratings]);
-            echo $this->Form->input('itemtype_id', ['options' => $itemtypes]);
-            echo $this->Form->input('design_id', ['options' => $designs]);
-            echo $this->Form->input('reveal_id', ['options' => $reveals, 'empty' => true]);
-            echo $this->Form->input('flyscreenmesh_id', ['options' => $flyscreenmeshes, 'empty' => true]);
-            echo $this->Form->input('glazing_id', ['options' => $glazings]);
-            echo $this->Form->input('height');
-            echo $this->Form->input('width');
-        ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
+<?= $this->Form->create($quoteproduct); ?>
+<div class="row">
+    <div class="col-lg-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                Add a Product
+            </div>
+            <div class="panel-body">
+               <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <form class="form-horizontal" role="form">
+                                    
+                                    <div class="row">
+
+                            
+                                <div class="form-group">    
+                                <?= $this->Form->input('quote_id', ['options' => $quotes]); ?>
+                                </div>
+                           
+                                <div class="form-group">
+                                    <?= $this->Form->input('colour_id', ['options' => $colours]) ?>
+                                </div>
+                                <div class="form-group">
+                                    <?= $this->Form->input('balrating_id', ['options' => $balratings]) ?>
+                                </div>
+                                <div class="form-group">
+                                    <?= $this->Form->input('itemtype_id', ['options' => $itemtypes, 'id'=>'itemtype-id']) ?>
+                                </div>
+
+                                 <div class="form-group">
+                                    <?= $this->Form->input('open_type', ['options'=>[] ,'id'=>'opentype-id']) ?>
+                                </div> 
+
+                                <div class="form-group">
+                                    <?= $this->Form->input('design_id', ['options' => $designs]) ?>
+                                </div>
+                                <div class="form-group">
+                                    <?= $this->Form->input('reveal') ?>
+                                </div>
+                                <div class="form-group">
+                                    <?= $this->Form->input('reveal_id', ['options' => $reveals, 'empty' => true]) ?>
+                                </div>
+
+                                <div class="form-group">
+            <label class="control-label col-sm-2" for="first_name">Flyscreentype*:</label>
+                <div class="input-group col-sm-5">
+                    <?php echo $this->Form->input('flyscreentype',['type'=>'checkbox','yes']);?>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="first_name">Flyscreentype*:</label>
+                <div class="input-group col-sm-5">
+                    <?php echo $this->Form->input('flyscreentypes',['options'=>[] ,
+                    'id'=>'flyscreentype-id',
+                    'empty' =>'(Please choose one)',
+                    'class'=>'form-control',
+                    'label'=>false]);?>
+                    <p class="help-block">Options will be based on the Open Type you have chosen</p>
+            </div>
+        </div>
+                                <div class="form-group">
+                                    <?= $this->Form->input('flyscreenmesh_id', ['options' => $flyscreenmeshes, 'empty' => true]) ?>
+                                </div>
+                                <div class="form-group">
+                                      <?= $this->Form->input('glazing_id', ['options' => $glazings]) ?>
+                                </div>
+                               <div class="form-group">
+                                    <?= $this->Form->input('height', ['class' => 'form-control']) ?>
+                                </div> 
+                      
+                                <div class="form-group">
+                                    <?= $this->Form->input('width', ['class' => 'form-control']) ?>
+                                </div> 
+                                <div class="form-group">
+                                    <?= $this->Form->input('usages', ['class' => 'form-control']) ?>
+                                </div> 
+                                <div class="form-group">
+                                    <?= $this->Form->input('glasstype', ['class' => 'form-control']) ?>
+                                </div> 
+                                <div class="form-group">
+                                    <?= $this->Form->input('width', ['class' => 'form-control']) ?>
+                                </div> 
+                                <div class="form-group">
+                                    <?= $this->Form->input('width', ['class' => 'form-control']) ?>
+                                </div> 
+                            
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            <button type="submit" class="btn btn-default">Submit </button>
+            <?= $this->Form->end() ?>
+            </div>
+        </div>
+    </div>
 </div>
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#itemtype-id').change(function() {
+            // $("#opentype-id").remove();
+            $("#opentype-id option").remove();
+            var url = "<?= Router::url(['controller' => 'Quoteproducts', 'action' => 'get_opentypes']) ?>/" + $(this).val();
+            $.getJSON(url, null, function(data) {
+                // var $ot = $("#opentype-id");
+
+                $.each(data, function(id, name) {
+                    // console.log ($ot);
+                    // $("#opentype-id").append("<option value='" + 2 + "'>" + "nick" + "</option>");
+                    $("#opentype-id").append("<option value='" + id + "'>" + name + "</option>");
+                });
+            });
+        });
+    });
+</script>

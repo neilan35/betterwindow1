@@ -1,3 +1,7 @@
+<script>
+<?=$this->Html->addCrumb('Reveals', '/reveals  ');?>
+<?= $this->Html->addCrumb('Index');?>
+</script>
         <script>
         $(document).ready(function(){
             $('#tableIndex').DataTable();

@@ -1,5 +1,7 @@
-    <script>
+
+  <script>
 <?=$this->Html->addCrumb('Users', '/users');?>
+<?= $this->Html->addCrumb('Index');?>
 
 </script>
     <script>
@@ -19,7 +21,7 @@
             <th><?= $this->Paginator->sort('customer_id') ?></th>
             <th><?= $this->Paginator->sort('employee_id') ?></th>
             <th><?= $this->Paginator->sort('created') ?></th>
-            <!-- <th><?= $this->Paginator->sort('modified') ?></th> -->
+            <th><?= $this->Paginator->sort('modified') ?></th>
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
     </thead>
@@ -48,7 +50,7 @@
                 <?= $user->has('employee') ? $this->Html->link($user->employee->id, ['controller' => 'Employees', 'action' => 'view', $user->employee->id]) : '' ?>
             </td>
             <td><?= h($user->created) ?></td>
-            <!-- <td><?= h($user->modified) ?></td> -->
+            <td><?= h($user->modified) ?></td>
             <td class="actions">
                 <?= $this->Html->link(__('View'), ['action' => 'view', $user->id], ['class' => 'btn btn-info btn-xs']) ?>
                  &nbsp;

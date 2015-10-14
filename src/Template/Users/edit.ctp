@@ -1,7 +1,13 @@
+
+  <script>
+<?=$this->Html->addCrumb('Users', '/users');?>
+<?= $this->Html->addCrumb('Edit');?>
+
+</script>
 <?= $this->Form->create($user); ?>
 <div class="row">
     <div class="col-lg-8">
-        <div class="panel panel-default">
+        <div class="panel panel-primary">
             <div class="panel-heading">
                 Add User
             </div>

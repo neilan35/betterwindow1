@@ -1,40 +1,75 @@
-<?= use Cake\Routing\Router; ?>
-
-<div class="actions columns large-2 medium-3">
-    <h3><?= __('Actions') ?></h3>
-    <ul class="side-nav">
-        <li><?= $this->Html->link(__('Edit Role'), ['action' => 'edit', $role->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Role'), ['action' => 'delete', $role->id], ['confirm' => __('Are you sure you want to delete # {0}?', $role->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Roles'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Role'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Employees'), ['controller' => 'Employees', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Employee'), ['controller' => 'Employees', 'action' => 'add']) ?> </li>
-    </ul>
-</div>
-<div class="roles view large-10 medium-9 columns">
-    <h2><?= h($role->id) ?></h2>
-    <div class="row">
-        <div class="large-5 columns strings">
-            <h6 class="subheader"><?= __('Description') ?></h6>
-            <p><?= h($role->description) ?></p>
-        </div>
-        <div class="large-2 columns numbers end">
-            <h6 class="subheader"><?= __('Id') ?></h6>
-            <p><?= $this->Number->format($role->id) ?></p>
-        </div>
-        <div class="large-2 columns dates end">
-            <h6 class="subheader"><?= __('Created') ?></h6>
-            <p><?= h($role->created) ?></p>
-            <h6 class="subheader"><?= __('Modified') ?></h6>
-            <p><?= h($role->modified) ?></p>
+<script>
+<?=$this->Html->addCrumb('Role', '/roles  ');?>
+<?= $this->Html->addCrumb('View');?>
+</script>
+<div class="row">
+    <div class="container-fluid well col-sm-6">
+        <div class="row-fluid">
+            <div class="col-sm-6">
+                <div class="panel panel-primary">
+                    <div class="panel-heading"> Role Information </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <h5 class="subheader"><b><?= __('Role Id') ?></b></h5>
+                                    <p><?= $this->Number->format($role->id) ?></p>
+                                </div>
+                                <div class="col-sm-4">
+                                    <h5 class="subheader"><b><?= __('Description') ?></b></h5>
+                                    <p><?= h($role->description) ?></p>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Date</div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h5 class="subheader"><b><?= __('Created') ?></b></h5>
+                                <p><?= h($role->created) ?></p>
+                            </div>
+                            <div class="col-sm-6">
+                                <h5 class="subheader"><b><?= __('Modified') ?></b></h5>
+                                <p><?= h($role->modified) ?></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading"><i class="fa fa-bell fa-fw"></i> Actions</div>
+                <div class="panel-body">
+                    <div class="list-group">
+                        <div class="list-group-item">
+                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $role->id], ['class' => 'btn btn-danger btn-xs', 'confirm' => __('Are you sure you want to delete # {0}?', $role->id)]) ?>
+                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $role->id], ['class' => 'btn btn-success btn-xs']) ?>
+                        <span class="pull-right text-muted small"><em>Are you sure?</em>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+    $(document).ready(function(){
+        $('#tableIndex').DataTable();
+    });
+</script>
+
+<div class= "container">
 <div class="related row">
-    <div class="column large-12">
-    <h4 class="subheader"><?= __('Related Employees') ?></h4>
+   <div class="table-responsive">
+   <h4 class="subheader"><?= __('Related Employees') ?></h4>
     <?php if (!empty($role->employees)): ?>
-    <table cellpadding="0" cellspacing="0">
+    <table class="table table-hover" id="tableIndex">
         <tr>
             <th><?= __('Id') ?></th>
             <th><?= __('First Name') ?></th>

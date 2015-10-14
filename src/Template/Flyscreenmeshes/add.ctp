@@ -1,7 +1,11 @@
+<script>
+<?=$this->Html->addCrumb('FlyScreenMeshes', '/flyscreenmeshes  ');?>
+<?= $this->Html->addCrumb('Add');?>
+</script>
 <?= $this->Form->create($flyscreenmesh); ?>
 <div class="row">
     <div class="col-lg-6">
-        <div class="panel panel-default">
+        <div class="panel panel-primary">
             <div class="panel-heading">
                 Add a Fly Screen Mesh
             </div>

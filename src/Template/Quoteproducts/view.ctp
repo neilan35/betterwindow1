@@ -1,7 +1,6 @@
 <script>
 <?=$this->Html->addCrumb('QuoteProduct', '/quoteproducts  ');?>
 <?= $this->Html->addCrumb('View');?>
-
 </script>
 <div class="row">
     <div class="container-fluid well span6">

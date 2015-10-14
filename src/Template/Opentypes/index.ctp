@@ -1,4 +1,9 @@
 <script>
+<?=$this->Html->addCrumb('OpenType', '/opentypes  ');?>
+<?= $this->Html->addCrumb('Index');?>
+
+</script>
+<script>
         $(document).ready(function(){
             $('#tableIndex').DataTable();
         });

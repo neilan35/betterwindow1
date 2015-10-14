@@ -1,7 +1,12 @@
+<script>
+<?=$this->Html->addCrumb('Employee', '/employees  ');?>
+<?= $this->Html->addCrumb('Add');?>
+
+</script>
 <?= $this->Form->create($employee); ?>
 <div class="row">
                 <div class="col-lg-8">
-                    <div class="panel panel-default">
+                    <div class="panel panel-primary">
                         <div class="panel-heading">
                             Add Employee
                         </div>

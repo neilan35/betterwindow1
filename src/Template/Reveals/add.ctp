@@ -1,7 +1,11 @@
+<script>
+<?=$this->Html->addCrumb('Reveals', '/reveals  ');?>
+<?= $this->Html->addCrumb('Add');?>
+</script>
 <?= $this->Form->create($reveal); ?>
 <div class="row">
     <div class="col-lg-6">
-        <div class="panel panel-default">
+        <div class="panel panel-primary">
             <div class="panel-heading">
                 Add a Reveal
             </div>

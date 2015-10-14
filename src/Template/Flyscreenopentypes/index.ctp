@@ -1,3 +1,7 @@
+<script>
+<?=$this->Html->addCrumb('FlyScreenOpenType', '/Flyscreenopentypes  ');?>
+<?= $this->Html->addCrumb('Index');?>
+</script>
         <script>
         $(document).ready(function(){
             $('#tableIndex').DataTable();

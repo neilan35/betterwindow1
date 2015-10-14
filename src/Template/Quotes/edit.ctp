@@ -1,7 +1,11 @@
+<script>
+<?=$this->Html->addCrumb('Quote', '/quotes  ');?>
+<?= $this->Html->addCrumb('Edit');?>
+</script>
 <?= $this->Form->create($quote); ?>
 <div class="row">
     <div class="col-lg-6">
-        <div class="panel panel-default">
+        <div class="panel panel-primary">
             <div class="panel-heading">
                 Edit a Quote
             </div>
@@ -28,13 +32,13 @@
                                     <?= $this->Form->input('quantity', ['class' => 'form-control']) ?>
                                 </div>
                                 <div class="form-group">
-                                    <?= $this->Form->input('installation', ['class' => 'form-control']) ?>
+                                   <?php echo $this->Form->input('installation', ['type'=>'checkbox']);?>
                                 </div>
                                 <div class="form-group">
                                     <?= $this->Form->input('installtype', ['class' => 'form-control']) ?>
                                 </div>
                                 <div class="form-group">
-                                    <?= $this->Form->input('delivery', ['class' => 'form-control']) ?>
+                                    <?php echo $this->Form->input('delivery', ['type'=>'checkbox']);?>
                                 </div>
                                 <div class="form-group">
                                     <?= $this->Form->input('deliverytype', ['class' => 'form-control']) ?>
