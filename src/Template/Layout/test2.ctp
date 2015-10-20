@@ -211,19 +211,17 @@
     <!-- Page Content -->
     </br></br>
     </body>
-    <footer id= "footer">
-    <div class="container-fluid">
-        <div class="row" id="wrap">
-            <div class="col-lg-1"> 
-            </div>
-            <div class="col-lg-4"> 
+   <footer id= "footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6"> 
                 <h4 class="section-title">CONTACT US</h4>
             </br>
                 <p><strong class="section-title">Email: </strong>office@blueskywindows.com.au</br>
                 <strong class="section-title">Phone: </strong>(03) 9588 2198 </br><strong class="section-title">Mobile: </strong class="section-title">0450 908 271</br> <strong class="section-title">Address: </strong>9A Citrus Street Braeside, VIC 3195</p> 
             </div>
-            <div class="col-lg-7"> 
-            <div class="social-icons pull-right">
+            <div class="col-lg-6"> 
+                <div class="social-icons pull-right">
                     
                         <a href='#' target="_blank" class="btn btn-round btn-clear btn-twitter" id="social-footer"><i class="fa fa-twitter"></i></a>
                         <a href="https://www.facebook.com/blueskywindows.com.au?fref=ts" target="_blank" class="btn btn-round btn-clear btn-facebook"><i class="fa fa-facebook"></i></a>
@@ -231,22 +229,16 @@
                         <a href="https://www.linkedin.com/" class="btn btn-round btn-clear btn-linkedin"><i class="fa fa-linkedin-square"></i></a>
                         <a href="https://www.pinterest.com/" class="btn btn-round btn-clear btn-pinterest"><i class="fa fa-pinterest"></i></a>
                         <a href="https://plus.google.com/106251164898636973632/posts" class="btn btn-round btn-clear btn-google"><i class="fa fa-google-plus"></i></a>
-                       
-                    
-        </div> 
+                </div> 
             </div>
         </div>
     </div>
-    <div class="footer-bottom">
-        <div class="col-lg-1"> 
-        </div>
-        <div class"col-lg-6 col-md-6 col-xs-12 col-sm-5 ">
+     <div class="footer-bottom">
+
+    <div class="container">
         <p> Copyright 2015 by <strong class="section-title">Team 9 Monash University</strong> All Rights Reserved</p>
      </div>
-     <div class"col-lg-5 col-md-6 col-xs-12 col-sm-6 "> 
-        
 
-     </div>
 
      </div>
 </footer>

@@ -37,13 +37,13 @@
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 
-    <?php if( $this->request->session()->read('Auth.User')) : ?>
+   <!--  <?php if( $this->request->session()->read('Auth.User')) : ?>
         <script type="text/javascript">
             $(document).ready(function(){
                 $('#btnLogin').hide();
             });
         </script>
-    <?php endif; ?>
+    <?php endif; ?> -->
 
 </head>
 
@@ -55,7 +55,12 @@
          <div class="row">
              <div class="col-lg-7">
                 <div id="logonav1" class="pull-left">
-                    <?php echo $this->Html->image('betterwindowsfinalfiles.png', ['alt' => 'CakePHP', 'class'=>'img-responsive']); ?>
+                    <?php
+                     echo $this->Html->image("betterwindowsfinalfiles.png", [
+                                            "alt" => "CakePHP",
+                                            'class'=>'img-responsive',
+                                            'url' => ['controller' => 'Pages', 'action' => 'home']
+                                        ]); ?>
                 </div>
             </div> 
             <div class="col-lg-5">
@@ -66,7 +71,7 @@
                         <a href="https://www.instagram.com/" class="btn btn-round btn-clear btn-instagram"><i class="fa fa-instagram"></i></a>
                         <a href="https://www.linkedin.com/" class="btn btn-round btn-clear btn-linkedin"><i class="fa fa-linkedin-square"></i></a>
                         <a href="https://www.pinterest.com/" class="btn btn-round btn-clear btn-pinterest"><i class="fa fa-pinterest"></i></a>
-                        <a href="https://plus.google.com/106251164898636973632/posts" class="btn btn-round btn-clear btn-google"><i class="fa fa-google-plus"></i></a>
+                        <a href="#" class="btn btn-round btn-clear btn-google"><i class="fa fa-google-plus"></i></a>
                        
                     
                 </div>
@@ -90,10 +95,7 @@
                         <span class="icon-bar"></span>
                     </button>
 
-                   	<!-- <div id="logonav1">
-					<?php echo $this->Html->image('betterwindowsfinalfiles.png', ['alt' => 'CakePHP', 'class'=>'img-responsive']); ?>
-					</div>	
- -->
+              
 					<!--  <div>
 					      <p class="navbar-text navbar-right">Signed in as 
 					         <a href="#" class="navbar-link">Thomas</a>
@@ -227,7 +229,7 @@
 
               <div class="carousel-inner">
                 <div class="item active"><!-- class of active since it's the first item -->
-                 <?php echo $this->Html->image('trial1.jpg', ['alt' => 'CakePHP']); ?>
+                 <?php echo $this->Html->image('trial1.jpg', ['alt' => 'CakePHP','class'=>'sliding']); ?>
                   <div class="carousel-caption">
                     <h1>BETTER WINDOWS</h1>
               <p>The best UPVC Window in town</p>
@@ -236,31 +238,31 @@
                   </div>
                 </div>
                 <div class="item">
-                   <?php echo $this->Html->image('img5.jpg', ['alt' => 'CakePHP']); ?>
+                   <?php echo $this->Html->image('img5.jpg', ['alt' => 'CakePHP', 'class'=>'sliding']); ?>
                   <div class="carousel-caption">
-                    <p>Caption text here</p>
+                    <p>Make a quotation now</p>
                   </div>
                 </div>
                 <div class="item">
-                   <?php echo $this->Html->image('trial2.jpg', ['alt' => 'CakePHP']); ?>
+                   <?php echo $this->Html->image('trial2.jpg', ['alt' => 'CakePHP','class'=>'sliding']); ?>
                   <div class="carousel-caption">
-                    <p>Caption text here</p>
+                    <p>Fast Response</p>
                   </div>
                 </div>
                 <div class="item">
-                   <?php echo $this->Html->image('trial3.jpg', ['alt' => 'CakePHP']); ?>
+                   <?php echo $this->Html->image('trial3.jpg', ['alt' => 'CakePHP','class'=>'sliding']); ?>
                   <div class="carousel-caption">
-                    <p>Caption text here</p>
+                    <p>The best uPVC window in town!</p>
                   </div>
                 </div>
               </div><!-- /.carousel-inner -->
               <!--  Next and Previous controls below
                     href values must reference the id for this carousel -->
-                 <a class="left carousel-control" href="#bw-carousel" role="button" data-slide="prev">
+                 <a class="left carousel-control" href="javascript:void(0)" role="button" data-slide="prev" data-target="#bw-carousel">
                     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
                 </a>
-                 <a class="right carousel-control" href="#bw-carousel" role="button" data-slide="next">
+                 <a class="right carousel-control" href="javascript:void(0)" role="button" data-slide="next" data-target="#bw-carousel">
                     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
                 </a>
@@ -278,17 +280,15 @@
 </body>
 
 <footer id= "footer">
-    <div class="container-fluid">
-        <div class="row" id="wrap">
-            <div class="col-lg-1"> 
-            </div>
-            <div class="col-lg-4"> 
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6"> 
                 <h4 class="section-title">CONTACT US</h4>
             </br>
                 <p><strong class="section-title">Email: </strong>office@blueskywindows.com.au</br>
                 <strong class="section-title">Phone: </strong>(03) 9588 2198 </br><strong class="section-title">Mobile: </strong class="section-title">0450 908 271</br> <strong class="section-title">Address: </strong>9A Citrus Street Braeside, VIC 3195</p> 
             </div>
-            <div class="col-lg-7"> 
+            <div class="col-lg-6"> 
             <div class="social-icons pull-right">
                     
                         <a href='#' target="_blank" class="btn btn-round btn-clear btn-twitter" id="social-footer"><i class="fa fa-twitter"></i></a>
@@ -301,30 +301,26 @@
                     
         </div> 
             </div>
-        </div>
+        </div>  
     </div>
-    <div class="footer-bottom">
-        <div class="col-lg-1"> 
-            </div>
-        <div class"col-lg-6 col-md-6 col-xs-12 col-sm-5 ">
-        <p> Copyright 2015 by <strong class="section-title">Team 9 Monash University</strong> All Rights Reserved</p>
-     </div>
-     <div class"col-lg-6 col-md-6 col-xs-12 col-sm-6 "> 
-        
 
-     </div>
-
-     </div>
 </footer>
 
 
+    <div class="footer-bottom">
 
+    <div class="container">
+        <p> Copyright 2015 by <strong class="section-title">Team 9 Monash University</strong> All Rights Reserved</p>
+     </div>
+
+
+     </div>
 
 
     <!-- Page Content -->
     <script>
     $(document).ready(function() {
-        var actions = ['home', 'aboutus', 'gallery', 'benefits', 'contactus'];
+        var actions = ['home', 'aboutus', 'gallery', 'benefits', 'contactus','produts'];
         var path = this.location.pathname;
 
         found = false;

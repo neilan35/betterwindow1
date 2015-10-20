@@ -52,16 +52,38 @@ class QuotesController extends AppController
         $this->set('_serialize', ['quote']);
     }
 
+    // public function created(){
+    //   $this
+    // }
+
+     public function complete($id=null){
+        
+
+
+      $quotesTable = TableRegistry::get('Quotes');
+      $quote = $quotesTable->get($id);
+
+      $quote->status = 'Completed';
+
+      $quotesTable->save($quote);
+
+       return $this->redirect(['action' => 'index']);
+
+     }
+
      public function pdf($id = null)
     {
         $this->layout ='mypdf';
         $this->loadModel('Quoteproducts');
-        
+         $this->loadModel('Designs');
+          $this->loadModel('Pictures');
         $quote = $this->Quotes->get($id, [
-            'contain' => ['Customers', 'Quoteproducts']
+            'contain' => ['Customers', 'Quoteproducts',]
         ]);
 
-        $area = $this->Quote->Quoteproducts->height *$this->Quote->Quoteproducts->width;
+        
+
+        // $area = $this->Quote->Quoteproducts->height *$this->Quote->Quoteproducts->width;
 
 
 
@@ -115,30 +137,55 @@ class QuotesController extends AppController
     // } not working
 
 
+    public function calculateQuote($quote_id) {
+
+      // $total_price = 0;
+
+      // $W = $this->request->data([])
+      // foreach ($quotes as $key => $value) {
+      //   $quotes[$key] =$value
+      // } return $quotes;
+
+      // $W = 
+      // $H = 
+
+      
+        
+     
+        /*
+            foreach quote product based on quote_id
+                $product_cost = 0;
+
+                $W = 10;
+                $H = 20;
+                $formula = "$W * $H";
+                $result = eval($formula);
+
+                $quoteProduct['unit_price'] = $product_cost;
+                save $quoteProduct
+        */
+      $quote['price'] = '';
+
+    }
 
 
-
-    public function create(){
+    public function create($quote_id = '', $is_final = 0){
        
         $this->layout = 'test2';
-       
-  
-        // $custid = $this->Session->read('Auth.Customer.id')
-        //   if($this->Session->check('Auth.User')){
-        //     $Quoteproducts['customer_id']
 
         // $this->Session->check('Auth.User')
         // $id= $this->Auth->user('employee_id');
         
-        $session = $this->request->session();
+//        $session = $this->request->session();
         $quote = $this->Quotes->newEntity();
         
          
         if ($this->request->is('post')) {
+          //  $this->RequestHandler->respondAs('json');
+       //   $is_final = 0;
+//             list($quote_id, $is_final) = preg_split("/;/", $data);
 
-         /*  $quote = $this->Quotes->patchEntity($quote, $this->request->data);/*, [
-            'associated' => ['Quoteproducts']
-            ]); //fucked*/
+        //    $is_final = $this->request->data['is_final'];
 
             $quoteFormData = $this->request->data;
             unset($quoteFormData['quoteproducts']);
@@ -146,16 +193,28 @@ class QuotesController extends AppController
 
             $quoteProduct = $this->Quotes->Quoteproducts->newEntity();
 
-            // $quoteProduct['quote_id'] = 1;
-            $quoteProduct['design_id'] = 2;
+            $quoteProduct['quote_id'] = 1;
+            // $quoteProduct['design_id'] = 2;
 
             $qpData = $this->request->data['quoteproducts'];
             foreach ($qpData as $key => $value) {
                 $quoteProduct[$key] = $value;
             }
 
-            $quoteProduct['usages'] = 4;  //fix
+            // $quoteProduct['usages'] = 4;  //fixed, should be standard for now
             $quoteProduct['glasstype'] = 2; //fix
+
+            //asked Brendon for view
+            $flyscreenmesh_id = $this->Quotes->QuoteProducts->Flyscreenmeshes->find()
+                                                ->select(['id'])
+                                                ->where([   'meshtype_id' => $quoteProduct['meshtype'],
+                                                            'flyscreentype_id' => $quoteProduct['flyscreentypes'],
+                                                            'balrating_id' => $quoteProduct['balrating_id']
+                                                            ]);
+
+            $quoteProduct['flyscreenmesh_id'] = $flyscreenmesh_id->first()['id'];
+
+
 
 
             // make an if statement if not found, says somethings. 
@@ -171,14 +230,6 @@ class QuotesController extends AppController
                                                             ]);
 
             $quoteProduct['glazing_id'] = $glazing_id->first()['id'];
-
-    //        die();
-        //    var_dump($quoteProduct);
-
-        //    var_dump($quoteProduct);
-      //      die();
-
-
 /*            $qpData = $this->request->data['quoteproducts'];
 
       //      $qpData['quote_id'] = '2124124';
@@ -229,41 +280,59 @@ class QuotesController extends AppController
       //     var_dump($quoteProduct);
        //    die();
 
-            $session->write('quote_id', '');
-            if ($session->read('quote_id') == '') {
+            if ($quote_id == '') {
+
                 $result = $this->Quotes->save($quote);
                // var_dump($quote->errors());
               //  die();
                 if ($result) {
-                    $session->write('quote_id', $result->id);
+                    $quote_id = $result->id;
                     $quoteProduct['quote_id'] = $result->id;
                 }
                 else {
-                    $this->Flash->error('The quote could not be saved. Please, try again.');                    
+                    $result = 0;
+                    $message = 'Error: could not save quote.';
+                  //  $this->Flash->error('The quote could not be saved. Please, try again.');                    
                 }
             }
             else
-                $quoteProduct['quote_id'] = $session->read('quote_id');
+                $quoteProduct['quote_id'] = $quote_id;
 
-//          if ($this->Quotes->save($quote)) {
-                if ($this->Quotes->Quoteproducts->save($quoteProduct)) {
-                     $this->Flash->success('The quote has been saved.');
-                     return $this->redirect(['action' => 'index']);
-                }
-                else {
-                    var_dump($quoteProduct->errors());
-                    die("can't save quote product");
-                      $this->Flash->error('The quote product could not be saved. Please, try again.');        
-                }
- ///         } 
- //         else {
-  //          $this->Flash->error('The quote could not be saved. Please, try again.');
-  //        }
+            if ($this->Quotes->Quoteproducts->save($quoteProduct)) {
+                    $result = 1;
+                    $message = 'Success: Save quote product';
+
+                    if ($is_final) {
+                        $this->calculateQuote($quote_id);
+                    }
+//                 $this->set("status", "success");
+ //                $this->set("message", "The quote product has been saved.");
+                 
+                //$this->Flash->success('The quote product has been saved.');
+  //              return true;//$this->redirect(['action' => 'index']);
             }
+            else {
+                    $result = 0;
+                    $message = 'Error: ';
+                    $message .= var_export($quoteProduct->errors(), true);
+              //      $message = 'Error: Unable to save quote product';
+//                 $this->set("status", "fail");
+//                 $this->set("message", "The quote product could not be saved. Please, try again.");              
+  //            var_dump($quoteProduct->errors());
+ //             die("can't save quote product");
+               // $this->Flash->error('The quote product could not be saved. Please, try again.');        
+            }
+
+                  $this->autoRender = false;
+                  $this->response->body(json_encode([   
+                          "result"    => $result,
+                          "message"   => $message,
+                          "quote_id"  => $quote_id]));
+                  return $this->response;
      
                 // var_dump($id);    
                 // var_dump($quote);
-               
+        }               
 
         // $this->Session->write('quote_no', 'Q00001');
         $customers = $this->Quotes->Customers->find('list', ['limit' => 200]);
@@ -275,11 +344,20 @@ class QuotesController extends AppController
         $glasstypes = $this->Quotes->Quoteproducts->Glazings->Glasstypes->find('list', ['limit' => 200]);
         $glazings = $this->Quotes->Quoteproducts->Glazings->find('list', ['limit' => 200]);
         $compositions= $this->Quotes->Quoteproducts->Glazings->Compositions->find('list', ['limit' => 200]);
+        $designs = $this->Quotes->Quoteproducts->Designs->find('list', ['limit' => 200]);
 
         // $glasscomps = $glazings['composition_id'];
-        $this->set(compact('compositions','quote', 'customers','colours','balratings','itemtypes','reveals', 'usages','glasstypes','id','glazings','glasscomps'));
+        $this->set(compact('compositions','quote', 'customers','colours','balratings','itemtypes','reveals', 'usages','glasstypes','id','glazings','glasscomps','designs'));
         $this->set('_serialize', ['quote']);
     }
+
+
+
+        // public function summary(){
+        //   $shop = $this->Session->read('Shop');
+        // $this->set(compact('shop'));
+        // }
+
 
 
         public function get_opentypes($itemtypes_id){
@@ -345,6 +423,37 @@ class QuotesController extends AppController
             echo json_encode($flyscreen->toArray());
         }
 
+        public function get_designs($opentypes_id){
+          $this->loadModel('Designs');
+          $this->autoRender= false;
+
+          $designID = $this->Designs->find()
+                    ->select(['id'])
+                    ->where(['opentype_id' => $opentypes_id]);
+
+
+          echo json_encode($designID->toArray());
+        }
+
+         public function get_pictures($design_id){
+          $this->loadModel('Pictures');
+          $this->loadModel('Designs');
+          $this->autoRender= false;
+
+
+          $pictureID = $this->Designs->find()
+                    ->select(['picture_id'])
+                    ->where(['id' => $design_id]);
+
+
+          $filename = $this->Pictures->find()
+                    ->select(['filename'])
+                    ->where(['id'=> $pictureID]);
+
+
+          
+           echo ($filename->first()['filename']);
+        }
 
         public function get_meshtypes($balratingID,$flyscreenID){
 
@@ -361,9 +470,7 @@ class QuotesController extends AppController
 
             $this->autoRender= false;
 
-            // $flyscreenopentypeID = $this->Flyscreenopentypes->find('list')
-            //             ->select(['id'])
-            //             ->where(['flyscreentype_id' => $flyscreenID]);
+       
 
             //             // var_dump($flyscreenopentypeID->toArray());
             //             // die();
@@ -386,7 +493,8 @@ class QuotesController extends AppController
             // die();
 
             $mesh = $this->Meshtypes->find() 
-                    ->select(['type']) 
+                    // ->select(['type'])
+                    ->select(['id','type'])  
                     ->where (['id in' => $meshArr]);
 
             // var_dump($mesh->toArray());
@@ -397,6 +505,9 @@ class QuotesController extends AppController
 
             
         }
+
+
+         
     /**
      * Edit method
      *

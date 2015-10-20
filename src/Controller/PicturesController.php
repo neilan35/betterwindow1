@@ -46,14 +46,47 @@ class PicturesController extends AppController
     public function add()
     {
         $picture = $this->Pictures->newEntity();
-        if ($this->request->is('post')) {
-            $picture = $this->Pictures->patchEntity($picture, $this->request->data);
-            if ($this->Pictures->save($picture)) {
-                $this->Flash->success('The picture has been saved.');
-                return $this->redirect(['action' => 'index']);
-            } else {
-                $this->Flash->error('The picture could not be saved. Please, try again.');
-            }
+        if ($this->request->is('post','put')) {
+            
+            $file = $this->request->data['filename'];//this will contain the file name
+            $arr_ext = array('jpg', 'jpeg', 'png'); //allow extension of files
+            $valid = true;
+        // var_dump($this->request->data['filename']);
+        
+
+            $ext = substr(strtolower(strrchr($file['name'], '.')), 1); //add the extension as an attribute//lowercase
+            $file['name'] = str_replace(' ', '_', $file['name']); // replace spaces                
+                
+                    
+                if(!(in_array($ext, $arr_ext))){
+                    $valid = false;
+                }
+
+
+                if($valid){
+                    $this->request->data['filename'] = $file['name'];
+                     // var_dump($file['name']);
+                     // die();
+                    $picture = $this->Pictures->patchEntity($picture, $this->request->data);    
+
+                      if ($this->Pictures->save($picture)) {
+                        // $structure = WWW_ROOT . 'img/uploads/designs/' . $picture->id;
+                        //use this if we want to save the id as well.
+                        $structure = WWW_ROOT . 'img/uploads/designs/';
+                        // var_dump($structure);
+                    
+                         move_uploaded_file($file['tmp_name'], $structure . $file['name']);
+                        // var_dump($file['tmp_name']);
+                        // die();
+                        $this->Flash->success('The picture has been saved.');
+                        return $this->redirect(['action' => 'index']);
+                    } else {
+                        $this->Flash->error('The picture could not be saved. Please, try again.');
+                    }
+
+
+                }
+          
         }
         $this->set(compact('picture'));
         $this->set('_serialize', ['picture']);

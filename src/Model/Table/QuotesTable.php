@@ -29,7 +29,6 @@ class QuotesTable extends Table
             'foreignKey' => 'customer_id'
         ]);
         $this->hasMany('Quoteproducts', [
-            // 'className' => 'Quotes',
             'foreignKey' => 'quote_id'
         ]);
     }

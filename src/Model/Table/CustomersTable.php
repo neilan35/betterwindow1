@@ -44,7 +44,8 @@ class CustomersTable extends Table
             ->add('id', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('id', 'create')
             
-                
+            ->allowEmpty('australian_business_number')    
+            ->allowEmpty('company_name')  
             // ->requirePresence('australian_business_number')
             // ->notEmpty('australian_business_number')
             // ->requirePresence('company_name')
@@ -60,20 +61,20 @@ class CustomersTable extends Table
 
             ->add('phone_number', 'valid', ['rule' => 'numeric'])
             ->add('phone_number', 'length', ['rule' => ['minLength', 10],
-            'message' => 'Please enter a valid phone number'])
+            'message' => 'Please enter a valid phone number'])//add new rules
             ->requirePresence('phone_number', 'create')
             ->notEmpty('phone_number','You forget to write your phone number')
             
 
             ->requirePresence('street_address', 'create')
-            ->notEmpty('street_address')
+            ->notEmpty('street_address','You need to provide the street address')
             ->requirePresence('suburb', 'create')
-            ->notEmpty('suburb')
+            ->notEmpty('suburb','You need to provide your suburb')
             ->requirePresence('state', 'create')
             ->notEmpty('state')
             ->add('postcode', 'valid', ['rule' => 'numeric'])
             ->requirePresence('postcode', 'create')
-            ->notEmpty('postcode');
+            ->notEmpty('postcode', 'Please provide your postcode');
 
         return $validator;
     }

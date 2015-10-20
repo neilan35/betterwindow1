@@ -40,11 +40,7 @@ class CompositionsTable extends Table
         $validator
             ->add('id', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('id', 'create')
-            ->allowEmpty('name')
-            ->requirePresence('price', 'create')
-            ->notEmpty('price', 'You have not entered a price.');   
-            // ->add('price', ['rule' => array('custom', '/^[0-9]$/',
-            //     'message' => 'Price must be numeric')]);
+            ->allowEmpty('name');
 
         return $validator;
     }

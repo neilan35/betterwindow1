@@ -130,11 +130,10 @@ class CustomersController extends AppController
 
            // var_dump($customer);
            // die();
-            if ($this->Customers->save($customer)) {
-                
-                $this->Flash->success('The customer has been saved.');
-                return $this->redirect(['controller' => 'pages', 'action' => 'home']);
-                $this->Flash->success('The customer has been saved.');
+            if ($this->Customers->save($customer)) {                
+                // $this->Flash->success('The customer has been saved.');
+                return $this->redirect(['controller' => 'customers', 'action' => 'success', $customer['id']]);
+                // $this->Flash->success('The customer has been saved.');
 
             } else {
                 $this->Flash->error('The customer could not be saved. Please, try again.');
@@ -143,6 +142,29 @@ class CustomersController extends AppController
 
         $this->set(compact('customer'));
         $this->set('_serialize', ['customer']);
+    }
+
+    public function success($id=null){
+        $this->layout='test2';
+        $this->loadModel('Users');
+
+        $customer = $this->Customers->get($id, [
+            'contain' => ['Users']
+        ]);
+
+        // $test = $customer['id']; //flip
+
+        //$user = $this->Customers->User['email'];
+        // $test2 = $this->Users->get($id, [
+        //     'contain' => ['Customers']
+        // ]);
+
+        // var_dump($test2['email']);
+        //         var_dump($user['']);
+        // die();
+        $this->set('customer', $customer);
+        $this->set('_serialize', ['customer','email']);
+
     }
 
     public function beforeFilter(Event $event)

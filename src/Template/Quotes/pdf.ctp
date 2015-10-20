@@ -67,9 +67,9 @@
 				</colgroup>
 
      			<tbody>
-     			  <tr><th><span>Item Window</span></th></tr>
+     			  <tr><th colspan="3"><span>Item Window</span></th></tr>
 		     	  <tr> 
-				    <th><span></span></th>
+				    <th rowspan="9"><span></span></th>
 				    <th><span >Profile: </span>
 				    <td><span> Kommerling Gold</span></td>
 				    </th>
@@ -77,19 +77,18 @@
 				  </tr>
 
 				  <tr> 
-				    <th><span> </span></th>
 				    <th><span> Hardware: </span></th>
 				    <td></td>
 					
 				  </tr>
 
 				  <tr> 
-				    <th><span> </span></th>
+				   
 				    <th><span > Item Type: </span></th>
-					<td></td>
+					<td>$quote->quoteproducts->first_name.</td>
 				  </tr>
 				  <tr> 
-				    <th><span> </span></th>
+				    
 				    <th><span > DGU: </span></th>
 				    <td></td>
 				  </tr>
@@ -98,26 +97,23 @@
 					
 				  </tr>
 				  <tr> 
-				    <th><span> </span></th>
+				    
 				    <th><span >Quantity </span></th>
 				    <td></td>
 				 </tr>
 				  <tr> 
-				    <th><span></span></th>
+				    
 				    <th><span > Area: </span></th>
-
-					<td><?php if($quote->has('quoteproduct')){
-						echo $quote->quoteproduct->width*$quote->quoteproduct->height
-						};  ?></td>
-				  </tr>
+				    <td></td>
+									  </tr>
 
 				  <tr> 
-				    <th><span> </span></th>
+				    
 				    <th><span >Price: </span></th>
 					<td></td>
 				  </tr>
 				  <tr> 
-				    <th><span> </span></th>
+				    
 				    <th><span >Total for an item (incl. GST): </span></th>
 					<td></td>
 				  </tr>

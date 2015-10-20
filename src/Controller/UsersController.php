@@ -28,22 +28,23 @@ class UsersController extends AppController
     {
         parent::beforeFilter($event);
         // Allow users to register and logout.
-        // // Allowing actions for not logged users
+        // Allowing actions for not logged users
         $this->Auth->allow(['login', 'logout' ,'forgotPassword', 'resetPassword']);
     }
 
     public function login()
-    {   
-        $this->layout='login';  
-        if ($this->request->is('post')) {
-        $user = $this->Auth->identify();
-        if ($user) {
-            $this->Auth->setUser($user);
-            // $user = $this->Session->read('Auth.User');
-            $this->Flash->success(__('Welcome, '. $user['email'].' !' ));
-            return $this->redirect(['controller' => 'users', 'action' => 'index']);
+    {   //choosing layout 
+        $this->layout='login'; 
 
-        }
+        if ($this->request->is('post')) {
+            $user = $this->Auth->identify();
+            if ($user) {
+                $this->Auth->setUser($user);
+                // $user = $this->Session->read('Auth.User');
+                $this->Flash->success(__('Welcome, '. $user['email'].' !' ));
+                return $this->redirect(['controller' => 'users', 'action' => 'dashboard', $user['employee_id']]);
+
+            }
         $this->Flash->error(__('Invalid email or password, please try again'));
         }
     }
@@ -67,8 +68,23 @@ class UsersController extends AppController
     }
 
 
-    public function dashboard($id=null){
+    public function dashboard($id = null){
 
+
+        $this->loadModel('Employees');
+        $user = $this->Users->Employees->get($id);
+        $employeeID=$user['id'];
+        $role= $user['role_id'];
+        // var_dump($user);
+        // var_dump($employeeID);
+
+        // var_dump($role);
+        // die();
+
+        if ($role === 3){
+             return $this->redirect(['action' => 'dashboard_admin', $employeeID]);
+        }
+        
         $this->layout = 'dashboard';
         $this->loadModel('Customers');
         $this->loadModel('Employees');
@@ -120,6 +136,65 @@ class UsersController extends AppController
         $this->set(compact('user', 'userCount','custCount','empCount','quotesCount','enquirCount'));
 
     }
+
+
+    public function dashboard_admin($id = null){
+
+
+        $this->layout = 'dashboardAdmin';
+        $this->loadModel('Customers');
+        $this->loadModel('Employees');
+        $this->loadModel('Quotes');
+        $this->loadModel('Enquiries');
+
+
+        $users = $this->Users->find('all');
+        $customers = $this->Customers->find('all');
+        $employees  = $this->Employees ->find('all');
+        $quotes  = $this->Quotes ->find('all');
+        $enquiries = $this->Enquiries->find('all');
+
+        $enquiriesArr= [];
+            foreach ($enquiries as $enquiry){
+                $enquiriesArr[]=$enquiries;
+            }
+        $enquirCount = count($enquiriesArr);
+
+        $usersArr = [];
+            foreach ($users as $user){
+                $usersArr[]= $users;
+            }
+        $userCount = count($usersArr);
+
+        $custsArr = [];
+            foreach ($customers as $customer){
+                $custsArr[]= $customers;
+            }
+        $custCount = count($custsArr);
+
+        $empsArr = [];
+            foreach ($employees as $employee){
+                $empsArr[]= $employees;
+            }
+        $empCount = count($empsArr);
+
+        $quotesArr = [];
+            foreach ($quotes as $quote){
+                $quotesArr[]= $quotes;
+            }
+        $quotesCount = count($quotesArr);
+
+            // var_dump($custCount);
+            // die();
+
+        $this->set('users', $users);
+        $this->set('_serialize', ['users']);
+        $this->set(compact('user', 'userCount','custCount','empCount','quotesCount','enquirCount'));
+
+       
+    }
+
+
 
     /**
      * View method

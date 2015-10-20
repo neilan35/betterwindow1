@@ -26,9 +26,9 @@ class QuoteproductsTable extends Table
         $this->primaryKey('id');
         $this->addBehavior('Timestamp');
         $this->belongsTo('Quotes', [
-            'className' => 'Quoteproducts',
+            // 'className' => 'Quoteproducts',
             'foreignKey' => 'quote_id',
-            'propertyName' => 'quote_id'
+            // 'propertyName' => 'quote_id'
         ]);
         $this->belongsTo('Colours', [
             'foreignKey' => 'colour_id'
