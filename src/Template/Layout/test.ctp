@@ -37,14 +37,6 @@
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 
-   <!--  <?php if( $this->request->session()->read('Auth.User')) : ?>
-        <script type="text/javascript">
-            $(document).ready(function(){
-                $('#btnLogin').hide();
-            });
-        </script>
-    <?php endif; ?> -->
-
 </head>
 
 <body>
@@ -194,23 +186,18 @@
                         
                     </ul>
                     <ul class="navbar-form form-inline navbar-right">
-                        
-                            
-                         
+                        <?php $user = $this->Session->read('Auth.User');?>
+                        <?php if (!empty($user)) : ?>
+                            <?php  echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> Make a Quote!', array('controller'=>'Quotes','action'=>'create'), array('escape' => false, 'class' => 'btn btn-success btn-md', 'target' => '_self','id' => 'btnQuote'));?>
+                                &nbsp;
+                            <b><?php echo $user['email'];?></b>
+                        <?php endif; ?>
 
+                        <?php if (empty($user)) : ?>
                             <?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> Make a Quote!', array('controller'=>'Quotes','action'=>'create'), array('escape' => false, 'class' => 'btn btn-success btn-md', 'target' => '_self','id' => 'btnQuote'));?>
-                            <?php $user = $this->Session->read('Auth.User');
-
-                                if (!empty($user)) {
-                                    echo $user['email'];
-                                };?>
-
-                                <span id='btnLogin'>
-                            <?php echo $this->Html->link('<span class="glyphicon glyphicon-user"></span> Login!', array('controller'=>'Customers','action'=>'Login'), array('escape' => false, 'class' => 'btn btn-success btn-md', 'target' => '_self', 'id'=>'btnLogin'));?>
-                            </span>
-
-                            
-                    
+                                &nbsp;
+                             <?php   echo $this->Html->link('<span class="glyphicon glyphicon-user"></span> Login!', array('controller'=>'Customers','action'=>'Login'), array('escape' => false, 'class' => 'btn btn-success btn-md', 'target' => '_self', 'id'=>'btnLogin'));?>
+                        <?php endif; ?>
                     </ul>
         <!-- /.container -->
     </nav>
@@ -270,13 +257,14 @@
 
 
 
-    <div class="container-fluid">
-    <div class="row">
-    <?= $this->Flash->render() ?>
-                <!-- Here's where I want my views to be displayed -->
-                <?= $this->fetch('content') ?>
-            </div>
-             </div>
+    <div class="container">
+        <div class="row">
+            <?= $this->Flash->render() ?>
+            <!-- Here's where I want my views to be displayed -->
+            <?= $this->fetch('content') ?>
+        </div>
+    </div>
+
 </body>
 
 <footer id= "footer">
@@ -289,17 +277,14 @@
                 <strong class="section-title">Phone: </strong>(03) 9588 2198 </br><strong class="section-title">Mobile: </strong class="section-title">0450 908 271</br> <strong class="section-title">Address: </strong>9A Citrus Street Braeside, VIC 3195</p> 
             </div>
             <div class="col-lg-6"> 
-            <div class="social-icons pull-right">
-                    
+                <div class="social-icons pull-right">
                         <a href='#' target="_blank" class="btn btn-round btn-clear btn-twitter" id="social-footer"><i class="fa fa-twitter"></i></a>
                         <a href="https://www.facebook.com/blueskywindows.com.au?fref=ts" target="_blank" class="btn btn-round btn-clear btn-facebook"><i class="fa fa-facebook"></i></a>
                         <a href="https://www.instagram.com/" class="btn btn-round btn-clear btn-instagram"><i class="fa fa-instagram"></i></a>
                         <a href="https://www.linkedin.com/" class="btn btn-round btn-clear btn-linkedin"><i class="fa fa-linkedin-square"></i></a>
                         <a href="https://www.pinterest.com/" class="btn btn-round btn-clear btn-pinterest"><i class="fa fa-pinterest"></i></a>
-                        <a href="https://plus.google.com/106251164898636973632/posts" class="btn btn-round btn-clear btn-google"><i class="fa fa-google-plus"></i></a>
-                       
-                    
-        </div> 
+                        <a href="#" class="btn btn-round btn-clear btn-google"><i class="fa fa-google-plus"></i></a>
+                </div> 
             </div>
         </div>  
     </div>
@@ -308,13 +293,10 @@
 
 
     <div class="footer-bottom">
-
-    <div class="container">
+        <div class="container">
         <p> Copyright 2015 by <strong class="section-title">Team 9 Monash University</strong> All Rights Reserved</p>
-     </div>
-
-
-     </div>
+        </div>
+    </div>
 
 
     <!-- Page Content -->

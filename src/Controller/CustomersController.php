@@ -131,10 +131,7 @@ class CustomersController extends AppController
            // var_dump($customer);
            // die();
             if ($this->Customers->save($customer)) {                
-                // $this->Flash->success('The customer has been saved.');
                 return $this->redirect(['controller' => 'customers', 'action' => 'success', $customer['id']]);
-                // $this->Flash->success('The customer has been saved.');
-
             } else {
                 $this->Flash->error('The customer could not be saved. Please, try again.');
             }

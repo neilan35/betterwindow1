@@ -42,8 +42,8 @@ class UsersController extends AppController
                 $this->Auth->setUser($user);
                 // $user = $this->Session->read('Auth.User');
                 $this->Flash->success(__('Welcome, '. $user['email'].' !' ));
-                return $this->redirect(['controller' => 'users', 'action' => 'dashboard', $user['employee_id']]);
-
+                // return $this->redirect(['controller' => 'users', 'action' => 'dashboard', $user['employee_id']]);
+                return $this->redirect(['controller' => 'users', 'action' => 'dashboard']);
             }
         $this->Flash->error(__('Invalid email or password, please try again'));
         }
@@ -68,22 +68,22 @@ class UsersController extends AppController
     }
 
 
-    public function dashboard($id = null){
+    public function dashboard(){
 
 
-        $this->loadModel('Employees');
-        $user = $this->Users->Employees->get($id);
-        $employeeID=$user['id'];
-        $role= $user['role_id'];
+        // $this->loadModel('Employees');
+        // $user = $this->Users->Employees->get($id);
+        // $employeeID=$user['id'];
+        // $role= $user['role_id'];
         // var_dump($user);
         // var_dump($employeeID);
 
         // var_dump($role);
         // die();
 
-        if ($role === 3){
-             return $this->redirect(['action' => 'dashboard_admin', $employeeID]);
-        }
+        // if ($role === 3){
+        //      return $this->redirect(['action' => 'dashboard_admin', $employeeID]);
+        // }
         
         $this->layout = 'dashboard';
         $this->loadModel('Customers');

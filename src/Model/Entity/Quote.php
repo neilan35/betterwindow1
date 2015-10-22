@@ -16,7 +16,6 @@ class Quote extends Entity
     protected $_accessible = [
         'customer_id' => true,
         'quoteno' => true,
-        'item' => true,
         'unitcost' => true,
         'quantity' => true,
         'installation' => true,

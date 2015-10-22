@@ -11,15 +11,15 @@
                     <div class="panel-heading"> Picture Information </div>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-sm-3">
+                                <div class="col-sm-2">
                                     <h5 class="subheader"><b><?= __('Picture Id') ?></b></h5>
                                     <p><?= $this->Number->format($picture->id) ?></p>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-5">
                                     <h5 class="subheader"><b><?= __('Filename') ?></b></h5>
                                     <p><?= h($picture->filename) ?></p>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-5">
                                     <h5 class="subheader"><b><?= __('Description') ?></b></h5>
                                     <p><?= $this->Text->autoParagraph(h($picture->description)); ?></p>
                                 </div>
@@ -28,6 +28,11 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="col-lg-6">
+    <?php echo $this->Html->image('uploads/designs/'.$picture->filename, [
+    "alt" => "CakePHP",'class' => 'img-thumbnail img-responsive']);
+    ?>
     </div>
 </div>
 

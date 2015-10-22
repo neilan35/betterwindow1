@@ -8,26 +8,26 @@
 
 </script>
  <div class="row">
-<div class="container-fluid well span6">
-    <div class="row-fluid">
+    <div class="container-fluid well span6">
+        <div class="row-fluid">
         
-       <div class="col-sm-4">
-        <div class="panel panel-primary">
-         <div class="panel-heading"> User Information </div>
-         <div class="panel-body">
-            <div class="row">
-                <div class="col-sm-2">
-                <h5 class="subheader"><b><?= __('Id') ?></b></h5>
-                <p><?= $this->Number->format($user->id) ?></p>
+            <div class="col-sm-4">
+                <div class="panel panel-primary">
+                    <div class="panel-heading"> User Information </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-2">
+                                <h5 class="subheader"><b><?= __('Id') ?></b></h5>
+                                <p><?= $this->Number->format($user->id) ?></p>
+                                </div>
+                                <div class="col-sm-2">
+                                <h5 class="subheader"><b><?= __('Email') ?></b></h5>
+                                <p><?= h($user->email) ?></p>
+                                </div>
+                            </div>
+                        </div>
                 </div>
-                <div class="col-sm-2">
-                <h5 class="subheader"><b><?= __('Email') ?></b></h5>
-                <p><?= h($user->email) ?></p>
-                </div>
-         </div>
-        </div>
-    </div>
-    </div>
+            </div>
       
     
         <div class="col-sm-3">

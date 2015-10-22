@@ -49,7 +49,8 @@ class DesignsTable extends Table
             ->add('opentype_id', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('opentype_id')
             ->add('picture_id', 'valid', ['rule' => 'numeric'])
-            ->allowEmpty('picture_id');
+            ->allowEmpty('picture_id')
+            ->allowEmpty('formula');
 
         return $validator;
     }

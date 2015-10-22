@@ -16,6 +16,7 @@
             <th><?= $this->Paginator->sort('id') ?></th>
             <th><?= $this->Paginator->sort('opentype_id') ?></th>
             <th><?= $this->Paginator->sort('picture_id') ?></th>
+            <th><?= $this->Paginator->sort('formula') ?></th>
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
     </thead>
@@ -28,6 +29,9 @@
             </td>
             <td>
                 <?= $design->has('picture') ? $this->Html->link($design->picture->id, ['controller' => 'Pictures', 'action' => 'view', $design->picture->id]) : '' ?>
+            </td>
+             <td>
+            <?= h($design->formula) ?>
             </td>
             <td class="actions">
                 <?= $this->Html->link(__('View'), ['action' => 'view', $design->id], ['class' => 'btn btn-info btn-xs']) ?>

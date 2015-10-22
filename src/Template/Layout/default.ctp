@@ -473,9 +473,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                              
 
                                 
-                                    <?= $this->Flash->render() ?>
-
-                                    <div class="row"> 
+                                    <?= $this->Flash->render() ?> 
                                     <!-- Content -->
                                      <?= $this->fetch('content') ?>
                                      </br>

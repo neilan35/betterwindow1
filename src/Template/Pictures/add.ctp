@@ -3,28 +3,24 @@
 <?= $this->Html->addCrumb('Add');?>
 
 </script>
-<?= $this->Form->create($picture); ?>
+<?= $this->Form->create($picture,['enctype' => 'multipart/form-data']); ?>
 <div class="row">
-    <div class="col-lg-6">
+    <div class="col-lg-12">
         <div class="panel panel-primary">
             <div class="panel-heading">
                 Add a Picture
             </div>
             <div class="panel-body">
                 <div class="row">
-                    <div class="col-lg-8">
+                    <div class="col-lg-12">
                         <form class="form-horizontal" role="form">
                         <div class="row">
                             <div class="col-lg-10">
                                 <div class="form-group">
-                                    <?= $this->Form->input('filename', ['class' => 'form-control']) ?>
+                                    <?= $this->Form->input('filename', ['type' => 'file','label' => false]); ?>
                                 </div>
                                 <div class="form-group">
-                                     <label for="attachments">Attachments</label>
-                                <?= $this->Form->input('attachments[]', ['type' => 'file', 'multiple' => true, 'label' => false, 'class' => 'form-control', 'id' => 'photo']); ?>
-                                </div>
-                                <div class="form-group">
-                                    <?= $this->Form->input('description', ['class' => 'form-control']) ?>
+                                    <?= $this->Form->input('description', ['class' => 'form-control']); ?>
                                 </div>
                             </div>
                         </div>

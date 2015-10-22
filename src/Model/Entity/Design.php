@@ -19,6 +19,7 @@ class Design extends Entity
         'picture_id' => true,
         'opentype' => true,
         'picture' => true,
-        'products' => true,
+        'quoteproducts' => true,
+        'formula' => true,
     ];
 }

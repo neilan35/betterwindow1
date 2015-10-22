@@ -12,39 +12,39 @@
                     <div class="panel-heading"> Customer Information </div>
                         <div class="panel-body">
                             <div class = "row">
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                     <h5 class="subheader"><b><?= __('Customer Id') ?></b></h5>
                                     <p><?= $this->Number->format($customer->id) ?></p>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                     <h5 class="subheader"><b><?= __('First Name') ?></b></h5>
                                     <p><?= h($customer->first_name) ?></p>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                     <h5 class="subheader"><b><?= __('Last Name') ?></b></h5>
                                     <p><?= h($customer->last_name) ?></p>
                                 </div>
                             </div>
                             <div class = "row">
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                     <h5 class="subheader"><b><?= __('Street Address') ?></b></h5>
                                     <p><?= h($customer->street_address) ?></p>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                     <h5 class="subheader"><b><?= __('Suburb') ?></b></h5>
                                     <p><?= h($customer->suburb) ?></p>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                     <h5 class="subheader"><b><?= __('State') ?></b></h5>
                                     <p><?= h($customer->state) ?></p>
                                 </div>
                             </div>
                             <div class = "row">
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                     <h5 class="subheader"><b><?= __('Postcode') ?></b></h5>
                                     <p><?= $this->Number->format($customer->postcode) ?></p>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                     <h5 class="subheader"><b><?= __('Phone Number') ?></b></h5>
                                    <p><?= $this->Number->format($customer->phone_number) ?></p>
                                 </div>
@@ -68,7 +68,7 @@
                 </div>
             </div> -->
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-4">
             <div class="panel panel-primary">
                 <div class="panel-heading">Date</div>
                 <div class="panel-body">

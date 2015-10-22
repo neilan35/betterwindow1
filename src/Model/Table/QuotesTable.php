@@ -46,7 +46,6 @@ class QuotesTable extends Table
             ->allowEmpty('id', 'create');
             // ->add('customer_id', 'valid', ['rule' => 'numeric'])
             // ->allowEmpty('quoteno')
-            // ->allowEmpty('item')
             // ->add('unitcost', 'valid', ['rule' => 'decimal'])
             // ->allowEmpty('unitcost')
             // ->add('quantity', 'valid', ['rule' => 'numeric'])

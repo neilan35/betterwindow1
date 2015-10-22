@@ -1,3 +1,4 @@
+
 <script>
 <?=$this->Html->addCrumb('Design', '/designs  ');?>
 <?= $this->Html->addCrumb('View');?>
@@ -5,14 +6,14 @@
 </script>
 
 <div class="row">
-    <div class="container-fluid well col-sm-6">
+    <div class="container-fluid well col-sm-12">
         <div class="row-fluid">
-            <div class="col-sm-5">
+            <div class="col-sm-3">
                 <div class="panel panel-primary">
                     <div class="panel-heading"> Design Information </div>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-sm-3">
+                                <div class="col-sm-12">
                                     <h5 class="subheader"><b><?= __('Id') ?></b></h5>
                                     <p><?= $this->Number->format($design->id) ?></p>
                                 </div>
@@ -20,21 +21,34 @@
                         </div>
                 </div>
             </div>
-            <div class="col-sm-7">
+            <div class="col-sm-4">
                 <div class="panel panel-primary">
                     <div class="panel-heading"> Related ID </div>
                     <div class="panel-body">
                         <div class= "row">
-                            <div class="col-sm-4">
+                            <div class="col-sm-6">
                                     <h5 class="subheader"><b><?= __('Open Type') ?></b></h5>
                                     <p><?= $design->has('opentype') ? $this->Html->link($design->opentype->name, ['controller' => 'Opentypes', 'action' => 'view', $design->opentype->id]) : '' ?></p>
                                 </div>
-                                <div class="col-sm-4">
+                                <div class="col-sm-6">
                                     <h5 class="subheader"><b><?= __('Picture') ?></b></h5>
                                     <p><?= $design->has('picture') ? $this->Html->link($design->picture->id, ['controller' => 'Pictures', 'action' => 'view', $design->picture->id]) : '' ?></p>
                                 </div>
                         </div>
                     </div>
+                </div>
+            </div>
+             <div class="col-sm-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading"> Formula </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <h5 class="subheader"><b><?= __('Formula') ?></b></h5>
+                                    <p><?= h($design->formula) ?></p>
+                                </div>
+                            </div>
+                        </div>
                 </div>
             </div>
         </div>

@@ -81,31 +81,33 @@
 				    <td></td>
 					
 				  </tr>
-
+				  <tr> 
+				    <th><span> Opentype: </span></th>
+				    <td></td>
+							
+				  </tr>
+				  
 				  <tr> 
 				   
 				    <th><span > Item Type: </span></th>
-					<td>$quote->quoteproducts->first_name.</td>
+					<td><?= $quoteproducts_row->itemtype->type?></td>
 				  </tr>
 				  <tr> 
 				    
 				    <th><span > DGU: </span></th>
 				    <td></td>
 				  </tr>
-				  <tr> 
-
-					
-				  </tr>
-				  <tr> 
+				 
+				 <tr> 
 				    
 				    <th><span >Quantity </span></th>
 				    <td></td>
 				 </tr>
-				  <tr> 
+				 <tr> 
 				    
 				    <th><span > Area: </span></th>
-				    <td></td>
-									  </tr>
+				    <td><?= $quoteproducts_row->width*$quoteproducts_row->height?></td>
+				</tr>
 
 				  <tr> 
 				    
@@ -119,8 +121,6 @@
 				  </tr>
 		 		</tbody>
 		 	</table>
-
-
 
      		
 			</br></br></br></br></br></br></br></br></br></br>

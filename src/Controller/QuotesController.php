@@ -75,21 +75,27 @@ class QuotesController extends AppController
     {
         $this->layout ='mypdf';
         $this->loadModel('Quoteproducts');
-         $this->loadModel('Designs');
-          $this->loadModel('Pictures');
+        $this->loadModel('Designs');
+        $this->loadModel('Pictures');
+        $this->loadModel('Opentypes');
+        // var_dump($id);
         $quote = $this->Quotes->get($id, [
             'contain' => ['Customers', 'Quoteproducts',]
         ]);
-
+        // var_dump($quote);
+            
+        $quoteproducts = $this->Quotes->Quoteproducts->find('all')
+        ->where(['Quoteproducts.quote_id' => $quote->id])
+        ->contain (['Itemtypes','Designs','Colours','Glazings']);
         
+        $quoteproducts_row = $quoteproducts->first();
+        // var_dump($quoteproducts_row);
+        // die();
 
-        // $area = $this->Quote->Quoteproducts->height *$this->Quote->Quoteproducts->width;
-
-
-
+                    
         $this->set('quote', $quote);
         $this->set('_serialize', ['quote']);
-        $this->set(compact('quote', 'area'));
+        $this->set(compact('quote', 'quoteproducts_row','quoteproducts'));
     }
 
 
@@ -136,28 +142,50 @@ class QuotesController extends AppController
     //     return  $this->redirect(['action' => 'create']);
     // } not working
 
+    // public function calculateQuote($id=null) 
+    public function calculate_price($W, $H, $DF, $GLASS_PRICE, $CC_PRICE, $R_PRICE = 0, $MT_PRICE = 0) {
 
-    public function calculateQuote($quote_id) {
 
-      // $total_price = 0;
+
+  //    $quotes = $this->PurchaseOrders->PurchaseOrderParts->find('all')
+   //         ->where(['QuoteProducts.quote_id' => $quote_id->id]);
+      $unit_price = 0;
+      //constants
+      $C7507 = 5;
+      $C395 = 7;
+      $C7584 = 15;
+      $C320 = 2;
+
+      $TT_SET = 70;
+      $LPC = 15;
+      $LPD = 180;
+      $C7536 = 10;
+      $FSD = 39;
+      $FGD = 52;
+      $SGD = 62;
+
+      $MA = 1.3;
+      $GST=1.1;
+
+      
+      $unit_price = eval("$DF");
+      $unit_price = $unit_price * $MA *$GST;
+
+      return $unit_price;
 
       // $W = $this->request->data([])
       // foreach ($quotes as $key => $value) {
       //   $quotes[$key] =$value
       // } return $quotes;
 
-      // $W = 
-      // $H = 
-
-      
+     
         
      
         /*
             foreach quote product based on quote_id
                 $product_cost = 0;
 
-                $W = 10;
-                $H = 20;
+               
                 $formula = "$W * $H";
                 $result = eval($formula);
 
@@ -170,22 +198,21 @@ class QuotesController extends AppController
 
 
     public function create($quote_id = '', $is_final = 0){
+        $designTable = TableRegistry::get('Desings');
+        $revealTable = TableRegistry::get('Reveals');
+      
        
         $this->layout = 'test2';
-
-        // $this->Session->check('Auth.User')
-        // $id= $this->Auth->user('employee_id');
-        
-//        $session = $this->request->session();
+        //$session = $this->request->session();
         $quote = $this->Quotes->newEntity();
         
          
         if ($this->request->is('post')) {
           //  $this->RequestHandler->respondAs('json');
-       //   $is_final = 0;
-//             list($quote_id, $is_final) = preg_split("/;/", $data);
+          //  $is_final = 0;
+          //  list($quote_id, $is_final) = preg_split("/;/", $data);
 
-        //    $is_final = $this->request->data['is_final'];
+          //  $is_final = $this->request->data['is_final'];
 
             $quoteFormData = $this->request->data;
             unset($quoteFormData['quoteproducts']);
@@ -199,8 +226,11 @@ class QuotesController extends AppController
             $qpData = $this->request->data['quoteproducts'];
             foreach ($qpData as $key => $value) {
                 $quoteProduct[$key] = $value;
-            }
+                }
 
+
+            $W = $quoteProduct ['width'];
+            $H = $quoteProduct ['height'];
             // $quoteProduct['usages'] = 4;  //fixed, should be standard for now
             $quoteProduct['glasstype'] = 2; //fix
 
@@ -212,14 +242,30 @@ class QuotesController extends AppController
                                                             'balrating_id' => $quoteProduct['balrating_id']
                                                             ]);
 
-            $quoteProduct['flyscreenmesh_id'] = $flyscreenmesh_id->first()['id'];
+                $quoteProduct['flyscreenmesh_id'] = $flyscreenmesh_id->first()['id'];
 
+
+                $category_id = $this->Quotes->Colors->find()
+                                ->select(['category_id'])
+                                ->where ([    'id'=>$quoteProduct['color_id']
+                                          ]);
+
+
+                $category_id   = $category_id->first();
+
+                $Color_cat = $this->Quotes->Colours->Categories->find()
+                                        ->select(['price'])
+                                        ->where([   'id' => $category_id 
+                                                ]);
+                $Color_cat   = $Color_cat->first();
+
+                
 
 
 
             // make an if statement if not found, says somethings. 
             $glazing_id = $this->Quotes->QuoteProducts->Glazings->find()
-                                                ->select(['id'])
+                                                ->select(['id','price'])
                                                 ->where([   'usage_id' => $quoteProduct['usages'],
                                                             'glasstype_id' => $quoteProduct['glasstype'],
                                                             'composition_id' =>$quoteProduct['compositions'],
@@ -230,6 +276,19 @@ class QuotesController extends AppController
                                                             ]);
 
             $quoteProduct['glazing_id'] = $glazing_id->first()['id'];
+
+            $GLASS_PRICE = $glazing_id->first()['price'];   
+            
+
+
+
+
+
+
+
+
+
+
 /*            $qpData = $this->request->data['quoteproducts'];
 
       //      $qpData['quote_id'] = '2124124';
@@ -297,14 +356,21 @@ class QuotesController extends AppController
             }
             else
                 $quoteProduct['quote_id'] = $quote_id;
+              /// 
+  
+            // Calculate unit price for this product
+            $quoteProduct['unit_price'] = $this->calculateQuote($quoteProduct['width'],
+                                                                $quotePrduct['height'],
+                                                                $DF,
+                                                                $GLASS_PRICE,
+                                                                $CC_PRICE,
+                                                                $R_PRICE,
+                                                                $MT_PRICE);
+
 
             if ($this->Quotes->Quoteproducts->save($quoteProduct)) {
                     $result = 1;
                     $message = 'Success: Save quote product';
-
-                    if ($is_final) {
-                        $this->calculateQuote($quote_id);
-                    }
 //                 $this->set("status", "success");
  //                $this->set("message", "The quote product has been saved.");
                  
