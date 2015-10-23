@@ -1,11 +1,16 @@
-<div class="actions columns large-2 medium-3">
-    <h3><?= __('Actions') ?></h3>
-    <ul class="side-nav">
-        <li><?= $this->Html->link(__('New Constant'), ['action' => 'add']) ?></li>
-    </ul>
-</div>
-<div class="constants index large-10 medium-9 columns">
-    <table cellpadding="0" cellspacing="0">
+<script>
+<?=$this->Html->addCrumb('Constants', '/constants  ');?>
+<?= $this->Html->addCrumb('Index');?>
+
+</script>
+
+<script>
+    $(document).ready(function(){
+        $('#tableIndex').DataTable();
+    });
+</script>
+<div class="table-responsive">
+    <table class="table table-hover" id="tableIndex">
     <thead>
         <tr>
             <th><?= $this->Paginator->sort('id') ?></th>
@@ -32,12 +37,12 @@
     <?php endforeach; ?>
     </tbody>
     </table>
-    <div class="paginator">
+    <!-- <div class="paginator">
         <ul class="pagination">
             <?= $this->Paginator->prev('< ' . __('previous')) ?>
             <?= $this->Paginator->numbers() ?>
             <?= $this->Paginator->next(__('next') . ' >') ?>
         </ul>
         <p><?= $this->Paginator->counter() ?></p>
-    </div>
+    </div> -->
 </div>

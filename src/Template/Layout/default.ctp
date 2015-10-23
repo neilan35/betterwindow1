@@ -218,6 +218,19 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                             </ul>
                         </li>
                         <li>
+                            <a href="#"><i class="fa fa-table fa-fw"></i> Quote Products<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <?php 
+                                    echo $this->Html->link('<span> <i class="glyphicon glyphicon-import"></i> Add Quote Products</span>', ['controller' => 'Quoteproducts', 'action' => 'add'], ['escape' => false]); ?>
+                                </li>
+                                <li>
+                                    <?php 
+                                    echo $this->Html->link('<span> <i class="glyphicon glyphicon-th-list"></i> Quote Products List</span>', ['controller' => 'Quoteproducts', 'action' => 'index'], ['escape' => false]); ?>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
                             <a href="#"><i class="fa fa-table fa-fw"></i> Enquiries<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -231,18 +244,19 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                             </ul>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-table fa-fw"></i> Quote Products<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-table fa-fw"></i> Constants<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <?php 
-                                    echo $this->Html->link('<span> <i class="glyphicon glyphicon-import"></i> Add Quote Products</span>', ['controller' => 'Quoteproducts', 'action' => 'add'], ['escape' => false]); ?>
+                                    echo $this->Html->link('<span> <i class="glyphicon glyphicon-import"></i> Add a Constant</span>', ['controller' => 'Constants', 'action' => 'add'], ['escape' => false]); ?>
                                 </li>
                                 <li>
                                     <?php 
-                                    echo $this->Html->link('<span> <i class="glyphicon glyphicon-th-list"></i> Quote Products List</span>', ['controller' => 'Quoteproducts', 'action' => 'index'], ['escape' => false]); ?>
+                                    echo $this->Html->link('<span> <i class="glyphicon glyphicon-th-list"></i> Constants List</span>', ['controller' => 'Constants', 'action' => 'index'], ['escape' => false]); ?>
                                 </li>
                             </ul>
                         </li>
+                        
                         <li>
                             <a href="#"><i class="fa fa-table fa-fw"></i> Colour Category<span class="fa arrow"></span></a>
                             <ul class= "nav nav-second-level">

@@ -22,7 +22,7 @@ class PicturesTable extends Table
     public function initialize(array $config)
     {
         $this->table('pictures');
-        $this->displayField('id');
+        $this->displayField('description');
         $this->primaryKey('id');
         $this->hasMany('Designs', [
             'foreignKey' => 'picture_id'

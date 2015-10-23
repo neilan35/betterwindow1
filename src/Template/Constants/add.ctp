@@ -1,19 +1,36 @@
-<div class="actions columns large-2 medium-3">
-    <h3><?= __('Actions') ?></h3>
-    <ul class="side-nav">
-        <li><?= $this->Html->link(__('List Constants'), ['action' => 'index']) ?></li>
-    </ul>
-</div>
-<div class="constants form large-10 medium-9 columns">
-    <?= $this->Form->create($constant); ?>
-    <fieldset>
-        <legend><?= __('Add Constant') ?></legend>
-        <?php
-            echo $this->Form->input('name');
-            echo $this->Form->input('code');
-            echo $this->Form->input('value');
-        ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
+<script>
+<?=$this->Html->addCrumb('Constants', '/constants  ');?>
+<?= $this->Html->addCrumb('Add');?>
+
+</script>
+
+<?= $this->Form->create($constant); ?>
+<div class="row">
+    <div class="col-lg-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                Add a constant
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <form class="form-horizontal" role="form">
+                        <div class="row">
+                            <div class="col-lg-10">
+                                <div class="form-group">
+                                    <?= $this->Form->input('name', ['class' => 'form-control']) ?>
+                                    <?= $this->Form->input('code', ['class' => 'form-control']) ?>
+                                    <?= $this->Form->input('value', ['class' => 'form-control']) ?>
+
+                                </div>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            <button type="submit" class="btn btn-default">Submit </button>
+            <?= $this->Form->end() ?>
+            </div>
+        </div>
+    </div>
 </div>
