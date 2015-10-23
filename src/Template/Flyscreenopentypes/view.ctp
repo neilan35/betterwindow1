@@ -34,7 +34,7 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <h5 class="subheader"><b><?= __('Fly Screen Type') ?></b></h5>
-                                    <p><?= $flyscreenopentype->has('flyscreentype') ? $this->Html->link($flyscreenopentype->flyscreentype->id, ['controller' => 'Flyscreentypes', 'action' => 'view', $flyscreenopentype->flyscreentype->id]) : '' ?></p>
+                                    <p><?= $flyscreenopentype->has('flyscreentype') ? $this->Html->link($flyscreenopentype->flyscreentype->type, ['controller' => 'Flyscreentypes', 'action' => 'view', $flyscreenopentype->flyscreentype->id]) : '' ?></p>
                                 </div>
                         </div>
                     </div>

@@ -30,6 +30,9 @@
                                                        'required' => true,
                                                        'label' => 'Pictures']);?>
                                 </div>
+                                 <div class="form-group">
+                                    <?= $this->Form->input('formula', ['class' => 'form-control']) ?>
+                                </div>
                             </div>
                         </div>
                         </form>

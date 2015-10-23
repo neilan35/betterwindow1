@@ -32,7 +32,7 @@
                 <div class="input-group col-sm-6">
                 <?php 
                 echo $this->Form->input('quoteproducts.itemtype_id', ['options' => $itemtypes,
-                // 'empty' => '(Please choose one)',
+                'empty' => '(Please choose one)',
                 'class'=>'form-control',
                 // 'type' => 'radio',
                 'id'=>'itemtype-id',

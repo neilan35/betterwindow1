@@ -36,6 +36,27 @@ class QuotesController extends AppController
         $this->set('_serialize', ['quotes']);
     }
 
+
+     public function index_completed()
+    {
+        $quotes = $this->Quotes->find('all')
+        ->contain(['Customers'])
+        ->where(['Quotes.status'=> 'Completed']);;
+        
+        $this->set('quotes', $quotes);
+        $this->set('_serialize', ['quotes']);
+    }
+
+    public function index_pending()
+    {
+        $quotes = $this->Quotes->find('all')
+        ->contain(['Customers'])
+        ->where(['Quotes.status'=> 'Pending']);;
+        
+        $this->set('quotes', $quotes);
+        $this->set('_serialize', ['quotes']);
+    }
+
     /**
      * View method
      *
@@ -143,13 +164,23 @@ class QuotesController extends AppController
     // } not working
 
     // public function calculateQuote($id=null) 
-    public function calculate_price($W, $H, $DF, $GLASS_PRICE, $CC_PRICE, $R_PRICE = 0, $MT_PRICE = 0) {
+    public function calculate_price($W, $H, $DesignFormula, $GLASS_PRICE, $CC_PRICE, $R_PRICE = 0, $MT_PRICE = 0, $FS_PRICE = 0) {
+// ($W, $H, )
 
+            // var_dump($W);
+            // var_dump($H);
 
+      $this->loadModel('Constants');
 
-  //    $quotes = $this->PurchaseOrders->PurchaseOrderParts->find('all')
-   //         ->where(['QuoteProducts.quote_id' => $quote_id->id]);
-      $unit_price = 0;
+      $constants = $this->Constants->find()
+                                  ->select(['code','value']);
+
+      foreach ($constants->toArray() as $key => $row) {
+        $code = str_replace('$', '', $row['code']);
+        ${$code} = $row['value'];
+      }
+
+/*      $unit_cost = 0;
       //constants
       $C7507 = 5;
       $C395 = 7;
@@ -167,11 +198,44 @@ class QuotesController extends AppController
       $MA = 1.3;
       $GST=1.1;
 
-      
-      $unit_price = eval("$DF");
-      $unit_price = $unit_price * $MA *$GST;
+      $TT = 70;*/
+/*
+      =(((1200+1500)/1000*2*(5* 1) + ((1200-39) +(1500-39))/1000 * 2 * (7+2)*1)+((1200-62)/1000)* (1500-62)/1000)*50 + 15*8) +70))
+      = (((W+H)/1000 x 2 x 7507 + ((W-FSD) +(H-FSD))/1000 x 2 x (395+320)) + ((W-SGD)/1000) x (H-SGD)/1000)xGLASS PRICE + LPCx8) + TT HW )xMARGIN KOEFF x GST(1.1)
+*/
+//      $CC_PRICE = 1;
+/*      $DesignFormula = str_replace('$W', $W, $DesignFormula);
+      $DesignFormula = str_replace('$H', $H, $DesignFormula);
+      $DesignFormula = str_replace('$C7507', $C7507, $DesignFormula);
+      $DesignFormula = str_replace('$GLASS_PRICE', $GLASS_PRICE, $DesignFormula);
+      $DesignFormula = str_replace('$CC_PRICE', $CC_PRICE, $DesignFormula);
+      $DesignFormula = str_replace('$R_PRICE', $R_PRICE, $DesignFormula);
+      $DesignFormula = str_replace('$MT_PRICE', $MT_PRICE, $DesignFormula);
+      $DesignFormula = str_replace('FS_PRICEH', $FS_PRICE, $DesignFormula);                              
 
-      return $unit_price;
+      $DesignFormula = str_replace('$FSD', $FSD, $DesignFormula);
+      $DesignFormula = str_replace('$SGD', $SGD, $DesignFormula);
+      $DesignFormula = str_replace('$LPC', $LPC, $DesignFormula);                              
+
+
+      $DesignFormula = str_replace('$C395', $C395, $DesignFormula);
+      $DesignFormula = str_replace('$C320', $C320, $DesignFormula);                              
+*/
+// ($W+$H)/1000*2 *(($C7507*$CC_PRICE)+($C320*$CC_PRICE)) + (($W-$FGD)/1000)*($H-$FGD)/1000)*$GLASS_PRICE + $LPC*4
+
+     $CC_PRICE = 1;
+
+  //    echo $DesignFormula . "<br>";
+   //   echo $FGD ;
+      echo $CC_PRICE . "<br>";
+   //   die();
+      $unit_price = eval("return $DesignFormula;");
+      echo ($DesignFormula);
+      var_dump($unit_price);
+            die();      
+      // $unit_price = $unit_price * $MA *$GST;
+
+      return $unit_cost;
 
       // $W = $this->request->data([])
       // foreach ($quotes as $key => $value) {
@@ -200,6 +264,7 @@ class QuotesController extends AppController
     public function create($quote_id = '', $is_final = 0){
         $designTable = TableRegistry::get('Desings');
         $revealTable = TableRegistry::get('Reveals');
+        $this->loadModel('Flyscreentypes');
       
        
         $this->layout = 'test2';
@@ -229,8 +294,12 @@ class QuotesController extends AppController
                 }
 
 
-            $W = $quoteProduct ['width'];
-            $H = $quoteProduct ['height'];
+            $fields = array('width', 'height');
+            foreach ($fields as $field) {
+                list($quoteProduct[$field], $rest) = preg_split("/ /", $quoteProduct[$field]);
+                $quoteProduct[$field] = intval($quoteProduct[$field]);
+            }
+
             // $quoteProduct['usages'] = 4;  //fixed, should be standard for now
             $quoteProduct['glasstype'] = 2; //fix
 
@@ -242,26 +311,49 @@ class QuotesController extends AppController
                                                             'balrating_id' => $quoteProduct['balrating_id']
                                                             ]);
 
-                $quoteProduct['flyscreenmesh_id'] = $flyscreenmesh_id->first()['id'];
+            $quoteProduct['flyscreenmesh_id'] = $flyscreenmesh_id->first()['id'];
 
 
-                $category_id = $this->Quotes->Colors->find()
+                // Get Color Category
+            $category_id = $this->Quotes->QuoteProducts->Colours->find()
                                 ->select(['category_id'])
-                                ->where ([    'id'=>$quoteProduct['color_id']
-                                          ]);
+                                ->where (['id'=>$quoteProduct['colour_id']]);
 
 
-                $category_id   = $category_id->first();
+            $category_id = $category_id->first()['category_id'];
 
-                $Color_cat = $this->Quotes->Colours->Categories->find()
+                // Get price for this color category
+            $Color_cat = $this->Quotes->QuoteProducts->Colours->Categories->find()
                                         ->select(['price'])
-                                        ->where([   'id' => $category_id 
-                                                ]);
-                $Color_cat   = $Color_cat->first();
+                                        ->where(['id' => $category_id ]);
+            $CC_PRICE = $Color_cat->first()['price'];
 
                 
+                // Get price for this reveal
+            $R_PRICE = 0;
+            if ($quoteProduct['reveal'] == 1) {
+                  $reveal = $this->Quotes->QuoteProducts->Reveals->find()
+                                          ->select(['price'])
+                                          ->where(['id' => $quoteProduct['reveal_id'] ]);
+                  $R_PRICE = $reveal->first()['price'];
+                }
 
+          
+                // Get price for the mesh type
+            $MT_PRICE = 0;
+            $FS_PRICE = 0;
+             if ($quoteProduct['flyscreentype'] == 1) {
+                  $mesh = $this->Quotes->QuoteProducts->Flyscreenmeshes->Meshtypes->find()
+                                          ->select(['price'])
+                                          ->where(['id' => $quoteProduct['meshtype'] ]);
+                  $MT_PRICE = $mesh->first()['price'];
 
+                  // Get price for flyscreen
+                  $flyscreen = $this->Flyscreentypes->find()
+                                          ->select(['price'])
+                                          ->where(['id' => $quoteProduct['flyscreentypes'] ]);
+                  $FS_PRICE = $flyscreen->first()['price'];
+                }                
 
             // make an if statement if not found, says somethings. 
             $glazing_id = $this->Quotes->QuoteProducts->Glazings->find()
@@ -278,21 +370,9 @@ class QuotesController extends AppController
             $quoteProduct['glazing_id'] = $glazing_id->first()['id'];
 
             $GLASS_PRICE = $glazing_id->first()['price'];   
-            
-
-
-
-
-
-
-
-
-
+    
 
 /*            $qpData = $this->request->data['quoteproducts'];
-
-      //      $qpData['quote_id'] = '2124124';
-
             $fields = array('width', 'height');
             foreach ($fields as $field) {
                 list($qpData[$field], $rest) = preg_split("/ /", $qpData[$field]);
@@ -322,23 +402,16 @@ class QuotesController extends AppController
             //    var_dump( $quote = $this->Quotes->patchEntity($quote, $this->request->data, [
             // 'associated' => ['Quoteproducts']
             // ]));
-               // var_dump($this->request->data);
-
-               // die();
-           $customer = $this->Auth->user('customer_id');
-           if (!empty($customer)) {
-                $id = $customer;
-                // $quote_no = $this->Session->read('quote_no');
-                // $quote['quote_no'] = $quote_no;             
-           }
-           else {
+            $customer = $this->Auth->user('customer_id');
+            if (!empty($customer)) {
+                $id = $customer;           
+            }
+            else {
                $id = null;     
-           }
-           $quote['customer_id']= $id;
+            }
+            $quote['customer_id']= $id;
 
-      //     var_dump($quoteProduct);
-       //    die();
-
+      
             if ($quote_id == '') {
 
                 $result = $this->Quotes->save($quote);
@@ -359,13 +432,19 @@ class QuotesController extends AppController
               /// 
   
             // Calculate unit price for this product
-            $quoteProduct['unit_price'] = $this->calculateQuote($quoteProduct['width'],
-                                                                $quotePrduct['height'],
-                                                                $DF,
+            $design = $this->Quotes->QuoteProducts->Designs->find()
+                                          ->select(['formula'])
+                                          ->where(['id' => $quoteProduct['design_id'] ]);
+            $DesignFormula = $design->first()['formula'];
+
+            $quoteProduct['unit_cost'] = $this->calculate_price($quoteProduct['width'],
+                                                                $quoteProduct['height'],
+                                                                $DesignFormula,
                                                                 $GLASS_PRICE,
                                                                 $CC_PRICE,
                                                                 $R_PRICE,
-                                                                $MT_PRICE);
+                                                                $MT_PRICE,
+                                                                $FS_PRICE);
 
 
             if ($this->Quotes->Quoteproducts->save($quoteProduct)) {
@@ -425,7 +504,6 @@ class QuotesController extends AppController
         // }
 
 
-
         public function get_opentypes($itemtypes_id){
             $this->loadModel('Itemtypes');
             $this->loadModel('Opentypes');
@@ -437,10 +515,8 @@ class QuotesController extends AppController
                     ->select(['id','name'])
                     ->where(['itemtype_id' => $itemtypes_id]);
                     
-
             // foreach ($opentypesID as $one) {
             //     var_dump($one);
-
             // }
             // die();
             echo json_encode($opentypesID->toArray());
@@ -454,9 +530,7 @@ class QuotesController extends AppController
             $this->loadModel('Flyscreentypes');
             $this->autoRender= false;
 
-          //  var_dump($opentypes_id);
-            // // die();
-
+      
             // $flyscreenID = $this->Flyscreenopentypes->find('list')
             //         ->select(['flyscreentype_id'])
             //         ->where(['opentype_id' => $opentypes_id]);
@@ -467,14 +541,14 @@ class QuotesController extends AppController
             var_dump($opentypeID->toArray());*/
 
             $flyscreenID = $this->Flyscreenopentypes->find()
-                    ->select(['flyscreentype_id'])
-                    ->where(['opentype_id' => $opentypes_id]);
+                          ->select(['flyscreentype_id'])
+                          ->where(['opentype_id' => $opentypes_id]);
 
            // var_dump($flyscreenID->toArray());
 
             $flyscreen = $this->Flyscreentypes->find()
-                      ->select(['id','type'])
-                      ->where(['id in'=>$flyscreenID]);
+                          ->select(['id','type'])
+                          ->where(['id in'=>$flyscreenID]);
 
         //    var_dump($flyscreen->toArray());
 
@@ -523,10 +597,6 @@ class QuotesController extends AppController
 
         public function get_meshtypes($balratingID,$flyscreenID){
 
-            // var_dump($balratingID);
-            // var_dump($flyscreenID);
-            // // die();
-
             $this->loadModel('Flyscreenopentypes');
             $this->loadModel('Flyscreentypes');
             $this->loadModel('Balratings');
@@ -557,23 +627,16 @@ class QuotesController extends AppController
             }
             // var_dump($meshArr);
             // die();
-
             $mesh = $this->Meshtypes->find() 
-                    // ->select(['type'])
                     ->select(['id','type'])  
                     ->where (['id in' => $meshArr]);
 
             // var_dump($mesh->toArray());
             // die();
-
-
             echo json_encode($mesh->toArray());
 
             
         }
-
-
-         
     /**
      * Edit method
      *

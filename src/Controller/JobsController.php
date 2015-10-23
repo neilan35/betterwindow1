@@ -403,7 +403,7 @@ class JobsController extends AppController
             $newFiles = '';
             $count = 0;
             foreach ($files as $file) {
-                $ext = substr(strtolower(strrchr($file['name'], '.')), 1); //add the extension as an attribute
+                $ext = substr(strtolower(strrchr($file['name'], '.')), 1); //add the extension as an attribute//lowercase
 		        $file['name'] = str_replace(' ', '_', $file['name']); // replace spaces
                 $files[$count]['name'] = $count . '_' . $file['name']; // make images unique by incrementing
 
@@ -424,7 +424,7 @@ class JobsController extends AppController
             {
                 //prepare the filename for database entry
                 //$this->request->data['attachments'] = $file['name'];
-                $this->request->data['attachments'] = $newFiles;
+                $this->request->data['attachments'] = $newFiles; //request data, the data from input file
 
                 $job = $this->Jobs->patchEntity($job, $this->request->data);
 

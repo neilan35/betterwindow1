@@ -66,7 +66,7 @@ class QuoteproductsTable extends Table
             ->allowEmpty('id', 'create')
             ->add('quote_id', 'valid', ['rule' => 'numeric'])
             ->requirePresence('quote_id', 'create')
-           ->notEmpty('quote_id');
+            ->notEmpty('quote_id');
          //    ->add('colour_id', 'valid', ['rule' => 'numeric'])
          //    ->requirePresence('colour_id', 'create')
          //    ->notEmpty('colour_id')

@@ -206,6 +206,15 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                                 <?php 
                             echo $this->Html->link('<span> <i class="glyphicon glyphicon-th-list"></i> Quotes List</span>', ['controller' => 'Quotes', 'action' => 'index'], ['escape' => false]); ?>
                                 </li>
+                                <li>
+                                <?php 
+                            echo $this->Html->link('<span> <i class="glyphicon glyphicon-th-list"></i> Completed Quotes</span>', ['controller' => 'Quotes', 'action' => 'index_completed'], ['escape' => false]); ?>
+                                </li>
+                                <li>
+                                <?php 
+                            echo $this->Html->link('<span> <i class="glyphicon glyphicon-th-list"></i> Pending Quotes</span>', ['controller' => 'Quotes', 'action' => 'index_pending'], ['escape' => false]); ?>
+                                </li>
+
                             </ul>
                         </li>
                         <li>
