@@ -28,9 +28,9 @@
             <td><?= h($constant->code) ?></td>
             <td><?= $this->Number->format($constant->value) ?></td>
             <td class="actions">
-                <?= $this->Html->link(__('View'), ['action' => 'view', $constant->id]) ?>
-                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $constant->id]) ?>
-                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $constant->id], ['confirm' => __('Are you sure you want to delete # {0}?', $constant->id)]) ?>
+                <?= $this->Html->link(__('View'), ['action' => 'view', $constant->id], ['class' => 'btn btn-info btn-xs']) ?>
+                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $constant->id], ['class' => 'btn btn-success btn-xs']) ?>
+                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $constant->id], ['class' => 'btn btn-danger btn-xs', 'confirm' => __('Are you sure you want to delete # {0}?', $constant->id)]) ?>
             </td>
         </tr>
 
