@@ -34,8 +34,9 @@
                 'id' => 'balrating-id',
                 'class' => 'form-control',
                 'label' => false]);?>
-                </div>
                 <p class="help-block">If unsure please select "LOW".</p>
+                </div>
+                
             </div>
             </br></br>
 <legend><?= __('Glass Information') ?></legend>
@@ -56,8 +57,9 @@
                 'empty'=>'(Please choose one)',
                 'class' =>'form-control',
                 'label'=>false]); ?>
+                <p class="help-block">If unsure please select "Standard".</p>
             </div>
-            <p class="help-block">If unsure please select "Standard".</p>
+            
         </div>
         <div class="form-group">
                 <div class="input-group col-sm-6 ">
@@ -217,7 +219,7 @@
          <div class="form-group">
                         <label class="control-label col-md-3" for="first_name">Quantity*:</label>
                                 <div class="input-group col-md-6">
-                                <?php echo $this->Form->input('delivery');?>
+                                <?php echo $this->Form->input('quantity');?>
 
                                 </div>
                     </div>
