@@ -214,6 +214,13 @@
             <div id="slider2" style="width:60%;"></div>
             </div>
         </div>
+         <div class="form-group">
+                        <label class="control-label col-md-3" for="first_name">Quantity*:</label>
+                                <div class="input-group col-md-6">
+                                <?php echo $this->Form->input('delivery');?>
+
+                                </div>
+                    </div>
         </div>
 
         <?php
