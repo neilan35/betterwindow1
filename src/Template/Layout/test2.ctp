@@ -173,18 +173,23 @@
                     </ul>
                     <ul class="navbar-form form-inline navbar-right">
                         
-                            <?php echo $this->Html->link('<span class="glyphicon glyphicon-user"></span> Login!', array('controller'=>'Customers','action'=>'Login'), array('escape' => false, 'class' => 'btn btn-success btn-md', 'target' => '_self', 'id'=>'btnLogin'));?>
-                            
+                              <?php $user = $this->Session->read('Auth.User');?>
+                        <?php if (!empty($user)) : ?>
+                            <?php  echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> Make a Quote!', array('controller'=>'Quotes','action'=>'create'), array('escape' => false, 'class' => 'btn btn-success btn-md', 'target' => '_self','id' => 'btnQuote'));?>
+                            <?php  echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> Logout!', array('controller'=>'Customers','action'=>'logout'), array('escape' => false, 'class' => 'btn btn-success btn-md', 'target' => '_self','id' => 'btnQuote'));?>
+                                &nbsp;
+                            <b><?php echo $user['email'];?></b>
+                        <?php endif; ?>
                        
                    
-                        <?php echo $this->Html->link('<span class="glyphicon glyphicon-ok"></span> Sign up today!', array('controller'=>'Customers','action'=>'register'), array('escape' => false, 'class' => 'btn btn-success btn-md', 'target' => '_self','id'=>'btnLogin'));?>
+                        <?php if (empty($user)) : ?>
                             <?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> Make a Quote!', array('controller'=>'Quotes','action'=>'create'), array('escape' => false, 'class' => 'btn btn-success btn-md', 'target' => '_self','id' => 'btnQuote'));?>
-                            <?php $user = $this->Session->read('Auth.User');
+                                &nbsp;
+                             <?php   echo $this->Html->link('<span class="glyphicon glyphicon-user"></span> Login!', array('controller'=>'Customers','action'=>'Login'), array('escape' => false, 'class' => 'btn btn-success btn-md', 'target' => '_self', 'id'=>'btnLogin'));?>
 
-                                if (!empty($user)) {
-                                    echo $user['email'];
-                                };?>
-                    
+                             <?php echo $this->Html->link('<span class="glyphicon glyphicon-ok"></span> Register', array('controller'=>'Customers','action'=>'register'), array('escape' => false, 'class' => 'btn btn-success btn-md', 'target' => '_self', 'id'=>'btnLogin'));?>
+              
+                        <?php endif; ?>
                     </ul>
                 </div>
                 <!-- /.navbar-collapse --> 
@@ -222,23 +227,25 @@
             </div>
             <div class="col-lg-6"> 
                 <div class="social-icons pull-right">
-                    
                         <a href='#' target="_blank" class="btn btn-round btn-clear btn-twitter" id="social-footer"><i class="fa fa-twitter"></i></a>
                         <a href="https://www.facebook.com/blueskywindows.com.au?fref=ts" target="_blank" class="btn btn-round btn-clear btn-facebook"><i class="fa fa-facebook"></i></a>
                         <a href="https://www.instagram.com/" class="btn btn-round btn-clear btn-instagram"><i class="fa fa-instagram"></i></a>
                         <a href="https://www.linkedin.com/" class="btn btn-round btn-clear btn-linkedin"><i class="fa fa-linkedin-square"></i></a>
                         <a href="https://www.pinterest.com/" class="btn btn-round btn-clear btn-pinterest"><i class="fa fa-pinterest"></i></a>
-                        <a href="https://plus.google.com/106251164898636973632/posts" class="btn btn-round btn-clear btn-google"><i class="fa fa-google-plus"></i></a>
+                        <a href="#" class="btn btn-round btn-clear btn-google"><i class="fa fa-google-plus"></i></a>
                 </div> 
             </div>
+        </div>  
+    </div>
+
+</footer>
+
+
+    <div class="footer-bottom">
+        <div class="container">
+        <p> Copyright 2015 by <strong class="section-title">Team 9 </strong> All Rights Reserved</p>
         </div>
     </div>
-     <div class="footer-bottom">
-
-    <div class="container">
-        <p> Copyright 2015 by <strong class="section-title">Team 9 Monash University</strong> All Rights Reserved</p>
-     </div>
-
 
      </div>
 </footer>

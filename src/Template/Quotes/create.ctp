@@ -26,7 +26,126 @@
 
                 </div>
         </div>
-         
+        <div class="form-group">
+            <label class="control-label col-sm-3" for="first_name">BAL-Rating*:</label>
+                <div class="input-group col-md-6">
+                <?php echo $this->Form->input('quoteproducts.balrating_id', ['options' => $balratings,
+                'empty' => '(Please choose one)',
+                'id' => 'balrating-id',
+                'class' => 'form-control',
+                'label' => false]);?>
+                </div>
+                <p class="help-block">If unsure please select "LOW".</p>
+            </div>
+            </br></br>
+<legend><?= __('Glass Information') ?></legend>
+<div class="form-group">
+            <label class="control-label col-sm-3" for="first_name">Glass Types*:</label>
+                <div class="input-group col-sm-6">
+
+                <?php echo $this->Form->input('quoteproducts.glasstype', ['options' => $glasstypes,
+                'empty' => '(Please choose one)',
+                'class'=> 'form-control',
+                'label'=> false]);?>
+            </div>
+        </div>        
+        <div class="form-group">
+            <label class="control-label col-sm-3" for="first_name">Usage*:</label>
+                <div class="input-group col-sm-6">
+                <?php echo $this->Form->input('quoteproducts.usages',['options'=>$usages,
+                'empty'=>'(Please choose one)',
+                'class' =>'form-control',
+                'label'=>false]); ?>
+            </div>
+            <p class="help-block">If unsure please select "Standard".</p>
+        </div>
+        <div class="form-group">
+                <div class="input-group col-sm-6 ">
+                <?php echo $this->Form->input('obscurity', ['type'=>'checkbox']); ?>
+                </div>
+                <div class="input-group col-sm-6 ">
+                <?php echo $this->Form->input('safety', ['type'=>'checkbox']); ?>
+            </div>
+        </div> 
+        <div class="form-group">
+            <label class="control-label col-sm-3" for="first_name">Composition*:</label>
+                <div class="input-group col-sm-6">
+                    <?php echo $this->Form->input('quoteproducts.compositions',['options' => $compositions,
+                    'empty' =>'(Please choose one)',
+                    'class'=>'form-control',
+                    'label'=>false]);?>
+                    <p class="help-block"></p>
+                </div>
+        </div>
+        </br></br>
+<legend><?= __('Fly Screen Information') ?></legend> 
+    <div class="form-group">
+            <label class="control-label col-sm-3" for="first_name">Would you like a flyscreen*:</label>
+                <div class="input-group col-sm-6">
+                    <?php echo $this->Form->input('quoteproducts.flyscreentype',['id'=>'flyscreen', 'onchange' => 'toggleDiv(this.id, "fst")','type'=>'checkbox','yes']);?>
+            </div>
+        </div>
+        <div class="form-group" id="fst">
+            <label class="control-label col-sm-3" for="first_name">Fly Screen Type*:</label>
+                <div class="input-group col-sm-6">
+                    <?php echo $this->Form->input('quoteproducts.flyscreentypes',['options'=>[] ,
+                    'id'=>'flyscreentype-id',
+                    'empty' =>'(Please choose one)',
+                    'class'=>'form-control',
+                    'label'=>false]);?>
+                    <p class="help-block">Options will be based on the Open Type you have chosen</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-3" for="first_name">Mesh Type*:</label>
+                <div class="input-group col-sm-6">
+                    <?php echo $this->Form->input('quoteproducts.meshtype',['options'=>[] ,
+                    'id'=>'mesh-id',
+                    'empty' =>'(Please choose one)',
+                    'class'=>'form-control',
+                    'label'=>false]);?>
+                    <p class="help-block">Options will be based on the Fly Screen Type & BAL-Rating you have chosen</p>
+                </div>
+        </div>
+        </br></br>
+<legend><?= __('Reveal Information') ?></legend> 
+        
+        
+         <div class="form-group">
+            <label class="control-label col-sm-3" for="first_name">Would you like a reveal*:</label>
+                <div class="input-group col-sm-6">
+                <?php echo $this->Form->input('quoteproducts.reveal', ['id'=>'reveal', 'onchange' => 'toggleDiv(this.id, "revealDiv")', 'type'=>'checkbox']);?>
+                </div>
+        </div>
+        
+        <div class="form-group" id="revealDiv">
+            <label class="control-label col-sm-3" for="first_name">Reveal*:</label>
+                <div class="input-group col-sm-6">
+                <?php echo $this->Form->input('quoteproducts.reveal_id', ['options' => $reveals, 
+                'empty' => '(Please choose one)',
+                'class'=> 'form-control',
+                'label'=> false]);?>
+            </div>
+        </div>
+    </br></br>
+<legend><?= __('Additional Info') ?></legend> 
+    <div class="form-group">
+            <label class="control-label col-sm-3" for="first_name">Would you like to add these?*:</label>
+                <div class="input-group col-sm-6 ">
+                <?php echo $this->Form->input('installation', ['onchange' => 'toggleDiv(this.id, "installTypeDiv")']);?>
+                <div id="installTypeDiv">
+                        <?php echo $this->Form->input('installtype', ['options' => ['Existing' => 'Existing', 'New'=>'New']]);?>
+                </div>
+                <?php echo $this->Form->input('delivery');?>
+                <p class="help-block">Delivery is calculated seperately please refer to the office if you would like to obtain additional info.</p>
+                <p class="help-block">Melbourne Metro: $150-300 AUD</p>
+                <p class="help-block">Outside of Melbourne Metro: $300+ AUD</p>
+                </div>
+        </div>
+        </fieldset>
+        </div>
+        <!-- Right Column -->
+        <div class="col-sm-6">
         <div class="form-group">
             <label class="control-label col-sm-3" for="first_name">Item Type*:</label>
                 <div class="input-group col-sm-6">
@@ -50,155 +169,7 @@
                 <p class="help-block">Options will be based on the Item Type you have chosen</p>
             </div>
         </div>
-        
-        <div class="form-group">
-            <label class="control-label col-sm-3" for="first_name">Usage*:</label>
-                <div class="input-group col-sm-6">
-                <?php echo $this->Form->input('quoteproducts.usages',['options'=>$usages,
-                'empty'=>'(Please choose one)',
-                'class' =>'form-control',
-                'label'=>false]); ?>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="control-label col-sm-3" for="first_name">Glass Types*:</label>
-                <div class="input-group col-sm-6">
-
-                <?php echo $this->Form->input('quoteproducts.glasstype', ['options' => $glasstypes,
-                'empty' => '(Please choose one)',
-                'class'=> 'form-control',
-                'label'=> false]);?>
-            </div>
-        </div>
-
-        </br></br>
-        
-        <div class="form-group">
-            <label class="control-label col-sm-3" for="first_name">Height*:</label>
-                <div class="input-group col-sm-6">
-
-                <?php echo $this->Form->input('quoteproducts.height', ['placeholder' => '100mm-300mm','id'=>"amount",
-                'class'=> 'form-control',
-                'type' => 'text',
-                'label'=> false]);?>
-                </div>
-            <div class="col-sm-offset-3">
-            <div id="slider" style="width:60%;"></div>
-            </div>
-        </div>
-        
-        <div class="form-group">
-            <label class="control-label col-sm-3" for="first_name">Width*:</label>
-                <div class="input-group col-sm-6">
-
-                <?php echo $this->Form->input('quoteproducts.width', ['placeholder' => '200mm-500mm', 'id'=>"amount2",
-                'class'=> 'form-control',
-                'type' => 'text',
-                'label'=> false]);?>
-            </div>
-            <div class="col-sm-offset-3">
-            <div id="slider2" style="width:60%;"></div>
-            </div>
-        </div>  
-
         </br>
-        
-        
-         <div class="form-group">
-            <label class="control-label col-sm-3" for="first_name">Reveal*:</label>
-                <div class="input-group col-sm-6">
-                <?php echo $this->Form->input('quoteproducts.reveal', ['id'=>'reveal', 'onchange' => 'toggleDiv(this.id, "revealDiv")', 'type'=>'checkbox']);?>
-                </div>
-        </div>
-        
-        <div class="form-group" id="revealDiv">
-            <label class="control-label col-sm-3" for="first_name">Reveal*:</label>
-                <div class="input-group col-sm-6">
-                <?php echo $this->Form->input('quoteproducts.reveal_id', ['options' => $reveals, 
-                'empty' => '(Please choose one)',
-                'class'=> 'form-control',
-                'label'=> false]);?>
-            </div>
-        </div>
-        
-
-       
-
-        <div class="form-group">
-            <label class="control-label col-sm-3" for="first_name">Flyscreentype*:</label>
-                <div class="input-group col-sm-6">
-                    <?php echo $this->Form->input('quoteproducts.flyscreentype',['id'=>'flyscreen', 'onchange' => 'toggleDiv(this.id, "fst")','type'=>'checkbox','yes']);?>
-            </div>
-        </div>
-        <div class="form-group" id="fst">
-            <label class="control-label col-sm-3" for="first_name">Flyscreentype*:</label>
-                <div class="input-group col-sm-6">
-                    <?php echo $this->Form->input('quoteproducts.flyscreentypes',['options'=>[] ,
-                    'id'=>'flyscreentype-id',
-                    'empty' =>'(Please choose one)',
-                    'class'=>'form-control',
-                    'label'=>false]);?>
-                    <p class="help-block">Options will be based on the Open Type you have chosen</p>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-sm-3" for="first_name">Mesh Type*:</label>
-                <div class="input-group col-sm-6">
-                    <?php echo $this->Form->input('quoteproducts.meshtype',['options'=>[] ,
-                    'id'=>'mesh-id',
-                    'empty' =>'(Please choose one)',
-                    'class'=>'form-control',
-                    'label'=>false]);?>
-                    <p class="help-block">Options will be based on the Fly Screen Type & BAL-Rating you have chosen</p>
-                </div>
-        </div>
-
-        <div class="form-group">
-            <label class="control-label col-sm-3" for="first_name">Composition*:</label>
-                <div class="input-group col-sm-6">
-                    <?php echo $this->Form->input('quoteproducts.compositions',['options' => $compositions,
-                    'empty' =>'(Please choose one)',
-                    'class'=>'form-control',
-                    'label'=>false]);?>
-                    <p class="help-block"></p>
-                </div>
-        </div>
-
-
-
-       <div class="form-group">
-            <label class="control-label col-sm-3" for="first_name">Special*:</label>
-                <div class="input-group col-sm-6 ">
-                <?php echo $this->Form->input('obscurity', ['type'=>'checkbox']); ?>
-                <?php echo $this->Form->input('safety', ['type'=>'checkbox']); ?>
-            </div>
-        </div> 
-
-        <div class="form-group">
-            <label class="control-label col-sm-3" for="first_name">Would you like to add these?*:</label>
-                <div class="input-group col-sm-6 ">
-                <?php echo $this->Form->input('installation', ['onchange' => 'toggleDiv(this.id, "installTypeDiv")']);?>
-                <div id="installTypeDiv">
-                        <?php echo $this->Form->input('installtype', ['options' => ['Existing' => 'Existing', 'New'=>'New']]);?>
-                </div>
-                <?php echo $this->Form->input('delivery');?>
-                </div>
-        </div>
-        </fieldset>
-        </div>
-        <!-- Right Column -->
-        <div class="col-sm-6">
-            <div class="form-group">
-            <label class="control-label col-sm-3" for="first_name">BAL-Rating*:</label>
-                <div class="input-group col-md-6">
-                <?php echo $this->Form->input('quoteproducts.balrating_id', ['options' => $balratings,
-                'empty' => '(Please choose one)',
-                'id' => 'balrating-id',
-                'class' => 'form-control',
-                'label' => false]);?>
-                </div>
-            </div>
                <div class="form-group">
                     <label class="control-label col-md-3" for="first_name">Design*:</label>
                     <div class="input-group col-md-6">
@@ -215,7 +186,34 @@
                  <?php echo $this->Html->image('uploads/designs/'.'monash-university-logo.png',['url' => ['controller' => 'quotes', 'action' => 'view'],'alt' => 'CakePHP','class' => 'img-thumbnail img-responsive','width' => 250, 'height' => 250, 'id' => 'design']); ?>
                  <!-- $picture['id'].$picture['filename'] -->
                 </div>
-               
+               </br>
+             <div class="form-group">
+            <label class="control-label col-sm-3" for="first_name">Height*:</label>
+                <div class="input-group col-sm-6">
+
+                <?php echo $this->Form->input('quoteproducts.height', ['placeholder' => '100mm-300mm','id'=>"amount",
+                'class'=> 'form-control',
+                'type' => 'text',
+                'label'=> false]);?>
+                </div>
+            <div class="col-sm-offset-3">
+            <div id="slider" style="width:60%;"></div>
+            </div>
+        </div>
+        </br>
+        <div class="form-group">
+            <label class="control-label col-sm-3" for="first_name">Width*:</label>
+                <div class="input-group col-sm-6">
+
+                <?php echo $this->Form->input('quoteproducts.width', ['placeholder' => '200mm-500mm', 'id'=>"amount2",
+                'class'=> 'form-control',
+                'type' => 'text',
+                'label'=> false]);?>
+            </div>
+            <div class="col-sm-offset-3">
+            <div id="slider2" style="width:60%;"></div>
+            </div>
+        </div>
         </div>
 
         <?php

@@ -7,9 +7,7 @@
                 </h1>
 
             </div>
-             <div class="col-lg-3">
-               <?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> Make a Quote!', array('controller'=>'Quotes','action'=>'create'), array('escape' => false, 'class' => 'btn btn-success btn-md', 'target' => '_self','id' => 'btnQuote1'));?>
-            </div>
+             
             
 
         </div>

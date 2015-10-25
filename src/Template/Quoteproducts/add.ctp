@@ -107,20 +107,14 @@
                                 <div class="form-group">
                                     <?= $this->Form->input('glasstype', ['class' => 'form-control']) ?>
                                 </div> 
-                                <div class="form-group">
-                                    <?= $this->Form->input('width', ['class' => 'form-control']) ?>
-                                </div> 
-                                <div class="form-group">
-                                    <?= $this->Form->input('width', ['class' => 'form-control']) ?>
-                                </div> 
-                            </div>
                         </div>
                         </form>
                     </div>
                 </div>
+            
+            </div>
             <button type="submit" class="btn btn-default">Submit </button>
             <?= $this->Form->end() ?>
-            </div>
         </div>
     </div>
 </div>

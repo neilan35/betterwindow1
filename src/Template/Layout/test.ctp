@@ -189,6 +189,7 @@
                         <?php $user = $this->Session->read('Auth.User');?>
                         <?php if (!empty($user)) : ?>
                             <?php  echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> Make a Quote!', array('controller'=>'Quotes','action'=>'create'), array('escape' => false, 'class' => 'btn btn-success btn-md', 'target' => '_self','id' => 'btnQuote'));?>
+                            <?php  echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> Logout!', array('controller'=>'Customers','action'=>'logout'), array('escape' => false, 'class' => 'btn btn-success btn-md', 'target' => '_self','id' => 'btnQuote'));?>
                                 &nbsp;
                             <b><?php echo $user['email'];?></b>
                         <?php endif; ?>
@@ -197,6 +198,9 @@
                             <?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> Make a Quote!', array('controller'=>'Quotes','action'=>'create'), array('escape' => false, 'class' => 'btn btn-success btn-md', 'target' => '_self','id' => 'btnQuote'));?>
                                 &nbsp;
                              <?php   echo $this->Html->link('<span class="glyphicon glyphicon-user"></span> Login!', array('controller'=>'Customers','action'=>'Login'), array('escape' => false, 'class' => 'btn btn-success btn-md', 'target' => '_self', 'id'=>'btnLogin'));?>
+
+                             <?php echo $this->Html->link('<span class="glyphicon glyphicon-ok"></span> Register', array('controller'=>'Customers','action'=>'register'), array('escape' => false, 'class' => 'btn btn-success btn-md', 'target' => '_self', 'id'=>'btnLogin'));?>
+              
                         <?php endif; ?>
                     </ul>
         <!-- /.container -->
@@ -220,26 +224,33 @@
                   <div class="carousel-caption">
                     <h1>BETTER WINDOWS</h1>
               <p>The best UPVC Window in town</p>
-              <p><?php echo $this->Html->link('<span class="glyphicon glyphicon-ok"></span> Sign up today!', array('controller'=>'Customers','action'=>'register'), array('escape' => false, 'class' => 'btn btn-primary btn-lg', 'target' => '_self'));?>
+              <p><?php echo $this->Html->link('<span class="glyphicon glyphicon-ok"></span> Sign up today!', array('controller'=>'Customers','action'=>'register'), array('escape' => false, 'class' => 'btn btn-success btn-lg', 'target' => '_self','id' => 'btnQuote'));?>
               </p>
                   </div>
                 </div>
                 <div class="item">
                    <?php echo $this->Html->image('img5.jpg', ['alt' => 'CakePHP', 'class'=>'sliding']); ?>
                   <div class="carousel-caption">
-                    <p>Make a quotation now</p>
+                  <h1>BETTER WINDOWS</h1>
+                    <p>Login now</p>
+                     <?php   echo $this->Html->link('<span class="glyphicon glyphicon-user"></span> Login!', array('controller'=>'Customers','action'=>'Login'), array('escape' => false, 'class' => 'btn btn-success btn-lg', 'target' => '_self', 'id'=>'btnLogin'));?>
                   </div>
                 </div>
                 <div class="item">
                    <?php echo $this->Html->image('trial2.jpg', ['alt' => 'CakePHP','class'=>'sliding']); ?>
                   <div class="carousel-caption">
-                    <p>Fast Response</p>
+                  <h1>BETTER WINDOWS</h1>
+                    <p>Make an enquiry</p>
+                    <p><?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> Make an Enquiry!', array('controller'=>'Enquiries','action'=>'contactus'), array('escape' => false, 'class' => 'btn btn-success btn-lg', 'target' => '_self','id' => 'btnQuote'));?></p>
                   </div>
                 </div>
                 <div class="item">
                    <?php echo $this->Html->image('trial3.jpg', ['alt' => 'CakePHP','class'=>'sliding']); ?>
                   <div class="carousel-caption">
-                    <p>The best uPVC window in town!</p>
+                    <h1>BETTER WINDOWS</h1>
+                    <p>Make a quotation now</p>
+                    <p><?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> Make a Quote!', array('controller'=>'Quotes','action'=>'create'), array('escape' => false, 'class' => 'btn btn-success btn-lg', 'target' => '_self','id' => 'btnQuote'));?>
+                    </p>
                   </div>
                 </div>
               </div><!-- /.carousel-inner -->
@@ -294,7 +305,7 @@
 
     <div class="footer-bottom">
         <div class="container">
-        <p> Copyright 2015 by <strong class="section-title">Team 9 Monash University</strong> All Rights Reserved</p>
+        <p> Copyright 2015 by <strong class="section-title">Team 9 </strong> All Rights Reserved</p>
         </div>
     </div>
 

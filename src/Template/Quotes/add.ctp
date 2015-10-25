@@ -43,14 +43,18 @@
                                 <div class="form-group">
                                     <?= $this->Form->input('deliverytype', ['class' => 'form-control']) ?>
                                 </div>
-                                 <div class="form-group">
-                                    <?= $this->Form->input('status', ['class' => 'form-control']) ?>
+                                 <div class="dropdown">
+                                    <?= $this->Form->input('status',['class' => 'form-control',
+                                        'options' => ['Completed' => 'Completed', 
+                                        'Pending' => 'Pending']
+                                    ]) ?>
                                 </div>
                             </div>
                         </div>
                         </form>
                     </div>
                 </div>
+                </br>
             <button type="submit" class="btn btn-default">Submit </button>
             <?= $this->Form->end() ?>
             </div>
