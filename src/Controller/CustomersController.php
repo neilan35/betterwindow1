@@ -24,10 +24,18 @@ class CustomersController extends AppController
      */
     public function index()
     {
-        $customers= $this->Customers->find('all');
+        $customers= $this->Customers->find('all',[
+            'contain'=>['Users']
+            ]);
+
+        $this->loadModel('Users');
+        $users = $this->Users->find('all')
+        ->contain (['Customers']);
+        
+        $users_row = $users->first();
 
         $this->set('customers', $customers);
-        $this->set('_serialize', ['customers']);
+        $this->set('_serialize', ['customers','users_row']);
     }
 
     /**
@@ -120,7 +128,7 @@ class CustomersController extends AppController
 
      public function register()
     {
-        $this->layout = 'custRegister';
+        $this->layout = 'test2';
         $customer = $this->Customers->newEntity();
 //        var_dump($this->request->data);
         if ($this->request->is('post')) {
@@ -180,7 +188,7 @@ class CustomersController extends AppController
         $user = $this->Auth->identify();
         if ($user) {
             $this->Auth->setUser($user);
-            $this->Flash->success(__('Welcome,  '));
+            $this->Flash->success(__('Welcome to Better Windows! '));
             return $this->redirect(['controller' => 'pages', 'action' => 'home']);
 
         }

@@ -15,8 +15,8 @@
                                                 'type' => 'file', 
                                                 'url' => array('action' => 'create', 'ext' => 'json'))); ?>
     <fieldset>
+     <legend><?= __('') ?></legend>
         <div class="form-group">
-
             <label class="control-label col-md-3" for="first_name">Colour*:</label>
                 <div class="input-group col-md-6">
                 <?php echo $this->Form->input('quoteproducts.colour_id', ['options' => $colours,
@@ -38,9 +38,9 @@
                 </div>
                 
             </div>
-            </br></br>
-<legend><?= __('Glass Information') ?></legend>
-<div class="form-group">
+
+    <legend><?= __('Glass Information') ?></legend>
+        <div class="form-group">
             <label class="control-label col-sm-3" for="first_name">Glass Types*:</label>
                 <div class="input-group col-sm-6">
 
@@ -58,16 +58,25 @@
                 'class' =>'form-control',
                 'label'=>false]); ?>
                 <p class="help-block">If unsure please select "Standard".</p>
+                <label class="checkbox-inline">
+                       <?php echo $this->Form->input('obscurity', ['type'=>'checkbox']); ?>
+                </label>
+                <label class="checkbox-inline">
+                <?php echo $this->Form->input('safety', ['type'=>'checkbox']); ?>
+                </label>
+
             </div>
-            
         </div>
         <div class="form-group">
+            <label class="checkbox-inline col-sm-3">
                 <div class="input-group col-sm-6 ">
-                <?php echo $this->Form->input('obscurity', ['type'=>'checkbox']); ?>
+                
                 </div>
+
                 <div class="input-group col-sm-6 ">
-                <?php echo $this->Form->input('safety', ['type'=>'checkbox']); ?>
+                
             </div>
+            </label>
         </div> 
         <div class="form-group">
             <label class="control-label col-sm-3" for="first_name">Composition*:</label>
@@ -145,6 +154,8 @@
                 </div>
         </div>
         </fieldset>
+        <fieldset>  
+         <legend><?= __('') ?></legend>
         </div>
         <!-- Right Column -->
         <div class="col-sm-6">
@@ -172,24 +183,24 @@
             </div>
         </div>
         </br>
-               <div class="form-group">
-                    <label class="control-label col-md-3" for="first_name">Design*:</label>
-                    <div class="input-group col-md-6">
+        <div class="form-group">
+            <label class="control-label col-md-3" for="first_name">Design*:</label>
+                <div class="input-group col-md-6">
                     <?php echo $this->Form->input('quoteproducts.design_id', ['options' => $designs,
                     'id'=>'design-id',
                     'empty' => '(Please choose one)',
                     'class' => 'form-control',
                     'label' => false]);?>
 
-                    </div>
                 </div>
-                <div class="col-sm-offset-3">
+        </div>
+        <div class="col-sm-offset-3">
 
-                 <?php echo $this->Html->image('uploads/designs/'.'monash-university-logo.png',['url' => ['controller' => 'quotes', 'action' => 'view'],'alt' => 'CakePHP','class' => 'img-thumbnail img-responsive','width' => 250, 'height' => 250, 'id' => 'design']); ?>
+            <?php echo $this->Html->image('uploads/designs/'.'empty_design.png',['url' => ['controller' => 'quotes', 'action' => 'view'],'alt' => 'CakePHP','class' => 'img-thumbnail img-responsive','width' => 250, 'height' => 250, 'id' => 'design']); ?>
                  <!-- $picture['id'].$picture['filename'] -->
-                </div>
-               </br>
-             <div class="form-group">
+        </div>
+            </br>
+        <div class="form-group">
             <label class="control-label col-sm-3" for="first_name">Height*:</label>
                 <div class="input-group col-sm-6">
 
@@ -198,9 +209,9 @@
                 'type' => 'text',
                 'label'=> false]);?>
                 </div>
-            <div class="col-sm-offset-3">
+         <div class="col-sm-offset-3">
             <div id="slider" style="width:60%;"></div>
-            </div>
+        </div>
         </div>
         </br>
         <div class="form-group">
@@ -217,13 +228,14 @@
             </div>
         </div>
          <div class="form-group">
-                        <label class="control-label col-md-3" for="first_name">Quantity*:</label>
-                                <div class="input-group col-md-6">
-                                <?php echo $this->Form->input('quantity');?>
+                    <label class="control-label col-md-3" for="first_name">Quantity*:</label>
+                        <div class="input-group col-md-6">
+                        <?php echo $this->Form->input('quantity',[
+                                'label'=> false]);?>
 
-                                </div>
-                    </div>
+                        </div>
         </div>
+    </div>
 
         <?php
 
@@ -509,7 +521,7 @@
             $.getJSON(url, null, function(data) {
 
                 $.each(data, function(id, design) {
-                    $("#design-id").append("<option value='" + design.id + "'>" + design.id + "</option>");
+                    $("#design-id").append("<option value='" + design.id + "'>" + design.description + "</option>");
                 });
             });
         });

@@ -69,6 +69,7 @@
             </div> -->
         </div>
         <div class="col-sm-4">
+          <div class="row">
             <div class="panel panel-primary">
                 <div class="panel-heading">Date</div>
                 <div class="panel-body">
@@ -84,6 +85,21 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="row">
+            <div class="panel panel-primary">
+                <div class="panel-heading">User Information</div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h5 class="subheader"><b><?= __('Email') ?></b></h5>
+                            <p><?= $this->Html->link($customer->user->email, ['controller' => 'Users', 'action' => 'view', $customer->user->id])?></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         </div>
     </div>
     <div class="panel panel-default">

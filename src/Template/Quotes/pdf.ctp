@@ -69,50 +69,60 @@
      			<tbody>
      			  <tr><th colspan="3"><span>Item Window</span></th></tr>
 		     	  <tr> 
-				    <th rowspan="9"><span></span></th>
-				    <th><span >Profile: </span>
-				    <td><span> Kommerling Gold</span></td>
+				    <th rowspan="12"><span> </span></th>
+				    <th><span >Open Type: </span>
+				    <td><?= $quoteproducts_row->open_type?></td>
 				    </th>
-					
-				  </tr>
-
-				  <tr> 
-				    <th><span> Hardware: </span></th>
-				    <td></td>
-					
 				  </tr>
 				  <tr> 
-				    <th><span> Opentype: </span></th>
-				    <td></td>
+				  	<th><span > Item Type: </span></th>
+					<td><?= $quoteproducts_row->itemtype->type ?></td>
+				    
+				  </tr>
+				  <tr> 
+				    <th><span> Colour: </span></th>
+				    <td>Pearl White</td>
 							
 				  </tr>
-				  
+				  	<th><span> BAL-Rating: </span></th>
+				    <td><?= $quoteproducts_row->balrating->balrating?></td>
+					
 				  <tr> 
 				   
-				    <th><span > Item Type: </span></th>
-					<td><?= $quoteproducts_row->itemtype->type?></td>
+				    
 				  </tr>
 				  <tr> 
 				    
-				    <th><span > DGU: </span></th>
+				    <th><span > Glass Types: </span></th>
 				    <td></td>
 				  </tr>
 				 
 				 <tr> 
 				    
 				    <th><span >Quantity </span></th>
-				    <td></td>
+				    <td><?=$quoteproducts_row->quantity ?></td>
 				 </tr>
+
+				 <tr> 
+				    
+				    <th><span > Width: </span></th>
+				    <td><?= $quoteproducts_row->width.' mm'?></td>
+				</tr>
+				<tr> 
+				    
+				    <th><span > Height: </span></th>
+				    <td><?= $quoteproducts_row->height.' mm'?></td>
+				</tr>
 				 <tr> 
 				    
 				    <th><span > Area: </span></th>
-				    <td><?= $quoteproducts_row->width*$quoteproducts_row->height?></td>
+				    <td><?= $quoteproducts_row->width*$quoteproducts_row->height.' mm2'?></td>
 				</tr>
 
 				  <tr> 
 				    
 				    <th><span >Price: </span></th>
-					<td></td>
+					<td>$2500</td>
 				  </tr>
 				  <tr> 
 				    

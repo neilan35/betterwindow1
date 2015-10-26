@@ -1,5 +1,5 @@
 <script>
-<?=$this->Html->addCrumb('Design', '/designs  ');?>
+<?=$this->Html->addCrumb('Design', '/designs');?>
 <?= $this->Html->addCrumb('Edit');?>
 
 </script>

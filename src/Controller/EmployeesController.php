@@ -21,13 +21,12 @@ class EmployeesController extends AppController
      */
     public function index()
     {
+        $this->loadModel('Users');
+
         $employees = $this->Employees->find('all')
-        ->contain(['Roles'])
+        ->contain(['Roles','Users'])
         ->order(['Employees.last_name' => 'asc']);
 
-        // $this->paginate = [
-        //     'contain' => ['Roles'], 'order' => ['Employees.last_name' => 'asc']
-        // ];
         
         $this->set('employees', $employees);
         $this->set('_serialize', ['employees']);
@@ -85,7 +84,7 @@ class EmployeesController extends AppController
     public function edit($id = null)
     {
         $employee = $this->Employees->get($id, [
-            'contain' => []
+            'contain' => ['Users']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $employee = $this->Employees->patchEntity($employee, $this->request->data);

@@ -99,6 +99,7 @@ class QuotesController extends AppController
         $this->loadModel('Designs');
         $this->loadModel('Pictures');
         $this->loadModel('Opentypes');
+        $this->loadModel('Colours');
         // var_dump($id);
         $quote = $this->Quotes->get($id, [
             'contain' => ['Customers', 'Quoteproducts',]
@@ -107,7 +108,7 @@ class QuotesController extends AppController
             
         $quoteproducts = $this->Quotes->Quoteproducts->find('all')
         ->where(['Quoteproducts.quote_id' => $quote->id])
-        ->contain (['Itemtypes','Designs','Colours','Glazings']);
+        ->contain (['Itemtypes','Designs','Colours','Glazings','Balratings']);
         
         $quoteproducts_row = $quoteproducts->first();
         // var_dump($quoteproducts_row);
@@ -226,13 +227,15 @@ class QuotesController extends AppController
      $CC_PRICE = 1;
 
   //    echo $DesignFormula . "<br>";
+     //YANG INI
    //   echo $FGD ;
-      echo $CC_PRICE . "<br>";
-   //   die();
-      $unit_price = eval("return $DesignFormula;");
-      echo ($DesignFormula);
-      var_dump($unit_price);
-            die();      
+   //    echo $CC_PRICE . "<br>";
+   // //   die();
+   //    $unit_price = eval("return $DesignFormula;");
+   //    echo ($DesignFormula);
+   //    var_dump($unit_price);
+   //          die();      
+            //SAMPE YG INI
       // $unit_price = $unit_price * $MA *$GST;
 
       return $unit_cost;
@@ -314,7 +317,7 @@ class QuotesController extends AppController
             $quoteProduct['flyscreenmesh_id'] = $flyscreenmesh_id->first()['id'];
 
 
-                // Get Color Category
+            // Get Color Category
             $category_id = $this->Quotes->QuoteProducts->Colours->find()
                                 ->select(['category_id'])
                                 ->where (['id'=>$quoteProduct['colour_id']]);
@@ -322,14 +325,14 @@ class QuotesController extends AppController
 
             $category_id = $category_id->first()['category_id'];
 
-                // Get price for this color category
+            // Get price for this color category
             $Color_cat = $this->Quotes->QuoteProducts->Colours->Categories->find()
                                         ->select(['price'])
                                         ->where(['id' => $category_id ]);
             $CC_PRICE = $Color_cat->first()['price'];
 
                 
-                // Get price for this reveal
+            // Get price for this reveal
             $R_PRICE = 0;
             if ($quoteProduct['reveal'] == 1) {
                   $reveal = $this->Quotes->QuoteProducts->Reveals->find()
@@ -340,8 +343,8 @@ class QuotesController extends AppController
 
           
                 // Get price for the mesh type
-            $MT_PRICE = 0;
-            $FS_PRICE = 0;
+              $MT_PRICE = 0;
+              $FS_PRICE = 0;
              if ($quoteProduct['flyscreentype'] == 1) {
                   $mesh = $this->Quotes->QuoteProducts->Flyscreenmeshes->Meshtypes->find()
                                           ->select(['price'])
@@ -445,7 +448,6 @@ class QuotesController extends AppController
                                                                 $R_PRICE,
                                                                 $MT_PRICE,
                                                                 $FS_PRICE);
-
 
             if ($this->Quotes->Quoteproducts->save($quoteProduct)) {
                     $result = 1;
@@ -565,30 +567,36 @@ class QuotesController extends AppController
 
         public function get_designs($opentypes_id){
           $this->loadModel('Designs');
+          $this->loadModel('Pictures');
           $this->autoRender= false;
 
-          $designID = $this->Designs->find()
-                    ->select(['id'])
+          $pictureID = $this->Designs->find()
+                    ->select(['picture_id'])
                     ->where(['opentype_id' => $opentypes_id]);
+          $picture_id = $this->Pictures->find()
+                      ->select(['id','description'])
+                      ->where(['id' => $pictureID ]);
 
 
-          echo json_encode($designID->toArray());
+
+
+          echo json_encode($picture_id->toArray());
         }
 
-         public function get_pictures($design_id){
+         public function get_pictures($picture_id){
           $this->loadModel('Pictures');
           $this->loadModel('Designs');
           $this->autoRender= false;
 
 
-          $pictureID = $this->Designs->find()
-                    ->select(['picture_id'])
-                    ->where(['id' => $design_id]);
+          // $pictureID = $this->Designs->find()
+          //           ->select(['picture_id'])
+          //           ->where(['id' => $design_id]);
 
 
           $filename = $this->Pictures->find()
                     ->select(['filename'])
-                    ->where(['id'=> $pictureID]);
+                    ->where(['id'=> $picture_id]);
 
 
           

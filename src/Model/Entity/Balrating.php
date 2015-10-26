@@ -18,6 +18,6 @@ class Balrating extends Entity
         'balrating' => true,
         'flyscreenmeshes' => true,
         'glazings' => true,
-        'products' => true,
+        'quoteproducts' => true,
     ];
 }

@@ -224,7 +224,7 @@
                   <div class="carousel-caption">
                     <h1>BETTER WINDOWS</h1>
               <p>The best UPVC Window in town</p>
-              <p><?php echo $this->Html->link('<span class="glyphicon glyphicon-ok"></span> Sign up today!', array('controller'=>'Customers','action'=>'register'), array('escape' => false, 'class' => 'btn btn-success btn-lg', 'target' => '_self','id' => 'btnQuote'));?>
+              <p><?php echo $this->Html->link('<span class="glyphicon glyphicon-ok"></span> Sign up today!', array('controller'=>'Customers','action'=>'register'), array('escape' => false, 'class' => 'btn btn-primary btn-lg', 'target' => '_self'));?>
               </p>
                   </div>
                 </div>
@@ -241,7 +241,7 @@
                   <div class="carousel-caption">
                   <h1>BETTER WINDOWS</h1>
                     <p>Make an enquiry</p>
-                    <p><?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> Make an Enquiry!', array('controller'=>'Enquiries','action'=>'contactus'), array('escape' => false, 'class' => 'btn btn-success btn-lg', 'target' => '_self','id' => 'btnQuote'));?></p>
+                    <p><?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> Make an Enquiry!', array('controller'=>'Enquiries','action'=>'contactus'), array('escape' => false, 'class' => 'btn btn-primary btn-lg', 'target' => '_self'));?></p>
                   </div>
                 </div>
                 <div class="item">

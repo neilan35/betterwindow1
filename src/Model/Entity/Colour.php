@@ -18,6 +18,6 @@ class Colour extends Entity
         'category_id' => true,
         'name' => true,
         'category' => true,
-        'products' => true,
+        'quoteproducts' => true,
     ];
 }

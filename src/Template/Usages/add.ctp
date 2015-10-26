@@ -17,7 +17,7 @@
                         <div class="row">
                             <div class="col-lg-10">
                                 <div class="form-group">
-                                    <?= $this->Form->description('type', ['class' => 'form-control']) ?>
+                                    <?= $this->Form->input('description', ['class' => 'form-control']) ?>
                                 </div>
                             </div>
                         </div>

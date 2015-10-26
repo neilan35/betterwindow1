@@ -29,7 +29,7 @@ class UsersController extends AppController
         parent::beforeFilter($event);
         // Allow users to register and logout.
         // Allowing actions for not logged users
-        $this->Auth->allow(['login', 'logout' ,'forgotPassword', 'resetPassword']);
+        $this->Auth->allow(['login', 'logout' ,'forgotPassword', 'resetPassword','home']);
     }
 
     public function login()
@@ -284,7 +284,12 @@ class UsersController extends AppController
      public function isAuthorized($user)
     {
     // All registered users can add users
-    if ($this->request->action === 'edit' || $this->request->action === 'add' ||$this->request->action === 'delete')  
+    if ($this->request->action === 'edit' || 
+        $this->request->action === 'add' ||
+        $this->request->action === 'view' ||
+        $this->request->action === 'delete' || 
+        $this->request->action === 'index' ||
+        $this->request->action === 'dashboard')  
     {
         return true;
     }

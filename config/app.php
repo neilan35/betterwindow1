@@ -319,6 +319,7 @@ return [
      */
     'Session' => [
         'defaults' => 'php',
-        'timeout' => 60
+        'timeout' => 90
+        //setting up the session time
     ],
 ];

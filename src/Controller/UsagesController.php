@@ -46,7 +46,7 @@ class UsagesController extends AppController
     public function add()
     {
         $usage = $this->Usages->newEntity();
-        // var_dump($this->request->data);
+        var_dump($this->request->data);
         if ($this->request->is('post')) {
             $usage = $this->Usages->patchEntity($usage, $this->request->data);
 

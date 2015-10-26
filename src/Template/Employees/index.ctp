@@ -16,6 +16,7 @@
             <th><?= $this->Paginator->sort('id') ?></th>
             <th><?= $this->Paginator->sort('first_name') ?></th>
             <th><?= $this->Paginator->sort('last_name') ?></th>
+            <th><?= $this->Paginator->sort('email') ?></th>
             <th><?= $this->Paginator->sort('role_id') ?></th>
             <th><?= $this->Paginator->sort('created') ?></th>
             <th><?= $this->Paginator->sort('modified') ?></th>
@@ -28,6 +29,7 @@
             <td><?= $this->Number->format($employee->id) ?></td>
             <td><?= h($employee->first_name) ?></td>
             <td><?= h($employee->last_name) ?></td>
+            <td><?= $this->Html->link($employee->user->email, ['controller' => 'Users', 'action' => 'view', $employee->user->id])?></td>
             <td>
                 <?= $employee->has('role') ? $this->Html->link($employee->role->description, ['controller' => 'Roles', 'action' => 'view', $employee->role->id]) : '' ?>
             </td>

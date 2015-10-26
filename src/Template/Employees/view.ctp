@@ -27,26 +27,10 @@
                         </div>
                 </div>
             </div>
-            <!-- <div class="col-sm-5">
-                <div class="panel panel-primary">
-                    <div class="panel-heading"> Related ID </div>
-                    <div class="panel-body">
-                        <div class= "row">
-                            <div class= "col-sm-4">
-                                <h5 class="subheader"><b>User ID</b></h5>
-                                <p><?php if ($employee->has('user')) {
-                                    echo $this->Html->link($employee->user->id, ['controller' => 'Users', 'action' => 'view', $employee->user->id]);
-                                    }?></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> 
-        </div> -->
     </div>
     <div class="col-sm-3">
-            <div class="panel panel-primary">
-                <div class="panel-heading">Date</div>
+        <div class="panel panel-primary">
+            <div class="panel-heading">Date</div>
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-sm-6">
@@ -59,9 +43,22 @@
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
     </div>
+    <div class="col-sm-4">
+        <div class="panel panel-primary">
+            <div class="panel-heading">User Information</div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h5 class="subheader"><b><?= __('Email') ?></b></h5>
+                            <p><?= $this->Html->link($employee->user->email, ['controller' => 'Users', 'action' => 'view', $employee->user->id])?></p>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
     <div class="panel panel-default">
         <div class="panel-heading"><i class="fa fa-bell fa-fw"></i> Actions</div>
             <div class="panel-body">

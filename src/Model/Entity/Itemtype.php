@@ -17,6 +17,6 @@ class Itemtype extends Entity
     protected $_accessible = [
         'type' => true,
         'opentypes' => true,
-        'products' => true,
+        'quoteproducts' => true,
     ];
 }
