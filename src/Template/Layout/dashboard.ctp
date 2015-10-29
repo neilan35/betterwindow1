@@ -342,9 +342,9 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                                     <?php 
                                     echo $this->Html->link('<span> <i class="glyphicon glyphicon-import"></i> Add a Design</span>', ['controller' => 'Designs', 'action' => 'add'], ['escape' => false]); ?>
                                 </li>
-                                 <li>
+                                  <li>
                                     <?php 
-                                        echo $this->Html->link('<span> <i class="glyphicon glyphicon-list"></i> Designs  Index</span>', ['controller' => 'Designs', 'action' => 'index'], ['escape' => false]); ?>
+                                    echo $this->Html->link('<span> <i class="glyphicon glyphicon-list"></i> Designs Index</span>', ['controller' => 'Designs', 'action' => 'index/'], ['escape' => false]); ?>
                                 </li>
                             </ul>
                               

@@ -309,7 +309,7 @@ class QuotesController extends AppController
 
 
    
-    public function calculate_price($W, $H, $DesignFormula, $GLASS_PRICE, $CC_PRICE, $R_PRICE = 0, $MT_PRICE = 0, $FS_PRICE = 0) {
+    public function calculate_price($W, $H, $DesignFormula, $GLASS_PRICE, $CC_PRICE, $R_PRICE = 0, $MT_PRICE = 0, $FS_PRICE = 0,$quantity) {
 
       $this->loadModel('Constants');
   
@@ -321,25 +321,6 @@ class QuotesController extends AppController
         ${$code} = $row['value'];
       }
 
-/*      $unit_cost = 0;
-      //constants
-      $C7507 = 5;
-      $C395 = 7;
-      $C7584 = 15;
-      $C320 = 2;
-
-      $TT_SET = 70;
-      $LPC = 15;
-      $LPD = 180;
-      $C7536 = 10;
-      $FSD = 39;
-      $FGD = 52;
-      $SGD = 62;
-
-      $MA = 1.3;
-      $GST=1.1;
-
-      $TT = 70;*/
 /*
       =(((1200+1500)/1000*2*(5* 1) + ((1200-39) +(1500-39))/1000 * 2 * (7+2)*1)+((1200-62)/1000)* (1500-62)/1000)*50 + 15*8) +70))
       = (((W+H)/1000 x 2 x 7507 + ((W-FSD) +(H-FSD))/1000 x 2 x (395+320)) + ((W-SGD)/1000) x (H-SGD)/1000)xGLASS PRICE + LPCx8) + TT HW )xMARGIN KOEFF x GST(1.1)
@@ -364,7 +345,7 @@ class QuotesController extends AppController
 */
 // ($W+$H)/1000*2 *(($C7507*$CC_PRICE)+($C320*$CC_PRICE)) + (($W-$FGD)/1000)*($H-$FGD)/1000)*$GLASS_PRICE + $LPC*4
 
-     $CC_PRICE = 1;
+     // $CC_PRICE = 1;
 
   //    echo $DesignFormula . "<br>";
      //YANG INI
@@ -374,7 +355,10 @@ class QuotesController extends AppController
       $unit_price = eval("return $DesignFormula;");
       // echo ($DesignFormula);
       // var_dump($unit_price);
-            // die();      
+      $unit_price = $unit_price * $quantity;
+      // var_dump($unit_price);
+
+      //       die();      
             //SAMPE YG INI
       // $unit_price = $unit_price * $MA *$GST;
 
@@ -543,7 +527,7 @@ class QuotesController extends AppController
                 $id = $customer;           
             }
             else {
-               $id = null;     
+               $id = '';     
             }
             $quote['customer_id']= $id;
 
@@ -573,6 +557,8 @@ class QuotesController extends AppController
                                           ->where(['picture_id' => $quoteProduct['design_id'] ]);
             $DesignFormula = $design->first()['formula'];
 
+            $quantity = $quoteProduct['quantity'];
+
 
 
             $quoteProduct['unit_cost'] = $this->calculate_price($quoteProduct['width'],
@@ -582,7 +568,8 @@ class QuotesController extends AppController
                                                                 $CC_PRICE,
                                                                 $R_PRICE,
                                                                 $MT_PRICE,
-                                                                $FS_PRICE);
+                                                                $FS_PRICE,
+                                                                $quantity);
            // var_dump($quoteProduct['design_id']);
 
            $designID = $this->Quotes->QuoteProducts->Designs->find()

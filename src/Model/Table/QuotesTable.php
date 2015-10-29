@@ -43,13 +43,9 @@ class QuotesTable extends Table
     {
         $validator
             ->add('id', 'valid', ['rule' => 'numeric'])
-            ->allowEmpty('id', 'create');
+            ->allowEmpty('id', 'create')
+            ->allowEmpty('customer_id');
             // ->add('customer_id', 'valid', ['rule' => 'numeric'])
-            // ->allowEmpty('quoteno')
-            // ->add('unitcost', 'valid', ['rule' => 'decimal'])
-            // ->allowEmpty('unitcost')
-            // ->add('quantity', 'valid', ['rule' => 'numeric'])
-            // ->allowEmpty('quantity')
             // ->add('installation', 'valid', ['rule' => 'boolean'])
             // ->allowEmpty('installation')
             // ->allowEmpty('installtype')

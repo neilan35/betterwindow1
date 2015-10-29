@@ -14,8 +14,6 @@
         <tr>
             <th><?= $this->Paginator->sort('id') ?></th>
             <th><?= $this->Paginator->sort('customer_id') ?></th>
-            <th><?= $this->Paginator->sort('unitcost') ?></th>
-            <th><?= $this->Paginator->sort('quantity') ?></th>
             <th><?= $this->Paginator->sort('installation') ?></th>
             <th><?= $this->Paginator->sort('delivery') ?></th>
             <th><?= $this->Paginator->sort('status') ?></th>
@@ -30,9 +28,6 @@
             <td>
                 <?= $quote->has('customer') ? $this->Html->link($quote->customer->first_name, ['controller' => 'Customers', 'action' => 'view', $quote->customer->id]) : '' ?>
             </td>
-            <td><?= $this->Number->format($quote->unitcost, ['places' => 2, 'before' => '$ ']) ?></td>
-            <td><?= $this->Number->format($quote->quantity) ?></td>
-            
             <?php if ($quote->installation === true){
                     echo '<td> Yes </td>';
                      }else{

@@ -23,15 +23,6 @@
                                                        'label' => 'Customer Name']);?>
                                 </div>
                                 <div class="form-group">
-                                    <?= $this->Form->input('item', ['class' => 'form-control']) ?>
-                                </div>
-                                <div class="form-group">
-                                    <?= $this->Form->input('unitcost', ['class' => 'form-control']) ?>
-                                </div>
-                                <div class="form-group">
-                                    <?= $this->Form->input('quantity', ['class' => 'form-control']) ?>
-                                </div>
-                                <div class="form-group">
                                    <?php echo $this->Form->input('installation', ['type'=>'checkbox']);?>
                                 </div>
                                 <div class="form-group">
@@ -39,9 +30,6 @@
                                 </div>
                                 <div class="form-group">
                                     <?php echo $this->Form->input('delivery', ['type'=>'checkbox']);?>
-                                </div>
-                                <div class="form-group">
-                                    <?= $this->Form->input('deliverytype', ['class' => 'form-control']) ?>
                                 </div>
                                  <div class="form-group">
                                     <?= $this->Form->input('status', ['class' => 'form-control']) ?>

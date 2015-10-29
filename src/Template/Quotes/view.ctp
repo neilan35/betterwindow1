@@ -14,18 +14,6 @@
                                     <h5 class="subheader"><b><?= __('Quote Id') ?></b></h5>
                                     <p><?= $this->Number->format($quote->id) ?></p>
                                 </div>
-                                <div class="col-sm-3">
-                                    <h5 class="subheader"><b><?= __('Quoteno') ?></b></h5>
-                                    <p><?= h($quote->quoteno) ?></p>
-                                </div>
-                                <div class="col-sm-3">
-                                    <h5 class="subheader"><b><?= __('Item') ?></b></h5>
-                                    <p><?= h($quote->item) ?></p>
-                                </div>
-                                <div class="col-sm-3">
-                                    <h5 class="subheader"><b><?= __('Quantity') ?></b></h5>
-                                    <p><?= $this->Number->format($quote->quantity) ?></p>
-                                </div>
                             </div>
                             <div class="row">
                                 <div class="col-sm-3">
@@ -40,23 +28,11 @@
                                     <h5 class="subheader"><b><?= __('Delivery') ?></b></h5>
                                     <p><?= $quote->delivery ? __('Yes') : __('No'); ?></p>
                                 </div>
-                                <div class="col-sm-3">
-                                    <h5 class="subheader"><b><?= __('Deliverytype') ?></b></h5>
-                                    <p><?= h($quote->deliverytype) ?></p>
-                                </div>
                             </div>
                             <div class="row">
                                 <div class="col-sm-3">
                                     <h5 class="subheader"><b><?= __('Status') ?></b></h5>
                                     <p><?= h($quote->status) ?></p>
-                                </div>
-                                <div class="col-sm-3">
-                                    <h5 class="subheader"><b><?= __('Unitcost') ?></b></h5>
-                                    <p><?= $this->Number->format($quote->unitcost) ?></p>
-                                </div>
-                                <div class="col-sm-3">
-                                    <h5 class="subheader"><b><?= __('Unitcost') ?></b></h5>
-                                    <p><?= $this->Number->format($quote->unitcost) ?></p>
                                 </div>
                             </div>
                         </div>
@@ -132,6 +108,7 @@
                         <th><?= __('Glazing Id') ?></th>
                         <th><?= __('Height') ?></th>
                         <th><?= __('Width') ?></th>
+                        <th><?= __('Unit Cost') ?></th>
                         <th><?= __('Created') ?></th>
                         <th><?= __('Modified') ?></th>
                         <th class="actions"><?= __('Actions') ?></th>
@@ -149,6 +126,7 @@
                         <td><?= h($quoteproducts->glazing_id) ?></td>
                         <td><?= h($quoteproducts->height) ?></td>
                         <td><?= h($quoteproducts->width) ?></td>
+                        <td><?= '$'.h($quoteproducts->unit_cost) ?></td>
                         <td><?= h($quoteproducts->created) ?></td>
                         <td><?= h($quoteproducts->modified) ?></td>
 
