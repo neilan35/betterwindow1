@@ -168,6 +168,7 @@
                 // 'type' => 'radio',
                 'id'=>'itemtype-id',
                 'label'=>false ]);?>
+                <p class="help-block">If 'custome' please describe in the comments section.</p>
                 </div>
         </div>
         <div class="form-group">

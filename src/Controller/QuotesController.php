@@ -309,7 +309,7 @@ class QuotesController extends AppController
 
 
    
-    public function calculate_price($W, $H, $DesignFormula, $GLASS_PRICE, $CC_PRICE, $R_PRICE = 0, $MT_PRICE = 0, $FS_PRICE = 0,$quantity) {
+    public function calculate_price($W, $H, $DesignFormula, $GLASS_PRICE, $CC_PRICE, $R_PRICE, $MT_PRICE, $FS_PRICE,$quantity) {
 
       $this->loadModel('Constants');
   
