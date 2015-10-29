@@ -42,10 +42,9 @@
     <legend><?= __('Glass Information') ?></legend>
         <div class="form-group">
             <label class="control-label col-sm-3" for="first_name">Glass Types*:</label>
-                <div class="input-group col-sm-6">
-
-                <?php echo $this->Form->input('quoteproducts.glasstype', ['options' => $glasstypes,
-                'empty' => '(Please choose one)',
+                <div class="input-group col-sm-8">
+                <?php echo $this->Form->input('quoteproducts.glasstype', ['options' => $glasstypes,     
+                'type' => 'radio',
                 'class'=> 'form-control',
                 'label'=> false]);?>
             </div>
@@ -230,64 +229,24 @@
          <div class="form-group">
                     <label class="control-label col-md-3" for="first_name">Quantity*:</label>
                         <div class="input-group col-md-6">
-                        <?php echo $this->Form->input('quantity',[
-                                'label'=> false]);?>
-
+                        <?php echo $this->Form->input('quoteproducts.quantity',[
+                                'label'=> false,
+                                'type' => 'integer']);?>
                         </div>
         </div>
+
+         <div class="form-group">
+            <label class="control-label col-md-3" for="first_name">Comments:</label>
+                        <div class="input-group col-md-12 ">
+                            <?= $this->Form->input('quoteproducts.comment', ['class' => 'form-control', 'id' => 'message',  'type' => 'textarea', 'placeholder' => "Enter your comments here. We will get back to you as soon as possible.", 'rows' => '7', 'label' => false ]) ?>
+                        </div>
+                    </div>
     </div>
-
-        <?php
-
-            // echo $this->Form->input('quoteproduct.colour_id', ['options' => $colours,
-            //  'empty' => '(Please choose one)']);
-            // echo $this->Form->input('quoteproduct.balrating_id', ['options' => $balratings,
-            //  'id'=>'balrating-id',
-         //        'empty' => '(Please choose one)']);
-            // echo $this->Form->input('quoteproduct.itemtype_id', ['options' => $itemtypes,
-            //  'empty' => '(Please choose one)',
-            //   'id'=>'itemtype-id']);
-            // echo $this->Form->input('quoteproduct.open_type',['options'=>[] ,
-            //  'id'=>'opentype-id',
-         //        'empty' =>'(Please choose one)']);
-            // echo $this->Form->input('quoteproduct.usage',['options'=>$usages,
-            //     'empty'=>'(Please choose one)']);
-            // echo $this->Form->radio('quoteproduct.glasstype', $glasstypes, 
-            //     ['label' =>'Glass Types']);
-            // echo $this->Form->input('quoteproduct.glasstype', ['options' => $glasstypes,
-            //     'empty' => '(Please choose one)']);
-
-            // echo $this->Form->input('quoteproduct.height');
-            // echo $this->Form->input('quoteproduct.width') ;
-            // echo $this->Form->input('quoteproduct.reveal', ['type'=>'checkbox']);
-            // echo $this->Form->input('quoteproduct.reveal_id', ['options' => $reveals, 
-            //  'empty' => '(Please choose one']);
-            // echo $this->Form->input('quoteproduct.flyscreentype',['type'=>'checkbox']);
-            // echo $this->Form->input('quoteproduct.flyscreentypes',['options'=>[] ,
-            //     'id'=>'flyscreentype-id',
-            //     'empty' =>'(Please choose one)']);
-            
-            // echo $this->Form->input('quoteproduct.obscurity', ['type'=>'checkbox']);
-            // echo $this->Form->input('quoteproduct.safety', ['type'=>'checkbox']);
-
-            // echo $this->Form->input('quoteproduct.installation');
-            // echo $this->Form->input('quoteproduct.delivery');
-
-             // echo $this->Form->input('customer_id', ['options' => $customers]);
-            // echo $this->Form->input('item');
-            // echo $this->Form->input('unitcost');
-            // echo $this->Form->input('quantity');
-            // echo $this->Form->input('installation');
-            // echo $this->Form->input('installtype');
-            // echo $this->Form->input('delivery');
-            // echo $this->Form->input('deliverytype'); 
-            
-        ?>
     </fieldset>
     </div>
     <div class="row">
         <div class"col-sm-offset-1 col-sm-2">
-        <?= $this->Form->button(__('Submit'), array('class' => 'btn btn-info')) ?>
+        <?= $this->Form->button(__('Submit'), array('class' => 'btn btn-info btn-lg pull right', 'id' => 'showPrice')) ?>
         <?= $this->Form->end() ?>
         </div>
         </div>
@@ -300,7 +259,7 @@
 <div class="row">
     <div class="col-sm-12">
         <div class="pull-right">
-                <button type="button" class="btn btn-info" onclick="save_product(0)">Add more</button>
+               <!-- <button type="button" class="btn btn-info" onclick="save_product(0)">Add more</button>
                 <button type="button" class="btn btn-info" onclick="save_product(1)">Submit</button>
 
          &nbsp; &nbsp;
@@ -308,42 +267,13 @@
         <?php echo $this->Html->link('<i class="icon-remove icon"></i> Clear Selections', array('controller' => 'Quotes', 'action' => 'clear'), ['class' => 'btn btn-danger', 'escape' => false]); ?>
         &nbsp; &nbsp;
         <?php echo $this->Form->button('<i class="icon-refresh icon"></i> Recalculate', array('class' => 'btn btn-default', 'escape' => false));?>
-        <?php echo $this->Form->end(); ?>
+        <?php echo $this->Form->end(); ?> -->
         </div>
     </div>
 </div>
 
 <hr>
    
-        <div class="row">
-          <!-- <div class="col-sm-4"></div>
-          <div class="col-sm-4"></div> -->
-          <div class="col-sm-12">
-            <!-- <div class="pull-right"> -->
-               <div class="table-responsive"> 
-                    <table class="table table-bordered table-condensed"  align="right" style="width:20%">
-                        <thead>
-                           <tr>
-                            <th colspan="3">Your Quotation Summary </th>
-                            </tr> 
-                          <tr>
-                            <th>No</th>
-                            <th>Item No</th>
-                            <th>Quantity</th>
-                          </tr>
-                        </thead>
-
-                        <tbody>
-                          <tr>
-                            <td>1</td>
-                            <td></td>
-                            <td></td>
-                          </tr>
-                        </tbody>
-                    </table>
-                </div>
-             </div>   
-            </div>
         </div>
 
     
@@ -523,6 +453,15 @@
                 $.each(data, function(id, design) {
                     $("#design-id").append("<option value='" + design.id + "'>" + design.description + "</option>");
                 });
+            });
+        });
+    }
+
+    function show_price() {
+        $('#showPrice').click(function() {
+            var url = "<?= Router::url(['controller' => 'Quotes', 'action' => 'get_price']) ?>/" + quote_id;
+            $.get(url, function(data) {   
+                $('#priceContainer').text(data);
             });
         });
     }

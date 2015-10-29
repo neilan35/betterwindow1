@@ -77,6 +77,95 @@ class QuotesController extends AppController
     //   $this
     // }
 
+
+     public function get_price ($id){
+            
+          $this->loadModel ('QuoteProducts');
+          $this->loadModel('Designs');
+          $this->loadModel('Pictures');
+          $this->loadModel('Opentypes');
+          $this->loadModel('Colours');
+          $this->loadModel('Balratings');
+          $this->loadModel('Usages');
+          $this->loadModel('Glasstypes');
+          $this->loadModel('Glazings');
+          $this->loadModel('Compositions');
+          $this->loadModel('Flyscreentypes');
+
+          $this->layout ='test2';
+
+          $qpTable = TableRegistry::get('QuoteProducts');
+          $qp = $qpTable->get($id);
+          $price = $qp['unit_cost'];
+
+          $quoteproducts = $this->Quotes->Quoteproducts->find('all')
+              ->where(['Quoteproducts.id' => $id])
+              ->contain (['Itemtypes','Designs','Colours','Glazings','Balratings','Flyscreenmeshes','Reveals']);
+         
+          $quoteproducts_row = $quoteproducts->first();
+          // var_dump($quoteproducts_row);
+          // die();
+        
+        $opentype = $this->Opentypes->find('all')
+                        ->select (['name'])
+                        ->where (['Opentypes.id' => $quoteproducts_row->open_type]);
+        $Opentype = $opentype->first()['name'];
+
+        // var_dump($Opentype);
+        //   die();
+
+        //Get the usages 
+        $usages = $this->Usages->find('all')
+                        ->select (['description'])
+                        ->where (['Usages.id' => $quoteproducts_row->usages]);
+
+        $usage = $usages->first()['description'];
+      
+
+        //Get the picture 
+        $pictureID = $this->Designs->find()
+                    ->select(['picture_id'])
+                    ->where(['Designs.id' => $quoteproducts_row->design_id]);
+
+        $PictID = $pictureID->first()['picture_id'];
+         
+        $filename = $this->Pictures->find()
+                    ->select(['filename'])
+                    ->where(['id'=> $pictureID]);
+    
+        $FileName= $filename->first()['filename'];
+              
+        //Get Glasstypes
+        $gt = $this->Glasstypes->find()
+                    ->select(['type'])
+                    ->where(['id'=> $quoteproducts_row->glasstype]);
+        $glasstype = $gt->first()['type'];
+
+        $glz = $this->Glazings->find('all')
+                    ->where(['Glazings.id'=> $quoteproducts_row->glazing_id])
+                    ->contain(['Usages','Glasstypes','Compositions']);
+        $glazing = $glz->first(); 
+
+
+         $fst = $this->Flyscreentypes->find()
+                    ->select (['type'])
+                    ->where(['Flyscreentypes.id'=> $quoteproducts_row->flyscreentypes]);
+        $flyscreentype = $fst->first()['type'];    
+
+
+
+
+        // var_dump($flyscreentype);
+        //   die();
+
+        $this->set('price', $price);
+        $this->set('_serialize', ['price']);
+        $this->set(compact('qp','flyscreentype','price','quote', 'quoteproducts_row','quoteproducts','filename','Opentype','usage','FileName','glasstype','glazing'));
+
+         
+        }
+
+
      public function complete($id=null){
         
 
@@ -95,11 +184,17 @@ class QuotesController extends AppController
      public function pdf($id = null)
     {
         $this->layout ='mypdf';
-        $this->loadModel('Quoteproducts');
+        $this->loadModel ('QuoteProducts');
         $this->loadModel('Designs');
         $this->loadModel('Pictures');
         $this->loadModel('Opentypes');
         $this->loadModel('Colours');
+        $this->loadModel('Balratings');
+        $this->loadModel('Usages');
+        $this->loadModel('Glasstypes');
+        $this->loadModel('Glazings');
+        $this->loadModel('Compositions');
+        $this->loadModel('Flyscreentypes');
         // var_dump($id);
         $quote = $this->Quotes->get($id, [
             'contain' => ['Customers', 'Quoteproducts',]
@@ -108,16 +203,74 @@ class QuotesController extends AppController
             
         $quoteproducts = $this->Quotes->Quoteproducts->find('all')
         ->where(['Quoteproducts.quote_id' => $quote->id])
-        ->contain (['Itemtypes','Designs','Colours','Glazings','Balratings']);
+        ->contain (['Itemtypes','Designs','Colours','Glazings','Balratings','Flyscreenmeshes','Reveals']);
         
         $quoteproducts_row = $quoteproducts->first();
         // var_dump($quoteproducts_row);
         // die();
 
-                    
+        $pictures = $this->Pictures->find('list', ['limit' => 200]);
+
+        // $filename = $quoteproducts_row->Designs->Pictures->find('all');
+        //   var_dump($pictures);
+        // die();
+
+        //Get the opentypes 
+        $opentype = $this->Opentypes->find('all')
+                        ->select (['name'])
+                        ->where (['Opentypes.id' => $quoteproducts_row->open_type]);
+
+        $Opentype = $opentype->first()['name'];
+        //   var_dump($Opentype);
+        // die();     
+
+        //Get the usages 
+        $usages = $this->Usages->find('all')
+                        ->select (['description'])
+                        ->where (['Usages.id' => $quoteproducts_row->usages]);
+
+        $usage = $usages->first()['description'];
+      
+
+
+      $pictureID = $this->Designs->find()
+                    ->select(['picture_id'])
+                    ->where(['Designs.id' => $quoteproducts_row->design_id]);
+
+       $PictID = $pictureID->first()['picture_id'];
+
+      $filename = $this->Pictures->find()
+                    ->select(['filename'])
+                    ->where(['id'=> $pictureID]);
+    
+      $FileName= $filename->first()['filename'];
+
+       //Get Glasstypes
+        $gt = $this->Glasstypes->find()
+                    ->select(['type'])
+                    ->where(['id'=> $quoteproducts_row->glasstype]);
+        $glasstype = $gt->first()['type'];
+
+        $glz = $this->Glazings->find('all')
+                    ->where(['Glazings.id'=> $quoteproducts_row->glazing_id])
+                    ->contain(['Usages','Glasstypes','Compositions']);
+        $glazing = $glz->first(); 
+
+
+
+      $fst = $this->Flyscreentypes->find()
+                    ->select (['type'])
+                    ->where(['Flyscreentypes.id'=> $quoteproducts_row->flyscreentypes]);
+
+        $flyscreentype = $fst->first()['type'];  
+
+        // var_dump($FileName);
+        // die(); 
+
+
         $this->set('quote', $quote);
         $this->set('_serialize', ['quote']);
-        $this->set(compact('quote', 'quoteproducts_row','quoteproducts'));
+        $this->set(compact('quote', 'quoteproducts_row','quoteproducts','filename','Opentype','usage','FileName','flyscreentype','glasstype','glazing'));
     }
 
 
@@ -154,25 +307,12 @@ class QuotesController extends AppController
 
     }
 
-    
 
-
-
-    //   public function clear() {
-    //     $this->Quotes->clear();
-    //     $this->Session->setFlash('All selections are removed from the quotation', 'flash_error');
-    //     return  $this->redirect(['action' => 'create']);
-    // } not working
-
-    // public function calculateQuote($id=null) 
+   
     public function calculate_price($W, $H, $DesignFormula, $GLASS_PRICE, $CC_PRICE, $R_PRICE = 0, $MT_PRICE = 0, $FS_PRICE = 0) {
-// ($W, $H, )
-
-            // var_dump($W);
-            // var_dump($H);
 
       $this->loadModel('Constants');
-
+  
       $constants = $this->Constants->find()
                                   ->select(['code','value']);
 
@@ -228,17 +368,18 @@ class QuotesController extends AppController
 
   //    echo $DesignFormula . "<br>";
      //YANG INI
-   //   echo $FGD ;
-   //    echo $CC_PRICE . "<br>";
-   // //   die();
-   //    $unit_price = eval("return $DesignFormula;");
-   //    echo ($DesignFormula);
-   //    var_dump($unit_price);
-   //          die();      
+     // echo $FGD ;
+      // echo $CC_PRICE . "<br>";
+     // die();
+      $unit_price = eval("return $DesignFormula;");
+      // echo ($DesignFormula);
+      // var_dump($unit_price);
+            // die();      
             //SAMPE YG INI
       // $unit_price = $unit_price * $MA *$GST;
 
-      return $unit_cost;
+
+      return $unit_price  ;
 
       // $W = $this->request->data([])
       // foreach ($quotes as $key => $value) {
@@ -259,11 +400,9 @@ class QuotesController extends AppController
                 $quoteProduct['unit_price'] = $product_cost;
                 save $quoteProduct
         */
-      $quote['price'] = '';
+      // $quote['price'] = '';
 
     }
-
-
     public function create($quote_id = '', $is_final = 0){
         $designTable = TableRegistry::get('Desings');
         $revealTable = TableRegistry::get('Reveals');
@@ -271,7 +410,6 @@ class QuotesController extends AppController
       
        
         $this->layout = 'test2';
-        //$session = $this->request->session();
         $quote = $this->Quotes->newEntity();
         
          
@@ -289,7 +427,6 @@ class QuotesController extends AppController
             $quoteProduct = $this->Quotes->Quoteproducts->newEntity();
 
             $quoteProduct['quote_id'] = 1;
-            // $quoteProduct['design_id'] = 2;
 
             $qpData = $this->request->data['quoteproducts'];
             foreach ($qpData as $key => $value) {
@@ -306,7 +443,7 @@ class QuotesController extends AppController
             // $quoteProduct['usages'] = 4;  //fixed, should be standard for now
             $quoteProduct['glasstype'] = 2; //fix
 
-            //asked Brendon for view
+            
             $flyscreenmesh_id = $this->Quotes->QuoteProducts->Flyscreenmeshes->find()
                                                 ->select(['id'])
                                                 ->where([   'meshtype_id' => $quoteProduct['meshtype'],
@@ -391,20 +528,16 @@ class QuotesController extends AppController
             }
 
 
-            var_dump($quoteProduct);
-      //      die();*/
+            */
 
       //      unset($qpData['colour_id']);
 //           var_dump($quoteFormData);
- //          var_dump($qpData);
+          // var_dump($qpData); YG INI
 
    //         $quoteProduct = $this->Quotes->Quoteproducts->patchEntity($quoteProduct, $qpData);
   //          var_dump($quoteProduct);
    //         die();
 
-            //    var_dump( $quote = $this->Quotes->patchEntity($quote, $this->request->data, [
-            // 'associated' => ['Quoteproducts']
-            // ]));
             $customer = $this->Auth->user('customer_id');
             if (!empty($customer)) {
                 $id = $customer;           
@@ -437,8 +570,10 @@ class QuotesController extends AppController
             // Calculate unit price for this product
             $design = $this->Quotes->QuoteProducts->Designs->find()
                                           ->select(['formula'])
-                                          ->where(['id' => $quoteProduct['design_id'] ]);
+                                          ->where(['picture_id' => $quoteProduct['design_id'] ]);
             $DesignFormula = $design->first()['formula'];
+
+
 
             $quoteProduct['unit_cost'] = $this->calculate_price($quoteProduct['width'],
                                                                 $quoteProduct['height'],
@@ -448,10 +583,30 @@ class QuotesController extends AppController
                                                                 $R_PRICE,
                                                                 $MT_PRICE,
                                                                 $FS_PRICE);
+           // var_dump($quoteProduct['design_id']);
+
+           $designID = $this->Quotes->QuoteProducts->Designs->find()
+                                        ->select (['id'])
+                                        ->where(['picture_id' => $quoteProduct ['design_id']]);
+                                        
+           $DesignID = $designID->first()['id'];
+
+            // var_dump($DesignID);
+           $quoteProduct['design_id'] = $DesignID;
+
+            // var_dump($quoteProduct);
+            // var_dump($qpData);
+            // var_dump($quoteProduct['quote_id']);
+
+            
+            // var_dump($quoteProduct['unit_cost']);
+            // die();
 
             if ($this->Quotes->Quoteproducts->save($quoteProduct)) {
                     $result = 1;
                     $message = 'Success: Save quote product';
+                    return $this->redirect(['controller' => 'Quotes','action' => 'get_price',$quoteProduct->id]);
+
 //                 $this->set("status", "success");
  //                $this->set("message", "The quote product has been saved.");
                  
@@ -470,18 +625,18 @@ class QuotesController extends AppController
                // $this->Flash->error('The quote product could not be saved. Please, try again.');        
             }
 
-                  $this->autoRender = false;
-                  $this->response->body(json_encode([   
-                          "result"    => $result,
-                          "message"   => $message,
-                          "quote_id"  => $quote_id]));
-                  return $this->response;
+                  // $this->autoRender = false;
+                  // $this->response->body(json_encode([   
+                  //         "result"    => $result,
+                  //         "message"   => $message,
+                  //         "quote_id"  => $quote_id]));
+                  // return $this->response;
      
                 // var_dump($id);    
                 // var_dump($quote);
+                // die();
         }               
 
-        // $this->Session->write('quote_no', 'Q00001');
         $customers = $this->Quotes->Customers->find('list', ['limit' => 200]);
         $colours = $this->Quotes->Quoteproducts->Colours->find('list', ['limit' => 200]);
         $balratings = $this->Quotes->Quoteproducts->Balratings->find('list', ['limit' => 200]);
@@ -500,10 +655,7 @@ class QuotesController extends AppController
 
 
 
-        // public function summary(){
-        //   $shop = $this->Session->read('Shop');
-        // $this->set(compact('shop'));
-        // }
+
 
 
         public function get_opentypes($itemtypes_id){
@@ -573,6 +725,8 @@ class QuotesController extends AppController
           $pictureID = $this->Designs->find()
                     ->select(['picture_id'])
                     ->where(['opentype_id' => $opentypes_id]);
+
+
           $picture_id = $this->Pictures->find()
                       ->select(['id','description'])
                       ->where(['id' => $pictureID ]);

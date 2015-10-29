@@ -120,7 +120,7 @@
         <!-- /.row -->
 
         <!-- Features Section -->
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-lg-12">
                 <h2 class="page-header">Modern Business Features</h2>
             </div>
@@ -140,7 +140,7 @@
             <div class="col-md-6">
                 <img class="img-responsive" src="http://placehold.it/700x450" alt="">
             </div>
-        </div>
+        </div> -->
         <!-- /.row -->
 
         <hr>

@@ -1,3 +1,6 @@
+	
+
+
 	<div class="green">
 	      
 	</div>
@@ -53,7 +56,7 @@
 				    <th><span>Phone Number: </span></th>
 				    <td><?= $quote->customer->phone_number?></td>
 				    <th><span >Amount Due: </span></th>
-					<td><span>$</span><span></span></td>
+					<td><span><?php echo "S".$quoteproducts_row->unit_cost?></span><span></span></td>
 				  </tr>
 		 		</tbody>
 		 	</table>
@@ -69,9 +72,11 @@
      			<tbody>
      			  <tr><th colspan="3"><span>Item Window</span></th></tr>
 		     	  <tr> 
-				    <th rowspan="12"><span> </span></th>
+				    <th rowspan="15"><span>
+				   <?php echo $this->Html->image('uploads/designs/'.$FileName,['alt' => 'CakePHP','class' => 'img-thumbnail img-responsive','width' => 500, 'height' => 500]); ?>
+				     </span></th>
 				    <th><span >Open Type: </span>
-				    <td><?= $quoteproducts_row->open_type?></td>
+				    <td><?= $Opentype?></td>
 				    </th>
 				  </tr>
 				  <tr> 
@@ -81,20 +86,51 @@
 				  </tr>
 				  <tr> 
 				    <th><span> Colour: </span></th>
-				    <td>Pearl White</td>
+				    <td><?= $quoteproducts_row->colour->name ?> </td>
 							
 				  </tr>
 				  	<th><span> BAL-Rating: </span></th>
 				    <td><?= $quoteproducts_row->balrating->balrating?></td>
 					
 				  <tr> 
-				   
+				    <th><span > Glass Types: </span></th>
+				    <td><?= $glasstype?></td>
+				  </tr>
+				  <tr> 
+				    <th><span > Composition: </span></th>
+				    <td><?=$glazing->composition->name?></td>
+				  </tr>
+
+				  <tr> 
+				    <th><span > Usages: </span></th>
+				    <td><?=$usage?></td>
+				  </tr>
+				  
+				  <tr> 
+				    <th><span > Fly Screen Type: </span></th>
+				    <td><?=$flyscreentype?></td>
+				  </tr>
+				  
+
+				  <tr> 
+
 				    
+				    <th><span > Obscurity: </span></th>
+				    <?php if ($quoteproducts_row->glazing->obscurity === true){
+                    		echo '<td> Yes </td>';
+                     		} else{
+                        		echo '<td> No</td>';
+                        	}?>
+				    <!-- <td><?=$quoteproducts_row->glazing->obscurity?></td> -->
 				  </tr>
 				  <tr> 
 				    
-				    <th><span > Glass Types: </span></th>
-				    <td></td>
+				    <th><span > Safety: </span></th>
+				    <?php if ($quoteproducts_row->glazing->safety === true){
+                    		echo '<td> Yes </td>';
+                     		} else{
+                        		echo '<td> No</td>';
+                        	}?>
 				  </tr>
 				 
 				 <tr> 
@@ -116,56 +152,23 @@
 				 <tr> 
 				    
 				    <th><span > Area: </span></th>
-				    <td><?= $quoteproducts_row->width*$quoteproducts_row->height.' mm2'?></td>
+				    <td><?= $quoteproducts_row->width*$quoteproducts_row->height.' sqm'?></td>
 				</tr>
 
 				  <tr> 
 				    
-				    <th><span >Price: </span></th>
-					<td>$2500</td>
+				    <th><span >Total for an item (incl. GST): </span></th>
+					<td><?php echo "S".$quoteproducts_row->unit_cost?></td>
 				  </tr>
 				  <tr> 
 				    
-				    <th><span >Total for an item (incl. GST): </span></th>
-					<td></td>
+				    <td colspan="3"><span ><b> Comments: </b><?= $quoteproducts_row->comment?></span></td>
+					
 				  </tr>
 		 		</tbody>
 		 	</table>
 
      		
 			</br></br></br></br></br></br></br></br></br></br>
-		<table class="table2" style="width:100%">
-			
- 		 <!-- row 1 -->
-		  <tr> 
-		    <th>No</th>
-		    <th>Code</th>
-		    <th>Name</th>
-		    <th>Colour</th>
-		    <th>Quantity</th>		
-		    <th>Price</th>
-		  </tr>
-
-		  <!-- row 2 -->
-		  <tr>
-		    <td>1</td>
-		    <td>FLy Screen</td>		
-		    <td>Fixed </td>
-		    <td>Beige</td>
-		    <td>2x2 (2.q.m)</td>
-		    <td>80.00</td>
-		  </tr>
-
-		  <!-- row 3 -->
-		  <tr>
-		    <td>2</td>
-		    <td></td>		
-		    <td> </td>
-		    <td></td>
-		    <td> </td>
-		    <td></td>>
-		  </tr>
-		</table>
-
 </div>
 

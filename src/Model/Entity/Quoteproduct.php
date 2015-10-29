@@ -33,6 +33,7 @@ class Quoteproduct extends Entity
         'usages'=>true,
         'glasstype'=>true,
         'quotes'=>true,
+        'comment' => true,
         'unit_cost' =>true
     ];
 }

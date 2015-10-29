@@ -137,8 +137,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                           
-                            <?php echo $this->Html->link('<span> <i class="fa fa-dashboard fa-fw"></i> Dashboard</span>', ['controller' => 'Users', 'action' => 'dashboard'], ['escape' => false]); ?>
+                            <?php echo $this->Html->link('<span> <i class="fa fa-dashboard fa-fw"></i> Dashboard</span>', ['controller' => 'Users', 'action' => 'dashboard', $user['id']], ['escape' => false]); ?>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-user fa-fw"></i> Users<span class="fa arrow"></span></a>
@@ -344,7 +343,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                                 </li>
                                 <li>
                                     <?php 
-                                    echo $this->Html->link('<span> <i class="glyphicon glyphicon-list"></i> Designs Index</span>', ['controller' => 'Designs', 'action' => 'index', "#"], ['escape' => false]); ?>
+                                    echo $this->Html->link('<span> <i class="glyphicon glyphicon-list"></i> Designs Index</span>', ['controller' => 'Designs', 'action' => 'index/'], ['escape' => false]); ?>
                                 </li>
                             </ul>
                         </li>

@@ -1,3 +1,4 @@
+<?php use Cake\Routing\Router; ?>
 <script>
 <?=$this->Html->addCrumb('Design', '/designs  ');?>
 <?= $this->Html->addCrumb('Index');?>
@@ -43,12 +44,4 @@
     <?php endforeach; ?>
     </tbody>
     </table>
-    <!-- <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-        </ul>
-        <p><?= $this->Paginator->counter() ?></p>
-    </div> -->
 </div>

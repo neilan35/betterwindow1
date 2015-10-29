@@ -43,7 +43,7 @@ class UsersController extends AppController
                 // $user = $this->Session->read('Auth.User');
                 $this->Flash->success(__('Welcome, '. $user['email'].' !' ));
                 // return $this->redirect(['controller' => 'users', 'action' => 'dashboard', $user['employee_id']]);
-                return $this->redirect(['controller' => 'users', 'action' => 'dashboard']);
+                return $this->redirect(['controller' => 'users', 'action' => 'dashboard', $user['id']]);
             }
         $this->Flash->error(__('Invalid email or password, please try again'));
         }
@@ -68,22 +68,18 @@ class UsersController extends AppController
     }
 
 
-    public function dashboard(){
+    public function dashboard($id = null){
 
+        $profile = $this->Users->get($id, [
+        'contain' => ['Customers', 'Employees']
+        ]);
 
-        // $this->loadModel('Employees');
-        // $user = $this->Users->Employees->get($id);
-        // $employeeID=$user['id'];
-        // $role= $user['role_id'];
-        // var_dump($user);
-        // var_dump($employeeID);
+        //getting the role of the employee
+        $role = $this->Users->Employees->Roles->find('all')
+                        ->select (['description'])
+                        ->where (['Roles.id' => $profile->employee->role_id]);
 
-        // var_dump($role);
-        // die();
-
-        // if ($role === 3){
-        //      return $this->redirect(['action' => 'dashboard_admin', $employeeID]);
-        // }
+        $Role = $role->first()['description'];
         
         $this->layout = 'dashboard';
         $this->loadModel('Customers');
@@ -133,7 +129,7 @@ class UsersController extends AppController
 
         $this->set('users', $users);
         $this->set('_serialize', ['users']);
-        $this->set(compact('user', 'userCount','custCount','empCount','quotesCount','enquirCount'));
+        $this->set(compact('user', 'userCount','custCount','empCount','quotesCount','enquirCount','profile','role','Role'));
 
     }
 

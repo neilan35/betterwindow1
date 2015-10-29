@@ -73,7 +73,7 @@ class AppController extends Controller
     public function beforeFilter(Event $event)
     {
         $this->Auth->allow(['display','register', 'delete','get_opentypes'
-            ,'create','contactus','get_flyscreentypes','get_meshtypes','pdf','clear','complete','dashboard_admin','get_designs','get_pictures','success']);
+            ,'create','contactus','get_flyscreentypes','get_meshtypes','pdf','clear','complete','dashboard_admin','get_designs','get_pictures','success','calculate_price','get_price']);
     }
     //...
 

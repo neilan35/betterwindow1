@@ -10,6 +10,8 @@
         
 
     <title>Better Windows Prototype</title>
+    <?= $this->Html->meta('icon') ?>
+
     <?= $this->Html->css('custom.css')?>
 
     
@@ -20,6 +22,7 @@
 
     <!-- Custom CSS -->
      <?=$this->Html->css('font-awesome.css')?>
+     <?php echo $this->Html->css('font-awesome.min.css');?>
     <?=$this->Html->css('modern-business.css')?>
 
     <!-- js -->

@@ -1,4 +1,15 @@
 
+            </br>
+            <div class="well well-sm">
+                <div class="page-header">
+                <h1><b style="color:black;"><?= $profile->employee->first_name.' '.$profile->employee->last_name.' Dashboard'?></b><small><?='  '.$Role?></small> 
+
+                <?php echo $this->Html->link('<span class="glyphicon glyphicon-user"></span> View Profile', array('controller'=>'Users','action'=>'view', $profile->id), array('escape' => false, 'class' => 'btn btn-primary btn-md pull-right', 'target' => '_self'));?>
+                </h1>
+                </div>
+            </div>
+
+            
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">Dashboard</h1>

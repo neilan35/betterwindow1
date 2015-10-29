@@ -10,6 +10,7 @@
         
 
     <title>Better Windows Prototype</title>
+    <?= $this->Html->meta('icon') ?>
 
     <?= $this->Html->css('custom.css')?>
 
@@ -19,11 +20,10 @@
     <?= $this->Html->css('bootstrap.css')?>
 
     <!-- Custom CSS -->
-     <?=$this->Html->css('font-awesome.css')?>
+     <?php echo $this->Html->css('font-awesome.min.css');?>
     <?=$this->Html->css('modern-business.css')?>
     <?= $this->Html->css('jquery-ui.min.css')?>
     
-    <!-- js -->
   
 
     <!-- jQuery -->
@@ -204,7 +204,7 @@
 
 
 
-    <div class="container-fluid">
+    <div class="container">
     <?= $this->Flash->render() ?>
     <div class="row">
                 <!-- Here's where I want my views to be displayed -->

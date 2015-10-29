@@ -87,7 +87,6 @@ class QuoteproductsTable extends Table
          //    ->notEmpty('flyscreentype')
          //    ->notEmpty('flyscreentypes')//Empty('balrating_id')
          //    ->add('itemtype_id', 'valid', ['rule' => 'numeric'])
-         // //   ->requi
          //    ->add('flyscreenmesh_id', 'valid', ['rule' => 'numeric'])
          //    ->allowEmpty('flyscreenmesh_id')
          //    ->add('glazing_id', 'valid', ['rule' => 'numeric'])
