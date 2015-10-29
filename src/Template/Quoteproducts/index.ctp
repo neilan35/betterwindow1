@@ -18,8 +18,12 @@
             <th><?= $this->Paginator->sort('colour_id') ?></th>
             <th><?= $this->Paginator->sort('balrating_id') ?></th>
             <th><?= $this->Paginator->sort('itemtype_id') ?></th>
-             <th><?= $this->Paginator->sort('area') ?></th>
+            <th><?= $this->Paginator->sort('width') ?></th>
+            <th><?= $this->Paginator->sort('height') ?></th>
+            <th><?= $this->Paginator->sort('unit_cost') ?></th>
+            <th><?= $this->Paginator->sort('quantity') ?></th>
             <th><?= $this->Paginator->sort('design_id') ?></th>
+            <th><?= $this->Paginator->sort('flyscreenmesh_id') ?></th>
             <th><?= $this->Paginator->sort('reveal_id') ?></th>
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
@@ -40,10 +44,19 @@
             <td>
                 <?= $quoteproduct->has('itemtype') ? $this->Html->link($quoteproduct->itemtype->type, ['controller' => 'Itemtypes', 'action' => 'view', $quoteproduct->itemtype->id]) : '' ?>
             </td>
-             <td><?php echo $quoteproduct->width*$quoteproduct->height.' mm2' ?></td>
+            <td><?php echo $quoteproduct->width.' mm' ?></td>
+            <td><?php echo $quoteproduct->height.' mm' ?></td>
+
+             <td><?php echo '$'.$quoteproduct->unit_cost?></td>
+             <td><?php echo $quoteproduct->quantity?></td>
+
             <td>
                 <?= $quoteproduct->has('design') ? $this->Html->link($quoteproduct->design->id, ['controller' => 'Designs', 'action' => 'view', $quoteproduct->design->id]) : '' ?>
             </td>
+
+            <td> <?= $quoteproduct->has('reveal') ? $this->Html->link($quoteproduct->flyscreenmesh_id, ['controller' => 'Flyscreenmeshes', 'action' => 'view', $quoteproduct->flyscreenmesh_id]) : '' ?></td>
+
+
             <td>
                 <?= $quoteproduct->has('reveal') ? $this->Html->link($quoteproduct->reveal->id, ['controller' => 'Reveals', 'action' => 'view', $quoteproduct->reveal->id]) : '' ?>
             </td>

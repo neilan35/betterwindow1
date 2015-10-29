@@ -41,8 +41,9 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->fetch('script') ?>
 
 <!-- Link the css files -->
-   <?php echo $this->Html->css('styles.css');?>
-   <?php echo $this->Html->css('sb-admin-2.css');?>
+
+    <?php echo $this->Html->css('styles.css');?>
+    <?php echo $this->Html->css('sb-admin-2.css');?>
     <?php echo $this->Html->css('bootstrap.min.css');?>
     <?php echo $this->Html->css('bootstrap-theme.css');?>
     <?php echo $this->Html->css('bootstrap-theme.css.map');?>
@@ -51,10 +52,10 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?php echo $this->Html->css('custom.css');?>
 
 <!-- Link the js files -->
-  <?php echo $this->Html->script('jquery-1.11.2.min.js');?>
-   <?php echo $this->Html->script('bootstrap.min.js');?>
-  <?php echo $this->Html->script('bootstrap.js');?>
-<?php echo $this->Html->script('npm.js');?>
+    <?php echo $this->Html->script('jquery-1.11.2.min.js');?>
+    <?php echo $this->Html->script('bootstrap.min.js');?>
+    <?php echo $this->Html->script('bootstrap.js');?>
+    <?php echo $this->Html->script('npm.js');?>
     <?php echo $this->Html->script('sb-admin-2.js');?>
 <link href="http://fonts.googleapis.com/css?family=Lato:100italic,100,300italic,300,400italic,400,700italic,700,900italic,900" rel="stylesheet" type="text/css">
 

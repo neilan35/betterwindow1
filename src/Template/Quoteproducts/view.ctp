@@ -108,7 +108,31 @@
                 </div>
             </div>
         </div>
+        </div>
+       
+        <div class="container-fluid well span6">
+         <div class="col-sm-12">
+         <div class="panel panel-primary">
+                    <div class="panel-heading"> Quote Products Information </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h5 class="subheader"><b><?= __('Unit Cost') ?></b></h5>
+                                    <p><?= '$'.$this->Number->format($quoteproduct->unit_cost) ?></p>
+                                </div>
+                                <div class="col-sm-3">
+                                    <h5 class="subheader"><b><?= __('Quantity') ?></b></h5>
+                                    <p><?= $this->Number->format($quoteproduct->quantity) ?></p>
+                                </div>
+                               
+                            </div>
+                        </div>
+                </div>
+        </div>
+        </div>
+
     </div>
+    <div class="row">
     <div class="panel panel-default">
         <div class="panel-heading"><i class="fa fa-bell fa-fw"></i> Actions</div>
             <div class="panel-body">
@@ -121,6 +145,7 @@
                     </div>
                 </div>
             </div>
+    </div>
     </div>
 </div>
 </div>
